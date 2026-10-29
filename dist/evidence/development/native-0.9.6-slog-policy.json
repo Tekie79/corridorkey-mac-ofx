@@ -1,0 +1,6 @@
+{
+  "rgb_absolute": 0.0001,
+  "alpha_absolute": 0.0001,
+  "source": "Sony S-Log3 published appendix formula applied to Rec709-primaries linear GS02 frame; native Fusion loader removes S-Log3; no camera gamut claim",
+  "reference": "https://pro.sony/s3/cms-static-content/uploadfile/06/1237494271406.pdf"
+}

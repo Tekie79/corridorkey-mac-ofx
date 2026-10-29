@@ -1,0 +1,22 @@
+[  7%] Built target ckmac-engine-launcher
+[ 11%] Building CXX object CMakeFiles/ckmac_core.dir/src/creative.cpp.o
+[ 25%] Built target test_installer_transactions
+[ 25%] Built target ckmac-installer-tool
+[ 29%] Linking CXX static library libckmac_core.a
+[ 37%] Built target ckmac_core
+[ 48%] Linking CXX executable test_protocol
+[ 48%] Linking CXX executable bridge_probe
+[ 48%] Linking CXX executable test_pixels
+[ 51%] Linking CXX executable test_creative
+[ 55%] Linking CXX executable test_ofx_host
+[ 62%] Built target ckmac_supervisor
+[ 66%] Built target test_creative
+[ 77%] Built target test_protocol
+[ 77%] Built target bridge_probe
+[ 77%] Built target test_pixels
+[ 85%] Built target test_ofx_host
+[ 88%] Linking CXX shared module CorridorKeyMac.ofx.bundle/Contents/MacOS/CorridorKeyMac.ofx
+ld: warning: ignoring duplicate libraries: 'libckmac_core.a'
+[ 92%] Linking CXX executable "CorridorKey Mac Manager.app/Contents/MacOS/CorridorKey Mac Manager"
+[ 96%] Built target CorridorKeyMac
+[100%] Built target CorridorKeyManager

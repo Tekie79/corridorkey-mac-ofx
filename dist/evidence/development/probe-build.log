@@ -1,0 +1,20 @@
+-- Configuring done (0.1s)
+-- Generating done (0.0s)
+-- Build files have been written to: /Users/harvest/Documents/Ysew_Project/GIT/corridorkey-mac-ofx/build
+[  4%] Building CXX object CMakeFiles/ckmac-engine-launcher.dir/src/engine_launcher.cpp.o
+[ 18%] Built target ckmac_core
+[ 27%] Built target ckmac-installer-tool
+[ 31%] Linking CXX executable ckmac-engine-launcher
+[ 50%] Built target test_pixels
+[ 50%] Built target test_protocol
+[ 68%] Built target bridge_probe
+[ 72%] Built target test_ofx_host
+[ 77%] Building OBJCXX object CMakeFiles/ckmac_supervisor.dir/src/worker_manager.mm.o
+[ 77%] Built target ckmac-engine-launcher
+[ 81%] Linking CXX static library libckmac_supervisor.a
+[ 81%] Built target ckmac_supervisor
+[ 86%] Linking CXX shared module CorridorKeyMac.ofx.bundle/Contents/MacOS/CorridorKeyMac.ofx
+[ 90%] Linking CXX executable "CorridorKey Mac Manager.app/Contents/MacOS/CorridorKey Mac Manager"
+ld: warning: ignoring duplicate libraries: 'libckmac_core.a'
+[ 95%] Built target CorridorKeyMac
+[100%] Built target CorridorKeyManager

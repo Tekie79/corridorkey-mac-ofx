@@ -1,0 +1,13 @@
+{
+  "status": "Passed",
+  "scope": "Actual Manager Support File GUI action, archive inspected locally",
+  "files": [
+    "system-and-storage.json",
+    "versions.json",
+    "engine.log"
+  ],
+  "size": 2113,
+  "sha256": "5bc58048343e86ef9cb2472c2519e80bca3205d6919b8cbc29727af522800ba7",
+  "home_redacted": true,
+  "no_media_or_tokens": true
+}

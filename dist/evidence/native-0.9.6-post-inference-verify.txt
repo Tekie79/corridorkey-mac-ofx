@@ -1,0 +1,3 @@
+Verified 27113 installed files.
+Build: 0.9.6-b1.8e66e8a42b10
+This is integrity verification, not GPU or Resolve qualification.

@@ -1,0 +1,13 @@
+{
+  "artifact_sha256": "7a023538ad322b9eee26357b3dd2c2aecc16c292f6feb44837e3ffa00d590c0a",
+  "scope": "Actual Resolve supported Composition.AbortRender during genuine installed MPS temporal inference; native OFX abort path and obsolete-output suppression",
+  "status": "Passed",
+  "render_active_before": true,
+  "abort_action_seconds": 0.00015470801736228168,
+  "wait_seconds_to_observed_stopped": 0.12820933299371973,
+  "render_stopped": true,
+  "obsolete_output_files": [],
+  "other_node_rgba_maximum_error": 8.940696716308594e-08,
+  "other_node_finite": true,
+  "other_node_independent_usable": true
+}

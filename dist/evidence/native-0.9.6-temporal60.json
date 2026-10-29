@@ -1,0 +1,12 @@
+{
+  "status": "Passed",
+  "scope": "Exact installed0.9.6 actual Fusion60frame temporal Saver output after frame30random request",
+  "artifact_sha256": "7a023538ad322b9eee26357b3dd2c2aecc16c292f6feb44837e3ffa00d590c0a",
+  "frames": 60,
+  "dimensions": [
+    1920,
+    1080
+  ],
+  "precision": "float32",
+  "maximum_error_vs_prior_native_temporal": 0.0
+}

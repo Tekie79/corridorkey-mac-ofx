@@ -1,0 +1,9 @@
+{
+  "status": "Passed",
+  "artifact_sha256": "f58245db7b45ce9ead793732c7e05f12d97c9c9a6e6681c744437b040ff07e86",
+  "scope": "Actual native installed0.9.7 input-encoding/range/hint invalidation: same source, changed encoding; then shorter range; irrelevant nonreference matte edit is ignored for Reference0 but affects All Frames.",
+  "colour_change_maximum_rgba_delta": 0.4484158754348755,
+  "range_change_maximum_rgba_delta": 0.18701058626174927,
+  "reference0_ignores_hint11_maximum_error": 0.0,
+  "all_frames_hint11_maximum_delta": 0.014430761337280273
+}

@@ -1,0 +1,655 @@
+{
+  "status": "Passed",
+  "scope": "direct backend only; not Resolve/Fusion/Deliver qualification",
+  "clip": "/Users/harvest/Documents/Ysew_Project/Green screen/GS02.mp4",
+  "input_dimensions": [
+    1920,
+    1080
+  ],
+  "source_fit": "aspect fit with black letterbox; no spatial inference proxy",
+  "load_seconds": 4.375173249980435,
+  "distinct_frames": 60,
+  "frames": [
+    {
+      "frame": 0,
+      "seconds": 4.330200625001453,
+      "input_sha256": "25d92e0d2f6ff21f0256dd44688c33380bd4a32138ae1c2cc21abfb790ad07d3",
+      "output_sha256": "4ef83dfa9321ace56878393ca0ba7f1802503623eb34822a42f1837aea653603",
+      "alpha_min": 0.0,
+      "alpha_max": 1.0,
+      "mps_current": 4938861056,
+      "mps_driver": 12000739328
+    },
+    {
+      "frame": 1,
+      "seconds": 2.79305970898713,
+      "input_sha256": "f827c7670a067cc318168c09d5b85f2cc856d72ebb71d564be47b8acb3dd27cc",
+      "output_sha256": "b205a4766ca3052328a13aa8b866b9d196af41e16aa876b081fd9e6080694613",
+      "alpha_min": 0.0,
+      "alpha_max": 1.0,
+      "mps_current": 4938861056,
+      "mps_driver": 13133201408
+    },
+    {
+      "frame": 2,
+      "seconds": 2.796669583010953,
+      "input_sha256": "d814b7acab480aa5049d005cd64e40fadfbcf22601a2d672efc26d4899918321",
+      "output_sha256": "44eba60dd4b67b0f01e1597c5f6f8f3434e1402e98d2533ad6bd8645550773a4",
+      "alpha_min": 0.0,
+      "alpha_max": 1.0,
+      "mps_current": 4938861056,
+      "mps_driver": 13133201408
+    },
+    {
+      "frame": 3,
+      "seconds": 2.7974791250017006,
+      "input_sha256": "9eb9745648c94bed73e0ef87690f454c188d7a6573a8319ad0225b6dbb9ae2f9",
+      "output_sha256": "403919a35d4fc9a1c3091332dc9c38fa63f1967bacfdf46ecb2730807ff0e5e6",
+      "alpha_min": 0.0,
+      "alpha_max": 1.0,
+      "mps_current": 4938861056,
+      "mps_driver": 13133201408
+    },
+    {
+      "frame": 4,
+      "seconds": 2.808863833983196,
+      "input_sha256": "1efbebe34a84dd258191ea05ad23a364855646a378075d167885d02930d37022",
+      "output_sha256": "a5c8f060e83b0b5f188d0b16084a1163aa111bae6b97cc6830967962e37ab955",
+      "alpha_min": 0.0,
+      "alpha_max": 1.0,
+      "mps_current": 4938861056,
+      "mps_driver": 13133201408
+    },
+    {
+      "frame": 5,
+      "seconds": 2.8065084999834653,
+      "input_sha256": "cd02d1aa6cb5c5331807fef77842a016d420acbaf2046acf865a59d29fcfcbf8",
+      "output_sha256": "24eddd0e4b18abbc8317455e3a3e102561a0ccf18be71fac0496ffdc63e84775",
+      "alpha_min": 0.0,
+      "alpha_max": 1.0,
+      "mps_current": 4938861056,
+      "mps_driver": 13133201408
+    },
+    {
+      "frame": 6,
+      "seconds": 2.809924500004854,
+      "input_sha256": "58cd9c401800ee3324574f291a1aa835baadebf868a5c650adb4ee767b400969",
+      "output_sha256": "f4dc2ac62fd96cae81a991329d0f25a4b0a7d38f42562344d09c12b27a20e941",
+      "alpha_min": 0.0,
+      "alpha_max": 1.0,
+      "mps_current": 4938861056,
+      "mps_driver": 13133201408
+    },
+    {
+      "frame": 7,
+      "seconds": 2.8144481249910314,
+      "input_sha256": "d35b7afaeaec05afc7d69737956a1bf582cfbeb4749b03a9a06ba67fa0ebbe80",
+      "output_sha256": "001adbac3d0546e0a84708f2165d284a0f3021527b50875555e30ced54cce51a",
+      "alpha_min": 0.0,
+      "alpha_max": 1.0,
+      "mps_current": 4938861056,
+      "mps_driver": 13133201408
+    },
+    {
+      "frame": 8,
+      "seconds": 2.815545541991014,
+      "input_sha256": "5a05a908695d3fcbdd7c1619e226c63b2bf2d813a461a0d4d9cd8bfda8b4c675",
+      "output_sha256": "04f6ce37a9b62fbb82fe4f3dbb2256115a34d26409d10a99ee9db5f36ddd31ca",
+      "alpha_min": 0.0,
+      "alpha_max": 1.0,
+      "mps_current": 4938861056,
+      "mps_driver": 13133201408
+    },
+    {
+      "frame": 9,
+      "seconds": 2.8128202090156265,
+      "input_sha256": "d94eb51e2c2364ba293eed9f09430177c7fd07f4c6d7179fa0c66b254e39e4f1",
+      "output_sha256": "07fc46a7c8ecf2b1cd832ca9124eda785c3ca3371765e9f796b6038061f86b41",
+      "alpha_min": 0.0,
+      "alpha_max": 1.0,
+      "mps_current": 4938861056,
+      "mps_driver": 13133201408
+    },
+    {
+      "frame": 10,
+      "seconds": 2.824014707992319,
+      "input_sha256": "0b995549cb69b553097a99bf23445040b09d1c288b1c60c537f792545736db5a",
+      "output_sha256": "e53c9b54509a1b0d67df2259c24803e9564c742f85cd9b648f161ed8fa829e12",
+      "alpha_min": 0.0,
+      "alpha_max": 1.0,
+      "mps_current": 4938861056,
+      "mps_driver": 13133201408
+    },
+    {
+      "frame": 11,
+      "seconds": 2.8208315829979256,
+      "input_sha256": "2ab6b8a64f1ee9d7476f959ffbc9bb41a25a69526be0198bdcdce00f38b17263",
+      "output_sha256": "a942c46414594d8ee9fad21a4b18cf983044827cac7926eaf7e9d6bb2b348d57",
+      "alpha_min": 0.0,
+      "alpha_max": 1.0,
+      "mps_current": 4938861056,
+      "mps_driver": 13133201408
+    },
+    {
+      "frame": 12,
+      "seconds": 2.8865525829896796,
+      "input_sha256": "13fd12474674868674dc1765ad7705defde686c577bc6dffb948b661660e36f9",
+      "output_sha256": "3373fa663015dfbb6507f56f932e4eaaed07263ec304ada22abced3efb55e398",
+      "alpha_min": 0.0,
+      "alpha_max": 1.0,
+      "mps_current": 4938861056,
+      "mps_driver": 13133201408
+    },
+    {
+      "frame": 13,
+      "seconds": 2.872700374980923,
+      "input_sha256": "b61f93c072cf28e774475839aec529c2860abf1e4a8dcbf7eb3534b11fb0768f",
+      "output_sha256": "f80d2027cb0a866e274e2148e2afb85eb025af05e1af171165391cc6d09c6911",
+      "alpha_min": 0.0,
+      "alpha_max": 1.0,
+      "mps_current": 4938861056,
+      "mps_driver": 13133201408
+    },
+    {
+      "frame": 14,
+      "seconds": 2.949331625015475,
+      "input_sha256": "2956e5eb038f79d7bfde8be4a2d040d900327996c5972d2520681779c2bedb51",
+      "output_sha256": "302cd96472ca2e3493ff70d87a5e892e5f26980d152d53a2da97bc45d667a9a0",
+      "alpha_min": 0.0,
+      "alpha_max": 1.0,
+      "mps_current": 4938861056,
+      "mps_driver": 13133201408
+    },
+    {
+      "frame": 15,
+      "seconds": 2.9203148749948014,
+      "input_sha256": "428a35faeb922feffff98917d38c040b88721b4d18da3fb69f54a9eba1ba7b73",
+      "output_sha256": "592c7efbddcae74b0e4254c850f65def3650756bb4ba4d2628ee61828f3329b6",
+      "alpha_min": 0.0,
+      "alpha_max": 1.0,
+      "mps_current": 4938861056,
+      "mps_driver": 13133201408
+    },
+    {
+      "frame": 16,
+      "seconds": 2.8891488749941345,
+      "input_sha256": "c68dd7baf6f9e4b75d2734cdc86bac6b5985665df2bf5d342bae844e914555f7",
+      "output_sha256": "db49e2293aad521f2a2e31fbbc85ba4f8aa5205e0f18de58ab3a453ab20cced8",
+      "alpha_min": 0.0,
+      "alpha_max": 1.0,
+      "mps_current": 4938861056,
+      "mps_driver": 13133201408
+    },
+    {
+      "frame": 17,
+      "seconds": 2.8923364160000347,
+      "input_sha256": "dd117b8f3cb4b7feae6d942a60c6444d75b82a75b0a608e3728447e3d7a229c1",
+      "output_sha256": "a393e1d61b0d3c9379e26a2d341476266e561f561361604d8e80f9e056ab07c9",
+      "alpha_min": 0.0,
+      "alpha_max": 1.0,
+      "mps_current": 4938861056,
+      "mps_driver": 13133201408
+    },
+    {
+      "frame": 18,
+      "seconds": 2.8502792910148855,
+      "input_sha256": "17d49f51e766fe6218b7c6f44f395c99a73a1fe1ef922e4e05b9e448dff73e07",
+      "output_sha256": "8773808e7b479ad8a1a69ea477a966fa6353b1f4c982443a20b8d28344b1e9b3",
+      "alpha_min": 0.0,
+      "alpha_max": 1.0,
+      "mps_current": 4938861056,
+      "mps_driver": 13133201408
+    },
+    {
+      "frame": 19,
+      "seconds": 2.865671416016994,
+      "input_sha256": "7c4590f7e80a3c414231a55ea1bd9f1f4c78510210031d7a78f71b41ddd0ec35",
+      "output_sha256": "2f9dd01fe136f5753ad38586c1d85993732df50933133e4a4a246bb4587ea214",
+      "alpha_min": 0.0,
+      "alpha_max": 1.0,
+      "mps_current": 4938861056,
+      "mps_driver": 13133201408
+    },
+    {
+      "frame": 20,
+      "seconds": 2.843809166981373,
+      "input_sha256": "5196a877ccaef57ce0e5d0dc50eceeaff7d001d81155a8c8fb655f1ce5622756",
+      "output_sha256": "d4b9e7cbacdd1cc034a2d2785ab90a3fe7aaf9e1ac84268ead5a58206f24b7f9",
+      "alpha_min": 0.0,
+      "alpha_max": 1.0,
+      "mps_current": 4938861056,
+      "mps_driver": 13133201408
+    },
+    {
+      "frame": 21,
+      "seconds": 2.8443639580218587,
+      "input_sha256": "cd9667143109179c144047be6725d82f5b86d672001fcab26cbb6f2eafdc15c8",
+      "output_sha256": "793594a4dc14b7bf014214e371f92efe6af4da36d75c791c41ebc5abf3309f13",
+      "alpha_min": 0.0,
+      "alpha_max": 1.0,
+      "mps_current": 4938861056,
+      "mps_driver": 13133201408
+    },
+    {
+      "frame": 22,
+      "seconds": 2.9168862079968676,
+      "input_sha256": "9cf6dd0412416a0f911f9be8707cf5928ed37941f4c98ace96992ea00afe25e3",
+      "output_sha256": "12f4dc39ac5f1ca47fd170b9b8099852aded1fa1b20d68a06ea3f840b3b89e7d",
+      "alpha_min": 0.0,
+      "alpha_max": 1.0,
+      "mps_current": 4938861056,
+      "mps_driver": 13133201408
+    },
+    {
+      "frame": 23,
+      "seconds": 2.8820094160037115,
+      "input_sha256": "515651bb8444783dd4fa9cd7f3be67fc98d80a7ed939d7d68cda8e6e788b87c5",
+      "output_sha256": "b90677eefa631f5794375ad96b713be06b91fbfda3d371cb51c7f0495c7e6191",
+      "alpha_min": 0.0,
+      "alpha_max": 1.0,
+      "mps_current": 4938861056,
+      "mps_driver": 13133201408
+    },
+    {
+      "frame": 24,
+      "seconds": 2.9435572499933187,
+      "input_sha256": "019ada5264d36093bc3789bc17470019964e0afb1beacc4a2ff41fb7c09f0d16",
+      "output_sha256": "0fea6942115642f5929b5b24a8502bd49aa736a52b014b524cd85320458b31d3",
+      "alpha_min": 0.0,
+      "alpha_max": 1.0,
+      "mps_current": 4938861056,
+      "mps_driver": 13047218176
+    },
+    {
+      "frame": 25,
+      "seconds": 2.966594541008817,
+      "input_sha256": "cca6573740a80f9cea5e45fe59cdf6c96d2036dfa46a78e945e6c26c11d6956a",
+      "output_sha256": "0c9e1a6d6a4af64c00cc7afdfa437c6d978bf795f4d571314c3525c079684a15",
+      "alpha_min": 0.0,
+      "alpha_max": 1.0,
+      "mps_current": 4938861056,
+      "mps_driver": 12480987136
+    },
+    {
+      "frame": 26,
+      "seconds": 3.0278817499929573,
+      "input_sha256": "0e4cf2d8dd135b9b1856b24f188ebf8c65ae7af0ab0a4a06e641f099bf03b3b4",
+      "output_sha256": "09c87a81adf3ec42e086e0e0aea3d39d3c20fced374b9e7c3842d5b483a13558",
+      "alpha_min": 0.0,
+      "alpha_max": 1.0,
+      "mps_current": 4938861056,
+      "mps_driver": 11914756096
+    },
+    {
+      "frame": 27,
+      "seconds": 2.9777395419951063,
+      "input_sha256": "9369f7a8817d3ffb93f549633a53418438d5999ccac80ca85abef8cbbebb1541",
+      "output_sha256": "f7050c70fa56111d9f7e5b7f3ace092a9a7378d1e14fa54df95ee05456d186b7",
+      "alpha_min": 0.0,
+      "alpha_max": 1.0,
+      "mps_current": 4938861056,
+      "mps_driver": 11914756096
+    },
+    {
+      "frame": 28,
+      "seconds": 2.959945583017543,
+      "input_sha256": "58fcedf3bc464e50e74eb09626cb4e5e1f388f0125d487e814c832699e13ce4a",
+      "output_sha256": "a17b1468b89abf49bad14d61e0631ec7754f0d150752b0484a71affe797fcaeb",
+      "alpha_min": 0.0,
+      "alpha_max": 1.0,
+      "mps_current": 4938861056,
+      "mps_driver": 11914756096
+    },
+    {
+      "frame": 29,
+      "seconds": 2.914753750024829,
+      "input_sha256": "096b8912a933862e2c7e31cd53ee60c49a55227c074d3aa329d8c90d9d78a095",
+      "output_sha256": "1a11c3685c87ce43244165147949ea32c4c4d8f7578d8895943a7941097afddf",
+      "alpha_min": 0.0,
+      "alpha_max": 1.0,
+      "mps_current": 4938861056,
+      "mps_driver": 11914756096
+    },
+    {
+      "frame": 30,
+      "seconds": 2.979077458003303,
+      "input_sha256": "1815ce1ef672d1e6a8a94351155590e3604c76c7ac366f3da1ff5dee46496270",
+      "output_sha256": "6e41e615759e6e972042587fcad5cb68f822821634bbb226620e4dc269aa0b41",
+      "alpha_min": 0.0,
+      "alpha_max": 1.0,
+      "mps_current": 4938861056,
+      "mps_driver": 11914756096
+    },
+    {
+      "frame": 31,
+      "seconds": 2.971878874988761,
+      "input_sha256": "e3ebd89b4df6cb1fb7f3c7293ee5ba8f699e6a00e733620317f9ea52d16b5012",
+      "output_sha256": "672b40a235ccf3bc0e438429c1425465bc88cfb2fa4eb9f19d71cfc7e288076d",
+      "alpha_min": 0.0,
+      "alpha_max": 1.0,
+      "mps_current": 4938861056,
+      "mps_driver": 11914756096
+    },
+    {
+      "frame": 32,
+      "seconds": 2.9825166249938775,
+      "input_sha256": "251843ff9ff19d5892ea2a7a2b7da4c2cacd81c62fa423b0a2af30af6db7fcb8",
+      "output_sha256": "f22bd22040ba82ed8a1a80e5994281895cee991baad62ef81051a5e6dc053738",
+      "alpha_min": 0.0,
+      "alpha_max": 1.0,
+      "mps_current": 4938861056,
+      "mps_driver": 11914756096
+    },
+    {
+      "frame": 33,
+      "seconds": 2.912626374978572,
+      "input_sha256": "962de6e0fda782e4ac9115b4f594df4d51035d36e3df8de2f93166ed59da5de8",
+      "output_sha256": "032abde14465106b7c6507a7161498793bfc1e7a12b529b7ff3968ce1b781a27",
+      "alpha_min": 0.0,
+      "alpha_max": 1.0,
+      "mps_current": 4938861056,
+      "mps_driver": 11914756096
+    },
+    {
+      "frame": 34,
+      "seconds": 2.978222583013121,
+      "input_sha256": "151b7054d1d2ee78e6e97d1c95676d11185d69e48c523d2bb93e9c9c9da6216f",
+      "output_sha256": "60f1c6d4b736af02ab6ed0123e6290f6e1cc860d701e2cdcd215108e06f05756",
+      "alpha_min": 0.0,
+      "alpha_max": 1.0,
+      "mps_current": 4938861056,
+      "mps_driver": 11914756096
+    },
+    {
+      "frame": 35,
+      "seconds": 2.9525620420172345,
+      "input_sha256": "8024e755585739e2122f2807330e176658ca07b1ab4f6f875a7e9b4c8e75eb21",
+      "output_sha256": "b9e25d486824fdfc82d8a148f64c586fa8ec7154b2330e778413f93d3f94b568",
+      "alpha_min": 0.0,
+      "alpha_max": 1.0,
+      "mps_current": 4938861056,
+      "mps_driver": 11914756096
+    },
+    {
+      "frame": 36,
+      "seconds": 2.9759247089968994,
+      "input_sha256": "04eb62ffe065335be371aa8cd77dad9686b3b680fefe71351537e102da82445d",
+      "output_sha256": "c6f12b575832b604035d91f2fe41b38336a0876b38223e96d0e564a201246ad0",
+      "alpha_min": 0.0,
+      "alpha_max": 1.0,
+      "mps_current": 4938861056,
+      "mps_driver": 11914756096
+    },
+    {
+      "frame": 37,
+      "seconds": 2.9661464579985477,
+      "input_sha256": "cf2504789a290fb56c6d792bc0908386092a5df3cf8bc660a87b618993af6ba2",
+      "output_sha256": "55a1d81078011636846bf0ace6bc5b08956e8f51ece83841fc5dfea92849f7a9",
+      "alpha_min": 0.0,
+      "alpha_max": 1.0,
+      "mps_current": 4938861056,
+      "mps_driver": 11914756096
+    },
+    {
+      "frame": 38,
+      "seconds": 2.9571650419966318,
+      "input_sha256": "a8b0f4c6aa0ec678fdfe643fc1e77e8757dc9c199978c201768b5ef0faddf21f",
+      "output_sha256": "09f146fad00eeba12cf8cc2a627711091ee8375285b248873929334cae207178",
+      "alpha_min": 0.0,
+      "alpha_max": 1.0,
+      "mps_current": 4938861056,
+      "mps_driver": 11914756096
+    },
+    {
+      "frame": 39,
+      "seconds": 2.958523500012234,
+      "input_sha256": "6e538a4316d03ae27f9d857b43742b4dfd25d28a3913e5a5364737113fc2e598",
+      "output_sha256": "87816f4018484b17fd48601c6123a882b943e5f7b773e9a00eebb48423177341",
+      "alpha_min": 0.0,
+      "alpha_max": 1.0,
+      "mps_current": 4938861056,
+      "mps_driver": 11914756096
+    },
+    {
+      "frame": 40,
+      "seconds": 3.3895570000167936,
+      "input_sha256": "202b26a311d40de52bf5366a0f3bfa53efd6f31697f81a28b1db104404268645",
+      "output_sha256": "2dc442b89095cd490f2ee2575f678f7d09b7e1476bef38274b880c37efbfbdd4",
+      "alpha_min": 0.0,
+      "alpha_max": 1.0,
+      "mps_current": 4938861056,
+      "mps_driver": 12187385856
+    },
+    {
+      "frame": 41,
+      "seconds": 3.0460399170115124,
+      "input_sha256": "7c9da2e01280d34938a40297d6055415b9f6e6c95196d278c81157157ed396ed",
+      "output_sha256": "df46923a92665542756378441fd92eaa26bdec1a9722cdadde0a0f2e24b99c19",
+      "alpha_min": 0.0,
+      "alpha_max": 1.0,
+      "mps_current": 4938861056,
+      "mps_driver": 12141248512
+    },
+    {
+      "frame": 42,
+      "seconds": 2.964310791983735,
+      "input_sha256": "b0ad4d15dcd822edacbd81c0a8f507ee18cfd11dedb30aaafa56e52bd17c98eb",
+      "output_sha256": "8e1f926599fa0724aa8303596687c9e92f381f4398ead3d3be3ce8a80f681153",
+      "alpha_min": 0.0,
+      "alpha_max": 1.0,
+      "mps_current": 4938861056,
+      "mps_driver": 12141248512
+    },
+    {
+      "frame": 43,
+      "seconds": 2.992833708995022,
+      "input_sha256": "000a3242d4a15b1d708faf378e125b832ea8c382a158ffda1be794dfd352fe2d",
+      "output_sha256": "ada4f6d82a0c77c0f12d5638a54324fc3dd2790f5b7cfe4651367201f56bb35a",
+      "alpha_min": 0.0,
+      "alpha_max": 1.0,
+      "mps_current": 4938861056,
+      "mps_driver": 12363546624
+    },
+    {
+      "frame": 44,
+      "seconds": 3.122142999985954,
+      "input_sha256": "ed3afa1285ac8cd76f7c21e975aa01535d6c8e13620b5f72587d7e47007ec068",
+      "output_sha256": "d7542fefe91d6f406b97cdb7c7d2efc385d062ebc1e80af10c7334be38ba6fdc",
+      "alpha_min": 0.0,
+      "alpha_max": 1.0,
+      "mps_current": 4938861056,
+      "mps_driver": 12363546624
+    },
+    {
+      "frame": 45,
+      "seconds": 2.9952054170134943,
+      "input_sha256": "cf54fef324e2fd85a7b68eb0870791e76ec5bfa4feafb650bdf0933e39d6a15b",
+      "output_sha256": "e90fb78bed4183b4c00fcf1861f531664d41b705b2afeef4c07c7d7cfbfbfe2b",
+      "alpha_min": 0.0,
+      "alpha_max": 1.0,
+      "mps_current": 4938861056,
+      "mps_driver": 12363546624
+    },
+    {
+      "frame": 46,
+      "seconds": 3.1010227499937173,
+      "input_sha256": "b0008c24fafd8360813025af3668433cfed0caa1e1f7196cb41bbb8bcb7eeaba",
+      "output_sha256": "2bb89155e9f461f09138412f0bf0d107f110f767885b6d9b43eee195c3a1813e",
+      "alpha_min": 0.0,
+      "alpha_max": 1.0,
+      "mps_current": 4938861056,
+      "mps_driver": 12363546624
+    },
+    {
+      "frame": 47,
+      "seconds": 3.0924459169909824,
+      "input_sha256": "e0c59e489585a1ca0f231bdecfdd154f828a8ddf7a9945722311d9979184c3fc",
+      "output_sha256": "1382df34552336c19a02140f426dc2dc4ce2b9dfa1d65d2ba732775d75262491",
+      "alpha_min": 0.0,
+      "alpha_max": 1.0,
+      "mps_current": 4938861056,
+      "mps_driver": 12363546624
+    },
+    {
+      "frame": 48,
+      "seconds": 3.009826082998188,
+      "input_sha256": "a82c0e7c78091f1218a89a4f95d2ca6056105d06d995b584ffdddd3513597540",
+      "output_sha256": "98442fe2929f622f99cd35dbe08c0e55e72db809725ca1af85ed6de1bc6409bc",
+      "alpha_min": 0.0,
+      "alpha_max": 1.0,
+      "mps_current": 4938861056,
+      "mps_driver": 12363546624
+    },
+    {
+      "frame": 49,
+      "seconds": 3.0395560000033583,
+      "input_sha256": "cc5834e534a80b1d456ca27d79f5f5ac0a13b05a3bc223e59bdb0c2b9df44e0e",
+      "output_sha256": "b37a01758e4362bc2dbe29ef5043ddb5f8e9a2ed0c76449d483fb5334adc6ef8",
+      "alpha_min": 0.0,
+      "alpha_max": 1.0,
+      "mps_current": 4938861056,
+      "mps_driver": 12363546624
+    },
+    {
+      "frame": 50,
+      "seconds": 3.077851667010691,
+      "input_sha256": "6e9c6c73ffbbddf473c2e546c69abb6f213a9f0b7087bb0a4f6042ca74a95029",
+      "output_sha256": "8eff342dc532727aba6b591aed7ab4b012e68e1e742f8f26a3b214fc9a6b051e",
+      "alpha_min": 0.0,
+      "alpha_max": 1.0,
+      "mps_current": 4938861056,
+      "mps_driver": 12363546624
+    },
+    {
+      "frame": 51,
+      "seconds": 3.0694316669832915,
+      "input_sha256": "fdd1c8b3e746b0db609e885ee912d117421c4ce1bc636f78362bc98bfa367e95",
+      "output_sha256": "adc5a9c771299f1fe0c0c8d0035e59e624303ffff29e18d6fb38a89570b1f2f9",
+      "alpha_min": 0.0,
+      "alpha_max": 1.0,
+      "mps_current": 4938861056,
+      "mps_driver": 12363546624
+    },
+    {
+      "frame": 52,
+      "seconds": 3.076557458000025,
+      "input_sha256": "5590ca93e9f214ef772e0bd8a5b04363228b138e49c431fff0fe4ddb18a3c15a",
+      "output_sha256": "0bc2545a594edb095ebd1c640893fd645a1b2674410a30583333b536f1ebe66e",
+      "alpha_min": 0.0,
+      "alpha_max": 1.0,
+      "mps_current": 4938861056,
+      "mps_driver": 12363546624
+    },
+    {
+      "frame": 53,
+      "seconds": 3.0951233340019826,
+      "input_sha256": "bf49eae6c62d6137ed815948b1a8c8933bbb26c65a010e199e57294ab54c6b81",
+      "output_sha256": "0356032adb602b394b8ef7e957358549eb14f2a8d77f673db401f630bcbb88f0",
+      "alpha_min": 0.0,
+      "alpha_max": 1.0,
+      "mps_current": 4938861056,
+      "mps_driver": 12363546624
+    },
+    {
+      "frame": 54,
+      "seconds": 3.0530183340015355,
+      "input_sha256": "58d3c38719178ec3e20bb595ae7fcc5492cf3fabd6330dbc672514fbb3cb5e47",
+      "output_sha256": "58b1f49d2d3860c7e6f39a4c2801894c984f5d2a613f57d8479564f3c7fa9da3",
+      "alpha_min": 0.0,
+      "alpha_max": 1.0,
+      "mps_current": 4938861056,
+      "mps_driver": 12363546624
+    },
+    {
+      "frame": 55,
+      "seconds": 3.08000870901742,
+      "input_sha256": "e20200b4d731a8070a5371233e931569c98d80e83d1939151086f33b9091170c",
+      "output_sha256": "fe33e2cd8204dc7acdfbb67ed489289eb4c89b45f59eb4b0874f0af0b2f1c0ec",
+      "alpha_min": 0.0,
+      "alpha_max": 1.0,
+      "mps_current": 4938861056,
+      "mps_driver": 12363546624
+    },
+    {
+      "frame": 56,
+      "seconds": 3.048577125009615,
+      "input_sha256": "d9cf4ab116eb4df634c4b32daa973e399db550e455d01e9f67431af704f6ef04",
+      "output_sha256": "d461c12b2122d3fce5baa10a14b99c50e3d1d2db534b88956452de4d2314e60a",
+      "alpha_min": 0.0,
+      "alpha_max": 1.0,
+      "mps_current": 4938861056,
+      "mps_driver": 12363546624
+    },
+    {
+      "frame": 57,
+      "seconds": 2.853179249999812,
+      "input_sha256": "5dca5e225c64324e7e5f3fb10e9cd1a796fea725ebcd82fc064a57d478e5c539",
+      "output_sha256": "d1e12dcefecdca051e02061360f67eb9bebb1d815299ebe170ad3d9281810f94",
+      "alpha_min": 0.0,
+      "alpha_max": 1.0,
+      "mps_current": 4938861056,
+      "mps_driver": 12363546624
+    },
+    {
+      "frame": 58,
+      "seconds": 2.8381429580040276,
+      "input_sha256": "a2902e87758078abc9f713f2b1493a9ffa3bb396adf34a4e12c24fe0a07159f9",
+      "output_sha256": "bebfe007b183a4b0dab18d79674bac679166818631b42e19ac789849346ad35e",
+      "alpha_min": 0.0,
+      "alpha_max": 1.0,
+      "mps_current": 4938861056,
+      "mps_driver": 12363546624
+    },
+    {
+      "frame": 59,
+      "seconds": 2.820114166010171,
+      "input_sha256": "6787277cbbd80694f76163fdc912e5348d42c40e2c336eb625003a454744da7a",
+      "output_sha256": "d891ef07a89161a5c729a7b40d10b412b17ab6156379d2cf914441caa6323e44",
+      "alpha_min": 0.0,
+      "alpha_max": 1.0,
+      "mps_current": 4938861056,
+      "mps_driver": 12363546624
+    }
+  ],
+  "backend": {
+    "backend": "pytorch_mps",
+    "loaded": true,
+    "device": "mps",
+    "dtype": "float32",
+    "torch_version": "2.9.1",
+    "upstream_root": "/Users/harvest/Documents/Ysew_Project/GIT/corridorkey-mac-ofx/.deps/CorridorKey2.0",
+    "model_root": "/Users/harvest/Documents/Ysew_Project/GIT/corridorkey-mac-ofx/.build/models",
+    "audited_upstream_commit": "485f5e9ab759ead6138cc990776184b59d6ea971",
+    "temporal_mode": "independent_frame_T1",
+    "clip_temporal_analysis": false,
+    "automatic_cpu_model_fallback": false,
+    "cpu_preprocessing": [
+      "transfer_functions",
+      "reflect_padding",
+      "foundation_area_resize"
+    ],
+    "cpu_postprocessing": [
+      "asinh_decode",
+      "crop",
+      "transfer_functions",
+      "optional_green_despill"
+    ],
+    "input_spaces": [
+      "srgb",
+      "linear",
+      "rec709_gamma24"
+    ],
+    "input_alpha": "only used as a hint when explicitly selected",
+    "output_alpha": "straight foreground RGB plus clamped model matte",
+    "successful_frames": 60,
+    "completed_network_calls": {
+      "cradio": 60,
+      "rvm": 60,
+      "stage1": 60,
+      "stage2": 60
+    },
+    "last_error": null,
+    "mps_current_allocated_bytes": 4938861056,
+    "mps_driver_allocated_bytes": 12363546624
+  }
+}

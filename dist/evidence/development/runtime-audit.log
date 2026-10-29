@@ -1,0 +1,2 @@
+Audited 272 native images; 1 errors
+Absolute rpath: .build/runtime/lib/python3.12/site-packages/numpy/.dylibs/libopenblas64_.0.dylib: /opt/gfortran-darwin-arm64-cross/lib/gcc/arm64-apple-darwin20.0.0/11.3.0

@@ -1,0 +1,11 @@
+{
+  "status": "Passed",
+  "artifact_sha256": "f58245db7b45ce9ead793732c7e05f12d97c9c9a6e6681c744437b040ff07e86",
+  "scope": "Actual installed0.9.7 DiskCache on isolated mounted5GB APFS: low-space replacement rejects before replacing valid data, same-area header corruption defeats a warm RAM hit, restoration succeeds and incomplete writes never promote.",
+  "free_bytes": 5139185664,
+  "error": "Insufficient cache space; keep at least 5 GiB free for Resolve and macOS.",
+  "bounded_error_seconds": 7.049998384900391e-05,
+  "existing_entry_preserved": true,
+  "warm_ram_corruption_rejected": true,
+  "restoration_succeeds": true
+}

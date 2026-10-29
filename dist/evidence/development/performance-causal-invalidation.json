@@ -1,0 +1,108 @@
+{
+  "status": "Passed",
+  "scope": "Actual native temporal OFX Render using performance overlay 2; not final artifact qualification",
+  "changed_input_frames": [
+    0
+  ],
+  "requested_frame": 2,
+  "requested_input_content_unchanged": true,
+  "all_temporal_output_identities_changed": true,
+  "requested_output_max_rgba_change": 0.06771552562713623,
+  "requested_output_alpha_mae": 6.838831905042753e-05,
+  "before": {
+    "identity": {
+      "algorithm": "upstream-float32-RVM-continuous-Hann-configurable-v2",
+      "build": "0.9.4-b1.eb60d578f136",
+      "inputs": [
+        "41cd116d5e1ca9ee0c72ef0b8fc98b1b8afcd62efa8f81f2d09941ac8674cd64",
+        "685d8d57d8d0b14a3e99ab39cde59e0a6ea28a71c5cc26b8fc784c1593bb6e84",
+        "5b1bee6783aec794d58341b4268b4e1ada87a61ca7e8ba5aceae51bb3d199580",
+        "18db71b600cb48c74814874a23fb38904e79f2c40aac18eaa8e91f2224b7a71f"
+      ],
+      "settings": {
+        "input_space": "srgb",
+        "hint_mode": "none",
+        "hint_quality": 0.95,
+        "despill_strength": 0.0
+      },
+      "first_hint": false,
+      "revision": 0,
+      "provenance": {
+        "start": 0,
+        "time_domain": "integer_OFX_frames",
+        "end": 3,
+        "fps": 25,
+        "origin": [
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1
+        ]
+      },
+      "profile": {
+        "resolution": 0,
+        "window": 4,
+        "memory_limit": 0,
+        "low_memory": false,
+        "internal_hint_quality": 0.95,
+        "reference_index": 0
+      }
+    },
+    "outputs": [
+      "5a20460cc884db58ea12b87d524bca821565302d2d1f661b6928b49a2d1fd355",
+      "6b7c56a9d50527f974435c1dda88cc7745f3bdef4ae392e16708be873de2e528",
+      "798b0507458586ed26be3e2839e7951847cb07e1f8104628e8621221bb6a5ca2",
+      "1588625c23e856c4f773512b874bbe6b9ad2d3de63b9809c39762308fd3b35ca"
+    ]
+  },
+  "after": {
+    "identity": {
+      "algorithm": "upstream-float32-RVM-continuous-Hann-configurable-v2",
+      "build": "0.9.4-b1.eb60d578f136",
+      "inputs": [
+        "98fc0ff610e0d3a5fa9351db97a91b16f830a9b3fd1dc2d71c7a6d0ca5faa78b",
+        "685d8d57d8d0b14a3e99ab39cde59e0a6ea28a71c5cc26b8fc784c1593bb6e84",
+        "5b1bee6783aec794d58341b4268b4e1ada87a61ca7e8ba5aceae51bb3d199580",
+        "18db71b600cb48c74814874a23fb38904e79f2c40aac18eaa8e91f2224b7a71f"
+      ],
+      "settings": {
+        "input_space": "srgb",
+        "hint_mode": "none",
+        "hint_quality": 0.95,
+        "despill_strength": 0.0
+      },
+      "first_hint": false,
+      "revision": 0,
+      "provenance": {
+        "start": 0,
+        "time_domain": "integer_OFX_frames",
+        "end": 3,
+        "fps": 25,
+        "origin": [
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1
+        ]
+      },
+      "profile": {
+        "resolution": 0,
+        "window": 4,
+        "memory_limit": 0,
+        "low_memory": false,
+        "internal_hint_quality": 0.95,
+        "reference_index": 0
+      }
+    },
+    "outputs": [
+      "779ff7255d6dfde06edc16c538c8fb4a502c63f5e9d17cb601d4c6e219b8a3bb",
+      "11849931b91b0c6fc7fc2564d96ef30512919ad1438b86fb9fb28c6f5fc643a6",
+      "c0d0593f51d9148d6c189cbe22f07b82eed40d583ea312feec38ba26ca596f80",
+      "d190da9bb64510f95172e110cc910a115d7634425138ee9c3de832cee4105b41"
+    ]
+  }
+}

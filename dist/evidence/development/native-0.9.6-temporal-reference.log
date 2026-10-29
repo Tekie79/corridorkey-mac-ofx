@@ -1,0 +1,105 @@
+Loading CorridorKey v2 runtime weights: /Users/harvest/Documents/Ysew_Project/GIT/corridorkey-mac-ofx/.build/models/weights/corridorkey_v2.safetensors
+[RVM] loaded /Users/harvest/Documents/Ysew_Project/GIT/corridorkey-mac-ofx/.build/models/vfms/rvm/pretrain_rvm_small16_256_204031069.npz (309 tensors)
+[FrozenFoundations] loaded stats from /Users/harvest/Documents/Ysew_Project/GIT/corridorkey-mac-ofx/.build/models/weights/foundation_stats.safetensors
+  loaded weights; omitted frozen foundation tensors=982
+    Hann stage1: chunk=8, stride=4, windows=2, baton_grid=32x16
+      window 1/2 [0:8]
+      window 2/2 [4:12]
+{
+  "status": "Passed",
+  "policy": {
+    "alpha_mae": 0.005,
+    "alpha_p99": 0.03,
+    "alpha_max": 0.1,
+    "foreground_mae": 0.01
+  },
+  "metrics": [
+    {
+      "frame": 0,
+      "alpha_mae": 1.0774184033834899e-07,
+      "alpha_p99": 1.7285346984863281e-06,
+      "alpha_max": 8.404254913330078e-06,
+      "foreground_mae": 1.3792960373848473e-07
+    },
+    {
+      "frame": 1,
+      "alpha_mae": 1.0144380979681955e-07,
+      "alpha_p99": 1.6093254089355469e-06,
+      "alpha_max": 8.553266525268555e-06,
+      "foreground_mae": 1.3860204717275337e-07
+    },
+    {
+      "frame": 2,
+      "alpha_mae": 9.896290009692166e-08,
+      "alpha_p99": 1.6093254089355469e-06,
+      "alpha_max": 6.377696990966797e-06,
+      "foreground_mae": 1.3433211165647663e-07
+    },
+    {
+      "frame": 3,
+      "alpha_mae": 1.0169451769570514e-07,
+      "alpha_p99": 1.6093254089355469e-06,
+      "alpha_max": 5.662441253662109e-06,
+      "foreground_mae": 1.33152653347679e-07
+    },
+    {
+      "frame": 4,
+      "alpha_mae": 1.0598440525200203e-07,
+      "alpha_p99": 1.7583370208740234e-06,
+      "alpha_max": 6.377696990966797e-06,
+      "foreground_mae": 1.3512382679436996e-07
+    },
+    {
+      "frame": 5,
+      "alpha_mae": 9.329082217846008e-08,
+      "alpha_p99": 1.6093254089355469e-06,
+      "alpha_max": 4.649162292480469e-06,
+      "foreground_mae": 1.3086184935673373e-07
+    },
+    {
+      "frame": 6,
+      "alpha_mae": 8.168862564161827e-08,
+      "alpha_p99": 1.519918441772461e-06,
+      "alpha_max": 6.8247318267822266e-06,
+      "foreground_mae": 1.302100827160757e-07
+    },
+    {
+      "frame": 7,
+      "alpha_mae": 6.95704471809222e-08,
+      "alpha_p99": 1.430511474609375e-06,
+      "alpha_max": 4.26173210144043e-06,
+      "foreground_mae": 1.384187555686367e-07
+    },
+    {
+      "frame": 8,
+      "alpha_mae": 6.80381688766829e-08,
+      "alpha_p99": 1.430511474609375e-06,
+      "alpha_max": 4.589557647705078e-06,
+      "foreground_mae": 1.387570591759868e-07
+    },
+    {
+      "frame": 9,
+      "alpha_mae": 6.940651076092763e-08,
+      "alpha_p99": 1.430511474609375e-06,
+      "alpha_max": 4.708766937255859e-06,
+      "foreground_mae": 1.3865503944998636e-07
+    },
+    {
+      "frame": 10,
+      "alpha_mae": 7.091214371257593e-08,
+      "alpha_p99": 1.4007091522216797e-06,
+      "alpha_max": 4.291534423828125e-06,
+      "foreground_mae": 1.3743266435994883e-07
+    },
+    {
+      "frame": 11,
+      "alpha_mae": 7.363056653275635e-08,
+      "alpha_p99": 1.430511474609375e-06,
+      "alpha_max": 5.066394805908203e-06,
+      "foreground_mae": 1.4136548998067155e-07
+    }
+  ],
+  "seconds": 55.85521133299335,
+  "upstream_function_sha256": "2dc95b6b543d713e78d55fe13d12de051ac486694eb9624fe5ede98d10803ed1",
+  "declared_variant": "float32 CPU; same upstream window/carry/taper/baton order; no half/bfloat16 quantization"
+}

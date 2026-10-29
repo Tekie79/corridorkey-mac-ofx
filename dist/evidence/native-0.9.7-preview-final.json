@@ -1,0 +1,11 @@
+{
+  "status": "Passed",
+  "artifact_sha256": "f58245db7b45ce9ead793732c7e05f12d97c9c9a6e6681c744437b040ff07e86",
+  "scope": "Actual Quarter Single Frame preview followed by Full1080p alpha Deliver in same Resolve session, no worker restart; native finals exactly match Full reference.",
+  "frames": [
+    5,
+    6
+  ],
+  "maximum_rgba_error": 0.0,
+  "job": "96c10156-b9e5-46fc-90e1-740b70f3a8a6"
+}

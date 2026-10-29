@@ -1,0 +1,8 @@
+{
+  "artifact_sha256": "7a023538ad322b9eee26357b3dd2c2aecc16c292f6feb44837e3ffa00d590c0a",
+  "status": "Passed",
+  "scope": "Native same source/color/profile, only inclusive range end11->10; requested5 source unchanged; new complete context and output generation",
+  "unchanged_source_prefix": true,
+  "new_output_identity": true,
+  "maximum_changed_rgba": 0.18701058626174927
+}

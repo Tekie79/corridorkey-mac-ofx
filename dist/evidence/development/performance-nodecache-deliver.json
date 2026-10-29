@@ -1,0 +1,14 @@
+{
+  "scope": "Native Fusion Cache to Disk on installed 0.9.4 + performance overlay 2",
+  "frames": 60,
+  "dimensions": [
+    1920,
+    1080
+  ],
+  "float_rgba_deliver_milliseconds": 1679,
+  "job": "d6ebdfc6-5e26-4269-8993-76c2c32f82df",
+  "maximum_rgba_error": 0.0,
+  "cache_lock": false,
+  "branch_lock": false,
+  "status": "Passed"
+}

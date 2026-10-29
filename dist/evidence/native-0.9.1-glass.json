@@ -1,0 +1,730 @@
+{
+  "status": "Passed",
+  "scope": "Actual installed Single Frame glass/pouring-water Fusion and Deliver; native 1080p key from explicitly resized 4K source",
+  "installer_sha256": "50042b7882b77913e4cdd70ac62e470aaf0afdb8778bea14e862fe1394da7b0c",
+  "milliseconds": 195011,
+  "job_id": "913d959f-af54-42c2-8621-afe595800d77",
+  "visual_review": "Rim, pouring stream and soft upper-glass transparency retained. Liquid-filled lower region is much more opaque; do not claim physically perfect glass extraction.",
+  "frames": [
+    {
+      "name": "GlassKeyed00000000.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0,
+      "soft_fraction": 0.09528452932098766
+    },
+    {
+      "name": "GlassKeyed00000001.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0,
+      "soft_fraction": 0.09464747299382716
+    },
+    {
+      "name": "GlassKeyed00000002.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0,
+      "soft_fraction": 0.09539689429012346
+    },
+    {
+      "name": "GlassKeyed00000003.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0,
+      "soft_fraction": 0.09464650848765432
+    },
+    {
+      "name": "GlassKeyed00000004.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0,
+      "soft_fraction": 0.095405574845679
+    },
+    {
+      "name": "GlassKeyed00000005.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0,
+      "soft_fraction": 0.09434220679012345
+    },
+    {
+      "name": "GlassKeyed00000006.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0,
+      "soft_fraction": 0.09492862654320988
+    },
+    {
+      "name": "GlassKeyed00000007.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0,
+      "soft_fraction": 0.09513020833333333
+    },
+    {
+      "name": "GlassKeyed00000008.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0,
+      "soft_fraction": 0.0946923225308642
+    },
+    {
+      "name": "GlassKeyed00000009.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0,
+      "soft_fraction": 0.0946802662037037
+    },
+    {
+      "name": "GlassKeyed00000010.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0,
+      "soft_fraction": 0.09489197530864198
+    },
+    {
+      "name": "GlassKeyed00000011.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0,
+      "soft_fraction": 0.09747636959876543
+    },
+    {
+      "name": "GlassKeyed00000012.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0,
+      "soft_fraction": 0.09855613425925926
+    },
+    {
+      "name": "GlassKeyed00000013.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0,
+      "soft_fraction": 0.09601900077160494
+    },
+    {
+      "name": "GlassKeyed00000014.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0,
+      "soft_fraction": 0.09619695216049383
+    },
+    {
+      "name": "GlassKeyed00000015.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0,
+      "soft_fraction": 0.09639708719135802
+    },
+    {
+      "name": "GlassKeyed00000016.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0,
+      "soft_fraction": 0.09740933641975309
+    },
+    {
+      "name": "GlassKeyed00000017.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0,
+      "soft_fraction": 0.09662278163580247
+    },
+    {
+      "name": "GlassKeyed00000018.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0,
+      "soft_fraction": 0.09665123456790123
+    },
+    {
+      "name": "GlassKeyed00000019.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0,
+      "soft_fraction": 0.09892698688271605
+    },
+    {
+      "name": "GlassKeyed00000020.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0,
+      "soft_fraction": 0.09694203317901234
+    },
+    {
+      "name": "GlassKeyed00000021.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0,
+      "soft_fraction": 0.09702064043209876
+    },
+    {
+      "name": "GlassKeyed00000022.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0,
+      "soft_fraction": 0.0988257137345679
+    },
+    {
+      "name": "GlassKeyed00000023.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0,
+      "soft_fraction": 0.09808690200617284
+    },
+    {
+      "name": "GlassKeyed00000024.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0,
+      "soft_fraction": 0.09952208719135802
+    },
+    {
+      "name": "GlassKeyed00000025.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0,
+      "soft_fraction": 0.15086275077160494
+    },
+    {
+      "name": "GlassKeyed00000026.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0,
+      "soft_fraction": 0.17712577160493828
+    },
+    {
+      "name": "GlassKeyed00000027.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0,
+      "soft_fraction": 0.1818166473765432
+    },
+    {
+      "name": "GlassKeyed00000028.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0,
+      "soft_fraction": 0.1737866512345679
+    },
+    {
+      "name": "GlassKeyed00000029.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0,
+      "soft_fraction": 0.1677734375
+    },
+    {
+      "name": "GlassKeyed00000030.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0,
+      "soft_fraction": 0.1791015625
+    },
+    {
+      "name": "GlassKeyed00000031.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0,
+      "soft_fraction": 0.15951774691358026
+    },
+    {
+      "name": "GlassKeyed00000032.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0,
+      "soft_fraction": 0.18092640817901234
+    },
+    {
+      "name": "GlassKeyed00000033.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0,
+      "soft_fraction": 0.1474021026234568
+    },
+    {
+      "name": "GlassKeyed00000034.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0,
+      "soft_fraction": 0.11861593364197531
+    },
+    {
+      "name": "GlassKeyed00000035.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0,
+      "soft_fraction": 0.09865162037037037
+    },
+    {
+      "name": "GlassKeyed00000036.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0,
+      "soft_fraction": 0.108125
+    },
+    {
+      "name": "GlassKeyed00000037.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0,
+      "soft_fraction": 0.11064284336419752
+    },
+    {
+      "name": "GlassKeyed00000038.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0,
+      "soft_fraction": 0.1812692901234568
+    },
+    {
+      "name": "GlassKeyed00000039.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0,
+      "soft_fraction": 0.1732296489197531
+    },
+    {
+      "name": "GlassKeyed00000040.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0,
+      "soft_fraction": 0.11221788194444444
+    },
+    {
+      "name": "GlassKeyed00000041.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0,
+      "soft_fraction": 0.11413773148148149
+    },
+    {
+      "name": "GlassKeyed00000042.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0,
+      "soft_fraction": 0.12256510416666666
+    },
+    {
+      "name": "GlassKeyed00000043.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0,
+      "soft_fraction": 0.12502025462962962
+    },
+    {
+      "name": "GlassKeyed00000044.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0,
+      "soft_fraction": 0.1175096450617284
+    },
+    {
+      "name": "GlassKeyed00000045.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0,
+      "soft_fraction": 0.11993634259259259
+    },
+    {
+      "name": "GlassKeyed00000046.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0,
+      "soft_fraction": 0.12417052469135803
+    },
+    {
+      "name": "GlassKeyed00000047.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0,
+      "soft_fraction": 0.12084876543209877
+    },
+    {
+      "name": "GlassKeyed00000048.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0,
+      "soft_fraction": 0.11998649691358025
+    },
+    {
+      "name": "GlassKeyed00000049.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0,
+      "soft_fraction": 0.11832851080246913
+    },
+    {
+      "name": "GlassKeyed00000050.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0,
+      "soft_fraction": 0.09890094521604938
+    },
+    {
+      "name": "GlassKeyed00000051.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0,
+      "soft_fraction": 0.11897665895061728
+    },
+    {
+      "name": "GlassKeyed00000052.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0,
+      "soft_fraction": 0.1642066936728395
+    },
+    {
+      "name": "GlassKeyed00000053.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0,
+      "soft_fraction": 0.18072916666666666
+    },
+    {
+      "name": "GlassKeyed00000054.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0,
+      "soft_fraction": 0.11774787808641975
+    },
+    {
+      "name": "GlassKeyed00000055.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0,
+      "soft_fraction": 0.180336612654321
+    },
+    {
+      "name": "GlassKeyed00000056.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0,
+      "soft_fraction": 0.10006413966049382
+    },
+    {
+      "name": "GlassKeyed00000057.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0,
+      "soft_fraction": 0.14381221064814814
+    },
+    {
+      "name": "GlassKeyed00000058.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0,
+      "soft_fraction": 0.18079716435185186
+    },
+    {
+      "name": "GlassKeyed00000059.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0,
+      "soft_fraction": 0.1800737847222222
+    }
+  ]
+}

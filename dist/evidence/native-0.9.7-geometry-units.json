@@ -1,0 +1,6 @@
+{
+  "status": "Passed",
+  "artifact_sha256": "f58245db7b45ce9ead793732c7e05f12d97c9c9a6e6681c744437b040ff07e86",
+  "scope": "Actual arm64 production pixel-unit binary rerun; negative stride, nonzero origins, flip, alpha, padding, windows and invalid inputs passed. Combined with actual odd385x217 MPS/Fusion and preview/final outputs. Synthetic host layouts are unit tests, not a claim Resolve emitted them.",
+  "binary_sha256": "12283d92dad775672851f1d59b9b56c99a730844b12e1aee81027dff25e374f6"
+}

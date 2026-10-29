@@ -1,0 +1,257 @@
+{
+  "scope": "0.9.4 + qualification-only performance overlay 1; not unchanged full offline artifact",
+  "overlay_sha256": "640aaeb109e9c8678e317308398bc0987113f32a908a2cc5ad47e6a30736f7cb",
+  "frames": 60,
+  "dimensions": [
+    1920,
+    1080
+  ],
+  "job": "49332402-9793-41a2-a8e1-e5a72b375209",
+  "deliver_milliseconds": 54388,
+  "previous_deliver_milliseconds": 533532,
+  "prior_run_included_additional_analysis": true,
+  "comparison": "Previous actual temporal Deliver pixels, identical math and profiles",
+  "max_rgba_error": 0.0,
+  "entries": [
+    {
+      "name": "GS02_temporal_fast00000000.exr",
+      "max_error": 0.0
+    },
+    {
+      "name": "GS02_temporal_fast00000001.exr",
+      "max_error": 0.0
+    },
+    {
+      "name": "GS02_temporal_fast00000002.exr",
+      "max_error": 0.0
+    },
+    {
+      "name": "GS02_temporal_fast00000003.exr",
+      "max_error": 0.0
+    },
+    {
+      "name": "GS02_temporal_fast00000004.exr",
+      "max_error": 0.0
+    },
+    {
+      "name": "GS02_temporal_fast00000005.exr",
+      "max_error": 0.0
+    },
+    {
+      "name": "GS02_temporal_fast00000006.exr",
+      "max_error": 0.0
+    },
+    {
+      "name": "GS02_temporal_fast00000007.exr",
+      "max_error": 0.0
+    },
+    {
+      "name": "GS02_temporal_fast00000008.exr",
+      "max_error": 0.0
+    },
+    {
+      "name": "GS02_temporal_fast00000009.exr",
+      "max_error": 0.0
+    },
+    {
+      "name": "GS02_temporal_fast00000010.exr",
+      "max_error": 0.0
+    },
+    {
+      "name": "GS02_temporal_fast00000011.exr",
+      "max_error": 0.0
+    },
+    {
+      "name": "GS02_temporal_fast00000012.exr",
+      "max_error": 0.0
+    },
+    {
+      "name": "GS02_temporal_fast00000013.exr",
+      "max_error": 0.0
+    },
+    {
+      "name": "GS02_temporal_fast00000014.exr",
+      "max_error": 0.0
+    },
+    {
+      "name": "GS02_temporal_fast00000015.exr",
+      "max_error": 0.0
+    },
+    {
+      "name": "GS02_temporal_fast00000016.exr",
+      "max_error": 0.0
+    },
+    {
+      "name": "GS02_temporal_fast00000017.exr",
+      "max_error": 0.0
+    },
+    {
+      "name": "GS02_temporal_fast00000018.exr",
+      "max_error": 0.0
+    },
+    {
+      "name": "GS02_temporal_fast00000019.exr",
+      "max_error": 0.0
+    },
+    {
+      "name": "GS02_temporal_fast00000020.exr",
+      "max_error": 0.0
+    },
+    {
+      "name": "GS02_temporal_fast00000021.exr",
+      "max_error": 0.0
+    },
+    {
+      "name": "GS02_temporal_fast00000022.exr",
+      "max_error": 0.0
+    },
+    {
+      "name": "GS02_temporal_fast00000023.exr",
+      "max_error": 0.0
+    },
+    {
+      "name": "GS02_temporal_fast00000024.exr",
+      "max_error": 0.0
+    },
+    {
+      "name": "GS02_temporal_fast00000025.exr",
+      "max_error": 0.0
+    },
+    {
+      "name": "GS02_temporal_fast00000026.exr",
+      "max_error": 0.0
+    },
+    {
+      "name": "GS02_temporal_fast00000027.exr",
+      "max_error": 0.0
+    },
+    {
+      "name": "GS02_temporal_fast00000028.exr",
+      "max_error": 0.0
+    },
+    {
+      "name": "GS02_temporal_fast00000029.exr",
+      "max_error": 0.0
+    },
+    {
+      "name": "GS02_temporal_fast00000030.exr",
+      "max_error": 0.0
+    },
+    {
+      "name": "GS02_temporal_fast00000031.exr",
+      "max_error": 0.0
+    },
+    {
+      "name": "GS02_temporal_fast00000032.exr",
+      "max_error": 0.0
+    },
+    {
+      "name": "GS02_temporal_fast00000033.exr",
+      "max_error": 0.0
+    },
+    {
+      "name": "GS02_temporal_fast00000034.exr",
+      "max_error": 0.0
+    },
+    {
+      "name": "GS02_temporal_fast00000035.exr",
+      "max_error": 0.0
+    },
+    {
+      "name": "GS02_temporal_fast00000036.exr",
+      "max_error": 0.0
+    },
+    {
+      "name": "GS02_temporal_fast00000037.exr",
+      "max_error": 0.0
+    },
+    {
+      "name": "GS02_temporal_fast00000038.exr",
+      "max_error": 0.0
+    },
+    {
+      "name": "GS02_temporal_fast00000039.exr",
+      "max_error": 0.0
+    },
+    {
+      "name": "GS02_temporal_fast00000040.exr",
+      "max_error": 0.0
+    },
+    {
+      "name": "GS02_temporal_fast00000041.exr",
+      "max_error": 0.0
+    },
+    {
+      "name": "GS02_temporal_fast00000042.exr",
+      "max_error": 0.0
+    },
+    {
+      "name": "GS02_temporal_fast00000043.exr",
+      "max_error": 0.0
+    },
+    {
+      "name": "GS02_temporal_fast00000044.exr",
+      "max_error": 0.0
+    },
+    {
+      "name": "GS02_temporal_fast00000045.exr",
+      "max_error": 0.0
+    },
+    {
+      "name": "GS02_temporal_fast00000046.exr",
+      "max_error": 0.0
+    },
+    {
+      "name": "GS02_temporal_fast00000047.exr",
+      "max_error": 0.0
+    },
+    {
+      "name": "GS02_temporal_fast00000048.exr",
+      "max_error": 0.0
+    },
+    {
+      "name": "GS02_temporal_fast00000049.exr",
+      "max_error": 0.0
+    },
+    {
+      "name": "GS02_temporal_fast00000050.exr",
+      "max_error": 0.0
+    },
+    {
+      "name": "GS02_temporal_fast00000051.exr",
+      "max_error": 0.0
+    },
+    {
+      "name": "GS02_temporal_fast00000052.exr",
+      "max_error": 0.0
+    },
+    {
+      "name": "GS02_temporal_fast00000053.exr",
+      "max_error": 0.0
+    },
+    {
+      "name": "GS02_temporal_fast00000054.exr",
+      "max_error": 0.0
+    },
+    {
+      "name": "GS02_temporal_fast00000055.exr",
+      "max_error": 0.0
+    },
+    {
+      "name": "GS02_temporal_fast00000056.exr",
+      "max_error": 0.0
+    },
+    {
+      "name": "GS02_temporal_fast00000057.exr",
+      "max_error": 0.0
+    },
+    {
+      "name": "GS02_temporal_fast00000058.exr",
+      "max_error": 0.0
+    },
+    {
+      "name": "GS02_temporal_fast00000059.exr",
+      "max_error": 0.0
+    }
+  ]
+}

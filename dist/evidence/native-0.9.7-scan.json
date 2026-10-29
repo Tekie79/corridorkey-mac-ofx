@@ -1,0 +1,6 @@
+{
+  "status": "Passed",
+  "artifact_sha256": "f58245db7b45ce9ead793732c7e05f12d97c9c9a6e6681c744437b040ff07e86",
+  "scope": "Actual fresh Resolve startup reached Project Manager with installed0.9.7; new-generation model socket absent before opening a keying project.",
+  "worker_started_during_scan": false
+}

@@ -1,0 +1,92 @@
+{
+  "status": "Passed",
+  "scope": "Partial cleanup of obsolete task-owned installer copies, unpacked payloads, old native cache fixtures and temporary disk image. Active installed assets, source, authorized original footage/official DMG, pending test fixtures and current candidate retained.",
+  "removed": [
+    {
+      "path": "dist/previous",
+      "logical_bytes": 13206076245
+    },
+    {
+      "path": "dist/CorridorKeyMac-0.9.3-beta.1-arm64-Offline.pkg",
+      "logical_bytes": 4050637010
+    },
+    {
+      "path": "dist/CorridorKeyMac-0.9.2-beta.1-arm64-Offline.pkg",
+      "logical_bytes": 4389232646
+    },
+    {
+      "path": "dist/CorridorKeyMac-0.9.6-beta.1-source.zip",
+      "logical_bytes": 442520
+    },
+    {
+      "path": "dist/CorridorKeyMac-0.9.0-beta.1-arm64-Offline.pkg",
+      "logical_bytes": 4389167346
+    },
+    {
+      "path": "dist/CorridorKeyMac-0.9.3-beta.1-source.zip",
+      "logical_bytes": 428175
+    },
+    {
+      "path": "dist/CorridorKeyMac-0.9.4-beta.1-arm64-Offline.pkg",
+      "logical_bytes": 4050628085
+    },
+    {
+      "path": "dist/CorridorKeyMac-0.9.5-beta.1-source.zip",
+      "logical_bytes": 439300
+    },
+    {
+      "path": "dist/CorridorKeyMac-0.9.5-beta.1-arm64-Offline.pkg",
+      "logical_bytes": 4050639909
+    },
+    {
+      "path": "dist/CorridorKeyMac-0.9.1-beta.1-arm64-Offline.pkg",
+      "logical_bytes": 4389183065
+    },
+    {
+      "path": ".build/drafts",
+      "logical_bytes": 4069749680
+    },
+    {
+      "path": ".build/official-package-reference",
+      "logical_bytes": 1023806234
+    },
+    {
+      "path": ".build/final-expanded",
+      "logical_bytes": 6021305436
+    },
+    {
+      "path": ".build/expanded",
+      "logical_bytes": 6010306801
+    },
+    {
+      "path": ".build/candidate-expanded",
+      "logical_bytes": 6021490000
+    },
+    {
+      "path": ".build/package",
+      "logical_bytes": 6003620710
+    },
+    {
+      "path": ".build/payload.pkg",
+      "logical_bytes": 4050856387
+    },
+    {
+      "path": ".build/fusion-node-cache",
+      "logical_bytes": 1381227036
+    },
+    {
+      "path": ".build/fusion-node-cache6",
+      "logical_bytes": 1381227036
+    },
+    {
+      "path": ".build/fusion-invalidation5",
+      "logical_bytes": 45857300
+    },
+    {
+      "path": ".build/qa-cache-space.sparseimage",
+      "logical_bytes": 80744448
+    }
+  ],
+  "removed_logical_bytes": 74617065369,
+  "pending": "The current installed0.9.6 offline package is retained under.build/pending-native for matching repair until0.9.7 installation is approved. Full final export/cache/root-history cleanup awaits remaining native tests."
+}

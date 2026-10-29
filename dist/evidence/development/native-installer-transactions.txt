@@ -1,0 +1,1 @@
+installer_transactions: partial backups, partial activation, repeated recovery, absent components, committed state and scope guards passed

@@ -1,0 +1,34 @@
+{
+  "status": "Passed",
+  "artifact_sha256": "7a023538ad322b9eee26357b3dd2c2aecc16c292f6feb44837e3ffa00d590c0a",
+  "scope": "Actual native Fusion reverse/shuffled frame requests, matching full sequential temporal result",
+  "order": [
+    59,
+    41,
+    3,
+    30,
+    0
+  ],
+  "comparisons": [
+    {
+      "frame": "frame0000.exr",
+      "maximum_error": 0.0
+    },
+    {
+      "frame": "frame0003.exr",
+      "maximum_error": 0.0
+    },
+    {
+      "frame": "frame0030.exr",
+      "maximum_error": 0.0
+    },
+    {
+      "frame": "frame0041.exr",
+      "maximum_error": 0.0
+    },
+    {
+      "frame": "frame0059.exr",
+      "maximum_error": 0.0
+    }
+  ]
+}

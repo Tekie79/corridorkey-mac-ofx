@@ -1,0 +1,16 @@
+{
+  "status": "Passed",
+  "artifact_sha256": "f58245db7b45ce9ead793732c7e05f12d97c9c9a6e6681c744437b040ff07e86",
+  "scope": "Actual fresh installed Manager Remove All launches the verified installed removal package and normal Installer succeeds with original full-installer path absent.",
+  "removed": [
+    "/Library/OFX/Plugins/CorridorKeyMac.ofx.bundle",
+    "/Applications/CorridorKey Mac Manager.app",
+    "/Library/Application Support/HarvestPictures/CorridorKeyMac/Runtime",
+    "/Library/Application Support/HarvestPictures/CorridorKeyMac/Maintenance",
+    "/Library/Application Support/HarvestPictures/CorridorKeyMac/Models",
+    "/Library/Application Support/HarvestPictures/CorridorKeyMac/active.json"
+  ],
+  "models_removed": true,
+  "unrelated_asset_hashes_unchanged": 6,
+  "unix": 1793198461.2576761
+}

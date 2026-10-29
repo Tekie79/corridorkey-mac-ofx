@@ -1,0 +1,66 @@
+{
+  "scope": "Examine whether Resolve kept an immutable source snapshot during the acquisition-phase edit, instead of assuming a saved file is mixed-source",
+  "baseline_marker_frames": 60,
+  "edited_marker": "dd0d76ade78614a3200f9696232a89472e80d49428bd39b8b306efb2ade52ab0.analysis.json",
+  "observations": [
+    {
+      "frame": 0,
+      "missing_baseline": true
+    },
+    {
+      "frame": 1,
+      "median_gain_ratio": 1.0199999809265137,
+      "max_error_against_1_02": 0.0
+    },
+    {
+      "frame": 2,
+      "median_gain_ratio": 1.0199999809265137,
+      "max_error_against_1_02": 0.0
+    },
+    {
+      "frame": 3,
+      "median_gain_ratio": 1.0199999809265137,
+      "max_error_against_1_02": 0.0
+    },
+    {
+      "frame": 4,
+      "median_gain_ratio": 1.0199999809265137,
+      "max_error_against_1_02": 0.0
+    },
+    {
+      "frame": 5,
+      "median_gain_ratio": 1.0199999809265137,
+      "max_error_against_1_02": 0.0
+    },
+    {
+      "frame": 6,
+      "median_gain_ratio": 1.0199999809265137,
+      "max_error_against_1_02": 0.0
+    },
+    {
+      "frame": 7,
+      "median_gain_ratio": 1.0199999809265137,
+      "max_error_against_1_02": 0.0
+    },
+    {
+      "frame": 8,
+      "median_gain_ratio": 1.0199999809265137,
+      "max_error_against_1_02": 0.0
+    },
+    {
+      "frame": 9,
+      "median_gain_ratio": 1.0199999809265137,
+      "max_error_against_1_02": 0.0
+    },
+    {
+      "frame": 10,
+      "median_gain_ratio": 1.0199999809265137,
+      "max_error_against_1_02": 0.0
+    },
+    {
+      "frame": 11,
+      "median_gain_ratio": 1.0299999713897705,
+      "max_error_against_1_02": 0.006954491138458252
+    }
+  ]
+}

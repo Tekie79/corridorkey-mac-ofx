@@ -1,0 +1,10 @@
+{
+  "status": "Passed",
+  "scope": "Final delivered package/source hashes, ZIP CRC and safe paths, unchanged implementation source identity and exact installed manifests verified after maintenance tests.",
+  "package_sha256": "f58245db7b45ce9ead793732c7e05f12d97c9c9a6e6681c744437b040ff07e86",
+  "source_sha256": "770551ac454403de1e106db0f017519ee2cf1c565c484b69824cd787f042053a",
+  "source_identity": "027347b5a7e5a5c83d3e587548cf0777fe79ff4273de7c19b3448f2b8e6251e5",
+  "source_zip_entries": 98,
+  "installed_build": "0.9.7-b1.027347b5a7e5",
+  "source_files_verified": 97
+}

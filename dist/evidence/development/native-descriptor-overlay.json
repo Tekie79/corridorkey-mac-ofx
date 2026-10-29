@@ -1,0 +1,14 @@
+{
+  "status": "Passed",
+  "scope": "Qualification-only descriptor overlay installed over full 0.9.3; this is not qualification of the unchanged offline 0.9.3 package",
+  "base_installer_sha256": "542b0a95fadb74ae24a3d01b507d1809dd73219832a2a11a8413ff5454a340f5",
+  "overlay_sha256": "561fc14c5265f449c4279de6c0177900de43a6fffd78085d861b0f706dab7f81",
+  "source_fix": "Descriptor properties retained from paramDefine; instance-only paramGetHandle removed from describe action",
+  "saved_project_values": {
+    "inputSpace": 0,
+    "outputMode": 0,
+    "hintQuality": 0.95,
+    "processingMode": 0
+  },
+  "new_controls_loaded": true
+}

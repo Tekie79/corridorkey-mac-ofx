@@ -1,0 +1,31 @@
+{
+    "programs": [
+
+    ],
+    "stream_groups": [
+        {
+            "streams": [
+                {
+                    "codec_name": "prores",
+                    "width": 640,
+                    "height": 360,
+                    "pix_fmt": "yuva444p12le",
+                    "r_frame_rate": "30000/1001",
+                    "avg_frame_rate": "30000/1001",
+                    "nb_frames": "12"
+                }
+            ]
+        }
+    ],
+    "streams": [
+        {
+            "codec_name": "prores",
+            "width": 640,
+            "height": 360,
+            "pix_fmt": "yuva444p12le",
+            "r_frame_rate": "30000/1001",
+            "avg_frame_rate": "30000/1001",
+            "nb_frames": "12"
+        }
+    ]
+}

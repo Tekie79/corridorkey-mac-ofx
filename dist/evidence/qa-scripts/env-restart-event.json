@@ -1,0 +1,10 @@
+{
+  "status": "Recorded",
+  "native_retry_started_during_private_worker_startup": true,
+  "startup_state": "checking_installation",
+  "new_worker_pid": 84000,
+  "concurrent_client_pid": 83997,
+  "checkout_absent": false,
+  "poisoned_python_environment": true,
+  "outbound_ip_denial_policy": true
+}

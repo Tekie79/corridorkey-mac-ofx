@@ -1,0 +1,64 @@
+{
+  "identity": {
+    "algorithm": "upstream-float32-RVM-continuous-Hann-configurable-v2",
+    "build": "0.9.6-b1.8e66e8a42b10",
+    "inputs": [
+      "0713b4e8d4c336663b5e1440664fd014c8f84a6bab0300cb1e68dba54cf093a0",
+      "59efa11ad5c5dbadab4842caef2d5056e4782d96a6a84eb2c0fc5f4eaf1ed546",
+      "bda589e25424659d361fc307da82ecfa24218e61da7f20a928719ba721cfab94",
+      "ab917e3506a57adb5bc674ca4cd732e1b9943317855fef1d37e0ad59cbdb0742",
+      "cb2bec2deb82a023ed3660e03ce0827fd8dbb948bf9563ff40817445675ad046",
+      "5e40627398335ad336c61c86f7e39c9f9f25aeb9237ad61d8de77108b4d98e4c",
+      "0b4941969f8a6eb2be58a0f3aef44c344d63ede7237c1e4a3a3f21c4f33142de",
+      "903c94645699b28866f11f5e25067dbc5da620cdda28958b2d5d4d62cb5f6d89",
+      "696414399776d38e46b170d34ecac461554ffb5849a731e9f2b302c2502b27df",
+      "10ff678dc28a5970ba0f535c6b5d18aae15408ede54c83fcd37c7d42e8c7f075",
+      "e868e9c98e57d5ce5e1bbe12c2834b32e1e7361da430ec3a9c4a5af1a047b76a",
+      "e4f893ee01f3de383036d9b2a45054753be00cff9de459b0eebc3a55e77ea5c9"
+    ],
+    "settings": {
+      "input_space": "linear",
+      "hint_mode": "none",
+      "hint_quality": 0.75,
+      "despill_strength": 0.0
+    },
+    "first_hint": false,
+    "revision": 0,
+    "provenance": {
+      "start": 0,
+      "time_domain": "integer_OFX_frames",
+      "end": 11,
+      "fps": 25,
+      "origin": [
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1
+      ]
+    },
+    "profile": {
+      "resolution": 0,
+      "window": 8,
+      "memory_limit": 0,
+      "low_memory": false,
+      "internal_hint_quality": 0.95,
+      "reference_index": 0
+    }
+  },
+  "outputs": [
+    "068540b2f940768d9a63746cc4ea9e3a213c8d5072c1b160572c7292a1f03ab8",
+    "c31dc7d4170714263c528b962b589a9e7d3f2f1ff89c57e61e987ca7dfd0ac1d",
+    "a06c3aa606cb1c079a9563dda15935080e58d6626571da0b02483f21660fdbde",
+    "cbea1005d6b01be1e04ca5101d5aa159f88d2fd12808dd3b71effd09e79bbc5a",
+    "7d31277e9145c971b3b57f5faa25991974a49e86a4f01b120642c1380fe8845b",
+    "53b69912d9fc637264df25e78e3de6c412675a48df987586c6cfc52435445627",
+    "9ea09214bc3b8a8051a7059eb2ea2dbccaa6259b611d21b8682f32c0cc2412cb",
+    "219df23bb26d813a6e996f5860a6c2627378e8a16cec8477dccfdc1f31bf0826",
+    "c40a5e0f620ce7b1e1327645ebbef5cd7699bb2d2ff3b8df4a3deb98903d6afa",
+    "19996b4bd45f201c99e5c79e82da73e007a5e14cf3e5ea05c43ab1c353df336c",
+    "fd12b62cbfd4a877aff215229d52a91f75363b6fb10de0d56bf87060f68d705f",
+    "31a8e6dd5be29c092d81bea9d16f50cd7728c41a352cdd26fd26ff2c1f9f15a3"
+  ]
+}

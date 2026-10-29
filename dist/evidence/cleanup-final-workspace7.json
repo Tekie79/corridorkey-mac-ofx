@@ -1,0 +1,30 @@
+{
+  "status": "Passed",
+  "scope": "Final authorized workspace cleanup removed build products, SDK/upstream download checkouts, pytest/Python caches, test installers/staging, source snapshot duplicates and the task-owned raw GPU capture. Final dist, original project source, original official DMG, official installed product and user footage preserved.",
+  "removed": [
+    {
+      "path": ".build",
+      "logical_bytes": 70174653
+    },
+    {
+      "path": ".deps",
+      "logical_bytes": 75962742
+    },
+    {
+      "path": "build",
+      "logical_bytes": 9018154
+    },
+    {
+      "path": ".pytest_cache",
+      "logical_bytes": 10843
+    },
+    {
+      "path": "0000-.build",
+      "logical_bytes": 7038961685
+    }
+  ],
+  "removed_logical_bytes": 7194128077,
+  "observed_free_before": 449275736064,
+  "observed_free_after": 456492675072,
+  "unix": 1793199629.871289
+}

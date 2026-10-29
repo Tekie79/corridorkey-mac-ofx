@@ -1,0 +1,56 @@
+{
+  "status": "Passed",
+  "artifact_sha256": "f58245db7b45ce9ead793732c7e05f12d97c9c9a6e6681c744437b040ff07e86",
+  "scope": "Fresh installed0.9.7 Full1080 actual green, blue and glass outputs visually inspected as source, matte and composites over grey/red. Pixel match with prior native output is exact.",
+  "frames": [
+    {
+      "clip": "Green",
+      "frame": 30,
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "maximum_error_vs_previously_reviewed_native": 0.0,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0,
+      "soft_alpha_fraction": 0.00998119212962963
+    },
+    {
+      "clip": "Blue",
+      "frame": 30,
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "maximum_error_vs_previously_reviewed_native": 0.0,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0,
+      "soft_alpha_fraction": 0.02236304012345679
+    },
+    {
+      "clip": "Glass",
+      "frame": 30,
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "maximum_error_vs_previously_reviewed_native": 0.0,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0,
+      "soft_alpha_fraction": 0.1862379436728395
+    }
+  ],
+  "observations": [
+    "Green clothing retained; hair and tracking-mark removal inspected.",
+    "Blue airplane remains with soft propeller motion-blur alpha.",
+    "Glass, pouring stream and partial alpha retained; residual refraction/backing color can need manual despill."
+  ],
+  "limitations": [
+    "No guarantee of physically perfect refraction or arbitrary-footage mattes.",
+    "Native internal UHD excluded."
+  ],
+  "review_image_sha256": "988b555f5c0272770e2c5af1ee950f771cfc07b5d0723a224794dc9e106beec0"
+}

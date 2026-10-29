@@ -1,0 +1,6 @@
+{
+  "alpha_mae": 0.005,
+  "alpha_p99": 0.03,
+  "alpha_max": 0.1,
+  "foreground_mae": 0.01
+}

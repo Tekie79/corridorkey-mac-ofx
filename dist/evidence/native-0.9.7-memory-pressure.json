@@ -1,0 +1,60 @@
+{
+  "status": "Passed",
+  "artifact_sha256": "f58245db7b45ce9ead793732c7e05f12d97c9c9a6e6681c744437b040ff07e86",
+  "scope": "Installed production Engine.frame/backend MPS paths in isolated qualification process: tightened allocator ceiling induces real MPS OOM, restores normal profile and retries identical full512x512 float32 request; Resolve remains open. No production worker or source changed.",
+  "injected_allocator_fraction": 0.1228805837831361,
+  "error": "CorridorKey MPS inference failed; no fallback image was produced: MPS backend out of memory (MPS allocated: 5.52 GiB, other allocations: 302.20 MiB, max allowed: 4.60 GiB). Tried to allocate 3.00 MiB on private pool. Use PYTORCH_MPS_HIGH_WATERMARK_RATIO=0.0 to disable upper limit for memory allocations (may cause system failure).. If this is an unsupported MPS operation, capture the worker traceback for the compatibility port. If it is out of memory, test a smaller frame.",
+  "error_seconds": 0.017313042015302926,
+  "state_after_error": "ready",
+  "active_jobs_after_error": 0,
+  "recovered_seconds": 0.3918863750004675,
+  "recovered_shape": [
+    512,
+    512,
+    4
+  ],
+  "recovered_finite": true,
+  "backend": {
+    "backend": "pytorch_mps",
+    "loaded": true,
+    "device": "mps",
+    "dtype": "float32",
+    "torch_version": "2.9.1",
+    "upstream_root": "/Library/Application Support/HarvestPictures/CorridorKeyMac/Runtime/0.9.7-b1.027347b5a7e5/upstream",
+    "model_root": "/Library/Application Support/HarvestPictures/CorridorKeyMac/Models/ck2-cf44a8db3f02",
+    "audited_upstream_commit": "485f5e9ab759ead6138cc990776184b59d6ea971",
+    "temporal_mode": "independent_frame_T1",
+    "clip_temporal_analysis": false,
+    "completed_temporal_shots": 0,
+    "automatic_cpu_model_fallback": false,
+    "cpu_preprocessing": [
+      "transfer_functions",
+      "reflect_padding",
+      "foundation_area_resize"
+    ],
+    "cpu_postprocessing": [
+      "asinh_decode",
+      "crop",
+      "transfer_functions",
+      "optional_green_despill"
+    ],
+    "input_spaces": [
+      "srgb",
+      "linear",
+      "rec709_gamma24"
+    ],
+    "input_alpha": "only used as a hint when explicitly selected",
+    "output_alpha": "straight foreground RGB plus clamped model matte",
+    "successful_frames": 2,
+    "completed_network_calls": {
+      "cradio": 2,
+      "moge_encoder": 2,
+      "rvm": 2,
+      "stage1": 2,
+      "stage2": 2
+    },
+    "last_error": null,
+    "mps_current_allocated_bytes": 4938861056,
+    "mps_driver_allocated_bytes": 6256541696
+  }
+}

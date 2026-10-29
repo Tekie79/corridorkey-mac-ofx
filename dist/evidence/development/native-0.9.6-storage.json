@@ -1,0 +1,11 @@
+{
+  "build_id": "0.9.6-b1.8e66e8a42b10",
+  "macos": "26.3.2",
+  "architecture": "arm64",
+  "runtime_bytes": 5397460550,
+  "models_bytes": 5076141689,
+  "cache_bytes": 21466003498,
+  "cache_budget_bytes": 21474836480,
+  "free_bytes": 300135530496,
+  "cache_location": "~/Library/Caches/org.harvestpictures.CorridorKeyMac"
+}

@@ -1,0 +1,8 @@
+{
+  "status": "Passed",
+  "artifact_sha256": "f58245db7b45ce9ead793732c7e05f12d97c9c9a6e6681c744437b040ff07e86",
+  "scope": "Actual installed Manager Release GPU refused during real60frame native MPS temporal processing; shared worker retained.",
+  "ui_error": "RuntimeError: Maintenance blocked: GPU work is active Open CorridorKey Mac Manager \u2192 Verify/Repair.",
+  "worker_pid": 79657,
+  "worker_still_present": true
+}

@@ -1,0 +1,19 @@
+{
+  "status": "Passed",
+  "artifact_sha256": "f58245db7b45ce9ead793732c7e05f12d97c9c9a6e6681c744437b040ff07e86",
+  "scope": "Actual installed0.9.7 worker killed during Full1080p temporal inference. Resolve automatically restarted one worker and completed the same native render while the entire checkout was renamed away.",
+  "killed_worker_pid": 79657,
+  "recovered_worker_pid": 83714,
+  "completed_temporal_shots_after_restart": 1,
+  "actual_output_maximum_error_against_prior": 0.0,
+  "checkout_absent_when_observed": false,
+  "output_written_during_relocation": true,
+  "recovery_upper_bound_seconds": 26.445812702178955,
+  "automatic_recovery_without_terminal_worker": true,
+  "controller_state": {
+    "state": "restored",
+    "unix": 1793196452.008037,
+    "root_exists": true,
+    "away_exists": false
+  }
+}

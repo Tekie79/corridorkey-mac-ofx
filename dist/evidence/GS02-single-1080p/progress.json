@@ -1,0 +1,13 @@
+{
+  "completed": 60,
+  "last": {
+    "frame": 59,
+    "seconds": 2.820114166010171,
+    "input_sha256": "6787277cbbd80694f76163fdc912e5348d42c40e2c336eb625003a454744da7a",
+    "output_sha256": "d891ef07a89161a5c729a7b40d10b412b17ab6156379d2cf914441caa6323e44",
+    "alpha_min": 0.0,
+    "alpha_max": 1.0,
+    "mps_current": 4938861056,
+    "mps_driver": 12363546624
+  }
+}

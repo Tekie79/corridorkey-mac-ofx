@@ -1,0 +1,22 @@
+{
+  "artifact_sha256": "7a023538ad322b9eee26357b3dd2c2aecc16c292f6feb44837e3ffa00d590c0a",
+  "status": "Passed",
+  "scope": "Native2second stack sampling of automatically launched installed worker50227 during real1080 temporal analysis, plus completed real network counters and MPS float32/fallback diagnostics",
+  "pid": 50227,
+  "native_stack_evidence": {
+    "MPSGraph": "+                     !               :                           | +         247 at::mps::MPSStream::executeMPSGraph(MPSGraph*, NSDictionary*, NSDictionary*, at::mps::SyncType)  (in libtorch_cpu.dylib) + 160  [0x14c072658]",
+    "Metal.CommandQueueDispatch": "324 Thread_<multiple>   DispatchQueue_61: com.Metal.CommandQueueDispatch  (serial)",
+    "at::mps::MPSStream": "+                     !               :                           | +         247 at::mps::MPSStream::executeMPSGraph(MPSGraph*, NSDictionary*, NSDictionary*, at::mps::SyncType)  (in libtorch_cpu.dylib) + 160  [0x14c072658]",
+    "_scaled_dot_product_attention_math_for_mps": "+                     !               :                           | +     247 at::_ops::_scaled_dot_product_attention_math_for_mps::call(at::Tensor const&, at::Tensor const&, at::Tensor const&, std::optional<at::Tensor> const&, double, bool, std::optional<at::Tensor> const&, std::optional<double>)  (in libtorch_cpu.dylib) + 420  [0x148053618]"
+  },
+  "completed_network_calls": {
+    "cradio": 138,
+    "moge_encoder": 138,
+    "rvm": 138,
+    "stage1": 107,
+    "stage2": 138
+  },
+  "device": "mps",
+  "dtype": "float32",
+  "automatic_cpu_model_fallback": false
+}

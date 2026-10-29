@@ -1,0 +1,257 @@
+2026-10-27 20:36:57,005 INFO using MLP layer as FFN
+Loading CorridorKey v2 runtime weights: /Library/Application Support/HarvestPictures/CorridorKeyMac/Models/ck2-cf44a8db3f02/weights/corridorkey_v2.safetensors
+[RVM] loaded /Library/Application Support/HarvestPictures/CorridorKeyMac/Models/ck2-cf44a8db3f02/vfms/rvm/pretrain_rvm_small16_256_204031069.npz (309 tensors)
+[FrozenFoundations] loaded stats from /Library/Application Support/HarvestPictures/CorridorKeyMac/Models/ck2-cf44a8db3f02/weights/foundation_stats.safetensors
+  loaded weights; omitted frozen foundation tensors=982
+2026-10-27 21:40:09,982 INFO Client canceled or disconnected
+2026-10-27 21:40:20,029 INFO Client canceled or disconnected
+2026-10-27 21:40:20,029 INFO Client canceled or disconnected
+2026-10-27 21:40:20,030 INFO Client canceled or disconnected
+2026-10-27 21:40:20,030 INFO Client canceled or disconnected
+2026-10-27 21:40:33,142 INFO using MLP layer as FFN
+Loading CorridorKey v2 runtime weights: /Library/Application Support/HarvestPictures/CorridorKeyMac/Models/ck2-cf44a8db3f02/weights/corridorkey_v2.safetensors
+[RVM] loaded /Library/Application Support/HarvestPictures/CorridorKeyMac/Models/ck2-cf44a8db3f02/vfms/rvm/pretrain_rvm_small16_256_204031069.npz (309 tensors)
+[FrozenFoundations] loaded stats from /Library/Application Support/HarvestPictures/CorridorKeyMac/Models/ck2-cf44a8db3f02/weights/foundation_stats.safetensors
+  loaded weights; omitted frozen foundation tensors=982
+2026-10-27 22:35:15,036 INFO Client canceled or disconnected
+2026-10-27 22:35:24,731 INFO Client canceled or disconnected
+2026-10-27 22:35:24,732 INFO Client canceled or disconnected
+2026-10-27 22:35:24,732 INFO Client canceled or disconnected
+2026-10-27 22:35:24,732 INFO Client canceled or disconnected
+2026-10-27 22:35:35,862 INFO Client canceled or disconnected
+2026-10-27 22:35:38,183 INFO using MLP layer as FFN
+Loading CorridorKey v2 runtime weights: /Library/Application Support/HarvestPictures/CorridorKeyMac/Models/ck2-cf44a8db3f02/weights/corridorkey_v2.safetensors
+[RVM] loaded /Library/Application Support/HarvestPictures/CorridorKeyMac/Models/ck2-cf44a8db3f02/vfms/rvm/pretrain_rvm_small16_256_204031069.npz (309 tensors)
+[FrozenFoundations] loaded stats from /Library/Application Support/HarvestPictures/CorridorKeyMac/Models/ck2-cf44a8db3f02/weights/foundation_stats.safetensors
+  loaded weights; omitted frozen foundation tensors=982
+2026-10-27 22:43:51,780 INFO using MLP layer as FFN
+2026-10-27 23:05:35,538 ERROR Request failed
+Traceback (most recent call last):
+  File "/Library/Application Support/HarvestPictures/CorridorKeyMac/Runtime/0.9.4-b1.eb60d578f136/lib/python3.12/site-packages/ckmac/engine.py", line 246, in handle
+    image=e.temporal.run(req['keys'],settings,req['requested'],revision=req['revision'],first_hint=req.get('first_hint',False),provenance=req.get('provenance'),cancel=canceled,progress=progress,profile=profile)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Application Support/HarvestPictures/CorridorKeyMac/Runtime/0.9.4-b1.eb60d578f136/lib/python3.12/site-packages/ckmac/temporal.py", line 95, in run
+    p=prepared(i);h,w=p['model'].shape[:2]
+      ^^^^^^^^^^^
+  File "/Library/Application Support/HarvestPictures/CorridorKeyMac/Runtime/0.9.4-b1.eb60d578f136/lib/python3.12/site-packages/ckmac/temporal.py", line 75, in prepared
+    check();frame=self.cache.get(keys[i])
+    ^^^^^^^
+  File "/Library/Application Support/HarvestPictures/CorridorKeyMac/Runtime/0.9.4-b1.eb60d578f136/lib/python3.12/site-packages/ckmac/temporal.py", line 73, in check
+    if cancel():raise RuntimeError('Temporal job canceled; incomplete generation was not activated')
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: Temporal job canceled; incomplete generation was not activated
+2026-10-27 23:05:38,235 ERROR Request failed
+Traceback (most recent call last):
+  File "/Library/Application Support/HarvestPictures/CorridorKeyMac/Runtime/0.9.4-b1.eb60d578f136/lib/python3.12/site-packages/ckmac/engine.py", line 246, in handle
+    image=e.temporal.run(req['keys'],settings,req['requested'],revision=req['revision'],first_hint=req.get('first_hint',False),provenance=req.get('provenance'),cancel=canceled,progress=progress,profile=profile)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Application Support/HarvestPictures/CorridorKeyMac/Runtime/0.9.4-b1.eb60d578f136/lib/python3.12/site-packages/ckmac/temporal.py", line 95, in run
+    p=prepared(i);h,w=p['model'].shape[:2]
+      ^^^^^^^^^^^
+  File "/Library/Application Support/HarvestPictures/CorridorKeyMac/Runtime/0.9.4-b1.eb60d578f136/lib/python3.12/site-packages/ckmac/temporal.py", line 75, in prepared
+    check();frame=self.cache.get(keys[i])
+    ^^^^^^^
+  File "/Library/Application Support/HarvestPictures/CorridorKeyMac/Runtime/0.9.4-b1.eb60d578f136/lib/python3.12/site-packages/ckmac/temporal.py", line 73, in check
+    if cancel():raise RuntimeError('Temporal job canceled; incomplete generation was not activated')
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: Temporal job canceled; incomplete generation was not activated
+2026-10-27 23:05:52,719 INFO Client canceled or disconnected
+2026-10-27 23:05:53,878 INFO Client canceled or disconnected
+2026-10-27 23:05:55,594 INFO Client canceled or disconnected
+2026-10-27 23:05:59,422 INFO Client canceled or disconnected
+2026-10-27 23:05:59,434 INFO Client canceled or disconnected
+2026-10-27 23:05:59,476 INFO Client canceled or disconnected
+2026-10-27 23:05:59,485 INFO Client canceled or disconnected
+2026-10-27 23:05:59,494 INFO Client canceled or disconnected
+2026-10-27 23:05:59,518 INFO Client canceled or disconnected
+2026-10-27 23:05:59,544 INFO Client canceled or disconnected
+2026-10-27 23:05:59,565 INFO Client canceled or disconnected
+2026-10-27 23:05:59,574 INFO Client canceled or disconnected
+2026-10-27 23:05:59,583 INFO Client canceled or disconnected
+2026-10-27 23:05:59,592 INFO Client canceled or disconnected
+2026-10-27 23:05:59,617 INFO Client canceled or disconnected
+2026-10-27 23:05:59,628 INFO Client canceled or disconnected
+2026-10-27 23:05:59,659 INFO Client canceled or disconnected
+2026-10-27 23:05:59,669 INFO Client canceled or disconnected
+2026-10-27 23:05:59,678 INFO Client canceled or disconnected
+2026-10-27 23:05:59,702 INFO Client canceled or disconnected
+2026-10-27 23:05:59,711 INFO Client canceled or disconnected
+2026-10-27 23:05:59,720 INFO Client canceled or disconnected
+Loading CorridorKey v2 runtime weights: /Library/Application Support/HarvestPictures/CorridorKeyMac/Models/ck2-cf44a8db3f02/weights/corridorkey_v2.safetensors
+[RVM] loaded /Library/Application Support/HarvestPictures/CorridorKeyMac/Models/ck2-cf44a8db3f02/vfms/rvm/pretrain_rvm_small16_256_204031069.npz (309 tensors)
+[FrozenFoundations] loaded stats from /Library/Application Support/HarvestPictures/CorridorKeyMac/Models/ck2-cf44a8db3f02/weights/foundation_stats.safetensors
+  loaded weights; omitted frozen foundation tensors=982
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/Library/Application Support/HarvestPictures/CorridorKeyMac/Runtime/0.9.5-b1.a68f268bb4d0/lib/python3.12/site-packages/ckmac/engine.py", line 354, in <module>
+    main()
+  File "/Library/Application Support/HarvestPictures/CorridorKeyMac/Runtime/0.9.5-b1.a68f268bb4d0/lib/python3.12/site-packages/ckmac/engine.py", line 332, in main
+    fd=prepare_socket(args.socket)
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Application Support/HarvestPictures/CorridorKeyMac/Runtime/0.9.5-b1.a68f268bb4d0/lib/python3.12/site-packages/ckmac/server.py", line 207, in prepare_socket
+    fcntl.flock(descriptor, fcntl.LOCK_EX | fcntl.LOCK_NB)
+BlockingIOError: [Errno 35] Resource temporarily unavailable
+2026-10-27 23:25:02,375 INFO Client canceled or disconnected
+2026-10-27 23:25:02,376 INFO Client canceled or disconnected
+2026-10-27 23:25:02,376 INFO Client canceled or disconnected
+2026-10-27 23:25:02,376 INFO Client canceled or disconnected
+2026-10-27 23:25:15,732 INFO using MLP layer as FFN
+Loading CorridorKey v2 runtime weights: /Library/Application Support/HarvestPictures/CorridorKeyMac/Models/ck2-cf44a8db3f02/weights/corridorkey_v2.safetensors
+[RVM] loaded /Library/Application Support/HarvestPictures/CorridorKeyMac/Models/ck2-cf44a8db3f02/vfms/rvm/pretrain_rvm_small16_256_204031069.npz (309 tensors)
+[FrozenFoundations] loaded stats from /Library/Application Support/HarvestPictures/CorridorKeyMac/Models/ck2-cf44a8db3f02/weights/foundation_stats.safetensors
+  loaded weights; omitted frozen foundation tensors=982
+2026-10-27 23:50:31,941 INFO using MLP layer as FFN
+Loading CorridorKey v2 runtime weights: /Library/Application Support/HarvestPictures/CorridorKeyMac/Models/ck2-cf44a8db3f02/weights/corridorkey_v2.safetensors
+[RVM] loaded /Library/Application Support/HarvestPictures/CorridorKeyMac/Models/ck2-cf44a8db3f02/vfms/rvm/pretrain_rvm_small16_256_204031069.npz (309 tensors)
+[FrozenFoundations] loaded stats from /Library/Application Support/HarvestPictures/CorridorKeyMac/Models/ck2-cf44a8db3f02/weights/foundation_stats.safetensors
+  loaded weights; omitted frozen foundation tensors=982
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/Library/Application Support/HarvestPictures/CorridorKeyMac/Runtime/0.9.6-b1.8e66e8a42b10/lib/python3.12/site-packages/ckmac/engine.py", line 356, in <module>
+    main()
+  File "/Library/Application Support/HarvestPictures/CorridorKeyMac/Runtime/0.9.6-b1.8e66e8a42b10/lib/python3.12/site-packages/ckmac/engine.py", line 334, in main
+    fd=prepare_socket(args.socket)
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Application Support/HarvestPictures/CorridorKeyMac/Runtime/0.9.6-b1.8e66e8a42b10/lib/python3.12/site-packages/ckmac/server.py", line 207, in prepare_socket
+    fcntl.flock(descriptor, fcntl.LOCK_EX | fcntl.LOCK_NB)
+BlockingIOError: [Errno 35] Resource temporarily unavailable
+2026-10-28 00:05:32,741 INFO using MLP layer as FFN
+2026-10-28 00:16:44,053 INFO Client canceled or disconnected
+2026-10-28 01:11:20,673 INFO using MLP layer as FFN
+Loading CorridorKey v2 runtime weights: /Library/Application Support/HarvestPictures/CorridorKeyMac/Models/ck2-cf44a8db3f02/weights/corridorkey_v2.safetensors
+[RVM] loaded /Library/Application Support/HarvestPictures/CorridorKeyMac/Models/ck2-cf44a8db3f02/vfms/rvm/pretrain_rvm_small16_256_204031069.npz (309 tensors)
+[FrozenFoundations] loaded stats from /Library/Application Support/HarvestPictures/CorridorKeyMac/Models/ck2-cf44a8db3f02/weights/foundation_stats.safetensors
+  loaded weights; omitted frozen foundation tensors=982
+2026-10-28 01:13:05,948 INFO using MLP layer as FFN
+2026-10-28 01:14:16,628 INFO Client canceled or disconnected
+2026-10-28 01:14:16,636 INFO Client canceled or disconnected
+2026-10-28 01:14:16,652 INFO Client canceled or disconnected
+Loading CorridorKey v2 runtime weights: /Library/Application Support/HarvestPictures/CorridorKeyMac/Models/ck2-cf44a8db3f02/weights/corridorkey_v2.safetensors
+[RVM] loaded /Library/Application Support/HarvestPictures/CorridorKeyMac/Models/ck2-cf44a8db3f02/vfms/rvm/pretrain_rvm_small16_256_204031069.npz (309 tensors)
+[FrozenFoundations] loaded stats from /Library/Application Support/HarvestPictures/CorridorKeyMac/Models/ck2-cf44a8db3f02/weights/foundation_stats.safetensors
+  loaded weights; omitted frozen foundation tensors=982
+2026-10-28 01:14:25,999 INFO using MLP layer as FFN
+2026-10-28 01:16:53,224 ERROR Request failed
+Traceback (most recent call last):
+  File "/Library/Application Support/HarvestPictures/CorridorKeyMac/Runtime/0.9.6-b1.8e66e8a42b10/lib/python3.12/site-packages/ckmac/engine.py", line 194, in handle
+    raise RuntimeError('Maintenance blocked: GPU work is active')
+RuntimeError: Maintenance blocked: GPU work is active
+Loading CorridorKey v2 runtime weights: /Library/Application Support/HarvestPictures/CorridorKeyMac/Models/ck2-cf44a8db3f02/weights/corridorkey_v2.safetensors
+[RVM] loaded /Library/Application Support/HarvestPictures/CorridorKeyMac/Models/ck2-cf44a8db3f02/vfms/rvm/pretrain_rvm_small16_256_204031069.npz (309 tensors)
+[FrozenFoundations] loaded stats from /Library/Application Support/HarvestPictures/CorridorKeyMac/Models/ck2-cf44a8db3f02/weights/foundation_stats.safetensors
+  loaded weights; omitted frozen foundation tensors=982
+2026-10-28 01:17:52,544 INFO using MLP layer as FFN
+2026-10-28 01:19:19,530 INFO Client canceled or disconnected
+2026-10-28 01:26:51,623 ERROR Request failed
+Traceback (most recent call last):
+  File "/Library/Application Support/HarvestPictures/CorridorKeyMac/Runtime/0.9.6-b1.8e66e8a42b10/lib/python3.12/site-packages/ckmac/engine.py", line 248, in handle
+    image=e.temporal.run(req['keys'],settings,req['requested'],revision=req['revision'],first_hint=req.get('first_hint',False),provenance=req.get('provenance'),cancel=canceled,progress=progress,profile=profile,expected_shape=(h,w,4))
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Application Support/HarvestPictures/CorridorKeyMac/Runtime/0.9.6-b1.8e66e8a42b10/lib/python3.12/site-packages/ckmac/temporal.py", line 160, in run
+    flush(next_start)
+  File "/Library/Application Support/HarvestPictures/CorridorKeyMac/Runtime/0.9.6-b1.8e66e8a42b10/lib/python3.12/site-packages/ckmac/temporal.py", line 119, in flush
+    check();p=prepared(i)
+    ^^^^^^^
+  File "/Library/Application Support/HarvestPictures/CorridorKeyMac/Runtime/0.9.6-b1.8e66e8a42b10/lib/python3.12/site-packages/ckmac/temporal.py", line 76, in check
+    if cancel():raise RuntimeError('Temporal job canceled; incomplete generation was not activated')
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: Temporal job canceled; incomplete generation was not activated
+Loading CorridorKey v2 runtime weights: /Library/Application Support/HarvestPictures/CorridorKeyMac/Models/ck2-cf44a8db3f02/weights/corridorkey_v2.safetensors
+[RVM] loaded /Library/Application Support/HarvestPictures/CorridorKeyMac/Models/ck2-cf44a8db3f02/vfms/rvm/pretrain_rvm_small16_256_204031069.npz (309 tensors)
+[FrozenFoundations] loaded stats from /Library/Application Support/HarvestPictures/CorridorKeyMac/Models/ck2-cf44a8db3f02/weights/foundation_stats.safetensors
+  loaded weights; omitted frozen foundation tensors=982
+2026-10-28 01:50:03,269 INFO using MLP layer as FFN
+Loading CorridorKey v2 runtime weights: /Library/Application Support/HarvestPictures/CorridorKeyMac/Models/ck2-cf44a8db3f02/weights/corridorkey_v2.safetensors
+[RVM] loaded /Library/Application Support/HarvestPictures/CorridorKeyMac/Models/ck2-cf44a8db3f02/vfms/rvm/pretrain_rvm_small16_256_204031069.npz (309 tensors)
+[FrozenFoundations] loaded stats from /Library/Application Support/HarvestPictures/CorridorKeyMac/Models/ck2-cf44a8db3f02/weights/foundation_stats.safetensors
+  loaded weights; omitted frozen foundation tensors=982
+2026-10-28 02:29:35,714 INFO using MLP layer as FFN
+2026-10-28 02:42:41,682 ERROR Request failed
+Traceback (most recent call last):
+  File "/Library/Application Support/HarvestPictures/CorridorKeyMac/Runtime/0.9.6-b1.8e66e8a42b10/lib/python3.12/site-packages/ckmac/engine.py", line 194, in handle
+    raise RuntimeError('Maintenance blocked: GPU work is active')
+RuntimeError: Maintenance blocked: GPU work is active
+Loading CorridorKey v2 runtime weights: /Library/Application Support/HarvestPictures/CorridorKeyMac/Models/ck2-cf44a8db3f02/weights/corridorkey_v2.safetensors
+[RVM] loaded /Library/Application Support/HarvestPictures/CorridorKeyMac/Models/ck2-cf44a8db3f02/vfms/rvm/pretrain_rvm_small16_256_204031069.npz (309 tensors)
+[FrozenFoundations] loaded stats from /Library/Application Support/HarvestPictures/CorridorKeyMac/Models/ck2-cf44a8db3f02/weights/foundation_stats.safetensors
+  loaded weights; omitted frozen foundation tensors=982
+2026-10-28 03:05:17,745 INFO using MLP layer as FFN
+Loading CorridorKey v2 runtime weights: /Library/Application Support/HarvestPictures/CorridorKeyMac/Models/ck2-cf44a8db3f02/weights/corridorkey_v2.safetensors
+[RVM] loaded /Library/Application Support/HarvestPictures/CorridorKeyMac/Models/ck2-cf44a8db3f02/vfms/rvm/pretrain_rvm_small16_256_204031069.npz (309 tensors)
+[FrozenFoundations] loaded stats from /Library/Application Support/HarvestPictures/CorridorKeyMac/Models/ck2-cf44a8db3f02/weights/foundation_stats.safetensors
+  loaded weights; omitted frozen foundation tensors=982
+2026-10-28 08:21:35,883 INFO using MLP layer as FFN
+Loading CorridorKey v2 runtime weights: /Library/Application Support/HarvestPictures/CorridorKeyMac/Models/ck2-cf44a8db3f02/weights/corridorkey_v2.safetensors
+[RVM] loaded /Library/Application Support/HarvestPictures/CorridorKeyMac/Models/ck2-cf44a8db3f02/vfms/rvm/pretrain_rvm_small16_256_204031069.npz (309 tensors)
+[FrozenFoundations] loaded stats from /Library/Application Support/HarvestPictures/CorridorKeyMac/Models/ck2-cf44a8db3f02/weights/foundation_stats.safetensors
+  loaded weights; omitted frozen foundation tensors=982
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/Library/Application Support/HarvestPictures/CorridorKeyMac/Runtime/0.9.7-b1.027347b5a7e5/lib/python3.12/site-packages/ckmac/engine.py", line 356, in <module>
+    main()
+  File "/Library/Application Support/HarvestPictures/CorridorKeyMac/Runtime/0.9.7-b1.027347b5a7e5/lib/python3.12/site-packages/ckmac/engine.py", line 334, in main
+    fd=prepare_socket(args.socket)
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Application Support/HarvestPictures/CorridorKeyMac/Runtime/0.9.7-b1.027347b5a7e5/lib/python3.12/site-packages/ckmac/server.py", line 207, in prepare_socket
+    fcntl.flock(descriptor, fcntl.LOCK_EX | fcntl.LOCK_NB)
+BlockingIOError: [Errno 35] Resource temporarily unavailable
+2026-10-28 08:34:29,410 INFO Client canceled or disconnected
+2026-10-28 08:34:29,410 INFO Client canceled or disconnected
+2026-10-28 08:34:29,410 INFO Client canceled or disconnected
+2026-10-28 08:34:42,049 INFO using MLP layer as FFN
+2026-10-28 08:47:18,808 ERROR Request failed
+Traceback (most recent call last):
+  File "/Library/Application Support/HarvestPictures/CorridorKeyMac/Runtime/0.9.7-b1.027347b5a7e5/lib/python3.12/site-packages/ckmac/engine.py", line 194, in handle
+    raise RuntimeError('Maintenance blocked: GPU work is active')
+RuntimeError: Maintenance blocked: GPU work is active
+2026-10-28 10:02:32,336 ERROR Request failed
+Traceback (most recent call last):
+  File "/Library/Application Support/HarvestPictures/CorridorKeyMac/Runtime/0.9.7-b1.027347b5a7e5/lib/python3.12/site-packages/ckmac/engine.py", line 248, in handle
+    image=e.temporal.run(req['keys'],settings,req['requested'],revision=req['revision'],first_hint=req.get('first_hint',False),provenance=req.get('provenance'),cancel=canceled,progress=progress,profile=profile,expected_shape=(h,w,4))
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Application Support/HarvestPictures/CorridorKeyMac/Runtime/0.9.7-b1.027347b5a7e5/lib/python3.12/site-packages/ckmac/temporal.py", line 102, in run
+    p=prepared(i);h,w=p['model'].shape[:2]
+      ^^^^^^^^^^^
+  File "/Library/Application Support/HarvestPictures/CorridorKeyMac/Runtime/0.9.7-b1.027347b5a7e5/lib/python3.12/site-packages/ckmac/temporal.py", line 78, in prepared
+    check();frame=self.cache.get(keys[i])
+    ^^^^^^^
+  File "/Library/Application Support/HarvestPictures/CorridorKeyMac/Runtime/0.9.7-b1.027347b5a7e5/lib/python3.12/site-packages/ckmac/temporal.py", line 76, in check
+    if cancel():raise RuntimeError('Temporal job canceled; incomplete generation was not activated')
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: Temporal job canceled; incomplete generation was not activated
+2026-10-28 10:05:40,646 INFO using MLP layer as FFN
+Loading CorridorKey v2 runtime weights: /Library/Application Support/HarvestPictures/CorridorKeyMac/Models/ck2-cf44a8db3f02/weights/corridorkey_v2.safetensors
+[RVM] loaded /Library/Application Support/HarvestPictures/CorridorKeyMac/Models/ck2-cf44a8db3f02/vfms/rvm/pretrain_rvm_small16_256_204031069.npz (309 tensors)
+[FrozenFoundations] loaded stats from /Library/Application Support/HarvestPictures/CorridorKeyMac/Models/ck2-cf44a8db3f02/weights/foundation_stats.safetensors
+  loaded weights; omitted frozen foundation tensors=982
+2026-10-28 10:10:29,204 INFO using MLP layer as FFN
+2026-10-28 10:10:34,355 ERROR Request failed
+Traceback (most recent call last):
+  File "/Library/Application Support/HarvestPictures/CorridorKeyMac/Runtime/0.9.7-b1.027347b5a7e5/lib/python3.12/site-packages/ckmac/engine.py", line 237, in handle
+    if e.state!='ready' or e.stopping:raise RuntimeError(e.error or 'GPU engine is preparing or busy')
+                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: GPU engine is preparing or busy
+2026-10-28 10:10:34,566 ERROR Request failed
+Traceback (most recent call last):
+  File "/Library/Application Support/HarvestPictures/CorridorKeyMac/Runtime/0.9.7-b1.027347b5a7e5/lib/python3.12/site-packages/ckmac/engine.py", line 226, in handle
+    if not e.lock.acquire(False):raise RuntimeError('Finish or cancel active processing before clearing this node cache')
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: Finish or cancel active processing before clearing this node cache
+Loading CorridorKey v2 runtime weights: /Library/Application Support/HarvestPictures/CorridorKeyMac/Models/ck2-cf44a8db3f02/weights/corridorkey_v2.safetensors
+[RVM] loaded /Library/Application Support/HarvestPictures/CorridorKeyMac/Models/ck2-cf44a8db3f02/vfms/rvm/pretrain_rvm_small16_256_204031069.npz (309 tensors)
+[FrozenFoundations] loaded stats from /Library/Application Support/HarvestPictures/CorridorKeyMac/Models/ck2-cf44a8db3f02/weights/foundation_stats.safetensors
+  loaded weights; omitted frozen foundation tensors=982
+2026-10-28 10:15:59,142 INFO using MLP layer as FFN
+2026-10-28 10:16:04,507 ERROR Request failed
+Traceback (most recent call last):
+  File "/Library/Application Support/HarvestPictures/CorridorKeyMac/Runtime/0.9.7-b1.027347b5a7e5/lib/python3.12/site-packages/ckmac/engine.py", line 226, in handle
+    if not e.lock.acquire(False):raise RuntimeError('Finish or cancel active processing before clearing this node cache')
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: Finish or cancel active processing before clearing this node cache
+Loading CorridorKey v2 runtime weights: /Library/Application Support/HarvestPictures/CorridorKeyMac/Models/ck2-cf44a8db3f02/weights/corridorkey_v2.safetensors
+[RVM] loaded /Library/Application Support/HarvestPictures/CorridorKeyMac/Models/ck2-cf44a8db3f02/vfms/rvm/pretrain_rvm_small16_256_204031069.npz (309 tensors)
+[FrozenFoundations] loaded stats from /Library/Application Support/HarvestPictures/CorridorKeyMac/Models/ck2-cf44a8db3f02/weights/foundation_stats.safetensors
+  loaded weights; omitted frozen foundation tensors=982

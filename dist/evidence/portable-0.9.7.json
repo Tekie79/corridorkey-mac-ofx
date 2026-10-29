@@ -1,0 +1,10 @@
+{
+  "status": "Passed",
+  "artifact_sha256": "f58245db7b45ce9ead793732c7e05f12d97c9c9a6e6681c744437b040ff07e86",
+  "scope": "Native arm64 component/regression suites, not Resolve or GPU acceptance",
+  "ctest_suites": 6,
+  "pytest_tests": 116,
+  "pytest_subtests": 6,
+  "source_build_id": "0.9.7-b1.027347b5a7e5",
+  "new_regression": "Mixed acquisition candidate cannot submit until a separate identical capture observation; range/instance isolation."
+}

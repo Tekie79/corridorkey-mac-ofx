@@ -1,0 +1,21 @@
+{
+  "status": "Passed",
+  "policy": {
+    "alpha_mae": 0.005,
+    "alpha_p99": 0.03,
+    "alpha_max": 0.1,
+    "foreground_mae": 0.01
+  },
+  "metrics": {
+    "alpha_mae": 2.9311300053791456e-08,
+    "alpha_p99": 6.556510925292969e-07,
+    "alpha_max": 5.364418029785156e-06,
+    "foreground_mae": 1.1902186258794245e-07
+  },
+  "cpu_seconds": 19.547051958012162,
+  "dimensions": [
+    1920,
+    1012
+  ],
+  "reference": ".build/evidence/mps-GS02-1920/straight_rgba.npy"
+}

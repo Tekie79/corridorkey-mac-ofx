@@ -1,0 +1,7 @@
+{
+  "status": "Blocked",
+  "scope": "Native capture-guard prototype validation",
+  "reason": "macOS Installer is waiting for local administrator authorization. Source and native regression pass; no Resolve claim for the prototype until it is installed.",
+  "source_guard": "include/ckmac/capture_guard.hpp",
+  "unit_result": "6 CTest suites and116pytest tests with6subtests passed"
+}

@@ -1,0 +1,7 @@
+{
+  "artifact_sha256": "7a023538ad322b9eee26357b3dd2c2aecc16c292f6feb44837e3ffa00d590c0a",
+  "scope": "Native Temporal12 same captured pixels, only Input Encoding changed sRGB->Linear; must not reuse prior output",
+  "input_keys_identical": true,
+  "maximum_changed_rgba": 0.4484158754348755,
+  "status": "Passed"
+}

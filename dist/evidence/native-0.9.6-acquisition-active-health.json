@@ -1,0 +1,112 @@
+{
+  "observed_unix": 1793169512.9902,
+  "installed_manifest": {
+    "build_id": "0.9.6-b1.8e66e8a42b10",
+    "code_root": "/Library/Application Support/HarvestPictures/CorridorKeyMac/Runtime/0.9.6-b1.8e66e8a42b10/upstream",
+    "component_versions": {
+      "adapter_math": 3,
+      "cache_format": 3,
+      "manager": 2,
+      "plugin": "0.9.6",
+      "temporal": "upstream-float32-continuous-RVM-configurable-Hann-v2",
+      "worker": 5
+    },
+    "model_root": "/Library/Application Support/HarvestPictures/CorridorKeyMac/Models/ck2-cf44a8db3f02",
+    "model_set_id": "ck2-cf44a8db3f02",
+    "package_version": "0.9.6-beta.1",
+    "protocol": 2,
+    "python": "/Library/Application Support/HarvestPictures/CorridorKeyMac/Runtime/0.9.6-b1.8e66e8a42b10/bin/python3"
+  },
+  "response": {
+    "state": "ready",
+    "error": "",
+    "fixture_passed": true,
+    "model_loaded": true,
+    "user_frames_completed": 2,
+    "cache_hits": 4,
+    "active_jobs": 0,
+    "pid": 58698,
+    "facts": {
+      "installation_verification_seconds": 4.680146250000689,
+      "model_load_seconds": 6.734619124996243,
+      "live_mps_memory": {
+        "current_bytes": 4938861056,
+        "driver_bytes": 10439442432,
+        "recommended_bytes": 40200896512
+      },
+      "maximum_observed_driver_bytes": 13139984384,
+      "fixture_seconds": 0.2604280000086874,
+      "backend": {
+        "backend": "pytorch_mps",
+        "loaded": true,
+        "device": "mps",
+        "dtype": "float32",
+        "torch_version": "2.9.1",
+        "upstream_root": "/Library/Application Support/HarvestPictures/CorridorKeyMac/Runtime/0.9.6-b1.8e66e8a42b10/upstream",
+        "model_root": "/Library/Application Support/HarvestPictures/CorridorKeyMac/Models/ck2-cf44a8db3f02",
+        "audited_upstream_commit": "485f5e9ab759ead6138cc990776184b59d6ea971",
+        "temporal_mode": "upstream_float32_continuous_RVM_Hann_configurable",
+        "clip_temporal_analysis": true,
+        "completed_temporal_shots": 2,
+        "automatic_cpu_model_fallback": false,
+        "cpu_preprocessing": [
+          "transfer_functions",
+          "reflect_padding",
+          "foundation_area_resize"
+        ],
+        "cpu_postprocessing": [
+          "asinh_decode",
+          "crop",
+          "transfer_functions",
+          "optional_green_despill"
+        ],
+        "input_spaces": [
+          "srgb",
+          "linear",
+          "rec709_gamma24"
+        ],
+        "input_alpha": "only used as a hint when explicitly selected",
+        "output_alpha": "straight foreground RGB plus clamped model matte",
+        "successful_frames": 3,
+        "completed_network_calls": {
+          "cradio": 26,
+          "moge_encoder": 26,
+          "rvm": 26,
+          "stage1": 7,
+          "stage2": 26
+        },
+        "last_error": null,
+        "mps_current_allocated_bytes": 4938861056,
+        "mps_driver_allocated_bytes": 11204902912
+      },
+      "profile": {
+        "resolution": 0,
+        "window": 8,
+        "memory_limit": 0,
+        "low_memory": false,
+        "internal_hint_quality": 0.95,
+        "reference_index": 0
+      },
+      "last_distinct_frame_seconds": 2.759839041013038,
+      "temporal_progress": 1.0,
+      "last_temporal_request_seconds": 1.9992372500128113,
+      "last_temporal_analysis_seconds": 1.9992372500128113,
+      "temporal_algorithm": "float32 continuous RVM / Hann baton 8/4 / stage2"
+    },
+    "cache": {
+      "ram_hits": 86,
+      "disk_hits": 16,
+      "metadata_hits": 24,
+      "staged_bytes": 588128240,
+      "ram_bytes": 520436320,
+      "ram_limit": 536870912
+    },
+    "ok": true,
+    "protocol": 2,
+    "build_id": "0.9.6-b1.8e66e8a42b10",
+    "payload_bytes": 0,
+    "session_id": null,
+    "request_id": null,
+    "effect_generation": null
+  }
+}

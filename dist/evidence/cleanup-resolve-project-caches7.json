@@ -1,0 +1,24 @@
+{
+  "status": "Passed",
+  "scope": "Follow-up audit found3 Resolve-managed caches identified by exact qualification-project names in Info.txt. Removed only those folders with Resolve closed;3 production cache identities preserved.",
+  "removed": [
+    {
+      "project": "CorridorKeyMac Qualification 20261027",
+      "path": "/Users/harvest/Documents/CacheClip/40113203-d707-41c7-a25c-d8e79ca04d84",
+      "logical_bytes": 99
+    },
+    {
+      "project": "CorridorKeyMac 0.9.6 Time QA",
+      "path": "/Users/harvest/Documents/CacheClip/bdf05d3e-66c9-42a6-9571-5c8ea2b23cc9",
+      "logical_bytes": 90
+    },
+    {
+      "project": "CorridorKeyMac Native Qualification 0.9.1",
+      "path": "/Users/harvest/Documents/CacheClip/d99052d8-b9bd-4d43-a074-6a4103a5a26f",
+      "logical_bytes": 8454247
+    }
+  ],
+  "removed_logical_bytes": 8454436,
+  "other_cache_projects_preserved": 3,
+  "unix": 1793200087.5698502
+}

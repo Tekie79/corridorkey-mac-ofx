@@ -1,0 +1,78 @@
+Loading CorridorKey v2 runtime weights: /Users/harvest/Documents/Ysew_Project/GIT/corridorkey-mac-ofx/.build/models/weights/corridorkey_v2.safetensors
+[RVM] loaded /Users/harvest/Documents/Ysew_Project/GIT/corridorkey-mac-ofx/.build/models/vfms/rvm/pretrain_rvm_small16_256_204031069.npz (309 tensors)
+[FrozenFoundations] loaded stats from /Users/harvest/Documents/Ysew_Project/GIT/corridorkey-mac-ofx/.build/models/weights/foundation_stats.safetensors
+  loaded weights; omitted frozen foundation tensors=982
+{
+  "status": "Failed",
+  "changed_modules": [
+    "stage1.enc_16.0.attn",
+    "stage1.enc_16.1.attn",
+    "stage1.body_64.0.attn",
+    "stage1.body_64.1.attn",
+    "stage1.body_64.2.attn",
+    "stage1.body_64.3.attn",
+    "stage1.body_64.4.attn",
+    "stage1.body_64.5.attn",
+    "stage1.body_64.6.attn",
+    "stage1.body_64.7.attn",
+    "stage1.body_64.8.attn",
+    "stage1.body_64.9.attn",
+    "stage2.pre_blocks.0.attn",
+    "stage2.pre_blocks.4.attn"
+  ],
+  "policy": {
+    "alpha_mae": 0.005,
+    "alpha_p99": 0.03,
+    "alpha_max": 0.1,
+    "foreground_mae": 0.01
+  },
+  "metrics": {
+    "alpha_mae": 0.6826975345611572,
+    "alpha_p99": 0.9200213795900345,
+    "alpha_max": 0.9424694180488586,
+    "foreground_mae": 0.21547172963619232
+  },
+  "seconds": 24.338207916996907,
+  "backend": {
+    "backend": "pytorch_mps",
+    "loaded": true,
+    "device": "mps",
+    "dtype": "float32",
+    "torch_version": "2.9.1",
+    "upstream_root": "/Users/harvest/Documents/Ysew_Project/GIT/corridorkey-mac-ofx/.deps/CorridorKey2.0",
+    "model_root": "/Users/harvest/Documents/Ysew_Project/GIT/corridorkey-mac-ofx/.build/models",
+    "audited_upstream_commit": "485f5e9ab759ead6138cc990776184b59d6ea971",
+    "temporal_mode": "independent_frame_T1",
+    "clip_temporal_analysis": false,
+    "automatic_cpu_model_fallback": false,
+    "cpu_preprocessing": [
+      "transfer_functions",
+      "reflect_padding",
+      "foundation_area_resize"
+    ],
+    "cpu_postprocessing": [
+      "asinh_decode",
+      "crop",
+      "transfer_functions",
+      "optional_green_despill"
+    ],
+    "input_spaces": [
+      "srgb",
+      "linear",
+      "rec709_gamma24"
+    ],
+    "input_alpha": "only used as a hint when explicitly selected",
+    "output_alpha": "straight foreground RGB plus clamped model matte",
+    "successful_frames": 1,
+    "completed_network_calls": {
+      "cradio": 1,
+      "moge_encoder": 1,
+      "rvm": 1,
+      "stage1": 1,
+      "stage2": 1
+    },
+    "last_error": null,
+    "mps_current_allocated_bytes": 4938861056,
+    "mps_driver_allocated_bytes": 32839925760
+  }
+}

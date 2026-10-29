@@ -1,0 +1,17 @@
+[  7%] Built target ckmac-engine-launcher
+[ 22%] Built target ckmac_core
+[ 29%] Built target test_installer_transactions
+[ 37%] Built target ckmac-installer-tool
+[ 55%] Built target test_creative
+[ 59%] Built target test_protocol
+[ 59%] Built target test_pixels
+[ 66%] Built target bridge_probe
+[ 77%] Built target test_ofx_host
+[ 81%] Building OBJCXX object CMakeFiles/ckmac_supervisor.dir/src/worker_manager.mm.o
+[ 85%] Linking CXX static library libckmac_supervisor.a
+[ 85%] Built target ckmac_supervisor
+[ 88%] Linking CXX shared module CorridorKeyMac.ofx.bundle/Contents/MacOS/CorridorKeyMac.ofx
+[ 92%] Linking CXX executable "CorridorKey Mac Manager.app/Contents/MacOS/CorridorKey Mac Manager"
+ld: warning: ignoring duplicate libraries: 'libckmac_core.a'
+[100%] Built target CorridorKeyManager
+[100%] Built target CorridorKeyMac

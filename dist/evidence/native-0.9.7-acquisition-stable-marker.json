@@ -1,0 +1,64 @@
+{
+  "identity": {
+    "algorithm": "upstream-float32-RVM-continuous-Hann-configurable-v2",
+    "build": "0.9.7-b1.027347b5a7e5",
+    "inputs": [
+      "24bfb119e4794d51d5966ac92e3bf1d562e2db31140c95bfa7941694f41e3172",
+      "8986270872a2b7159c3031cd57effbdf156d2730aeee1f20f773ade03c63f1e1",
+      "8af84432f90c398d5c40410f67e682f5037c9a1da9c18d37e64a0c2881f71a2f",
+      "4151bf30441bc053b66627be8f5368ef294e89ef6084934eebc04d0f411d4007",
+      "33aa8c9ef2eede300947e9e3325dff53ea17fa094cb93415094bd32222e96b4a",
+      "18607ca4d9486999117d4e328accef707a9f7b0d5b524aec1ad47acd9bf26414",
+      "8f11f88452d075407e21497d65d4448c65c06192867d1f6574b081e0095225e6",
+      "0cdb0f3a1519c1c24a2ac786068a0973e2b9f1a7a9b4306c2a1421d44331ad01",
+      "e5c87979f4abf7e8ad995aa642ed3f4c22d8f456c976d0f5a5aa712364f2156a",
+      "533058e1de69af9caa63b7b73cb372a861611b7c73e34bba5026ab98abfecf6f",
+      "83f409344b092a7fd87261474dec323c1802246cb419d8912f75fe13d03957e9",
+      "7cc22074dafec94ee1f5c144aa012e7f73971765d99683b465df942d9d0b7a52"
+    ],
+    "settings": {
+      "input_space": "srgb",
+      "hint_mode": "none",
+      "hint_quality": 0.75,
+      "despill_strength": 0.0
+    },
+    "first_hint": false,
+    "revision": 5,
+    "provenance": {
+      "start": 0,
+      "time_domain": "integer_OFX_frames",
+      "end": 11,
+      "fps": 25,
+      "origin": [
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1
+      ]
+    },
+    "profile": {
+      "resolution": 3,
+      "window": 4,
+      "memory_limit": 0,
+      "low_memory": false,
+      "internal_hint_quality": 0.95,
+      "reference_index": 0
+    }
+  },
+  "outputs": [
+    "63df15349372c9b3e3fd687b53c59acd668081a4d5843ed875de06b06868c006",
+    "e4014f20a9e54527f8f5468538430ebec234a401080cb64566f38798ce3d19b5",
+    "384b814758256cd1c1ebe0e2e9767a0661f453b89a7819a77bd3707573c19b3e",
+    "0438e1027506396fe4e60d92b6f1ce0b7a83c22fe622ae1803bfd7ded70e09d6",
+    "843daa033c01ad9039d690a4483b8923519921681acb067a33ead11cce5c8195",
+    "d9c7db4f1d167b292d2bfbc8ca4f13704d52720560ebd30543dc978672390f16",
+    "9387fcbcf2fdfb198d33e556d9c16eac9edc5242257481a995b1db9c603277a2",
+    "92d0330232de2bfcd8df54f9b29cc84ded24b34a355ad4d081c75d4e3b673260",
+    "a514339c4d464ac5ec3be9bf42f7a5be8716e18aaac291fcc729da15b8e41968",
+    "fba7100a97e798be03a5998818bcf84abc7957ad362070059499512a8f23a9b0",
+    "03897cbb3515d7aa5dee26c2ff8bc237ed8f6cf58649faf9f7998804eb6433b4",
+    "6000e5d08b9f8c4e3cd6d9901f41fbf2361fcefcf751cb6b4a90c7f1517d643b"
+  ]
+}

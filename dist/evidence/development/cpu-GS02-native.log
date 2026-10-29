@@ -1,0 +1,25 @@
+Loading CorridorKey v2 runtime weights: /Users/harvest/Documents/Ysew_Project/GIT/corridorkey-mac-ofx/.build/models/weights/corridorkey_v2.safetensors
+[RVM] loaded /Users/harvest/Documents/Ysew_Project/GIT/corridorkey-mac-ofx/.build/models/vfms/rvm/pretrain_rvm_small16_256_204031069.npz (309 tensors)
+[FrozenFoundations] loaded stats from /Users/harvest/Documents/Ysew_Project/GIT/corridorkey-mac-ofx/.build/models/weights/foundation_stats.safetensors
+  loaded weights; omitted frozen foundation tensors=982
+{
+  "status": "Failed",
+  "policy": {
+    "alpha_mae": 0.005,
+    "alpha_p99": 0.03,
+    "alpha_max": 0.1,
+    "foreground_mae": 0.01
+  },
+  "metrics": {
+    "alpha_mae": 0.6826975345611572,
+    "alpha_p99": 0.9200214147567749,
+    "alpha_max": 0.9424691200256348,
+    "foreground_mae": 0.2154717743396759
+  },
+  "cpu_seconds": 100.51420129198232,
+  "dimensions": [
+    4096,
+    2160
+  ],
+  "reference": ".build/evidence/mps-GS02-native/straight_rgba.npy"
+}

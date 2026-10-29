@@ -1,0 +1,10 @@
+{
+  "status": "Passed",
+  "scope": "Source snapshot integrity",
+  "artifact_sha256": "f58245db7b45ce9ead793732c7e05f12d97c9c9a6e6681c744437b040ff07e86",
+  "source_archive": "CorridorKeyMac-0.9.7-beta.1-source.zip",
+  "size": 1511926,
+  "sha256": "770551ac454403de1e106db0f017519ee2cf1c565c484b69824cd787f042053a",
+  "source_build_id": "0.9.7-b1.027347b5a7e5",
+  "files": 98
+}

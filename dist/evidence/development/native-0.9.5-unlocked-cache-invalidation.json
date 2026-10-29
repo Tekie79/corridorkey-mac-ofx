@@ -1,0 +1,108 @@
+{
+  "status": "Passed",
+  "scope": "Exact installed0.9.5 native unlocked Fusion Cache to Disk, source0edit requested2unchanged input, actual temporal recomputation",
+  "source_frames_changed": [
+    0
+  ],
+  "requested_frame": 2,
+  "requested_input_unchanged": true,
+  "max_output_change": 0.04018741846084595,
+  "cache_lock": false,
+  "branch_lock": false,
+  "before": {
+    "identity": {
+      "algorithm": "upstream-float32-RVM-continuous-Hann-configurable-v2",
+      "build": "0.9.5-b1.a68f268bb4d0",
+      "inputs": [
+        "98fc0ff610e0d3a5fa9351db97a91b16f830a9b3fd1dc2d71c7a6d0ca5faa78b",
+        "685d8d57d8d0b14a3e99ab39cde59e0a6ea28a71c5cc26b8fc784c1593bb6e84",
+        "5b1bee6783aec794d58341b4268b4e1ada87a61ca7e8ba5aceae51bb3d199580",
+        "18db71b600cb48c74814874a23fb38904e79f2c40aac18eaa8e91f2224b7a71f"
+      ],
+      "settings": {
+        "input_space": "srgb",
+        "hint_mode": "none",
+        "hint_quality": 0.95,
+        "despill_strength": 0.0
+      },
+      "first_hint": false,
+      "revision": 0,
+      "provenance": {
+        "start": 0,
+        "time_domain": "integer_OFX_frames",
+        "end": 3,
+        "fps": 25,
+        "origin": [
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1
+        ]
+      },
+      "profile": {
+        "resolution": 0,
+        "window": 4,
+        "memory_limit": 0,
+        "low_memory": false,
+        "internal_hint_quality": 0.95,
+        "reference_index": 0
+      }
+    },
+    "outputs": [
+      "e5be36c7d9530de855272a535139aa9bac00aeac7c37c9acef200b5585c101a4",
+      "cb5bbc7308d6b72e4a47e591b02c5f5ef255212284017a4f46c74b1852f636a3",
+      "eddfee78c650e2bab5a9b703913d1454e753bd4dd92320d9314645df13313c3f",
+      "73d5f5ad2d8d503aefe4b9d00135658bdd9d7ec6859ded6d6e550bcb05251eb6"
+    ]
+  },
+  "after": {
+    "identity": {
+      "algorithm": "upstream-float32-RVM-continuous-Hann-configurable-v2",
+      "build": "0.9.5-b1.a68f268bb4d0",
+      "inputs": [
+        "3de06b6bdc7dd79fce5b8f04a134c85aaecc8f17e128825e6247358ef06d999c",
+        "685d8d57d8d0b14a3e99ab39cde59e0a6ea28a71c5cc26b8fc784c1593bb6e84",
+        "5b1bee6783aec794d58341b4268b4e1ada87a61ca7e8ba5aceae51bb3d199580",
+        "18db71b600cb48c74814874a23fb38904e79f2c40aac18eaa8e91f2224b7a71f"
+      ],
+      "settings": {
+        "input_space": "srgb",
+        "hint_mode": "none",
+        "hint_quality": 0.95,
+        "despill_strength": 0.0
+      },
+      "first_hint": false,
+      "revision": 0,
+      "provenance": {
+        "start": 0,
+        "time_domain": "integer_OFX_frames",
+        "end": 3,
+        "fps": 25,
+        "origin": [
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1
+        ]
+      },
+      "profile": {
+        "resolution": 0,
+        "window": 4,
+        "memory_limit": 0,
+        "low_memory": false,
+        "internal_hint_quality": 0.95,
+        "reference_index": 0
+      }
+    },
+    "outputs": [
+      "f971e5ae2959b5825145ec7c9e22fd80f24c58a0718438809f980ce3c41b5e0e",
+      "e2b1ba24acec13d42da4fec78c61082117b8ec576eeb45d5f8a0ab8c4ff894aa",
+      "92ab5f20470ec84fda1d66bce2d80f9bb2ee394bf2b526368baa4a662f0acdb6",
+      "1fbc3a2b16c89b4ebb0f47beb40588f1ef862487ec371e3017984481ad70be59"
+    ]
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "identity": {
+    "algorithm": "upstream-float32-RVM-continuous-Hann-configurable-v2",
+    "build": "0.9.6-b1.8e66e8a42b10",
+    "inputs": [
+      "a1c2284c3cd2ac34b05f1cb13277887ff1b9e571f183ad76d86611965b4ae402",
+      "b58d58859ded9dab1fd5d9f90a0d782a1978238f1348595a908758eaebd8d2d2",
+      "ace044a80abe75371151cba679a7de47a219341d56abd77b4e707a7aea039a34",
+      "3ee9522396d4d1af204a46dc30aecacd5753727c497dd7f81ff0de4374764cf3",
+      "edf3922c706c2154d88f3e246f4a17a9aabe3e3fe34c494b9bec5dc20c13d95b",
+      "27cc9238cf319b27bbe00fd467f276462f414e1ed80590e6af82554df5b078a3"
+    ],
+    "settings": {
+      "input_space": "srgb",
+      "hint_mode": "none",
+      "hint_quality": 0.75,
+      "despill_strength": 0.0
+    },
+    "first_hint": false,
+    "revision": 0,
+    "provenance": {
+      "start": 0,
+      "time_domain": "integer_OFX_frames",
+      "end": 5,
+      "fps": 29.97002997002997,
+      "origin": [
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1
+      ]
+    },
+    "profile": {
+      "resolution": 0,
+      "window": 4,
+      "memory_limit": 0,
+      "low_memory": false,
+      "internal_hint_quality": 0.95,
+      "reference_index": 0
+    }
+  },
+  "outputs": [
+    "4c8401bcc66272c28a8207fc587de7729b68f10384a32160f74cf3e7dd66191a",
+    "287935ed04af0c38a4501f0a4cb2c0dd6e095d5d3d67740680e9d73fb61232fc",
+    "eae138582b47af516aad1ccbb25003515e4c9f14586c12e3a3357d5f5e68664c",
+    "99115e713f32352b7d639702e89bcb1b0af33af6a1fa3b88938417988b4825cb",
+    "85e7af8cea95bf0d3b27a8b3a8cd88c153a4f5fe47003059e22517755b7b88d3",
+    "5cca4eae3090179b3fc0ea1e612391ff8dff7714433f241e55775451717873f6"
+  ]
+}

@@ -1,0 +1,743 @@
+{
+  "QA-01": {
+    "status": "Passed",
+    "artifact_sha256": "f58245db7b45ce9ead793732c7e05f12d97c9c9a6e6681c744437b040ff07e86",
+    "note": "Final0.9.7 archive expanded and27117 records verified, including executable hooks and contained ad-hoc signatures.",
+    "evidence": [
+      {
+        "path": "dist/evidence/package-0.9.7-verified.json",
+        "sha256": "544b489f21ac58d2de07e0ab2c5dc505f01b58fba78d9d2b72d68c638a891996"
+      }
+    ]
+  },
+  "QA-44": {
+    "status": "Passed",
+    "artifact_sha256": "f58245db7b45ce9ead793732c7e05f12d97c9c9a6e6681c744437b040ff07e86",
+    "note": "Final archive only permits system startup volume. Actual unchanged hook rejects an alternate target before mutation.",
+    "evidence": [
+      {
+        "path": "dist/evidence/native-0.9.7-destination-policy.json",
+        "sha256": "786f55346dcf24f1bccbed1fb3bdba0ec676accac7c676b88ead67872d7ddfa1"
+      }
+    ]
+  },
+  "QA-02": {
+    "status": "Blocked",
+    "artifact_sha256": "f58245db7b45ce9ead793732c7e05f12d97c9c9a6e6681c744437b040ff07e86",
+    "note": "Requires a clean standard account and local normal Installer authorization; unavailable in this session so far.",
+    "evidence": []
+  },
+  "QA-03": {
+    "status": "Blocked",
+    "artifact_sha256": "f58245db7b45ce9ead793732c7e05f12d97c9c9a6e6681c744437b040ff07e86",
+    "note": "Requires actual clean-account first use with whole-Mac networking disabled; per-process denial on0.9.6 is not this test.",
+    "evidence": []
+  },
+  "QA-37": {
+    "status": "Passed",
+    "artifact_sha256": "f58245db7b45ce9ead793732c7e05f12d97c9c9a6e6681c744437b040ff07e86",
+    "note": "Actual Manager detected a missing file, located and verified the complete matching offline package moved into a Unicode/spaces folder, and normal Installer repaired it. All27113 installed files verify.",
+    "evidence": [
+      {
+        "path": "dist/evidence/native-0.9.7-repair-recovery.json",
+        "sha256": "869326f09b6838581dca224857a56880dc4fb4342a2fcf5b9c92a283b492b5f5"
+      },
+      {
+        "path": "dist/evidence/native-0.9.7-repair-prepared.json",
+        "sha256": "016be783284665aa2f98bc4cefadc658f0be678dd06b86fa1a7cc3aeb9724909"
+      },
+      {
+        "path": "dist/evidence/native-0.9.7-manager-missing.txt",
+        "sha256": "0bb21c409e0cb25e4149d55fc29ca7c91dc566f2680cadc0c933c7d22ed70d33"
+      },
+      {
+        "path": "dist/evidence/native-0.9.7-manager-repair-validation.txt",
+        "sha256": "305f3c63ff85c8b3783d2f57145ae833b966aa08cc6dde2484f0262768a140ca"
+      },
+      {
+        "path": "dist/evidence/native-0.9.7-manager-repaired-verify.txt",
+        "sha256": "68927467cece2315784e0400eba48975d104c2d95e138aa4adaa7a63037d8b66"
+      },
+      {
+        "path": "dist/evidence/native-0.9.7-repair-installer-success.txt",
+        "sha256": "d288bb2f92686b4afc424c0b3ac650eef3f825e14b91bea775fd119d86b13ced"
+      },
+      {
+        "path": "dist/evidence/build-0.9.7.log",
+        "sha256": "8aeaaf408467e11ae63ef5d602d878224101b978d18884ba4d2408fdbae53f70"
+      }
+    ]
+  },
+  "QA-38": {
+    "status": "Passed",
+    "artifact_sha256": "f58245db7b45ce9ead793732c7e05f12d97c9c9a6e6681c744437b040ff07e86",
+    "note": "Both actual installed Manager removal paths completed through normal Installer with the original full-package path absent. Keep Models retained models; Remove All removed them. Official plugin/app, original DMG and3 footage hashes unchanged. Final reinstall completed and genuine fresh native MPS output was verified; existing production projects are still listed and the saved QA project opens.",
+    "evidence": [
+      {
+        "path": "dist/evidence/native-0.9.7-uninstall-keep.json",
+        "sha256": "8f6f7cfb75088fac7ae29ca11ae0a3dffd3b6c7cbc3f139f7b3aa88ef61911e1"
+      },
+      {
+        "path": "dist/evidence/native-0.9.7-uninstall-all.json",
+        "sha256": "1399207a2da800aed1d41fa87799a4083ec92aefc48b615ebab9b6ea6f2ec378"
+      },
+      {
+        "path": "dist/evidence/native-0.9.7-unrelated-baseline.json",
+        "sha256": "b6152d9f0a7ee09807603ab676b96359edce56a364d3007e76bd3c930120c474"
+      },
+      {
+        "path": "dist/evidence/native-0.9.7-final-reinstall-health.json",
+        "sha256": "3b271a381ace7e1e380deb2fb1bf445d39e2ef79d457f3415553f73b433b1f7d"
+      }
+    ]
+  },
+  "QA-36": {
+    "status": "Passed",
+    "artifact_sha256": "f58245db7b45ce9ead793732c7e05f12d97c9c9a6e6681c744437b040ff07e86",
+    "note": "Actual root filesystem interrupted Maintenance transaction recovered through normal repair Installer. Durable complete component backup preceded the missing-file change. All-component partial activation/repeated recovery states also pass unchanged production arm64 transaction tests; not a claimed power-loss test.",
+    "evidence": [
+      {
+        "path": "dist/evidence/native-0.9.7-repair-recovery.json",
+        "sha256": "869326f09b6838581dca224857a56880dc4fb4342a2fcf5b9c92a283b492b5f5"
+      },
+      {
+        "path": "dist/evidence/native-0.9.7-repair-prepared.json",
+        "sha256": "016be783284665aa2f98bc4cefadc658f0be678dd06b86fa1a7cc3aeb9724909"
+      },
+      {
+        "path": "dist/evidence/native-0.9.7-manager-missing.txt",
+        "sha256": "0bb21c409e0cb25e4149d55fc29ca7c91dc566f2680cadc0c933c7d22ed70d33"
+      },
+      {
+        "path": "dist/evidence/native-0.9.7-manager-repair-validation.txt",
+        "sha256": "305f3c63ff85c8b3783d2f57145ae833b966aa08cc6dde2484f0262768a140ca"
+      },
+      {
+        "path": "dist/evidence/native-0.9.7-manager-repaired-verify.txt",
+        "sha256": "68927467cece2315784e0400eba48975d104c2d95e138aa4adaa7a63037d8b66"
+      },
+      {
+        "path": "dist/evidence/native-0.9.7-repair-installer-success.txt",
+        "sha256": "d288bb2f92686b4afc424c0b3ac650eef3f825e14b91bea775fd119d86b13ced"
+      },
+      {
+        "path": "dist/evidence/build-0.9.7.log",
+        "sha256": "8aeaaf408467e11ae63ef5d602d878224101b978d18884ba4d2408fdbae53f70"
+      }
+    ]
+  },
+  "QA-42": {
+    "status": "Passed",
+    "artifact_sha256": "f58245db7b45ce9ead793732c7e05f12d97c9c9a6e6681c744437b040ff07e86",
+    "note": "Actual upstream edit after2 full4K captures with active_jobs0: inconsistent capture never submitted. Stable retry all12 inputs exactly match independent current-source Savers; keyed output exactly matches worker.",
+    "evidence": [
+      {
+        "path": "dist/evidence/native-0.9.7-acquisition-edit-event.json",
+        "sha256": "11ec159559da886c438e3f553141e414131c0ebb164952e28cd195098fd8af1b"
+      },
+      {
+        "path": "dist/evidence/native-0.9.7-acquisition-rejected-health.json",
+        "sha256": "58d0842dff1b15b0266509c4516001a4fc0b37b29536f0ba7bb82fafc892b396"
+      },
+      {
+        "path": "dist/evidence/native-0.9.7-acquisition-second-health.json",
+        "sha256": "82dab04f6b2a1774bb92b9667641dde0f3a9c4a5c4b98255186a0acc7771756a"
+      },
+      {
+        "path": "dist/evidence/native-0.9.7-acquisition-safety.json",
+        "sha256": "37fef889fa8d699e78dade84f07f60a713bed9346b3d9f50656a72fd3aab52e0"
+      }
+    ]
+  },
+  "QA-12": {
+    "status": "Passed",
+    "artifact_sha256": "f58245db7b45ce9ead793732c7e05f12d97c9c9a6e6681c744437b040ff07e86",
+    "note": "Actual Resolve quit after fresh native inference. Unmodified installed worker exited after600.700s idle, socket removed and clean shutdown marker present; no signal, release, fake clock or health polling.",
+    "evidence": [
+      {
+        "path": "dist/evidence/native-0.9.7-idle-expiry.json",
+        "sha256": "2e9ac12082592fcfe9f2cbb723dcc227f38d33237ab629d80a143bfe72d37e7c"
+      }
+    ]
+  },
+  "QA-43": {
+    "status": "Passed",
+    "artifact_sha256": "f58245db7b45ce9ead793732c7e05f12d97c9c9a6e6681c744437b040ff07e86",
+    "note": "Actual Manager refused release during real temporal GPU work. Root fixture safely drained idle worker84000 before changing Maintenance; normal repair/removals ran with host closed, with no broad process kill. Installed preflight refuses a live host before mutation.",
+    "evidence": [
+      {
+        "path": "dist/evidence/native-0.9.7-active-maintenance-blocked.json",
+        "sha256": "da3e334ecadb27c709a01a1ae5be96e614141370ab25ebd8805ac3f1efccac54"
+      },
+      {
+        "path": "dist/evidence/native-0.9.7-host-open-preflight.json",
+        "sha256": "1365cd344100567bbac995c0bdf2b714ffb20f8aaa4c247770eea2169292aa97"
+      },
+      {
+        "path": "dist/evidence/native-0.9.7-repair-prepared.json",
+        "sha256": "016be783284665aa2f98bc4cefadc658f0be678dd06b86fa1a7cc3aeb9724909"
+      },
+      {
+        "path": "dist/evidence/native-0.9.7-uninstall-keep.json",
+        "sha256": "8f6f7cfb75088fac7ae29ca11ae0a3dffd3b6c7cbc3f139f7b3aa88ef61911e1"
+      },
+      {
+        "path": "dist/evidence/native-0.9.7-uninstall-all.json",
+        "sha256": "1399207a2da800aed1d41fa87799a4083ec92aefc48b615ebab9b6ea6f2ec378"
+      },
+      {
+        "path": "dist/evidence/native-0.9.7-final-reinstall-health.json",
+        "sha256": "3b271a381ace7e1e380deb2fb1bf445d39e2ef79d457f3415553f73b433b1f7d"
+      }
+    ]
+  },
+  "QA-45": {
+    "status": "Passed",
+    "artifact_sha256": "f58245db7b45ce9ead793732c7e05f12d97c9c9a6e6681c744437b040ff07e86",
+    "note": "Actual Render acquisition/progress, source-edit rejection, reanalysis and prompt host AbortRender recorded. Source and host-suite tests enforce action-scoped callbacks; no background host image retention.",
+    "evidence": [
+      {
+        "path": "dist/evidence/native-0.9.7-host-cancel.json",
+        "sha256": "de83f904d587b86660c55ea76e74eecad41014fdc880f4572d4a80be86c4ba29"
+      },
+      {
+        "path": "dist/evidence/native-0.9.7-acquisition-safety.json",
+        "sha256": "37fef889fa8d699e78dade84f07f60a713bed9346b3d9f50656a72fd3aab52e0"
+      },
+      {
+        "path": "dist/evidence/native-0.9.7-reanalysis.json",
+        "sha256": "db2f2ff98b6941e6f02b1d014136d7d17f40d615265e0d04326610773b9a2da0"
+      },
+      {
+        "path": "dist/evidence/build-0.9.7.log",
+        "sha256": "8aeaaf408467e11ae63ef5d602d878224101b978d18884ba4d2408fdbae53f70"
+      }
+    ]
+  },
+  "QA-30": {
+    "status": "Not run",
+    "artifact_sha256": "f58245db7b45ce9ead793732c7e05f12d97c9c9a6e6681c744437b040ff07e86",
+    "applicability": "not claimed",
+    "note": "Native UHD excluded. Prior direct4K numerical-quality failure; this candidate explicitly refuses internal sizes above2048x1152.",
+    "evidence": []
+  },
+  "QA-40": {
+    "status": "Blocked",
+    "artifact_sha256": "f58245db7b45ce9ead793732c7e05f12d97c9c9a6e6681c744437b040ff07e86",
+    "applicability": "not claimed",
+    "note": "Second Mac is not available in this session; no support claim.",
+    "evidence": []
+  },
+  "QA-06": {
+    "status": "Passed",
+    "artifact_sha256": "f58245db7b45ce9ead793732c7e05f12d97c9c9a6e6681c744437b040ff07e86",
+    "note": "Actual installed273 native images: arm64, no external loader roots, deployment target14 or earlier. Actual native plugin/PyTorch execution.",
+    "evidence": [
+      {
+        "path": "dist/evidence/native-0.9.7-runtime-audit.json",
+        "sha256": "6bd73d0276a061ca167b600386e9c0581d141df8c74ace46ace5c49124ba9f6f"
+      }
+    ]
+  },
+  "QA-07": {
+    "status": "Passed",
+    "artifact_sha256": "f58245db7b45ce9ead793732c7e05f12d97c9c9a6e6681c744437b040ff07e86",
+    "note": "Fresh Resolve startup with no model worker during scan; installed plugin subsequently keys60 actual1080p frames.",
+    "evidence": [
+      {
+        "path": "dist/evidence/native-0.9.7-scan.json",
+        "sha256": "4ef4d10a92da6ad8be9e260c7eade6adf5b9087ba195eddd643986b5dadd9d0f"
+      },
+      {
+        "path": "dist/evidence/native-0.9.7-single60.json",
+        "sha256": "5aa77868cd8300ea8c215be6a5fc38440fc2e7842a1aacd7e2c48fec51653406"
+      }
+    ]
+  },
+  "QA-08": {
+    "status": "Passed",
+    "artifact_sha256": "f58245db7b45ce9ead793732c7e05f12d97c9c9a6e6681c744437b040ff07e86",
+    "note": "Actual installed MPS Single Frame and Temporal execution, float32, all foundation/stage network counters, no automatic CPU fallback; native Metal/MPSGraph trace.",
+    "evidence": [
+      {
+        "path": "dist/evidence/native-0.9.7-gpu-trace.json",
+        "sha256": "c32f483ad55a8cd09afb1e80ebd073bacc72d7c63e539731c4e53358785ae8d0"
+      },
+      {
+        "path": "dist/evidence/native-0.9.7-worker.sample.txt",
+        "sha256": "394d346d05388aa2076e52fc21fa6400e520ee488d01ae9e27a160ef55c4aa69"
+      },
+      {
+        "path": "dist/evidence/native-0.9.7-single60.json",
+        "sha256": "5aa77868cd8300ea8c215be6a5fc38440fc2e7842a1aacd7e2c48fec51653406"
+      },
+      {
+        "path": "dist/evidence/native-0.9.7-acquisition-safety.json",
+        "sha256": "37fef889fa8d699e78dade84f07f60a713bed9346b3d9f50656a72fd3aab52e0"
+      }
+    ]
+  },
+  "QA-27": {
+    "status": "Passed",
+    "artifact_sha256": "f58245db7b45ce9ead793732c7e05f12d97c9c9a6e6681c744437b040ff07e86",
+    "note": "Actual installed production cache under isolated5GB APFS low-space, warm-cache extent corruption and incomplete writer checks; valid entry preserved.",
+    "evidence": [
+      {
+        "path": "dist/evidence/native-0.9.7-cache-failures.json",
+        "sha256": "c2cb23cb7b6342fbbd81663bb2d2cef4024f92b207d24503cdef7a8676821dc3"
+      }
+    ]
+  },
+  "QA-28": {
+    "status": "Passed",
+    "artifact_sha256": "f58245db7b45ce9ead793732c7e05f12d97c9c9a6e6681c744437b040ff07e86",
+    "note": "Real MPS OOM using installed production Engine in isolated QA process is bounded, returns Ready/active0, then identical512float32 inference succeeds.",
+    "evidence": [
+      {
+        "path": "dist/evidence/native-0.9.7-memory-pressure.json",
+        "sha256": "580edbac7f16a3b05e66e649944e709d47a3f090a04e52df58550a7b5e6b1770"
+      }
+    ]
+  },
+  "QA-35": {
+    "status": "Passed",
+    "artifact_sha256": "f58245db7b45ce9ead793732c7e05f12d97c9c9a6e6681c744437b040ff07e86",
+    "note": "Saved historical project opens with stable creative values after normal full-package upgrade; all60 Single Frame outputs exactly match the prior native result.",
+    "evidence": [
+      {
+        "path": "dist/evidence/native-0.9.7-install.json",
+        "sha256": "909ba9602f6b7a5fcba78559eabdb51e58d46b2bb63c849ae94ce950da227b45"
+      },
+      {
+        "path": "dist/evidence/native-0.9.7-single60.json",
+        "sha256": "5aa77868cd8300ea8c215be6a5fc38440fc2e7842a1aacd7e2c48fec51653406"
+      }
+    ]
+  },
+  "QA-39": {
+    "status": "Passed",
+    "artifact_sha256": "f58245db7b45ce9ead793732c7e05f12d97c9c9a6e6681c744437b040ff07e86",
+    "note": "Exact Personal Local package installed normally; contained ad-hoc signatures verify and actual Resolve load/inference succeeds. Not notarized; transfer route unclaimed.",
+    "evidence": [
+      {
+        "path": "dist/evidence/native-0.9.7-install.json",
+        "sha256": "909ba9602f6b7a5fcba78559eabdb51e58d46b2bb63c849ae94ce950da227b45"
+      },
+      {
+        "path": "dist/evidence/native-0.9.7-scan.json",
+        "sha256": "4ef4d10a92da6ad8be9e260c7eade6adf5b9087ba195eddd643986b5dadd9d0f"
+      },
+      {
+        "path": "dist/evidence/package-0.9.7-verified.json",
+        "sha256": "544b489f21ac58d2de07e0ab2c5dc505f01b58fba78d9d2b72d68c638a891996"
+      },
+      {
+        "path": "dist/evidence/native-0.9.7-single60.json",
+        "sha256": "5aa77868cd8300ea8c215be6a5fc38440fc2e7842a1aacd7e2c48fec51653406"
+      }
+    ]
+  },
+  "QA-04": {
+    "status": "Passed",
+    "artifact_sha256": "f58245db7b45ce9ead793732c7e05f12d97c9c9a6e6681c744437b040ff07e86",
+    "note": "During a real native temporal request the worker was killed and the complete checkout renamed away. Automatic restart produced the correct frame while the checkout was absent.",
+    "evidence": [
+      {
+        "path": "dist/evidence/native-0.9.7-crash-checkout.json",
+        "sha256": "007760630aa8cc0567f96091e57e58357ecc6bad227ed260efaf9aee6d79e702"
+      }
+    ]
+  },
+  "QA-05": {
+    "status": "Passed",
+    "artifact_sha256": "f58245db7b45ce9ead793732c7e05f12d97c9c9a6e6681c744437b040ff07e86",
+    "note": "Production native supervisor launched the installed worker under poisoned PYTHONHOME/PYTHONPATH/Conda, requested fallback1 and online flags. Actual MPS inference succeeded; OS denied outbound IP. This is not the clean-account/global-offline gate.",
+    "evidence": [
+      {
+        "path": "dist/evidence/native-0.9.7-concurrent.json",
+        "sha256": "7382684f8fa5747573045b68a236f9f036a82836a99d66a5496542bb849fe94f"
+      },
+      {
+        "path": "dist/evidence/native-0.9.7-environment-startup.json",
+        "sha256": "9e97d438d0011022e1ef968937b1563afafae118e199307fab390b0e4bd16f9e"
+      }
+    ]
+  },
+  "QA-09": {
+    "status": "Passed",
+    "artifact_sha256": "f58245db7b45ce9ead793732c7e05f12d97c9c9a6e6681c744437b040ff07e86",
+    "note": "Native startup was observed checking installation before Ready. Real hardware fixture, actual MPS network counters and completed user frames are separate from loaded state.",
+    "evidence": [
+      {
+        "path": "dist/evidence/native-0.9.7-environment-startup.json",
+        "sha256": "9e97d438d0011022e1ef968937b1563afafae118e199307fab390b0e4bd16f9e"
+      },
+      {
+        "path": "dist/evidence/native-0.9.7-single-active-health.json",
+        "sha256": "b02f39fe77a962796e85948064c5c6855d7e736baa216a2a9adfb06cfd7e2124"
+      },
+      {
+        "path": "dist/evidence/native-0.9.7-concurrent.json",
+        "sha256": "7382684f8fa5747573045b68a236f9f036a82836a99d66a5496542bb849fe94f"
+      }
+    ]
+  },
+  "QA-10": {
+    "status": "Passed",
+    "artifact_sha256": "f58245db7b45ce9ead793732c7e05f12d97c9c9a6e6681c744437b040ff07e86",
+    "note": "Two simultaneous production C++ supervisor clients and an actual copied Resolve keyer shared one cold worker. Clearing one owner retained the other result; native cancellation and deletion preserved the other copied node.",
+    "evidence": [
+      {
+        "path": "dist/evidence/native-0.9.7-concurrent.json",
+        "sha256": "7382684f8fa5747573045b68a236f9f036a82836a99d66a5496542bb849fe94f"
+      },
+      {
+        "path": "dist/evidence/native-0.9.7-environment-startup.json",
+        "sha256": "9e97d438d0011022e1ef968937b1563afafae118e199307fab390b0e4bd16f9e"
+      },
+      {
+        "path": "dist/evidence/native-0.9.7-host-cancel.json",
+        "sha256": "de83f904d587b86660c55ea76e74eecad41014fdc880f4572d4a80be86c4ba29"
+      },
+      {
+        "path": "dist/evidence/native-0.9.7-lifecycle.json",
+        "sha256": "7a4f8965bdfd38bb492a24289e2be62ac5825ec07326773c3f51a97da3f5b01f"
+      }
+    ]
+  },
+  "QA-11": {
+    "status": "Passed",
+    "artifact_sha256": "f58245db7b45ce9ead793732c7e05f12d97c9c9a6e6681c744437b040ff07e86",
+    "note": "Verified worker killed during actual Full1080 temporal inference; Resolve survived and automatically restarted one worker. The same render completed correctly within26.446s.",
+    "evidence": [
+      {
+        "path": "dist/evidence/native-0.9.7-crash-checkout.json",
+        "sha256": "007760630aa8cc0567f96091e57e58357ecc6bad227ed260efaf9aee6d79e702"
+      }
+    ]
+  },
+  "QA-13": {
+    "status": "Passed",
+    "artifact_sha256": "f58245db7b45ce9ead793732c7e05f12d97c9c9a6e6681c744437b040ff07e86",
+    "note": "Actual host AbortRender ended the wait in0.040s with no obsolete output, while the other copied node remained usable. An executing GPU operation may finish later.",
+    "evidence": [
+      {
+        "path": "dist/evidence/native-0.9.7-host-cancel.json",
+        "sha256": "de83f904d587b86660c55ea76e74eecad41014fdc880f4572d4a80be86c4ba29"
+      }
+    ]
+  },
+  "QA-14": {
+    "status": "Passed",
+    "artifact_sha256": "f58245db7b45ce9ead793732c7e05f12d97c9c9a6e6681c744437b040ff07e86",
+    "note": "Actual add/copy, disable/re-enable, deletion/Undo, saved-project close/reopen all completed; pixel comparisons exact and other copied node retained.",
+    "evidence": [
+      {
+        "path": "dist/evidence/native-0.9.7-lifecycle.json",
+        "sha256": "7a4f8965bdfd38bb492a24289e2be62ac5825ec07326773c3f51a97da3f5b01f"
+      }
+    ]
+  },
+  "QA-15": {
+    "status": "Passed",
+    "artifact_sha256": "f58245db7b45ce9ead793732c7e05f12d97c9c9a6e6681c744437b040ff07e86",
+    "note": "Actual odd385x217 native MPS/Fusion output and preview/final geometry; arm64 production pixel tests cover nonzero origins, negative stride, orientation and bounds. Synthetic layouts are unit evidence, not invented host layouts.",
+    "evidence": [
+      {
+        "path": "dist/evidence/native-0.9.7-hints-reference.json",
+        "sha256": "0bd40e22dbba52cc4d17c51bdd11e2d308acc7efd27e1c52a59cb16ef8937ccb"
+      },
+      {
+        "path": "dist/evidence/native-0.9.7-preview-final.json",
+        "sha256": "0e55db6b7a85a34e2f7c4e31fd77531c325402faf731bc6a19a6734de71bb5bf"
+      },
+      {
+        "path": "dist/evidence/native-0.9.7-geometry-units.json",
+        "sha256": "90ff2aa3737a8ba846460db7a0a30579ee9bfd6886fbbe83c501748d6dc103f7"
+      },
+      {
+        "path": "dist/evidence/build-0.9.7.log",
+        "sha256": "8aeaaf408467e11ae63ef5d602d878224101b978d18884ba4d2408fdbae53f70"
+      }
+    ]
+  },
+  "QA-16": {
+    "status": "Passed",
+    "artifact_sha256": "f58245db7b45ce9ead793732c7e05f12d97c9c9a6e6681c744437b040ff07e86",
+    "note": "Actual native sRGB, scene-linear709 and gamma2.4 fixtures agree within1e-4 RGBA; largest measured error5.543e-6.",
+    "evidence": [
+      {
+        "path": "dist/evidence/native-0.9.7-color-hdr-slog.json",
+        "sha256": "5d189125dbb541d34645a09fec513ab69e1d7c08947e60919a829a8f366fdb04"
+      }
+    ]
+  },
+  "QA-17": {
+    "status": "Passed",
+    "artifact_sha256": "f58245db7b45ce9ead793732c7e05f12d97c9c9a6e6681c744437b040ff07e86",
+    "note": "Actual native synthetic SLog3 transfer removal followed by linear709 keying matches declared reference within1e-4. Unchanged Rec709 primaries; no untested camera-gamut claim.",
+    "evidence": [
+      {
+        "path": "dist/evidence/native-0.9.7-color-hdr-slog.json",
+        "sha256": "5d189125dbb541d34645a09fec513ab69e1d7c08947e60919a829a8f366fdb04"
+      }
+    ]
+  },
+  "QA-18": {
+    "status": "Passed",
+    "artifact_sha256": "f58245db7b45ce9ead793732c7e05f12d97c9c9a6e6681c744437b040ff07e86",
+    "note": "Actual float Fusion Merge over black, white and saturated red agrees with exactly-once premultiplication within1.02e-6.",
+    "evidence": [
+      {
+        "path": "dist/evidence/native-0.9.7-alpha-merge.json",
+        "sha256": "65d1c162758443b091b5969dea3157bbc755fc66cbcf10b6139631aae35cd817"
+      },
+      {
+        "path": "dist/evidence/native-0.9.7-quality-review.json",
+        "sha256": "bc1687144727a802df0dd7cc6795f4efdf14bdd2c80620a51f91c0f4e6e578f7"
+      }
+    ]
+  },
+  "QA-19": {
+    "status": "Passed",
+    "artifact_sha256": "f58245db7b45ce9ead793732c7e05f12d97c9c9a6e6681c744437b040ff07e86",
+    "note": "Actual native float path retains finite RGB from-0.00746 to18.1633.",
+    "evidence": [
+      {
+        "path": "dist/evidence/native-0.9.7-color-hdr-slog.json",
+        "sha256": "5d189125dbb541d34645a09fec513ab69e1d7c08947e60919a829a8f366fdb04"
+      }
+    ]
+  },
+  "QA-20": {
+    "status": "Passed",
+    "artifact_sha256": "f58245db7b45ce9ead793732c7e05f12d97c9c9a6e6681c744437b040ff07e86",
+    "note": "72 real odd-size temporal native outputs cover None, source alpha all/reference0/reference4, separate Hint Alpha and Luma. Reference semantics and nonreference edit invalidation checked.",
+    "evidence": [
+      {
+        "path": "dist/evidence/native-0.9.7-hints-reference.json",
+        "sha256": "0bd40e22dbba52cc4d17c51bdd11e2d308acc7efd27e1c52a59cb16ef8937ccb"
+      },
+      {
+        "path": "dist/evidence/native-0.9.7-small-invalidation.json",
+        "sha256": "87f5f59ab796e0ec4bd817695906d27a0385dc8f924ba9ff66cb4fae319f9209"
+      }
+    ]
+  },
+  "QA-21": {
+    "status": "Passed",
+    "artifact_sha256": "f58245db7b45ce9ead793732c7e05f12d97c9c9a6e6681c744437b040ff07e86",
+    "note": "Actual ordered continuous RVM/Hann8/4/stage2 agrees with retained pinned upstream CPU golden within8.56e-6; a separate blue cut reference agrees within1.36e-5. Full1080 temporal60 also completed.",
+    "evidence": [
+      {
+        "path": "dist/evidence/native-0.9.7-hints-reference.json",
+        "sha256": "0bd40e22dbba52cc4d17c51bdd11e2d308acc7efd27e1c52a59cb16ef8937ccb"
+      },
+      {
+        "path": "dist/evidence/native-0.9.7-time-cuts.json",
+        "sha256": "32f9d287b93606dfeab356eac239a83dd29f1c20268a752d148f7284a984d7a0"
+      },
+      {
+        "path": "dist/evidence/native-0.9.7-temporal60.json",
+        "sha256": "084c271dc45c38c0594e7262ec4020c83196dd304d2925b7549676cf9878b3f4"
+      }
+    ]
+  },
+  "QA-22": {
+    "status": "Passed",
+    "artifact_sha256": "f58245db7b45ce9ead793732c7e05f12d97c9c9a6e6681c744437b040ff07e86",
+    "note": "Actual shuffled/reverse requests59,41,3,30,0 exactly match the sequential analyzed output.",
+    "evidence": [
+      {
+        "path": "dist/evidence/native-0.9.7-random.json",
+        "sha256": "fdf438dc439608a1ba5cfac064a2a3c221a18ceae1f9bc2c9f61c4fcc54077b9"
+      }
+    ]
+  },
+  "QA-23": {
+    "status": "Passed",
+    "artifact_sha256": "f58245db7b45ce9ead793732c7e05f12d97c9c9a6e6681c744437b040ff07e86",
+    "note": "Actual first/last/window boundaries and independent green/blue shots across a cut preserve stamped source identity and upstream temporal reference; no shared recurrence across keyers.",
+    "evidence": [
+      {
+        "path": "dist/evidence/native-0.9.7-time-cuts.json",
+        "sha256": "32f9d287b93606dfeab356eac239a83dd29f1c20268a752d148f7284a984d7a0"
+      },
+      {
+        "path": "dist/evidence/native-0.9.7-hints-reference.json",
+        "sha256": "0bd40e22dbba52cc4d17c51bdd11e2d308acc7efd27e1c52a59cb16ef8937ccb"
+      }
+    ]
+  },
+  "QA-24": {
+    "status": "Passed",
+    "artifact_sha256": "f58245db7b45ce9ead793732c7e05f12d97c9c9a6e6681c744437b040ff07e86",
+    "note": "Actual25fps60frames and30000/1001 nonzero timeline/source starts preserve frame stamps, order and frame counts in EXR and ProRes4444alpha Deliver.",
+    "evidence": [
+      {
+        "path": "dist/evidence/native-0.9.7-time-cuts.json",
+        "sha256": "32f9d287b93606dfeab356eac239a83dd29f1c20268a752d148f7284a984d7a0"
+      },
+      {
+        "path": "dist/evidence/native-0.9.7-time-movie-probe.json",
+        "sha256": "0c32e55c4a9998a809580654ec40c83c6027bb1e910357de5d03fe83cfc26504"
+      },
+      {
+        "path": "dist/evidence/native-0.9.7-single-deliver60.json",
+        "sha256": "1569bdd5db2239b2f428627459d9daf449516068f84739694c017f810414f6fb"
+      }
+    ]
+  },
+  "QA-25": {
+    "status": "Passed",
+    "artifact_sha256": "f58245db7b45ce9ead793732c7e05f12d97c9c9a6e6681c744437b040ff07e86",
+    "note": "Native early-frame edit changes a later unchanged-input temporal result. Color/range/hint edits invalidate expected outputs; nonreference hints are ignored correctly. Model/profile cache identity covered by production tests.",
+    "evidence": [
+      {
+        "path": "dist/evidence/native-0.9.7-causal-invalidation.json",
+        "sha256": "ef037448df15554801007ca88fa6da5a21dfdaea41f244563b4de9307074d07f"
+      },
+      {
+        "path": "dist/evidence/native-0.9.7-small-invalidation.json",
+        "sha256": "87f5f59ab796e0ec4bd817695906d27a0385dc8f924ba9ff66cb4fae319f9209"
+      },
+      {
+        "path": "dist/evidence/build-0.9.7.log",
+        "sha256": "8aeaaf408467e11ae63ef5d602d878224101b978d18884ba4d2408fdbae53f70"
+      }
+    ]
+  },
+  "QA-26": {
+    "status": "Passed",
+    "artifact_sha256": "f58245db7b45ce9ead793732c7e05f12d97c9c9a6e6681c744437b040ff07e86",
+    "note": "Quarter preview then Full native1080 Deliver in the same Resolve session: exported frames5/6 exactly match proper Full output.",
+    "evidence": [
+      {
+        "path": "dist/evidence/native-0.9.7-preview-final.json",
+        "sha256": "0e55db6b7a85a34e2f7c4e31fd77531c325402faf731bc6a19a6734de71bb5bf"
+      }
+    ]
+  },
+  "QA-29": {
+    "status": "Passed",
+    "artifact_sha256": "f58245db7b45ce9ead793732c7e05f12d97c9c9a6e6681c744437b040ff07e86",
+    "note": "Both required modes completed60 consecutive Full1920x1080 native float RGBA frames and actual Deliver sequences with exact equality; real MPS telemetry retained.",
+    "evidence": [
+      {
+        "path": "dist/evidence/native-0.9.7-single60.json",
+        "sha256": "5aa77868cd8300ea8c215be6a5fc38440fc2e7842a1aacd7e2c48fec51653406"
+      },
+      {
+        "path": "dist/evidence/native-0.9.7-single-deliver60.json",
+        "sha256": "1569bdd5db2239b2f428627459d9daf449516068f84739694c017f810414f6fb"
+      },
+      {
+        "path": "dist/evidence/native-0.9.7-temporal60.json",
+        "sha256": "084c271dc45c38c0594e7262ec4020c83196dd304d2925b7549676cf9878b3f4"
+      },
+      {
+        "path": "dist/evidence/native-0.9.7-temporal-deliver60.json",
+        "sha256": "0505186b926c1da15af5f8dd3031010770d73f203416221605e01b3164612bf8"
+      },
+      {
+        "path": "dist/evidence/native-0.9.7-temporal-near-complete-health.json",
+        "sha256": "fd8b65c01a43a9175b3f7d844ac9245b85d6af9af46062afb53675ea41221e1d"
+      }
+    ]
+  },
+  "QA-31": {
+    "status": "Passed",
+    "artifact_sha256": "f58245db7b45ce9ead793732c7e05f12d97c9c9a6e6681c744437b040ff07e86",
+    "note": "Actual Resolve Deliver60frame float RGBA EXRs in each mode exactly match native Saver; actual12frame30000/1001 ProRes4444alpha export has correct timing/count.",
+    "evidence": [
+      {
+        "path": "dist/evidence/native-0.9.7-single-deliver60.json",
+        "sha256": "1569bdd5db2239b2f428627459d9daf449516068f84739694c017f810414f6fb"
+      },
+      {
+        "path": "dist/evidence/native-0.9.7-temporal-deliver60.json",
+        "sha256": "0505186b926c1da15af5f8dd3031010770d73f203416221605e01b3164612bf8"
+      },
+      {
+        "path": "dist/evidence/native-0.9.7-time-cuts.json",
+        "sha256": "32f9d287b93606dfeab356eac239a83dd29f1c20268a752d148f7284a984d7a0"
+      },
+      {
+        "path": "dist/evidence/native-0.9.7-time-movie-probe.json",
+        "sha256": "0c32e55c4a9998a809580654ec40c83c6027bb1e910357de5d03fe83cfc26504"
+      }
+    ]
+  },
+  "QA-32": {
+    "status": "Passed",
+    "artifact_sha256": "f58245db7b45ce9ead793732c7e05f12d97c9c9a6e6681c744437b040ff07e86",
+    "note": "Fresh native1080 green/blue/glass source/matte/composites visually inspected. Hair, green clothing, propeller blur and partial glass alpha retained; refraction/backing color may need manual despill.",
+    "evidence": [
+      {
+        "path": "dist/evidence/native-0.9.7-quality-review.json",
+        "sha256": "bc1687144727a802df0dd7cc6795f4efdf14bdd2c80620a51f91c0f4e6e578f7"
+      },
+      {
+        "path": "dist/evidence/native-0.9.7-quality-review.jpg",
+        "sha256": "988b555f5c0272770e2c5af1ee950f771cfc07b5d0723a224794dc9e106beec0"
+      }
+    ]
+  },
+  "QA-33": {
+    "status": "Passed",
+    "artifact_sha256": "f58245db7b45ce9ead793732c7e05f12d97c9c9a6e6681c744437b040ff07e86",
+    "note": "Cold verification/model/fixture, actual distinct-frame, cached sequence, temporal60 timing and sampled memory recorded with Resolve open. Native unlocked Fusion cache playback24.681fps at25fps; offline inference is not real-time.",
+    "evidence": [
+      {
+        "path": "dist/evidence/native-0.9.7-performance-partial.json",
+        "sha256": "14a48baa4a5ffb3516e2297a88f553a496ab806e3966dae81d802522cde5e054"
+      },
+      {
+        "path": "dist/evidence/native-0.9.7-single-active-health.json",
+        "sha256": "b02f39fe77a962796e85948064c5c6855d7e736baa216a2a9adfb06cfd7e2124"
+      },
+      {
+        "path": "dist/evidence/native-0.9.7-temporal-deliver60.json",
+        "sha256": "0505186b926c1da15af5f8dd3031010770d73f203416221605e01b3164612bf8"
+      },
+      {
+        "path": "dist/evidence/native-0.9.7-single-deliver60.json",
+        "sha256": "1569bdd5db2239b2f428627459d9daf449516068f84739694c017f810414f6fb"
+      },
+      {
+        "path": "dist/evidence/native-0.9.7-fusion-cached-playback.json",
+        "sha256": "d082fa213b945b6d65625c9eb3bef9c30711b6d59fdc7d8b3b238968021c0b8a"
+      }
+    ]
+  },
+  "QA-41": {
+    "status": "Passed",
+    "artifact_sha256": "f58245db7b45ce9ead793732c7e05f12d97c9c9a6e6681c744437b040ff07e86",
+    "note": "Native unchanged-settings explicit reanalysis advanced revision with identical inputs and new output identities. Viewer/Saver/Deliver consumed the new result; safe source-UID refresh retry is documented.",
+    "evidence": [
+      {
+        "path": "dist/evidence/native-0.9.7-reanalysis.json",
+        "sha256": "db2f2ff98b6941e6f02b1d014136d7d17f40d615265e0d04326610773b9a2da0"
+      }
+    ]
+  },
+  "QA-34": {
+    "status": "Passed",
+    "artifact_sha256": "f58245db7b45ce9ead793732c7e05f12d97c9c9a6e6681c744437b040ff07e86",
+    "note": "After genuine fresh Full1080 MPS inference following final reinstall, actual Manager Verify confirms all27113 installed files unchanged; generated captures/results are in user-local cache.",
+    "evidence": [
+      {
+        "path": "dist/evidence/native-0.9.7-final-readonly-verify.txt",
+        "sha256": "68927467cece2315784e0400eba48975d104c2d95e138aa4adaa7a63037d8b66"
+      },
+      {
+        "path": "dist/evidence/native-0.9.7-final-reinstall-health.json",
+        "sha256": "3b271a381ace7e1e380deb2fb1bf445d39e2ef79d457f3415553f73b433b1f7d"
+      },
+      {
+        "path": "dist/evidence/native-0.9.7-final-reinstall-pixels.json",
+        "sha256": "9c2cccd891bf3f64589796d89f77288b804440bbe50767dfa2f87face5321d78"
+      }
+    ]
+  }
+}

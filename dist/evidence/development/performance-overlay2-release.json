@@ -1,0 +1,31 @@
+{
+  "observed_unix": 1793157255.0892239,
+  "installed_manifest": {
+    "build_id": "0.9.4-b1.eb60d578f136",
+    "code_root": "/Library/Application Support/HarvestPictures/CorridorKeyMac/Runtime/0.9.4-b1.eb60d578f136/upstream",
+    "component_versions": {
+      "adapter_math": 3,
+      "cache_format": 2,
+      "manager": 2,
+      "plugin": "0.9.4",
+      "temporal": "upstream-float32-continuous-RVM-configurable-Hann-v2",
+      "worker": 3
+    },
+    "model_root": "/Library/Application Support/HarvestPictures/CorridorKeyMac/Models/ck2-cf44a8db3f02",
+    "model_set_id": "ck2-cf44a8db3f02",
+    "package_version": "0.9.4-beta.1",
+    "protocol": 2,
+    "python": "/Library/Application Support/HarvestPictures/CorridorKeyMac/Runtime/0.9.4-b1.eb60d578f136/bin/python3"
+  },
+  "response": {
+    "state": "stopping",
+    "pid": 40220,
+    "ok": true,
+    "protocol": 2,
+    "build_id": "0.9.4-b1.eb60d578f136",
+    "payload_bytes": 0,
+    "session_id": null,
+    "request_id": null,
+    "effect_generation": null
+  }
+}

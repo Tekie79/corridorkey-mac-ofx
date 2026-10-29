@@ -1,0 +1,32 @@
+[
+  {
+    "path": "/Users/harvest/Documents/Ysew_Project/Green screen/GS02.mp4",
+    "size": 16422931,
+    "sha256": "756191c3f2c996b97e7552d2ac388dfb5bad8606321476e5aee03c6c66fe5409"
+  },
+  {
+    "path": "/Users/harvest/Documents/Ysew_Project/Green screen/BS_01.mp4",
+    "size": 2700861,
+    "sha256": "6f8fa8a426e2f020710171e4473be2500dea714ee98be3a98d89067d568dcf12"
+  },
+  {
+    "path": "/Users/harvest/Documents/Ysew_Project/Green screen/Glass01.mp4",
+    "size": 32297606,
+    "sha256": "0be53371ca9d65a1da429de4a4d02555bf0404d920973d37e502be6ed796f492"
+  },
+  {
+    "path": "/Library/OFX/Plugins/CorridorKey2.ofx.bundle/Contents/Info.plist",
+    "size": 683,
+    "sha256": "e2a1ac3edd764daa60530395407cf10a4805f494d44db414f2e381f6e7bdbf74"
+  },
+  {
+    "path": "/Applications/CorridorKey 2.0.app/Contents/Info.plist",
+    "size": 1016,
+    "sha256": "a0cfdc72179d05935f9dde327792443c8da6fd718158bdeb48fca82014358a89"
+  },
+  {
+    "path": "/Users/harvest/Documents/Ysew_Project/GIT/corridorkey-mac-ofx/CorridorKey2_v2.0.0.161_macOS_AppleSilicon.dmg",
+    "size": 296244208,
+    "sha256": "5f81cadf1b6ee30451746ba5a1a5c09e0957b954ec4a441411e39557e698122f"
+  }
+]

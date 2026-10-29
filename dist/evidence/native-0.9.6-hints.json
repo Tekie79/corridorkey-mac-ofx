@@ -1,0 +1,58 @@
+{
+  "artifact_sha256": "7a023538ad322b9eee26357b3dd2c2aecc16c292f6feb44837e3ffa00d590c0a",
+  "status": "Passed",
+  "scope": "Actual installed native Fusion MPS12 real-footage-derived odd385x217 frames,8/4 temporal; source alpha/all/reference0/reference4, optional connected alpha/luma matte; CPU reference worker outputs also checked against actual native Saver",
+  "equivalent_hint_tolerance_absolute": 0.0001,
+  "maximum_hint_alpha_vs_luma_rgba_error": 3.904104232788086e-06,
+  "native_saver_vs_worker_premultiplication_error": 0,
+  "cases": [
+    {
+      "case": "none",
+      "frames": 12,
+      "all_finite": true,
+      "shapes": [
+        "(217, 385, 4)"
+      ]
+    },
+    {
+      "case": "source-alpha",
+      "frames": 12,
+      "all_finite": true,
+      "shapes": [
+        "(217, 385, 4)"
+      ]
+    },
+    {
+      "case": "reference-start",
+      "frames": 12,
+      "all_finite": true,
+      "shapes": [
+        "(217, 385, 4)"
+      ]
+    },
+    {
+      "case": "reference-interior",
+      "frames": 12,
+      "all_finite": true,
+      "shapes": [
+        "(217, 385, 4)"
+      ]
+    },
+    {
+      "case": "hint-alpha",
+      "frames": 12,
+      "all_finite": true,
+      "shapes": [
+        "(217, 385, 4)"
+      ]
+    },
+    {
+      "case": "hint-luma",
+      "frames": 12,
+      "all_finite": true,
+      "shapes": [
+        "(217, 385, 4)"
+      ]
+    }
+  ]
+}

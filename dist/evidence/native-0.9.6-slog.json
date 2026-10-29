@@ -1,0 +1,15 @@
+{
+  "artifact_sha256": "7a023538ad322b9eee26357b3dd2c2aecc16c292f6feb44837e3ffa00d590c0a",
+  "scope": "Synthetic Sony S-Log3 encoding of Rec709-primaries GS02 frame -> native Fusion Loader Remove Curve SonySLog/SLog3 -> OFX linear input -> linear premult RGBA",
+  "maximum_decoded_input_error": 0.00023305416107177734,
+  "maximum_rgb_error": 4.172325134277344e-06,
+  "maximum_alpha_error": 4.470348358154297e-06,
+  "native_input_transform": {
+    "GammaType": "Log",
+    "LogType": "SonySLog",
+    "SLogVersion": "SLog3",
+    "GammaAction": 1
+  },
+  "gamut_limitation": "Rec709 primaries intentionally held fixed; not a camera gamut or camera footage claim",
+  "status": "Passed"
+}

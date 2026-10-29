@@ -1,0 +1,21 @@
+{
+  "status": "Passed",
+  "artifact_sha256": "f58245db7b45ce9ead793732c7e05f12d97c9c9a6e6681c744437b040ff07e86",
+  "scope": "Actual full installed0.9.7 Resolve acquisition-edit rejection and stable retry, followed by independent raw source Saver comparison for every contributing frame.",
+  "canvas": [
+    4096,
+    2160
+  ],
+  "internal_profile": "Explicit Quarter; this is acquisition safety, not native UHD qualification",
+  "edited_during_acquisition": true,
+  "staged_bytes_at_edit": 283115520,
+  "first_and_second_pass_completed_temporal_shots": [
+    0,
+    0
+  ],
+  "stable_retry_completed_temporal_shots": 1,
+  "all12_captured_inputs_match_current_source_max_error": 0.0,
+  "stable_keyed_saver_vs_worker_max_error": 0.0,
+  "final_gain": 1.11,
+  "marker": "c1be63abc1d19772e779cc97f5c41b4248e4b692c3b9d96fcf29911e9cfa299e.analysis.json"
+}

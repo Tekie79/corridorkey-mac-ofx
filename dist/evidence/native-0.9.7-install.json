@@ -1,0 +1,24 @@
+{
+  "status": "Passed",
+  "scope": "Actual full offline0.9.7 normal macOS Installer completed; primary owner account, not clean-account qualification",
+  "artifact_sha256": "f58245db7b45ce9ead793732c7e05f12d97c9c9a6e6681c744437b040ff07e86",
+  "build": {
+    "build_id": "0.9.7-b1.027347b5a7e5",
+    "code_root": "/Library/Application Support/HarvestPictures/CorridorKeyMac/Runtime/0.9.7-b1.027347b5a7e5/upstream",
+    "component_versions": {
+      "adapter_math": 3,
+      "cache_format": 3,
+      "manager": 2,
+      "plugin": "0.9.7",
+      "temporal": "upstream-float32-continuous-RVM-configurable-Hann-v2",
+      "worker": 5
+    },
+    "model_root": "/Library/Application Support/HarvestPictures/CorridorKeyMac/Models/ck2-cf44a8db3f02",
+    "model_set_id": "ck2-cf44a8db3f02",
+    "package_version": "0.9.7-beta.1",
+    "protocol": 2,
+    "python": "/Library/Application Support/HarvestPictures/CorridorKeyMac/Runtime/0.9.7-b1.027347b5a7e5/bin/python3"
+  },
+  "old_generation_socket_gone": true,
+  "new_generation_socket_before_host": false
+}

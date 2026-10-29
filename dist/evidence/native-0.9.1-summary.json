@@ -1,0 +1,65 @@
+{
+  "status": "Partial",
+  "scope": "Actual installed 0.9.1 native MPS/Fusion/Deliver qualification. This is historical evidence, not a complete release or proof for another artifact.",
+  "installer_sha256": "50042b7882b77913e4cdd70ac62e470aaf0afdb8778bea14e862fe1394da7b0c",
+  "distinct_native_frames": 180,
+  "footage": [
+    "GS02",
+    "BS_01",
+    "Glass01"
+  ],
+  "dimensions": [
+    1920,
+    1080
+  ],
+  "single_frame_saver_seconds": 187.31,
+  "blue_deliver_seconds": 192.778,
+  "glass_deliver_seconds": 195.011,
+  "cached_green_deliver_seconds": 9.217,
+  "green_deliver_rgba_max_error": 0,
+  "three_actual_merge_deliver_backgrounds": {
+    "black": 0,
+    "white": 1.069058164659964e-06,
+    "saturated": 1.0679371058586185e-06
+  },
+  "maximum_observed_end_of_frame_driver_bytes": 14404567040,
+  "temporal_host_status": "Failed: required clip frame-rate metadata was absent; corrected adapter needs installed retest",
+  "evidence": [
+    {
+      "path": ".build/evidence/native-0.9.1-first-frame.json",
+      "sha256": "e9e9adcf4d819c658ca6d1018bc1e5fc5655977103ef540dab1704437fc5ea63"
+    },
+    {
+      "path": ".build/evidence/native-0.9.1-single-60/frames.json",
+      "sha256": "1540bfc6134c8c00223fb4fd1bf510b5e41bbfddf6174a5bc1414b0203a8dcd0"
+    },
+    {
+      "path": ".build/evidence/native-0.9.1-deliver-single.json",
+      "sha256": "906c62873a145e45e91cddfd6c039ded4358034235bc837ccc2f21b8856f5262"
+    },
+    {
+      "path": ".build/evidence/native-0.9.1-merge.json",
+      "sha256": "acdf6c3f190faac3b6e6ef6cb3f4f7828bda36a8d9f53aaf22331c5b0b483f39"
+    },
+    {
+      "path": ".build/evidence/native-0.9.1-blue.json",
+      "sha256": "af615a70e0362661e1c9022141b7889ff9b69b9a7ad88bb5650a45f14b378a7f"
+    },
+    {
+      "path": ".build/evidence/native-0.9.1-glass.json",
+      "sha256": "28b8caf36b5eff98db8e48a38a837feb185073168747a310c3667e75e7a7d6c4"
+    },
+    {
+      "path": ".build/evidence/native-0.9.1-cpu-reference/comparison.json",
+      "sha256": "1f1540c84d05a283ccf91f0c26f703cbc425f4efe137491f4b7975eddde94b9e"
+    },
+    {
+      "path": ".build/evidence/native-0.9.1-180-frames.json",
+      "sha256": "8b9061c47e1667fa06f75d80542f322b6591e91057adc2a81ebe27aa88ce832a"
+    },
+    {
+      "path": ".build/evidence/native-0.9.1-post-inference-integrity.txt",
+      "sha256": "2a1653b62ef93c0c2c4552841076ac648e63f0e75d590fa9638a1fdb4b53b023"
+    }
+  ]
+}

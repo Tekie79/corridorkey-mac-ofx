@@ -1,0 +1,1242 @@
+{
+  "acceptance": [
+    {
+      "applicability": "required primary release gate",
+      "artifact_sha256": "7a023538ad322b9eee26357b3dd2c2aecc16c292f6feb44837e3ffa00d590c0a",
+      "class": "U",
+      "evidence": [
+        {
+          "path": "dist/evidence/package-0.9.6-verified.json",
+          "sha256": "63f84e5825c9bab7b977fcfd817db45f606406c6f5b860cca696df01e5de1576"
+        }
+      ],
+      "id": "QA-01",
+      "note": "Exact offline archive:27117 verified expanded records, executable hooks and pinned assets.",
+      "required_result": "All runtime/model assets present with verified size/hash; no first-run downloads.",
+      "scenario": "Offline package inventory",
+      "status": "Passed"
+    },
+    {
+      "applicability": "required primary release gate",
+      "class": "U",
+      "evidence": [],
+      "id": "QA-02",
+      "note": "Pending actual installed-candidate qualification",
+      "required_result": "Normal Installer flow succeeds without user Python/Homebrew/Git/Xcode.",
+      "scenario": "Clean-account installation",
+      "status": "Not run"
+    },
+    {
+      "applicability": "required primary release gate",
+      "class": "U",
+      "evidence": [],
+      "id": "QA-03",
+      "note": "Pending actual installed-candidate qualification",
+      "required_result": "Applying the effect starts the worker and returns a genuine keyed frame without opening Manager.",
+      "scenario": "First use offline",
+      "status": "Not run"
+    },
+    {
+      "applicability": "required primary release gate",
+      "artifact_sha256": "7a023538ad322b9eee26357b3dd2c2aecc16c292f6feb44837e3ffa00d590c0a",
+      "class": "U",
+      "evidence": [
+        {
+          "path": "dist/evidence/native-0.9.6-checkout-independence.json",
+          "sha256": "8c41901479a948bce4067c8357a656731859e37d4d75965fbf1265bb5a0e7858"
+        }
+      ],
+      "id": "QA-04",
+      "note": "Whole checkout temporarily renamed away; automatic installed worker rendered a genuine Full1080 frame while absent. Exact output match.",
+      "required_result": "Installed product still works; no developer-path dependency.",
+      "scenario": "Relocated/deleted checkout",
+      "status": "Passed"
+    },
+    {
+      "applicability": "required primary release gate",
+      "class": "U",
+      "evidence": [],
+      "id": "QA-05",
+      "note": "Pending actual installed-candidate qualification",
+      "required_result": "User Conda/PYTHONPATH/global packages do not alter the private runtime.",
+      "scenario": "Conflicting Python environment",
+      "status": "Not run"
+    },
+    {
+      "applicability": "required primary release gate",
+      "artifact_sha256": "7a023538ad322b9eee26357b3dd2c2aecc16c292f6feb44837e3ffa00d590c0a",
+      "class": "U",
+      "evidence": [
+        {
+          "path": "dist/evidence/native-0.9.6-installed-runtime-audit.json",
+          "sha256": "6bd73d0276a061ca167b600386e9c0581d141df8c74ace46ace5c49124ba9f6f"
+        },
+        {
+          "path": "dist/evidence/native-0.9.6-architecture.json",
+          "sha256": "8e7669b4fbfb3ee11792ed702c0083717addddc4af2b61e47d6339c1be5a40e3"
+        }
+      ],
+      "id": "QA-06",
+      "note": "Actual installed arm64 dependency audit:273 Mach-O images, zero architecture/loader/minimum-OS errors; actual arm64 host inference.",
+      "required_result": "Plugin, Python and all native extensions load arm64; no Rosetta path is required.",
+      "scenario": "Native architecture",
+      "status": "Passed"
+    },
+    {
+      "applicability": "required primary release gate",
+      "class": "U",
+      "evidence": [],
+      "id": "QA-07",
+      "note": "Pending actual installed-candidate qualification",
+      "required_result": "Resolve scans and loads the actual installed bundle without starting the model during scanning.",
+      "scenario": "Plugin discovery",
+      "status": "Not run"
+    },
+    {
+      "applicability": "required primary release gate",
+      "artifact_sha256": "7a023538ad322b9eee26357b3dd2c2aecc16c292f6feb44837e3ffa00d590c0a",
+      "class": "U",
+      "evidence": [
+        {
+          "path": "dist/evidence/native-0.9.6-gpu-trace.json",
+          "sha256": "ed6939df8e3a26a5d5e0f055283ed03dd126247af3603c9f20882dd5edae0fcc"
+        },
+        {
+          "path": "dist/evidence/native-0.9.6-both-modes-health.json",
+          "sha256": "d8bdaeb66655392f4dcd0fc1ff9322b8c838e9e953ae526280d8ec2cffc4ecc5"
+        },
+        {
+          "path": "dist/evidence/native-0.9.6-temporal60.json",
+          "sha256": "0f04fb9dd2f0e301df69783126bdf1db0989d647a05294edac2e3c482f778edf"
+        }
+      ],
+      "id": "QA-08",
+      "note": "Actual installed MPS float32 all foundation/stage networks, fallback disabled, native Metal/MPSGraph stack and finite meaningful native outputs.",
+      "required_result": "All real models execute, fallback disabled, trace retained, finite meaningful outputs.",
+      "scenario": "Real MPS inference",
+      "status": "Passed"
+    },
+    {
+      "applicability": "required primary release gate",
+      "artifact_sha256": "7a023538ad322b9eee26357b3dd2c2aecc16c292f6feb44837e3ffa00d590c0a",
+      "class": "U",
+      "evidence": [
+        {
+          "path": "dist/evidence/native-0.9.6-install-and-manager.json",
+          "sha256": "6f5741f1f928eff0d53570d98eabcacf474b1c3d12fb40586aeb71a34fcd3c35"
+        },
+        {
+          "path": "dist/evidence/native-0.9.6-manager-support.json",
+          "sha256": "d5a57164ad8b0bfa839e0f91ec3e883882195dbe0a74fe874d3e57c3476b7fa6"
+        }
+      ],
+      "id": "QA-09",
+      "note": "Actual Manager readiness during processing separates loaded, fixture, active jobs and completed user frames.",
+      "required_result": "Loaded-only state never appears as completed inference; cached self-check identity is correct.",
+      "scenario": "Readiness truth",
+      "status": "Passed"
+    },
+    {
+      "applicability": "required primary release gate",
+      "class": "U",
+      "evidence": [],
+      "id": "QA-10",
+      "note": "Pending actual installed-candidate qualification",
+      "required_result": "Concurrent first use produces one compatible model worker and independent job/cancel ownership, including duplicated nodes with copied saved UUIDs.",
+      "scenario": "Multiple nodes",
+      "status": "Not run"
+    },
+    {
+      "applicability": "required primary release gate",
+      "artifact_sha256": "7a023538ad322b9eee26357b3dd2c2aecc16c292f6feb44837e3ffa00d590c0a",
+      "class": "U",
+      "evidence": [
+        {
+          "path": "dist/evidence/native-0.9.6-crash-recovery.json",
+          "sha256": "daef1ea13aaa7f6f05818e9a729e151ea83b4c9a20521a734ba74449b859a09e"
+        },
+        {
+          "path": "dist/evidence/native-0.9.6-crash-event.json",
+          "sha256": "52420924f6c04dbd2a17c8fbb973c18977b12ed22517a94ab8901f0785ddb63e"
+        }
+      ],
+      "id": "QA-11",
+      "note": "Verified worker killed during real analysis, Resolve responsive, no fallback export; normal retry starts one matching nonroot worker and completes.",
+      "required_result": "Resolve survives; bounded restart or actionable failure; no silent source fallback.",
+      "scenario": "Worker crash",
+      "status": "Passed"
+    },
+    {
+      "applicability": "required primary release gate",
+      "class": "U",
+      "evidence": [],
+      "id": "QA-12",
+      "note": "Pending actual installed-candidate qualification",
+      "required_result": "Worker leases expire and GPU memory is released; no orphan forever.",
+      "scenario": "Host crash/quit",
+      "status": "Not run"
+    },
+    {
+      "applicability": "required primary release gate",
+      "artifact_sha256": "7a023538ad322b9eee26357b3dd2c2aecc16c292f6feb44837e3ffa00d590c0a",
+      "class": "U",
+      "evidence": [
+        {
+          "path": "dist/evidence/native-0.9.6-host-cancel.json",
+          "sha256": "f024a967eac7dd84226dc3ce59d1453c7706b317a058f834e0e68f1d1c20bb99"
+        }
+      ],
+      "id": "QA-13",
+      "note": "Actual Resolve AbortRender stops host wait0.128s; no obsolete output; other node still matches expected result.",
+      "required_result": "Host wait cancels promptly; obsolete jobs/results are suppressed; another node remains usable.",
+      "scenario": "Cancellation",
+      "status": "Passed"
+    },
+    {
+      "applicability": "required primary release gate",
+      "artifact_sha256": "7a023538ad322b9eee26357b3dd2c2aecc16c292f6feb44837e3ffa00d590c0a",
+      "class": "U",
+      "evidence": [
+        {
+          "path": "dist/evidence/native-0.9.6-lifecycle.json",
+          "sha256": "0a030ebb228fd26796adbd8dc306a3eba25fc97036e26abdd791c3a5c59ff90a"
+        }
+      ],
+      "id": "QA-14",
+      "note": "Actual add/copy/disable/delete/undo/close/reopen; surviving duplicate retains independent output and settings.",
+      "required_result": "Add, duplicate, disable, delete, undo, close and reopen without stale pointers, leaks or hung tasks; editing/deleting one duplicate does not corrupt the other.",
+      "scenario": "Lifecycle",
+      "status": "Passed"
+    },
+    {
+      "applicability": "required primary release gate",
+      "artifact_sha256": "7a023538ad322b9eee26357b3dd2c2aecc16c292f6feb44837e3ffa00d590c0a",
+      "class": "U",
+      "evidence": [
+        {
+          "path": "dist/evidence/native-0.9.6-geometry-units.json",
+          "sha256": "96b9dbfd2f886b6dc837fe9a02cd2c1526e6e89b9263157c2790a7b584f9f7b6"
+        },
+        {
+          "path": "dist/evidence/native-0.9.6-hints.json",
+          "sha256": "8130a26fdc8ad5461508c7783290bd30bda0c9062a4d0aa7ca118a65ea726ec9"
+        }
+      ],
+      "id": "QA-15",
+      "note": "Actual odd385x217 Resolve/MPS frames plus native production-pixel tests for origins, negative/padded strides and windows. Synthetic geometry is identified as component verification.",
+      "required_result": "Odd sizes, nonzero origins, proxy scales and stride variants preserve orientation and exact extent.",
+      "scenario": "Geometry",
+      "status": "Passed"
+    },
+    {
+      "applicability": "required primary release gate",
+      "artifact_sha256": "7a023538ad322b9eee26357b3dd2c2aecc16c292f6feb44837e3ffa00d590c0a",
+      "class": "U",
+      "evidence": [
+        {
+          "path": "dist/evidence/native-0.9.6-color.json",
+          "sha256": "5ba481cedec6a0ea67ce3d5c72e9175c527734d26277cab80ccdc0fcbc94a4d7"
+        },
+        {
+          "path": "dist/evidence/native-0.9.6-color-policy.json",
+          "sha256": "1b40945c459f3d2832634c209a2c22b49aa6a84c9925f994e36088c704c63682"
+        }
+      ],
+      "id": "QA-16",
+      "note": "Actual native Loader->MPS->linear Saver sRGB/linear/gamma2.4 reference agreement.",
+      "required_result": "sRGB, linear Rec.709 and gamma 2.4 match the declared reference transformations.",
+      "scenario": "Color inputs",
+      "status": "Passed"
+    },
+    {
+      "applicability": "required primary release gate",
+      "artifact_sha256": "7a023538ad322b9eee26357b3dd2c2aecc16c292f6feb44837e3ffa00d590c0a",
+      "class": "U",
+      "evidence": [
+        {
+          "path": "dist/evidence/native-0.9.6-slog.json",
+          "sha256": "ec7e87b7d7fd39254cc6e949af622f209ab43b10f9635948108542c0982d7591"
+        },
+        {
+          "path": "dist/evidence/native-0.9.6-slog-policy.json",
+          "sha256": "ed6ab015e2aaaf1b2a21c6a2b4f7b5c8441250f270a919e0c43fc66eb973c063"
+        }
+      ],
+      "id": "QA-17",
+      "note": "Synthetic S-Log3 transfer on Rec709 primaries removed by native Fusion Loader, correct linear input/output; no camera-gamut claim.",
+      "required_result": "Tested transform chain produces correct model input and preserves intended output interpretation.",
+      "scenario": "S-Log3 workflow",
+      "status": "Passed"
+    },
+    {
+      "applicability": "required primary release gate",
+      "artifact_sha256": "7a023538ad322b9eee26357b3dd2c2aecc16c292f6feb44837e3ffa00d590c0a",
+      "class": "U",
+      "evidence": [
+        {
+          "path": "dist/evidence/native-0.9.6-alpha-merge.json",
+          "sha256": "afee41628e8f446b65b033f50e7e73f589b0b2af5598f4480746ddbce70fc97f"
+        }
+      ],
+      "id": "QA-18",
+      "note": "Actual float32 linear Fusion Merge over black,white,saturated red, no double premultiplication.",
+      "required_result": "Fine transparent edges composite correctly over black, white and saturated backgrounds; no double premultiplication.",
+      "scenario": "Alpha association",
+      "status": "Passed"
+    },
+    {
+      "applicability": "required primary release gate",
+      "artifact_sha256": "7a023538ad322b9eee26357b3dd2c2aecc16c292f6feb44837e3ffa00d590c0a",
+      "class": "U",
+      "evidence": [
+        {
+          "path": "dist/evidence/native-0.9.6-hdr.json",
+          "sha256": "7f8008e17bb351e934e3e8432096b8d6c5e858adb9a5d1b252aeb66e683e68cf"
+        }
+      ],
+      "id": "QA-19",
+      "note": "Actual native float HDR135x256 retains finite negativeRGB and >1 values.",
+      "required_result": "Finite out-of-range RGB survives supported float paths; foundation clipping does not clip the main signal.",
+      "scenario": "HDR and negatives",
+      "status": "Passed"
+    },
+    {
+      "applicability": "required primary release gate",
+      "artifact_sha256": "7a023538ad322b9eee26357b3dd2c2aecc16c292f6feb44837e3ffa00d590c0a",
+      "class": "U",
+      "evidence": [
+        {
+          "path": "dist/evidence/native-0.9.6-hints.json",
+          "sha256": "8130a26fdc8ad5461508c7783290bd30bda0c9062a4d0aa7ca118a65ea726ec9"
+        },
+        {
+          "path": "dist/evidence/native-0.9.6-reference-hint-invalidation.json",
+          "sha256": "9d11ef50bc3c940800eec03752b7ea99a5b1a406a410514c764c9f200e6fac1f"
+        }
+      ],
+      "id": "QA-20",
+      "note": "Actual12-frame8/4 source-alpha/all/reference0/reference4, connected Hint Alpha/Luma; nonreference hints ignored only in reference mode.",
+      "required_result": "None, source alpha, full-sequence and first-frame temporal hints follow their semantics; qualify a separate matte clip where that host/context provides it.",
+      "scenario": "Hints",
+      "status": "Passed"
+    },
+    {
+      "applicability": "required primary release gate",
+      "artifact_sha256": "7a023538ad322b9eee26357b3dd2c2aecc16c292f6feb44837e3ffa00d590c0a",
+      "class": "U",
+      "evidence": [
+        {
+          "path": "dist/evidence/native-0.9.6-temporal-reference/comparison.json",
+          "sha256": "314305d69d3ffdf1f6fe1b2af21639d3f90d971498d2c3d6daf5b22628921ba6"
+        },
+        {
+          "path": "dist/evidence/native-0.9.6-hints.json",
+          "sha256": "8130a26fdc8ad5461508c7783290bd30bda0c9062a4d0aa7ca118a65ea726ec9"
+        },
+        {
+          "path": "dist/evidence/native-0.9.6-both-modes-health.json",
+          "sha256": "d8bdaeb66655392f4dcd0fc1ff9322b8c838e9e953ae526280d8ec2cffc4ecc5"
+        }
+      ],
+      "id": "QA-21",
+      "note": "Real ordered recurrent context and overlapping baton/stage2 processing; actual installed12-frame8/4 result agrees with pinned upstream CPU QA reference.",
+      "required_result": "Ordered context, window blending and refinement agree with the declared reference; no matte-average substitute.",
+      "scenario": "True temporal algorithm",
+      "status": "Passed"
+    },
+    {
+      "applicability": "required primary release gate",
+      "artifact_sha256": "7a023538ad322b9eee26357b3dd2c2aecc16c292f6feb44837e3ffa00d590c0a",
+      "class": "U",
+      "evidence": [
+        {
+          "path": "dist/evidence/native-0.9.6-random.json",
+          "sha256": "41269fdbbd2730e3f2ae6bf03a32cf8590bad582254b4fe2eecac24973c9367f"
+        }
+      ],
+      "id": "QA-22",
+      "note": "Native shuffled/reverse59,41,3,30,0 match sequential60-frame temporal result exactly.",
+      "required_result": "Sequential, reverse and shuffled requests return matching analyzed results.",
+      "scenario": "Random access",
+      "status": "Passed"
+    },
+    {
+      "applicability": "required primary release gate",
+      "artifact_sha256": "7a023538ad322b9eee26357b3dd2c2aecc16c292f6feb44837e3ffa00d590c0a",
+      "class": "U",
+      "evidence": [
+        {
+          "path": "dist/evidence/native-0.9.6-fractional-time-deliver.json",
+          "sha256": "a4c73048311c569aec6acb9b144e0bdc0f8249b033a6c3d55790ba1bc85364bd"
+        },
+        {
+          "path": "dist/evidence/native-0.9.6-cut-reference/comparison.json",
+          "sha256": "7772146928ae59d1a78d9b3420151c183361dd9d7018ca98989038cd48691a6d"
+        }
+      ],
+      "id": "QA-23",
+      "note": "Separate keyers across an actual two-shot cut, all12 exact aligned native outputs; fresh ordered CPU cut reference agrees. Window ends and first/last frames included.",
+      "required_result": "Window ends, first/last frames and cuts produce no state leakage or unintended seams.",
+      "scenario": "Temporal boundaries",
+      "status": "Passed"
+    },
+    {
+      "applicability": "required primary release gate",
+      "artifact_sha256": "7a023538ad322b9eee26357b3dd2c2aecc16c292f6feb44837e3ffa00d590c0a",
+      "class": "U",
+      "evidence": [
+        {
+          "path": "dist/evidence/native-0.9.6-fractional-time-deliver.json",
+          "sha256": "a4c73048311c569aec6acb9b144e0bdc0f8249b033a6c3d55790ba1bc85364bd"
+        }
+      ],
+      "id": "QA-24",
+      "note": "Integer25fps60 and30000/1001 nonzero source1001..1012/timeline01:00:00:00; actual EXR sequence and12-frame alpha movie with exact source stamps.",
+      "required_result": "Integer and 30000/1001 rates and nonzero starts have no off-by-one frame errors.",
+      "scenario": "Time mapping",
+      "status": "Passed"
+    },
+    {
+      "applicability": "required primary release gate",
+      "artifact_sha256": "7a023538ad322b9eee26357b3dd2c2aecc16c292f6feb44837e3ffa00d590c0a",
+      "class": "U",
+      "evidence": [
+        {
+          "path": "dist/evidence/native-0.9.6-causal-invalidation.json",
+          "sha256": "df7746c31d3c60a13dd16acd1577b50e7f7c768f8b0f67031d0bf2d9cfb224d3"
+        },
+        {
+          "path": "dist/evidence/native-0.9.6-reference-hint-invalidation.json",
+          "sha256": "9d11ef50bc3c940800eec03752b7ea99a5b1a406a410514c764c9f200e6fac1f"
+        },
+        {
+          "path": "dist/evidence/native-0.9.6-colour-invalidation.json",
+          "sha256": "c731c9188c8101280dc5d3d2bc37d35a485341a03e85bece4e75ed8439118d19"
+        },
+        {
+          "path": "dist/evidence/native-0.9.6-range-invalidation.json",
+          "sha256": "14e91ecf0f79bd62731c09cc2302f6296f0ddea1db113b040a3909d738b6e7cb"
+        }
+      ],
+      "id": "QA-25",
+      "note": "Actual earlier-pixel recurrent invalidation, hint semantics, color interpretation and range identity. Acquisition-phase mutation is separately Failed QA42.",
+      "required_result": "Pixel/color/hint/range/model changes invalidate all affected outputs, including a later unchanged frame whose earlier recurrent dependency changed.",
+      "scenario": "Source invalidation",
+      "status": "Passed"
+    },
+    {
+      "applicability": "required primary release gate",
+      "artifact_sha256": "7a023538ad322b9eee26357b3dd2c2aecc16c292f6feb44837e3ffa00d590c0a",
+      "class": "U",
+      "evidence": [
+        {
+          "path": "dist/evidence/native-0.9.6-preview-final.json",
+          "sha256": "511b27e80cb5a3024a5d5db0e008738d4f2e31c75b5edac699f3df5100624405"
+        }
+      ],
+      "id": "QA-26",
+      "note": "Quarter preview then Full1080 Deliver in the same Resolve session; final exactly matches prior Full result.",
+      "required_result": "Render a lower-resolution/different-mode preview, then export without restarting Resolve; native final output uses its correct algorithm and resolution.",
+      "scenario": "Preview/final cache",
+      "status": "Passed"
+    },
+    {
+      "applicability": "required primary release gate",
+      "artifact_sha256": "7a023538ad322b9eee26357b3dd2c2aecc16c292f6feb44837e3ffa00d590c0a",
+      "class": "U",
+      "evidence": [
+        {
+          "path": "dist/evidence/native-0.9.6-cache-failures.json",
+          "sha256": "874a94357d0ea88f86585ce1d67641b139b6d8e78e3bd4198a6b26c5d9f112a6"
+        }
+      ],
+      "id": "QA-27",
+      "note": "Actual isolated constrained APFS volume guard, cached header-corruption rejection, preserved valid data and incomplete-write handling.",
+      "required_result": "Invalid/incomplete entries are ignored; existing valid data and source footage remain intact.",
+      "scenario": "Cache corruption/full disk",
+      "status": "Passed"
+    },
+    {
+      "applicability": "required primary release gate",
+      "artifact_sha256": "7a023538ad322b9eee26357b3dd2c2aecc16c292f6feb44837e3ffa00d590c0a",
+      "class": "U",
+      "evidence": [
+        {
+          "path": "dist/evidence/native-0.9.6-memory-pressure.json",
+          "sha256": "32df79cc95131886f6a5be849ebcbec767202cf00bbb35434b6f0ceb855f534d"
+        }
+      ],
+      "id": "QA-28",
+      "note": "Actual installed Engine.frame real MPS OOM under safe tighter ceiling; same full512 float32 request recovers with normal ceiling.",
+      "required_result": "OOM is bounded and recoverable; no disabled safety limits or silent final-quality reduction.",
+      "scenario": "Memory pressure",
+      "status": "Passed"
+    },
+    {
+      "applicability": "required primary release gate",
+      "artifact_sha256": "7a023538ad322b9eee26357b3dd2c2aecc16c292f6feb44837e3ffa00d590c0a",
+      "class": "U",
+      "evidence": [
+        {
+          "path": "dist/evidence/native-0.9.6-single60.json",
+          "sha256": "16113d286c189d6a71fca10d37e0000090825be509306a8aac519d20ee89942e"
+        },
+        {
+          "path": "dist/evidence/native-0.9.6-temporal60.json",
+          "sha256": "0f04fb9dd2f0e301df69783126bdf1db0989d647a05294edac2e3c482f778edf"
+        },
+        {
+          "path": "dist/evidence/native-0.9.6-single-deliver.json",
+          "sha256": "891831cbfd403d9ddcef55dca8a0de2e5dafb20c83ce3b45491ef60f53c4f1ca"
+        },
+        {
+          "path": "dist/evidence/native-0.9.6-temporal-deliver.json",
+          "sha256": "720fd89401abd668b5de9d74a1a4f64b7a17c9c8d6524e29d0bd77aa0d54e0c2"
+        }
+      ],
+      "id": "QA-29",
+      "note": "Actual installed60 consecutive Full1920x1080 frames both modes, real temporal251.552s, Fusion and Deliver finite matched outputs.",
+      "required_result": "At least 60 representative consecutive frames key and export in both required modes with stable quality and bounded resource use.",
+      "scenario": "1080p sequence",
+      "status": "Passed"
+    },
+    {
+      "applicability": "not claimed",
+      "artifact_sha256": "7a023538ad322b9eee26357b3dd2c2aecc16c292f6feb44837e3ffa00d590c0a",
+      "class": "C",
+      "evidence": [],
+      "id": "QA-30",
+      "note": "Native internal UHD is explicitly refused in this beta after earlier real4K numerical-quality failure; no native UHD support claimed.",
+      "required_result": "At least 24 consecutive UHD frames complete at every claimed native/profile combination; otherwise record the actual failure/unavailability and exclude that combination.",
+      "scenario": "UHD target",
+      "status": "Failed"
+    },
+    {
+      "applicability": "required primary release gate",
+      "artifact_sha256": "7a023538ad322b9eee26357b3dd2c2aecc16c292f6feb44837e3ffa00d590c0a",
+      "class": "U",
+      "evidence": [
+        {
+          "path": "dist/evidence/native-0.9.6-single-deliver.json",
+          "sha256": "891831cbfd403d9ddcef55dca8a0de2e5dafb20c83ce3b45491ef60f53c4f1ca"
+        },
+        {
+          "path": "dist/evidence/native-0.9.6-temporal-deliver.json",
+          "sha256": "720fd89401abd668b5de9d74a1a4f64b7a17c9c8d6524e29d0bd77aa0d54e0c2"
+        }
+      ],
+      "id": "QA-31",
+      "note": "Actual60floatRGBA Deliver EXRs in each required mode, maximum error0 against native Fusion Saver.",
+      "required_result": "A real Resolve Deliver sequence preserves alignment, intended color and useful alpha in an appropriate supported output.",
+      "scenario": "Final export",
+      "status": "Passed"
+    },
+    {
+      "applicability": "required primary release gate",
+      "artifact_sha256": "7a023538ad322b9eee26357b3dd2c2aecc16c292f6feb44837e3ffa00d590c0a",
+      "class": "U",
+      "evidence": [
+        {
+          "path": "dist/evidence/native-0.9.6-quality-review.json",
+          "sha256": "0190de24cb52291be8601216e9c7665931a899812b9139f6fae9d700a2524f3a"
+        },
+        {
+          "path": "dist/evidence/native-0.9.6-quality-review.png",
+          "sha256": "fea8c3eba84e57f2edacfefe24ac718d025f1fc82ce50cd32948c87d3597a8d7"
+        }
+      ],
+      "id": "QA-32",
+      "note": "Real green/blue screen, hair, plane-propeller blur and glass/stream reviewed at1080; remaining glass/refraction color limitations documented.",
+      "required_result": "Hair, fine detail, motion blur, transparency, green/blue screens and imperfect lighting have inspected foreground/matte outputs.",
+      "scenario": "Frame-quality review",
+      "status": "Passed"
+    },
+    {
+      "applicability": "required primary release gate",
+      "artifact_sha256": "7a023538ad322b9eee26357b3dd2c2aecc16c292f6feb44837e3ffa00d590c0a",
+      "class": "U",
+      "evidence": [
+        {
+          "path": "dist/evidence/native-0.9.6-both-modes-health.json",
+          "sha256": "d8bdaeb66655392f4dcd0fc1ff9322b8c838e9e953ae526280d8ec2cffc4ecc5"
+        },
+        {
+          "path": "dist/evidence/native-0.9.6-fusion-cached-playback.json",
+          "sha256": "083d0fc7d8ac88d4bec7e1386f5ab95385d36685df85e8288fefa65c8dd65d1a"
+        },
+        {
+          "path": "dist/evidence/native-0.9.6-temporal-deliver.json",
+          "sha256": "720fd89401abd668b5de9d74a1a4f64b7a17c9c8d6524e29d0bd77aa0d54e0c2"
+        },
+        {
+          "path": "dist/evidence/native-0.9.6-single-deliver.json",
+          "sha256": "891831cbfd403d9ddcef55dca8a0de2e5dafb20c83ce3b45491ef60f53c4f1ca"
+        }
+      ],
+      "id": "QA-33",
+      "note": "Exact candidate: cold load32.431s, distinctFullSF2.839s, real60temporal251.552s, peakdriver18.125GB, cached Fusion24.496fps; cache/export timings separated.",
+      "required_result": "Cold/warm/distinct-frame/cache/temporal times and peak memory measured with Resolve open.",
+      "scenario": "Performance report",
+      "status": "Passed"
+    },
+    {
+      "applicability": "required primary release gate",
+      "artifact_sha256": "7a023538ad322b9eee26357b3dd2c2aecc16c292f6feb44837e3ffa00d590c0a",
+      "class": "U",
+      "evidence": [
+        {
+          "path": "dist/evidence/native-0.9.6-post-inference-verify.txt",
+          "sha256": "7fd6fdfb36d591d4be9038c4b2a5842a71ed9c7bd141a78be9d99322a50ea2d2"
+        }
+      ],
+      "id": "QA-34",
+      "note": "After native inference and analysis, all27113 protected installed files still verify; caches user-local.",
+      "required_result": "Signed/runtime/model files are unchanged after inference and analysis; generated caches are user-local.",
+      "scenario": "Read-only payload",
+      "status": "Passed"
+    },
+    {
+      "applicability": "required primary release gate",
+      "artifact_sha256": "7a023538ad322b9eee26357b3dd2c2aecc16c292f6feb44837e3ffa00d590c0a",
+      "class": "U",
+      "evidence": [
+        {
+          "path": "dist/evidence/native-0.9.6-install-and-manager.json",
+          "sha256": "6f5741f1f928eff0d53570d98eabcacf474b1c3d12fb40586aeb71a34fcd3c35"
+        },
+        {
+          "path": "dist/evidence/native-0.9.6-both-modes-health.json",
+          "sha256": "d8bdaeb66655392f4dcd0fc1ff9322b8c838e9e953ae526280d8ec2cffc4ecc5"
+        }
+      ],
+      "id": "QA-35",
+      "note": "Normal GUI upgrade installed exact6, historical saved qualification project opened with retained parameter meanings and real both-mode renders.",
+      "required_result": "Previous saved project opens with stable parameter meanings and compatible worker/model set.",
+      "scenario": "Upgrade",
+      "status": "Passed"
+    },
+    {
+      "applicability": "required primary release gate",
+      "class": "U",
+      "evidence": [],
+      "id": "QA-36",
+      "note": "Pending actual installed-candidate qualification",
+      "required_result": "Backups precede replacement of every live component; journal/rollback produces a complete previous or new set, never a mixed partial installation.",
+      "scenario": "Interrupted activation",
+      "status": "Not run"
+    },
+    {
+      "applicability": "required primary release gate",
+      "class": "U",
+      "evidence": [],
+      "id": "QA-37",
+      "note": "Pending actual installed-candidate qualification",
+      "required_result": "Offline repair restores a deliberately corrupt/missing file; moved original installer is found through a GUI picker and verified; no Terminal package management.",
+      "scenario": "Repair",
+      "status": "Not run"
+    },
+    {
+      "applicability": "required primary release gate",
+      "class": "U",
+      "evidence": [],
+      "id": "QA-38",
+      "note": "Pending actual installed-candidate qualification",
+      "required_result": "Installed removal path works after original installer deletion; only product paths removed; model retention honored; other plugins/projects remain.",
+      "scenario": "Uninstall",
+      "status": "Not run"
+    },
+    {
+      "applicability": "required primary release gate",
+      "artifact_sha256": "7a023538ad322b9eee26357b3dd2c2aecc16c292f6feb44837e3ffa00d590c0a",
+      "class": "U",
+      "evidence": [
+        {
+          "path": "dist/evidence/package-0.9.6-verified.json",
+          "sha256": "63f84e5825c9bab7b977fcfd817db45f606406c6f5b860cca696df01e5de1576"
+        },
+        {
+          "path": "dist/evidence/native-0.9.6-install-and-manager.json",
+          "sha256": "6f5741f1f928eff0d53570d98eabcacf474b1c3d12fb40586aeb71a34fcd3c35"
+        }
+      ],
+      "id": "QA-39",
+      "note": "Actual local normal Installer route and native Resolve load, ad-hoc contained code; package unsigned, not notarized; transferred trust route not claimed.",
+      "required_result": "Primary local install/load route verified for the selected personal profile; transferred-package support is a separate conditional claim.",
+      "scenario": "Signing/provenance",
+      "status": "Passed"
+    },
+    {
+      "applicability": "not claimed",
+      "artifact_sha256": "7a023538ad322b9eee26357b3dd2c2aecc16c292f6feb44837e3ffa00d590c0a",
+      "class": "C",
+      "evidence": [],
+      "id": "QA-40",
+      "note": "Second Mac unavailable and not claimed.",
+      "required_result": "Equivalent package tests and actual transfer/install/load route recorded on the second Mac before claiming support; unavailable hardware is explicitly unqualified.",
+      "scenario": "Second Mac",
+      "status": "Blocked"
+    },
+    {
+      "applicability": "required primary release gate",
+      "artifact_sha256": "7a023538ad322b9eee26357b3dd2c2aecc16c292f6feb44837e3ffa00d590c0a",
+      "class": "U",
+      "evidence": [
+        {
+          "path": "dist/evidence/native-0.9.6-reanalysis.json",
+          "sha256": "db9493d98116936a40aa957b31c71100c39c2e3d77a403ee47683696a7d61c5e"
+        },
+        {
+          "path": "dist/evidence/native-0.9.6-reanalysis-marker.json",
+          "sha256": "55b2d44bbe5c0ecc9835b79b9ab3b64d62dff7c8cfa324ec763c08554bccc981"
+        }
+      ],
+      "id": "QA-41",
+      "note": "Actual native Analyze Shot event advances saved revision1->2 with unchanged creative/source settings; actual Deliver matches revision2 exactly.",
+      "required_result": "Reanalysis with unchanged visible settings advances the supported render revision; viewer and export consume the newly activated result.",
+      "scenario": "Host analysis cache",
+      "status": "Passed"
+    },
+    {
+      "applicability": "required primary release gate",
+      "artifact_sha256": "7a023538ad322b9eee26357b3dd2c2aecc16c292f6feb44837e3ffa00d590c0a",
+      "class": "U",
+      "evidence": [
+        {
+          "path": "dist/evidence/native-0.9.6-acquisition-snapshot-inspection.json",
+          "sha256": "339a4caa4341bc04fa08c47aed6ad8378a909f3e3864ea750c219d45a4731c27"
+        },
+        {
+          "path": "dist/evidence/native-0.9.6-acquisition12-source-edit.json",
+          "sha256": "1be820710761bc76875de883ac92ea10efd01b8daa185461d88f7247630d4bd7"
+        }
+      ],
+      "id": "QA-42",
+      "note": "Actual acquisition-phase upstream gain edit produced and activated mixed-source temporal input. Candidate is unqualified; replacement capture guard is awaiting native validation.",
+      "required_result": "Upstream change during frame acquisition cancels the inconsistent generation; mixed-source results never activate.",
+      "scenario": "Source changes during analysis",
+      "status": "Failed"
+    },
+    {
+      "applicability": "required primary release gate",
+      "class": "U",
+      "evidence": [],
+      "id": "QA-43",
+      "note": "Pending actual installed-candidate qualification",
+      "required_result": "Idle/live workers are drained and stopped before affected files are removed; unsafe maintenance is blocked without broad process kills or partial deletion.",
+      "scenario": "Maintenance and workers",
+      "status": "Not run"
+    },
+    {
+      "applicability": "required primary release gate",
+      "class": "U",
+      "evidence": [],
+      "id": "QA-44",
+      "note": "Pending actual installed-candidate qualification",
+      "required_result": "Unsupported user/alternate-volume targets are unavailable or rejected before changes; hooks cannot silently target the wrong volume.",
+      "scenario": "Installer destination",
+      "status": "Not run"
+    },
+    {
+      "applicability": "required primary release gate",
+      "class": "U",
+      "evidence": [],
+      "id": "QA-45",
+      "note": "Pending actual installed-candidate qualification",
+      "required_result": "Actual Resolve progress/cancel/refresh path is recorded and responsive; no background/timer suite calls or unsafe parameter changes.",
+      "scenario": "Progress and host calls",
+      "status": "Not run"
+    }
+  ],
+  "artifact": {
+    "filename": "CorridorKeyMac-0.9.6-beta.1-arm64-Offline.pkg",
+    "installed_bytes": 6021539005,
+    "qualified": false,
+    "sha256": "7a023538ad322b9eee26357b3dd2c2aecc16c292f6feb44837e3ffa00d590c0a",
+    "signing_profile": "Personal Local: contained code ad-hoc signed; package unsigned",
+    "size": 4050878032
+  },
+  "development_and_partial_evidence": [
+    {
+      "file": "dist/evidence/GS02-single-1080p/sequence.json",
+      "scope": "direct backend only; not Resolve/Fusion/Deliver qualification",
+      "sha256": "ce9dc4d1da187a463656247322efe1e731279f612f7bb49f53663b4f86fcd757",
+      "status": "Passed"
+    },
+    {
+      "file": "dist/evidence/cpu-GS02-1920/comparison.json",
+      "scope": "See the evidence; not automatically an installed-product acceptance result",
+      "sha256": "c734a54437693ddcba12e893099fbf37323b21a366a630c5f004f49d29843059",
+      "status": "Passed"
+    },
+    {
+      "file": "dist/evidence/cpu-GS02-native/comparison.json",
+      "scope": "See the evidence; not automatically an installed-product acceptance result",
+      "sha256": "b173c7bd5ced4c1a1c032fab447aef9dd6ab8fb2304bef6911a0cb47ab420488",
+      "status": "Failed"
+    },
+    {
+      "file": "dist/evidence/foundation-native-comparison.json",
+      "scope": "See the evidence; not automatically an installed-product acceptance result",
+      "sha256": "016b7fe3d128ff226eb4c1f0d87f3071dfe62484891c6e273edbf1b9b43f2e2e",
+      "status": "recorded"
+    },
+    {
+      "file": "dist/evidence/mps-GS02-1920/probe.json",
+      "scope": "See the evidence; not automatically an installed-product acceptance result",
+      "sha256": "83089ec4db39f4dacd3738604ea45e4a81c1089925ca089be3e90119e8025c41",
+      "status": "Passed"
+    },
+    {
+      "file": "dist/evidence/mps-GS02-512/probe.json",
+      "scope": "See the evidence; not automatically an installed-product acceptance result",
+      "sha256": "6ba4e6f142cf977c874aa18833ce466f0633157ed6dc6d8740ed3bb6436e932d",
+      "status": "Passed"
+    },
+    {
+      "file": "dist/evidence/mps-GS02-native/probe.json",
+      "scope": "See the evidence; not automatically an installed-product acceptance result",
+      "sha256": "7c88cd2f7b62cf3999c785f5902b1b5c8c59d0cbd5b0bad5c9585c11fa28cc13",
+      "status": "Passed"
+    },
+    {
+      "file": "dist/evidence/mps-contiguous-attention.json",
+      "scope": "See the evidence; not automatically an installed-product acceptance result",
+      "sha256": "9589412a1c77cd2ff72148fbdd41f2686d0df224ba7fbdce77fb3baa331348af",
+      "status": "Failed"
+    },
+    {
+      "file": "dist/evidence/mps-real-512/probe.json",
+      "scope": "See the evidence; not automatically an installed-product acceptance result",
+      "sha256": "219bf0479083ab1f44f24a5206b9e628876f8532838f8b981aa1df608ccb0777",
+      "status": "Passed"
+    },
+    {
+      "file": "dist/evidence/mps-smoke/probe.json",
+      "scope": "See the evidence; not automatically an installed-product acceptance result",
+      "sha256": "6262aac3dbf89de87f478d4e6fe185d62456683481ec7b32e15d0c872999d1b7",
+      "status": "Passed"
+    },
+    {
+      "file": "dist/evidence/native-0.9.1-blue.json",
+      "scope": "Actual installed Single Frame blue-screen Fusion/Deliver, 60 native 1080p frames; visual review recorded separately",
+      "sha256": "af615a70e0362661e1c9022141b7889ff9b69b9a7ad88bb5650a45f14b378a7f",
+      "status": "Passed"
+    },
+    {
+      "file": "dist/evidence/native-0.9.1-cpu-reference/comparison.json",
+      "scope": "Same-version float32 CPU QA reference against actual native Fusion input and installed MPS output; no CPU production fallback",
+      "sha256": "1f1540c84d05a283ccf91f0c26f703cbc425f4efe137491f4b7975eddde94b9e",
+      "status": "Passed"
+    },
+    {
+      "file": "dist/evidence/native-0.9.1-glass.json",
+      "scope": "Actual installed Single Frame glass/pouring-water Fusion and Deliver; native 1080p key from explicitly resized 4K source",
+      "sha256": "28b8caf36b5eff98db8e48a38a837feb185073168747a310c3667e75e7a7d6c4",
+      "status": "Passed"
+    },
+    {
+      "file": "dist/evidence/native-0.9.1-idle-exit.json",
+      "scope": "Actual installed engine after normal Resolve quit, no explicit worker termination",
+      "sha256": "68ebc9fca4ef78059bb63d555c43f7fd818a2ac02e7d43f7dd6f4aa4d46960b7",
+      "status": "Passed"
+    },
+    {
+      "file": "dist/evidence/native-0.9.1-summary.json",
+      "scope": "Actual installed 0.9.1 native MPS/Fusion/Deliver qualification. This is historical evidence, not a complete release or proof for another artifact.",
+      "sha256": "be3ab8168d89e5d530b820321c979bb33e1a3246070be49c7d5b386410a0c4f1",
+      "status": "Partial"
+    },
+    {
+      "file": "dist/evidence/native-0.9.2-install-failure.json",
+      "scope": "Actual native Installer upgrade; refused before activation, preserving previous active build",
+      "sha256": "b897ebacb372bdf483427068ae84f088665f1054f68ba301aa8e624288447c44",
+      "status": "Failed"
+    },
+    {
+      "file": "dist/evidence/native-0.9.5-linear-merge-zero-alpha-tolerance.json",
+      "scope": "Exact installed0.9.5 actual Fusion LinearOutput and Merge -> Deliver60floatRGBA, reference signed sRGB decode of independent cachedmodel output",
+      "sha256": "fadf7cfecb94cd1027f847d082e0cad431b7e2caff984863c82044637f8f7ba4",
+      "status": "Failed"
+    },
+    {
+      "file": "dist/evidence/native-0.9.5-linear-merge.json",
+      "scope": "Exact installed0.9.5 actual Fusion LinearOutput and Merge -> Deliver60floatRGBA, reference signed sRGB decode of independent cachedmodel output",
+      "sha256": "18515d341423be702ec3df6dbc57e0b30d7938748d4510f5c081b78af18f6a46",
+      "status": "Passed"
+    },
+    {
+      "file": "dist/evidence/native-0.9.5-single.json",
+      "scope": "Actual unmodified installed 0.9.5 offline package, Fusion Saver, 60 Full 1080p Single Frame outputs; not full acceptance matrix completion",
+      "sha256": "7a00271fa80d9bd8c0b4d7a4becb7ee5b9e14c51deb32488884d0cf63f91f7d7",
+      "status": "Passed"
+    },
+    {
+      "file": "dist/evidence/native-0.9.5-unlocked-cache-invalidation.json",
+      "scope": "Exact installed0.9.5 native unlocked Fusion Cache to Disk, source0edit requested2unchanged input, actual temporal recomputation",
+      "sha256": "a4b5bf4f53a190d3ed7c69c0fffd2d09d209290850dd4bc0402c17a3304ccdfe",
+      "status": "Passed"
+    },
+    {
+      "file": "dist/evidence/native-0.9.6-acquisition12-source-edit.json",
+      "scope": "Actual 0.9.6 Resolve acquisition-phase edit activated a mixed-source result. Supersedes the earlier inconclusive same-action checks.",
+      "sha256": "1be820710761bc76875de883ac92ea10efd01b8daa185461d88f7247630d4bd7",
+      "status": "Failed"
+    },
+    {
+      "file": "dist/evidence/native-0.9.6-active-maintenance-blocked.json",
+      "scope": "Actual Manager Release GPU invoked while installed worker reported processing/active_jobs1; operation refused and did not stop the worker or modify installed assets. Idle root maintenance drain still tested separately.",
+      "sha256": "147002953f1e4aa02b323f35feee3c9d61fd931a9f9f622930aa234a3521b9ce",
+      "status": "Passed"
+    },
+    {
+      "file": "dist/evidence/native-0.9.6-alpha-merge-half-background.json",
+      "scope": "Actual native Fusion linear-light Merge of installed premultiplied keyer output over black,white,saturated red; comparison to foreground + background*(1-alpha)",
+      "sha256": "14bf232302e9cc61be87c5fbd8e4343571e03e523b604fdad67ebec6a1e73076",
+      "status": "Failed"
+    },
+    {
+      "file": "dist/evidence/native-0.9.6-alpha-merge.json",
+      "scope": "Actual native Fusion float32 linear-light Merge of installed premultiplied keyer output over black,white,saturated red; comparison to foreground + background*(1-alpha)",
+      "sha256": "afee41628e8f446b65b033f50e7e73f589b0b2af5598f4480746ddbce70fc97f",
+      "status": "Passed"
+    },
+    {
+      "file": "dist/evidence/native-0.9.6-architecture.json",
+      "scope": "Read-only audit of actual installed273 native runtime images: arm64, deployment targets and loader roots; native installed OFX and Manager arm64; actual ResolveMPS load already exercised",
+      "sha256": "8e7669b4fbfb3ee11792ed702c0083717addddc4af2b61e47d6339c1be5a40e3",
+      "status": "Passed"
+    },
+    {
+      "file": "dist/evidence/native-0.9.6-cache-failures.json",
+      "scope": "Installed production DiskCache on actual mounted isolated5GB APFS volume: free-space safety rejection preserves old valid image; same-area extent header corruption invalidates already-RAM-cached data; restoration succeeds; incomplete writer is never treated as a committed entry. Source footage and main Mac volume unchanged.",
+      "sha256": "874a94357d0ea88f86585ce1d67641b139b6d8e78e3bd4198a6b26c5d9f112a6",
+      "status": "Passed"
+    },
+    {
+      "file": "dist/evidence/native-0.9.6-causal-invalidation.json",
+      "scope": "Actual installed native1080 temporal4-frame earlier-source0 edit; requestedframe2 source unchanged. Native unlocked disk cache discarded old four files and rebuilt frame2 with actual neural processing; Saver then exported same new model result after native cache disabled.",
+      "sha256": "df7746c31d3c60a13dd16acd1577b50e7f7c768f8b0f67031d0bf2d9cfb224d3",
+      "status": "Passed"
+    },
+    {
+      "file": "dist/evidence/native-0.9.6-checkout-independence.json",
+      "scope": "Actual native Resolve first use with normal automatic worker startup while entire build checkout is renamed away; companion installed private runtime runs real MPS under conflicting Python settings and OS-denied outbound IP.",
+      "sha256": "8c41901479a948bce4067c8357a656731859e37d4d75965fbf1265bb5a0e7858",
+      "status": "Passed"
+    },
+    {
+      "file": "dist/evidence/native-0.9.6-color.json",
+      "scope": "Actual native Loader->OFX MPS->linear output->FusionSaver, corresponding sRGB,linear709,gamma2.4 inputs",
+      "sha256": "5ba481cedec6a0ea67ce3d5c72e9175c527734d26277cab80ccdc0fcbc94a4d7",
+      "status": "Passed"
+    },
+    {
+      "file": "dist/evidence/native-0.9.6-colour-invalidation.json",
+      "scope": "Native Temporal12 same captured pixels, only Input Encoding changed sRGB->Linear; must not reuse prior output",
+      "sha256": "c731c9188c8101280dc5d3d2bc37d35a485341a03e85bece4e75ed8439118d19",
+      "status": "Passed"
+    },
+    {
+      "file": "dist/evidence/native-0.9.6-conflicting-env-offline.json",
+      "scope": "Actual installed private interpreter and production engine entrypoint under conflicting PYTHONHOME/PYTHONPATH/Conda, hostile torch.py, requested fallback1 and offline flags0; OS denies outbound IP. Isolated QA process, not native supervisor or clean-account installation.",
+      "sha256": "06bb4196c5bdf50fd56ece66075e2e74b3d109ebd066a2d8ded2ff0376f1a959",
+      "status": "Passed"
+    },
+    {
+      "file": "dist/evidence/native-0.9.6-crash-recovery.json",
+      "scope": "Actual installed native Resolve render workerSIGKILL duringprocessing; Resolve remained responsive, failed attempt saved no fallback file; normalrenderretry automatically started one matching nonroot worker and completed real temporal inference",
+      "sha256": "daef1ea13aaa7f6f05818e9a729e151ea83b4c9a20521a734ba74449b859a09e",
+      "status": "Passed"
+    },
+    {
+      "file": "dist/evidence/native-0.9.6-cut-reference/comparison.json",
+      "scope": "Fresh CPU pinned-upstream4/2 reference for the second blue shot after a hard cut from green; actual installed MPS6frame640x360 result, no recurrent state inherited across shots",
+      "sha256": "7772146928ae59d1a78d9b3420151c183361dd9d7018ca98989038cd48691a6d",
+      "status": "Passed"
+    },
+    {
+      "file": "dist/evidence/native-0.9.6-duplicate-ownership.json",
+      "scope": "Actual native copied OFX settings produce two independent nodes and Saver branches, shared automatic startup. Different post parameters produce correct independent output. Clearing original node through native clearCache action preserves duplicate shared model results: no new neural frame and cache hits increase. Native copy auto-insertion explicitly corrected in test graph.",
+      "sha256": "bea1c827fe776759632e7a4a7bcf8b730eb209b9590932f4ace65af243f07698",
+      "status": "Passed"
+    },
+    {
+      "file": "dist/evidence/native-0.9.6-first-temporal.json",
+      "scope": "Exact installed0.9.6 Full1080 temporal first random frame30 after real60-frame MPS analysis",
+      "sha256": "f9aeed37555a98a2a20c00a988ea2fc56d219db2a677d944686ffac1491b517b",
+      "status": "Passed"
+    },
+    {
+      "file": "dist/evidence/native-0.9.6-fractional-time-deliver.json",
+      "scope": "Actual29.97 timeline and nonzero sourceEXR1001..1012, nonzero timeline109001..109012, two six-frame temporal shots at hard green/blue cut. Source binary stamps confirm exact frame order; all12DeliverfloatRGBA outputs match nativeSaver exactly; actualProRes4444alpha movie confirms30000/1001 and12frames.",
+      "sha256": "a4c73048311c569aec6acb9b144e0bdc0f8249b033a6c3d55790ba1bc85364bd",
+      "status": "Passed"
+    },
+    {
+      "file": "dist/evidence/native-0.9.6-geometry-units.json",
+      "scope": "Native arm64 production pixel packing/writing code tests run on this Mac; includes negative stride, origins, flip, alpha, padding, window and invalid input. Combined with actual odd385x217 nativeMPS/Fusion and preview/final tests; no claim that Resolve emitted every synthetic stride/origin.",
+      "sha256": "96b9dbfd2f886b6dc837fe9a02cd2c1526e6e89b9263157c2790a7b584f9f7b6",
+      "status": "Passed"
+    },
+    {
+      "file": "dist/evidence/native-0.9.6-gpu-trace.json",
+      "scope": "Native2second stack sampling of automatically launched installed worker50227 during real1080 temporal analysis, plus completed real network counters and MPS float32/fallback diagnostics",
+      "sha256": "ed6939df8e3a26a5d5e0f055283ed03dd126247af3603c9f20882dd5edae0fcc",
+      "status": "Passed"
+    },
+    {
+      "file": "dist/evidence/native-0.9.6-hdr.json",
+      "scope": "Native Fusion Loader float HDR -> MPS OFX linear straight foreground -> float32 Saver",
+      "sha256": "7f8008e17bb351e934e3e8432096b8d6c5e858adb9a5d1b252aeb66e683e68cf",
+      "status": "Passed"
+    },
+    {
+      "file": "dist/evidence/native-0.9.6-hints.json",
+      "scope": "Actual installed native Fusion MPS12 real-footage-derived odd385x217 frames,8/4 temporal; source alpha/all/reference0/reference4, optional connected alpha/luma matte; CPU reference worker outputs also checked against actual native Saver",
+      "sha256": "8130a26fdc8ad5461508c7783290bd30bda0c9062a4d0aa7ca118a65ea726ec9",
+      "status": "Passed"
+    },
+    {
+      "file": "dist/evidence/native-0.9.6-host-cancel.json",
+      "scope": "Actual Resolve supported Composition.AbortRender during genuine installed MPS temporal inference; native OFX abort path and obsolete-output suppression",
+      "sha256": "f024a967eac7dd84226dc3ce59d1453c7706b317a058f834e0e68f1d1c20bb99",
+      "status": "Passed"
+    },
+    {
+      "file": "dist/evidence/native-0.9.6-installed-runtime-audit.json",
+      "scope": "See the evidence; not automatically an installed-product acceptance result",
+      "sha256": "6bd73d0276a061ca167b600386e9c0581d141df8c74ace46ace5c49124ba9f6f",
+      "status": "Passed"
+    },
+    {
+      "file": "dist/evidence/native-0.9.6-lifecycle.json",
+      "scope": "Native Resolve add/copy/disable/delete/undo/close/reopen lifecycle; per-step observations, not full pass until complete",
+      "sha256": "0a030ebb228fd26796adbd8dc306a3eba25fc97036e26abdd791c3a5c59ff90a",
+      "status": "Passed"
+    },
+    {
+      "file": "dist/evidence/native-0.9.6-manager-support.json",
+      "scope": "Actual Manager Support File GUI action, archive inspected locally",
+      "sha256": "d5a57164ad8b0bfa839e0f91ec3e883882195dbe0a74fe874d3e57c3476b7fa6",
+      "status": "Passed"
+    },
+    {
+      "file": "dist/evidence/native-0.9.6-memory-pressure.json",
+      "scope": "Installed production Engine.frame/backend MPS paths in isolated qualification process: tightened allocator ceiling induces real MPS OOM, restores normal profile and retries identical full512x512 float32 request; Resolve remains open. No production worker or source changed.",
+      "sha256": "32df79cc95131886f6a5be849ebcbec767202cf00bbb35434b6f0ceb855f534d",
+      "status": "Passed"
+    },
+    {
+      "file": "dist/evidence/native-0.9.6-midanalysis-source-edit.json",
+      "scope": "Actual native upstream Gain frame0 changed1.8->1.9 during1080 four-frame temporal model processing, requestedframe2 unchanged",
+      "sha256": "0b2d7ca4c4fa286ad805c02e2a7b45aaa483813b68ad8d57d7613a80b31be23e",
+      "status": "Passed"
+    },
+    {
+      "file": "dist/evidence/native-0.9.6-preview-final.json",
+      "scope": "Actual native Quarter Internal Resolution preview thenFull1080 Deliver without restarting Resolve; Full result exactly matches earlier independent Full single-frame output, no preview cache poisoning",
+      "sha256": "511b27e80cb5a3024a5d5db0e008738d4f2e31c75b5edac699f3df5100624405",
+      "status": "Passed"
+    },
+    {
+      "file": "dist/evidence/native-0.9.6-quality-review.json",
+      "scope": "Actual installed Full1080 native renders reviewed for authorized green/blue/glass footage, source/matte/composites. Green clothing and hair retained; blue airplane detail and semi-transparent propeller blur retained; glass/pouring edges and partial alpha retained. Display composites are inspection thumbnails, separate from qualified linear-Merge numeric tests.",
+      "sha256": "0190de24cb52291be8601216e9c7665931a899812b9139f6fae9d700a2524f3a",
+      "status": "Passed"
+    },
+    {
+      "file": "dist/evidence/native-0.9.6-random.json",
+      "scope": "Actual native Fusion reverse/shuffled frame requests, matching full sequential temporal result",
+      "sha256": "41269fdbbd2730e3f2ae6bf03a32cf8590bad582254b4fe2eecac24973c9367f",
+      "status": "Passed"
+    },
+    {
+      "file": "dist/evidence/native-0.9.6-range-invalidation.json",
+      "scope": "Native same source/color/profile, only inclusive range end11->10; requested5 source unchanged; new complete context and output generation",
+      "sha256": "14e91ecf0f79bd62731c09cc2302f6296f0ddea1db113b040a3909d738b6e7cb",
+      "status": "Passed"
+    },
+    {
+      "file": "dist/evidence/native-0.9.6-reanalysis.json",
+      "scope": "Actual native Fusion Analyze Shot control event through host input API, unchanged creative settings and source; saved revision1->2 generates new complete temporal result; unlocked Fusion cache updated and actual Deliver consumes revision2",
+      "sha256": "db9493d98116936a40aa957b31c71100c39c2e3d77a403ee47683696a7d61c5e",
+      "status": "Passed"
+    },
+    {
+      "file": "dist/evidence/native-0.9.6-reference-hint-invalidation.json",
+      "scope": "Native12frame8/4 reference0hint propagation unchanged when only nonreference frame11 hint luminance changes to zero; same edit in All Frames changes frame11",
+      "sha256": "9d11ef50bc3c940800eec03752b7ea99a5b1a406a410514c764c9f200e6fac1f",
+      "status": "Passed"
+    },
+    {
+      "file": "dist/evidence/native-0.9.6-single-deliver.json",
+      "scope": "Actual exact0.9.6 cached Single Frame Deliver60floatRGBA EXRs vsFusionSaver",
+      "sha256": "891831cbfd403d9ddcef55dca8a0de2e5dafb20c83ce3b45491ef60f53c4f1ca",
+      "status": "Passed"
+    },
+    {
+      "file": "dist/evidence/native-0.9.6-single60.json",
+      "scope": "Exact0.9.6 actual60SingleFrameFull1080 Fusion outputs after interrupted46-frame first run and35.787s completion run; speed is mixed hits/misses, not fresh-inference timing",
+      "sha256": "16113d286c189d6a71fca10d37e0000090825be509306a8aac519d20ee89942e",
+      "status": "Passed"
+    },
+    {
+      "file": "dist/evidence/native-0.9.6-slog.json",
+      "scope": "Synthetic Sony S-Log3 encoding of Rec709-primaries GS02 frame -> native Fusion Loader Remove Curve SonySLog/SLog3 -> OFX linear input -> linear premult RGBA",
+      "sha256": "ec7e87b7d7fd39254cc6e949af622f209ab43b10f9635948108542c0982d7591",
+      "status": "Passed"
+    },
+    {
+      "file": "dist/evidence/native-0.9.6-temporal-deliver.json",
+      "scope": "Actual exact0.9.6 temporal Deliver60floatRGBA EXRs vsFusionSaver",
+      "sha256": "720fd89401abd668b5de9d74a1a4f64b7a17c9c8d6524e29d0bd77aa0d54e0c2",
+      "status": "Passed"
+    },
+    {
+      "file": "dist/evidence/native-0.9.6-temporal-reference/comparison.json",
+      "scope": "Pinned upstream function CPU QA reference vs actual installed0.9.6 MPS 12-frame8/4 shot, two overlapping windows, realGS02-derived odd385x217 input; native Saver/worker mapping verified separately",
+      "sha256": "314305d69d3ffdf1f6fe1b2af21639d3f90d971498d2c3d6daf5b22628921ba6",
+      "status": "Passed"
+    },
+    {
+      "file": "dist/evidence/native-0.9.6-temporal60.json",
+      "scope": "Exact installed0.9.6 actual Fusion60frame temporal Saver output after frame30random request",
+      "sha256": "0f04fb9dd2f0e301df69783126bdf1db0989d647a05294edac2e3c482f778edf",
+      "status": "Passed"
+    },
+    {
+      "file": "dist/evidence/native-descriptor-overlay.json",
+      "scope": "Qualification-only descriptor overlay installed over full 0.9.3; this is not qualification of the unchanged offline 0.9.3 package",
+      "sha256": "034bb5249ffef495b88915a2a6279f82f2af0a416ecc71e066b6a4c17857c8db",
+      "status": "Passed"
+    },
+    {
+      "file": "dist/evidence/native-overlay-temporal-deliver.json",
+      "scope": "Actual 60-frame temporal Fusion/Deliver through descriptor overlay on installed 0.9.3; unchanged offline 0.9.3 remains unqualified",
+      "sha256": "e811966a98b2ad3c5bab95a851a866cac8d77cf51b2d0ff0038b4e746ef92497",
+      "status": "Passed"
+    },
+    {
+      "file": "dist/evidence/native-overlay-temporal-frame30.json",
+      "scope": "Actual Fusion temporal result through qualification-only descriptor overlay on 0.9.3; not unchanged-offline-artifact qualification",
+      "sha256": "40aa772da955947220ba2bb42959f35964165103974fba797dc52e7e7ee298ad",
+      "status": "Passed"
+    },
+    {
+      "file": "dist/evidence/package-0.9.1-verified.json",
+      "scope": "See the evidence; not automatically an installed-product acceptance result",
+      "sha256": "9f1c89b006f6d7464729a50c4575c87b11b6b633c98dc407e84f48322d33dd94",
+      "status": "Passed"
+    },
+    {
+      "file": "dist/evidence/package-0.9.2-verified.json",
+      "scope": "See the evidence; not automatically an installed-product acceptance result",
+      "sha256": "7202cc12dff6fa389f6e2c0c5900d080ae972887d3bba3f8a1728af0db110002",
+      "status": "Passed"
+    },
+    {
+      "file": "dist/evidence/package-0.9.3-verified.json",
+      "scope": "See the evidence; not automatically an installed-product acceptance result",
+      "sha256": "18b58356ac0e6f112bfe553ab608d7f110c309020aa1a697e22fc74ac954f548",
+      "status": "Passed"
+    },
+    {
+      "file": "dist/evidence/package-0.9.4-verified.json",
+      "scope": "See the evidence; not automatically an installed-product acceptance result",
+      "sha256": "28de5958673cc5688bbb8e695cfd0e0357e67399ad999ee1e620fe2802d508d8",
+      "status": "Passed"
+    },
+    {
+      "file": "dist/evidence/package-0.9.5-verified.json",
+      "scope": "See the evidence; not automatically an installed-product acceptance result",
+      "sha256": "1ed0fa64f66b4fca7579153df677877f09624cbf504135059d87b6283a305c3b",
+      "status": "Passed"
+    },
+    {
+      "file": "dist/evidence/package-0.9.6-verified.json",
+      "scope": "See the evidence; not automatically an installed-product acceptance result",
+      "sha256": "63f84e5825c9bab7b977fcfd817db45f606406c6f5b860cca696df01e5de1576",
+      "status": "Passed"
+    },
+    {
+      "file": "dist/evidence/performance-causal-invalidation.json",
+      "scope": "Actual native temporal OFX Render using performance overlay 2; not final artifact qualification",
+      "sha256": "e50e5640facb182d1a841ae4a728d09e9ea8dbfdfb8fcb4584a348f9468044c3",
+      "status": "Passed"
+    },
+    {
+      "file": "dist/evidence/performance-nodecache-deliver.json",
+      "scope": "Native Fusion Cache to Disk on installed 0.9.4 + performance overlay 2",
+      "sha256": "1a60fdb3beba84f9fa22969d585b49e08581696211943c1bbe10b20c72ea89de",
+      "status": "Passed"
+    },
+    {
+      "file": "dist/evidence/relocated-engine.json",
+      "scope": "real packaged Python engine IPC in a relocated directory; not installed native supervisor or Resolve",
+      "sha256": "3d5fa379921ca44d06f9eeef699c0ffeb3c800695af7c2a22e794591f717e3ff",
+      "status": "Passed"
+    },
+    {
+      "file": "dist/evidence/relocated-offline-real.json",
+      "scope": "relocated standalone runtime with OS-denied outbound IP; not a clean-account Installer test",
+      "sha256": "778d8f7ee54733a4a75e61062bdcf1cdb8416d55d0c14702da37299830e7e8b0",
+      "status": "Passed"
+    },
+    {
+      "file": "dist/evidence/relocated-real.json",
+      "scope": "See the evidence; not automatically an installed-product acceptance result",
+      "sha256": "28a4966d2e3205e8c5c49e72b199b1fc09c94ba0d0bf2fa58f89329fbfbf19af",
+      "status": "Passed"
+    },
+    {
+      "file": "dist/evidence/temporal-GS02-1080p/temporal.json",
+      "scope": "See the evidence; not automatically an installed-product acceptance result",
+      "sha256": "f6ad101ab661fb1d82cabf12efe3de7031ff1c70425f2326a9021b7bbd2a582a",
+      "status": "Passed"
+    },
+    {
+      "file": "dist/evidence/temporal-GS02-60-1080p/temporal.json",
+      "scope": "See the evidence; not automatically an installed-product acceptance result",
+      "sha256": "51e62239aa4cbdbf23930f984b02bd79c8be548267079c2f85f43564b06d18a8",
+      "status": "Passed"
+    },
+    {
+      "file": "dist/evidence/temporal-cpu-reference/comparison.json",
+      "scope": "See the evidence; not automatically an installed-product acceptance result",
+      "sha256": "8539acbe39170e260504c45f02c15b66ea3793f56607a221db0d448bdfae5d79",
+      "status": "Passed"
+    },
+    {
+      "file": "dist/evidence/user-book-validation.json",
+      "scope": "Static offline-book integrity and accessibility structure, not a browser visual qualification",
+      "sha256": "cc20240fb0ee3fc93a644675e97121e0e457a50d4bcaca3a2929cfe0606cdea0",
+      "status": "Passed"
+    }
+  ],
+  "no_cpu_production_fallback": true,
+  "notes": [
+    "Portable/mock tests are not Resolve/GPU acceptance.",
+    "Per-process outbound-IP denial is recorded separately from clean-account installation.",
+    "Only explicitly recorded applicable Passed gates can qualify a final release."
+  ],
+  "primary": {
+    "architecture": "arm64",
+    "chip": "Apple M5 Pro",
+    "cpu_cores": 18,
+    "gpu_cores": 20,
+    "macos": "26.3.2",
+    "macos_build": "25D2150",
+    "model": "MacBook Pro Mac17,8",
+    "resolve": "DaVinci Resolve Studio 21.1.1 build 10",
+    "unified_memory_bytes": 51539607552
+  },
+  "qualified_combinations": [],
+  "release_status": "UNQUALIFIED PERSONAL BETA",
+  "unqualified_combinations": [
+    "M2 Mac Studio: unavailable",
+    "Other OS/Resolve versions",
+    "Native UHD / 4096\u00d72160: numerical quality failure under investigation",
+    "Free Resolve / other host contexts: not qualified",
+    "Transferred-package Gatekeeper route: not qualified"
+  ]
+}

@@ -1,0 +1,17 @@
+[  7%] Built target ckmac-engine-launcher
+[ 22%] Built target ckmac_core
+[ 29%] Built target ckmac-installer-tool
+[ 37%] Built target test_installer_transactions
+[ 55%] Built target test_pixels
+[ 55%] Built target test_protocol
+[ 59%] Built target test_creative
+[ 66%] Built target bridge_probe
+[ 74%] Built target ckmac_supervisor
+[ 77%] Building CXX object CMakeFiles/test_ofx_host.dir/src/ofx_plugin.cpp.o
+[ 81%] Building CXX object CMakeFiles/CorridorKeyMac.dir/src/ofx_plugin.cpp.o
+[ 88%] Built target CorridorKeyManager
+[ 92%] Linking CXX executable test_ofx_host
+[ 96%] Built target test_ofx_host
+[100%] Linking CXX shared module CorridorKeyMac.ofx.bundle/Contents/MacOS/CorridorKeyMac.ofx
+ld: warning: ignoring duplicate libraries: 'libckmac_core.a'
+[100%] Built target CorridorKeyMac

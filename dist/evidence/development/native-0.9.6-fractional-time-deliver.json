@@ -1,0 +1,43 @@
+{
+  "artifact_sha256": "7a023538ad322b9eee26357b3dd2c2aecc16c292f6feb44837e3ffa00d590c0a",
+  "status": "Passed",
+  "scope": "Actual29.97 timeline and nonzero sourceEXR1001..1012, nonzero timeline109001..109012, two six-frame temporal shots at hard green/blue cut. Source binary stamps confirm exact frame order; all12DeliverfloatRGBA outputs match nativeSaver exactly; actualProRes4444alpha movie confirms30000/1001 and12frames.",
+  "timeline_timecode": "01:00:00:00",
+  "source_start_frame": 1001,
+  "timeline_first_render_frame": 109001,
+  "frames": 12,
+  "maximum_rgba_error": 0,
+  "movie_probe": {
+    "programs": [],
+    "stream_groups": [
+      {
+        "streams": [
+          {
+            "codec_name": "prores",
+            "width": 640,
+            "height": 360,
+            "pix_fmt": "yuva444p12le",
+            "r_frame_rate": "30000/1001",
+            "avg_frame_rate": "30000/1001",
+            "nb_frames": "12"
+          }
+        ]
+      }
+    ],
+    "streams": [
+      {
+        "codec_name": "prores",
+        "width": 640,
+        "height": 360,
+        "pix_fmt": "yuva444p12le",
+        "r_frame_rate": "30000/1001",
+        "avg_frame_rate": "30000/1001",
+        "nb_frames": "12"
+      }
+    ]
+  },
+  "exr_job": "7af05131-545d-4fd6-9c8d-7f0d45c77454",
+  "exr_milliseconds": 702,
+  "movie_job": "26faabfe-abac-4ee3-804f-5892f79e8a61",
+  "movie_milliseconds": 1278
+}

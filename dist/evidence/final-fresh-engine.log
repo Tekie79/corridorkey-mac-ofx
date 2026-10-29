@@ -1,0 +1,11 @@
+2026-10-28 10:44:18,434 INFO Client canceled or disconnected
+2026-10-28 10:44:27,158 INFO Client canceled or disconnected
+2026-10-28 10:44:27,158 INFO Client canceled or disconnected
+2026-10-28 10:44:27,159 INFO Client canceled or disconnected
+2026-10-28 10:44:27,159 INFO Client canceled or disconnected
+2026-10-28 10:44:27,159 INFO Client canceled or disconnected
+2026-10-28 10:44:37,637 INFO using MLP layer as FFN
+Loading CorridorKey v2 runtime weights: /Library/Application Support/HarvestPictures/CorridorKeyMac/Models/ck2-cf44a8db3f02/weights/corridorkey_v2.safetensors
+[RVM] loaded /Library/Application Support/HarvestPictures/CorridorKeyMac/Models/ck2-cf44a8db3f02/vfms/rvm/pretrain_rvm_small16_256_204031069.npz (309 tensors)
+[FrozenFoundations] loaded stats from /Library/Application Support/HarvestPictures/CorridorKeyMac/Models/ck2-cf44a8db3f02/weights/foundation_stats.safetensors
+  loaded weights; omitted frozen foundation tensors=982

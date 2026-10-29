@@ -1,0 +1,10 @@
+{
+  "status": "Passed",
+  "artifact_sha256": "f58245db7b45ce9ead793732c7e05f12d97c9c9a6e6681c744437b040ff07e86",
+  "scope": "Actual native Full1080p4frame temporal shot over available source frames1..4. Only earliest input1 gain changes1.7->1.8; requested input3 content identity remains exact while its recurrent-dependent output is recomputed.",
+  "requested_time": 3,
+  "changed_time": 1,
+  "requested_input_unchanged": true,
+  "earliest_input_changed": true,
+  "maximum_output_delta": 0.01485222578048706
+}

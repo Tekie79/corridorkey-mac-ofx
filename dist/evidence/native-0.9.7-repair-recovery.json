@@ -1,0 +1,11 @@
+{
+  "status": "Passed",
+  "artifact_sha256": "f58245db7b45ce9ead793732c7e05f12d97c9c9a6e6681c744437b040ff07e86",
+  "scope": "Actual GUI Manager detected a deliberately missing Maintenance document, validated the whole matching offline package moved to a Unicode/spaces folder, then normal Installer recovered the durable interrupted Maintenance transaction and repaired the inventory.",
+  "document_restored_exactly": true,
+  "qa_original_removed": true,
+  "active_build": "0.9.7-b1.027347b5a7e5",
+  "journal_state": "committed",
+  "original_package_path_absent": true,
+  "interruption_scope": "Real root filesystem journal/component backup fixture; not an actual power loss or killed Installer. All-component crash states tested separately by unchanged production transaction unit binary."
+}

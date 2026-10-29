@@ -1,0 +1,39 @@
+{
+  "status": "Passed",
+  "artifact_sha256": "f58245db7b45ce9ead793732c7e05f12d97c9c9a6e6681c744437b040ff07e86",
+  "scope": "Actual installed0.9.7 native Fusion MPS12 odd385x217 real-footage-derived frames,8/4 temporal, None/source-alpha/reference0/reference4/separate-alpha/separate-luma; all72 outputs compared to declared same-version native references; None also compared directly against pinned upstream CPU orchestration golden.",
+  "policy_absolute": 0.0001,
+  "cases": [
+    {
+      "case": "none",
+      "frames": 12,
+      "maximum_rgba_error": 0.0
+    },
+    {
+      "case": "source-alpha",
+      "frames": 12,
+      "maximum_rgba_error": 0.0
+    },
+    {
+      "case": "reference-start",
+      "frames": 12,
+      "maximum_rgba_error": 0.0
+    },
+    {
+      "case": "reference-interior",
+      "frames": 12,
+      "maximum_rgba_error": 0.0
+    },
+    {
+      "case": "hint-alpha",
+      "frames": 12,
+      "maximum_rgba_error": 0.0
+    },
+    {
+      "case": "hint-luma",
+      "frames": 12,
+      "maximum_rgba_error": 0.0
+    }
+  ],
+  "maximum_cpu_golden_premult_rgba_error": 8.553266525268555e-06
+}

@@ -1,0 +1,68 @@
+{
+  "status": "Passed",
+  "scope": "real packaged Python engine IPC in a relocated directory; not installed native supervisor or Resolve",
+  "states": [
+    "loading_model",
+    "checking_gpu",
+    "ready"
+  ],
+  "startup_seconds": 11.6252467079903,
+  "real_frame_seconds": 0.4523087499837857,
+  "cached_frame_seconds": 0.006087791989557445,
+  "cache_bit_identical": true,
+  "health": {
+    "state": "ready",
+    "error": "",
+    "fixture_passed": true,
+    "model_loaded": true,
+    "user_frames_completed": 1,
+    "cache_hits": 1,
+    "active_jobs": 0,
+    "pid": 19560,
+    "facts": {
+      "model_load_seconds": 9.770078542002011,
+      "fixture_seconds": 0.33310033299494535,
+      "backend": {
+        "backend": "pytorch_mps",
+        "loaded": true,
+        "device": "mps",
+        "dtype": "float32",
+        "torch_version": "2.9.1",
+        "upstream_root": "/private/tmp/CorridorKey QA \u96ea/runtime/upstream",
+        "model_root": "/private/tmp/CorridorKey QA \u96ea/models",
+        "audited_upstream_commit": "485f5e9ab759ead6138cc990776184b59d6ea971",
+        "temporal_mode": "independent_frame_T1",
+        "clip_temporal_analysis": false,
+        "automatic_cpu_model_fallback": false,
+        "cpu_preprocessing": [
+          "transfer_functions",
+          "reflect_padding",
+          "foundation_area_resize"
+        ],
+        "cpu_postprocessing": [
+          "asinh_decode",
+          "crop",
+          "transfer_functions",
+          "optional_green_despill"
+        ],
+        "input_spaces": [
+          "srgb",
+          "linear",
+          "rec709_gamma24"
+        ],
+        "input_alpha": "only used as a hint when explicitly selected",
+        "output_alpha": "straight foreground RGB plus clamped model matte",
+        "successful_frames": 2,
+        "last_error": null,
+        "mps_current_allocated_bytes": 4938861056,
+        "mps_driver_allocated_bytes": 6321864704
+      },
+      "last_distinct_frame_seconds": 0.44520408401149325
+    },
+    "ok": true,
+    "protocol": 2,
+    "build_id": "qa-relocated",
+    "payload_bytes": 0
+  },
+  "release_exit_code": 0
+}

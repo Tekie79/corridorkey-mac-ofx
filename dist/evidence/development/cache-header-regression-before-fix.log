@@ -1,0 +1,48 @@
+FF                                                                       [100%]
+=================================== FAILURES ===================================
+________ test_corrupt_extent_with_unchanged_area_is_a_cache_miss[False] ________
+
+tmp_path = PosixPath('/private/var/folders/m1/1nz5w6lj6j783bxv38qmspww0000gn/T/pytest-of-harvest/pytest-23/test_corrupt_extent_with_uncha0')
+warm = False
+
+    @pytest.mark.parametrize('warm',[False,True])
+    def test_corrupt_extent_with_unchanged_area_is_a_cache_miss(tmp_path,warm):
+        import struct
+        c=DiskCache(tmp_path)
+        key='e'*64;a=np.ones((3,5,4),dtype=np.float32)
+        c.put(key,a)
+        if not warm:c=DiskCache(tmp_path)
+        path=c.path(key);data=bytearray(path.read_bytes())
+        data[8:16]=struct.pack('>II',5,3)
+        path.write_bytes(data)
+>       assert c.get(key) is None
+E       AssertionError: assert array([[[1., 1., 1., 1.],\n        [1., 1., 1., 1.],\n        [1., 1., 1., 1.]],\n\n       [[1., 1., 1., 1.],\n        [1.,...     [1., 1., 1., 1.]],\n\n       [[1., 1., 1., 1.],\n        [1., 1., 1., 1.],\n        [1., 1., 1., 1.]]], dtype=float32) is None
+E        +  where array([[[1., 1., 1., 1.],\n        [1., 1., 1., 1.],\n        [1., 1., 1., 1.]],\n\n       [[1., 1., 1., 1.],\n        [1.,...     [1., 1., 1., 1.]],\n\n       [[1., 1., 1., 1.],\n        [1., 1., 1., 1.],\n        [1., 1., 1., 1.]]], dtype=float32) = get('eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee')
+E        +    where get = <ckmac.cache.DiskCache object at 0x10b66edb0>.get
+
+tests/test_cache.py:89: AssertionError
+________ test_corrupt_extent_with_unchanged_area_is_a_cache_miss[True] _________
+
+tmp_path = PosixPath('/private/var/folders/m1/1nz5w6lj6j783bxv38qmspww0000gn/T/pytest-of-harvest/pytest-23/test_corrupt_extent_with_uncha1')
+warm = True
+
+    @pytest.mark.parametrize('warm',[False,True])
+    def test_corrupt_extent_with_unchanged_area_is_a_cache_miss(tmp_path,warm):
+        import struct
+        c=DiskCache(tmp_path)
+        key='e'*64;a=np.ones((3,5,4),dtype=np.float32)
+        c.put(key,a)
+        if not warm:c=DiskCache(tmp_path)
+        path=c.path(key);data=bytearray(path.read_bytes())
+        data[8:16]=struct.pack('>II',5,3)
+        path.write_bytes(data)
+>       assert c.get(key) is None
+E       AssertionError: assert array([[[1., 1., 1., 1.],\n        [1., 1., 1., 1.],\n        [1., 1., 1., 1.]],\n\n       [[1., 1., 1., 1.],\n        [1.,...     [1., 1., 1., 1.]],\n\n       [[1., 1., 1., 1.],\n        [1., 1., 1., 1.],\n        [1., 1., 1., 1.]]], dtype=float32) is None
+E        +  where array([[[1., 1., 1., 1.],\n        [1., 1., 1., 1.],\n        [1., 1., 1., 1.]],\n\n       [[1., 1., 1., 1.],\n        [1.,...     [1., 1., 1., 1.]],\n\n       [[1., 1., 1., 1.],\n        [1., 1., 1., 1.],\n        [1., 1., 1., 1.]]], dtype=float32) = get('eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee')
+E        +    where get = <ckmac.cache.DiskCache object at 0x10c37ed80>.get
+
+tests/test_cache.py:89: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_cache.py::test_corrupt_extent_with_unchanged_area_is_a_cache_miss[False]
+FAILED tests/test_cache.py::test_corrupt_extent_with_unchanged_area_is_a_cache_miss[True]
+2 failed, 6 deselected in 0.15s

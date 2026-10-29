@@ -1,0 +1,13 @@
+{
+  "status": "Passed",
+  "artifact_sha256": "7a023538ad322b9eee26357b3dd2c2aecc16c292f6feb44837e3ffa00d590c0a",
+  "scope": "Native Fusion Loader float HDR -> MPS OFX linear straight foreground -> float32 Saver",
+  "shape": [
+    135,
+    256,
+    4
+  ],
+  "rgb_min": -0.007461938541382551,
+  "rgb_max": 18.163333892822266,
+  "finite": true
+}

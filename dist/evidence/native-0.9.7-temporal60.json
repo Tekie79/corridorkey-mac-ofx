@@ -1,0 +1,14 @@
+{
+  "status": "Passed",
+  "artifact_sha256": "f58245db7b45ce9ead793732c7e05f12d97c9c9a6e6681c744437b040ff07e86",
+  "scope": "Actual installed0.9.7 native temporal60frame float32 RGBA sequence compared against 0.9.6-temporal",
+  "reference_directory": "/private/tmp/ckmac-native-qualification/0.9.6-temporal",
+  "frames": 60,
+  "dimensions": [
+    1920,
+    1080
+  ],
+  "max_rgba_error": 0.0,
+  "first": "/private/tmp/ckmac-native-qualification/0.9.7-temporal/rgba0000.exr",
+  "last": "/private/tmp/ckmac-native-qualification/0.9.7-temporal/rgba0059.exr"
+}

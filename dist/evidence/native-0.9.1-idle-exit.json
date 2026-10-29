@@ -1,0 +1,11 @@
+{
+  "status": "Passed",
+  "scope": "Actual installed engine after normal Resolve quit, no explicit worker termination",
+  "installer_sha256": "50042b7882b77913e4cdd70ac62e470aaf0afdb8778bea14e862fe1394da7b0c",
+  "pid": 24111,
+  "process_alive": false,
+  "socket_exists": false,
+  "observed_seconds_since_last_health": 842.0569109916687,
+  "policy_idle_seconds": 600,
+  "note": "Detection is sampled; this does not claim an exact exit timestamp. No root daemon or permanent service was used."
+}

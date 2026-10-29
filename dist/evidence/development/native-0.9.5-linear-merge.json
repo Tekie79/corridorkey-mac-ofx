@@ -1,0 +1,19 @@
+{
+  "status": "Passed",
+  "scope": "Exact installed0.9.5 actual Fusion LinearOutput and Merge -> Deliver60floatRGBA, reference signed sRGB decode of independent cachedmodel output",
+  "frames": 60,
+  "linear_background": [
+    0.18,
+    0.18,
+    0.18
+  ],
+  "maximum_rgb_error": 1.934530825253855e-07,
+  "maximum_alpha_error": 5.960464477539063e-08,
+  "job": "440c9f13-76d9-4afa-9ad2-6715aadc852f",
+  "initial_zero_alpha_tolerance_rejected": true,
+  "float32_tolerance_policy": {
+    "rgb_absolute": 1e-05,
+    "alpha_absolute": 1e-06,
+    "reason": "Allow float32 compositing rounding; measured alpha deviation is one half ULP near 1. Final-candidate tests use this policy before execution."
+  }
+}

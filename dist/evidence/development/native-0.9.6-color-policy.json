@@ -1,0 +1,7 @@
+{
+  "color_alpha_absolute": 0.0001,
+  "color_linear_premult_rgb_absolute": 0.0001,
+  "source": "Declared before native color cases, float32 input transfer round trips",
+  "hdr_rgb_minimum_expected_negative": true,
+  "hdr_rgb_maximum_expected_above_one": true
+}

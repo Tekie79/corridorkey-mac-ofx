@@ -1,0 +1,7 @@
+{
+  "artifact_sha256": "7a023538ad322b9eee26357b3dd2c2aecc16c292f6feb44837e3ffa00d590c0a",
+  "status": "Passed",
+  "scope": "Actual Manager Release GPU invoked while installed worker reported processing/active_jobs1; operation refused and did not stop the worker or modify installed assets. Idle root maintenance drain still tested separately.",
+  "observed_message": "RuntimeError: Maintenance blocked: GPU work is active Open CorridorKey Mac Manager \u2192 Verify/Repair.",
+  "worker_health_evidence": "native-0.9.6-maintenance-active-health.json"
+}

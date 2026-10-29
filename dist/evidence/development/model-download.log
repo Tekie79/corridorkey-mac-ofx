@@ -1,0 +1,7 @@
+[corridorkey] corridorkey_v2.safetensors
+[corridorkey] foundation_stats.safetensors
+[c-radio] nvidia/C-RADIOv4-SO400M@c0457f5
+Fetching 31 files:   0%|          | 0/31 [00:00<?, ?it/s]Fetching 31 files:  26%|██▌       | 8/31 [00:00<00:00, 27.83it/s]Fetching 31 files:  58%|█████▊    | 18/31 [00:00<00:00, 45.22it/s]Fetching 31 files:  90%|█████████ | 28/31 [00:00<00:00, 53.97it/s]Fetching 31 files: 100%|██████████| 31/31 [00:12<00:00,  2.54it/s]
+[moge] Ruicheng/moge-2-vitb-normal@ca5f0e0
+[rvm] https://storage.googleapis.com/representations4d/checkpoints/pretrain_rvm_small16_256_204031069.npz
+All assets are in place under /Users/harvest/Documents/Ysew_Project/GIT/corridorkey-mac-ofx/.build/models

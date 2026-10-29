@@ -1,0 +1,26 @@
+{
+  "status": "Passed",
+  "scope": "Authorized removal of this product user cache and task-owned relocation/conflicting-environment fixture copies after confirming no installed model worker was running. Final shared installed runtime/models and all original footage/official assets preserved.",
+  "removed": [
+    {
+      "path": "/Users/harvest/Library/Caches/org.harvestpictures.CorridorKeyMac",
+      "logical_bytes": 20639815288
+    },
+    {
+      "path": "/private/tmp/CorridorKey QA \u96ea",
+      "logical_bytes": 5977909427
+    },
+    {
+      "path": "/private/tmp/ckmac-conflict",
+      "logical_bytes": 3320797
+    },
+    {
+      "path": "/private/tmp/ckmac-cache-space",
+      "logical_bytes": 0
+    }
+  ],
+  "logical_bytes": 26621045512,
+  "observed_free_before": 412405248000,
+  "observed_free_after": 439112257536,
+  "unix": 1793198253.2434108
+}

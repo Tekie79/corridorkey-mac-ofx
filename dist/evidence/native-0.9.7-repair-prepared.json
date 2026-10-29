@@ -1,0 +1,16 @@
+{
+  "status": "Recorded",
+  "artifact_sha256": "f58245db7b45ce9ead793732c7e05f12d97c9c9a6e6681c744437b040ff07e86",
+  "missing_document": true,
+  "transaction": {
+    "state": "backed_up",
+    "backup": "/Library/Application Support/HarvestPictures/CorridorKeyMac/Transactions/qa-interrupted-Maintenance",
+    "destinations": [
+      "/Library/Application Support/HarvestPictures/CorridorKeyMac/Maintenance"
+    ]
+  },
+  "durable_component_backup_present": true,
+  "original_installer_path_absent": true,
+  "moved_installer": "/Users/harvest/Documents/Ysew_Project/GIT/corridorkey-mac-ofx/dist/Repair Test \u2013 \u65e5\u672c\u8a9e/CorridorKeyMac-0.9.7-beta.1-arm64-Offline.pkg",
+  "observed_unix": 1793197752.80789
+}

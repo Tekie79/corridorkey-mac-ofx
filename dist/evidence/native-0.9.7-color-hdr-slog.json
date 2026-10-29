@@ -1,0 +1,19 @@
+{
+  "status": "Passed",
+  "artifact_sha256": "f58245db7b45ce9ead793732c7e05f12d97c9c9a6e6681c744437b040ff07e86",
+  "scope": "Actual installed0.9.7 native Fusion Loader/OFX/Saver for sRGB, linear709, gamma2.4, synthetic SLog3 removal at unchangedRec709 primaries and float HDR/negative output.",
+  "policy_absolute": 0.0001,
+  "maximum_rgba_errors": {
+    "srgb": 5.960464477539063e-08,
+    "gamma24": 5.543231964111328e-06,
+    "slog": 4.470348358154297e-06
+  },
+  "hdr_shape": [
+    135,
+    256,
+    4
+  ],
+  "hdr_min": -0.007461938541382551,
+  "hdr_max": 18.163333892822266,
+  "slog_limit": "Synthetic transfer-function fixture, not camera gamut/footage qualification"
+}

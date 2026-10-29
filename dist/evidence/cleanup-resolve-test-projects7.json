@@ -1,0 +1,16 @@
+{
+  "status": "Passed",
+  "scope": "Follow-up cleanup through the actual Resolve ProjectManager API. Exported and ZIP-verified compact backups, deleted only the3 exact task-owned qualification projects, and verified that all8 other project names remained.",
+  "removed_projects": [
+    "CorridorKeyMac Qualification 20261027",
+    "CorridorKeyMac Native Qualification 0.9.1",
+    "CorridorKeyMac 0.9.6 Time QA"
+  ],
+  "other_project_count": 8,
+  "backup_paths": [
+    "evidence/project-backups/qualification-1.drp",
+    "evidence/project-backups/qualification-2.drp",
+    "evidence/project-backups/qualification-3.drp"
+  ],
+  "unix": 1793200612.003227
+}

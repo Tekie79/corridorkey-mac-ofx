@@ -1,0 +1,97 @@
+{
+  "observed_unix": 1793153669.282184,
+  "installed_manifest": {
+    "build_id": "0.9.3-b1.ef6705c82c56",
+    "code_root": "/Library/Application Support/HarvestPictures/CorridorKeyMac/Runtime/0.9.3-b1.ef6705c82c56/upstream",
+    "component_versions": {
+      "adapter_math": 3,
+      "cache_format": 2,
+      "manager": 2,
+      "plugin": "0.9.3",
+      "temporal": "upstream-float32-continuous-RVM-configurable-Hann-v2",
+      "worker": 3
+    },
+    "model_root": "/Library/Application Support/HarvestPictures/CorridorKeyMac/Models/ck2-cf44a8db3f02",
+    "model_set_id": "ck2-cf44a8db3f02",
+    "package_version": "0.9.3-beta.1",
+    "protocol": 2,
+    "python": "/Library/Application Support/HarvestPictures/CorridorKeyMac/Runtime/0.9.3-b1.ef6705c82c56/bin/python3"
+  },
+  "response": {
+    "state": "ready",
+    "error": "",
+    "fixture_passed": true,
+    "model_loaded": true,
+    "user_frames_completed": 2,
+    "cache_hits": 0,
+    "active_jobs": 0,
+    "pid": 34428,
+    "facts": {
+      "installation_verification_seconds": 6.114056291989982,
+      "model_load_seconds": 34.089511375001166,
+      "fixture_seconds": 0.3651117499975953,
+      "backend": {
+        "backend": "pytorch_mps",
+        "loaded": true,
+        "device": "mps",
+        "dtype": "float32",
+        "torch_version": "2.9.1",
+        "upstream_root": "/Library/Application Support/HarvestPictures/CorridorKeyMac/Runtime/0.9.3-b1.ef6705c82c56/upstream",
+        "model_root": "/Library/Application Support/HarvestPictures/CorridorKeyMac/Models/ck2-cf44a8db3f02",
+        "audited_upstream_commit": "485f5e9ab759ead6138cc990776184b59d6ea971",
+        "temporal_mode": "upstream_float32_continuous_RVM_Hann4_2",
+        "clip_temporal_analysis": true,
+        "completed_temporal_shots": 2,
+        "automatic_cpu_model_fallback": false,
+        "cpu_preprocessing": [
+          "transfer_functions",
+          "reflect_padding",
+          "foundation_area_resize"
+        ],
+        "cpu_postprocessing": [
+          "asinh_decode",
+          "crop",
+          "transfer_functions",
+          "optional_green_despill"
+        ],
+        "input_spaces": [
+          "srgb",
+          "linear",
+          "rec709_gamma24"
+        ],
+        "input_alpha": "only used as a hint when explicitly selected",
+        "output_alpha": "straight foreground RGB plus clamped model matte",
+        "successful_frames": 3,
+        "completed_network_calls": {
+          "cradio": 123,
+          "moge_encoder": 123,
+          "rvm": 123,
+          "stage1": 61,
+          "stage2": 123
+        },
+        "last_error": null,
+        "mps_current_allocated_bytes": 4938861056,
+        "mps_driver_allocated_bytes": 14843559936
+      },
+      "profile": {
+        "resolution": 0,
+        "window": 4,
+        "memory_limit": 0,
+        "low_memory": false,
+        "internal_hint_quality": 0.95,
+        "reference_index": 0
+      },
+      "last_distinct_frame_seconds": 3.2101518750132527,
+      "temporal_progress": 1.0,
+      "last_temporal_request_seconds": 0.9158708330069203,
+      "temporal_algorithm": "float32 continuous RVM / Hann baton 4/2 / stage2"
+    },
+    "ok": true,
+    "protocol": 2,
+    "build_id": "0.9.3-b1.ef6705c82c56",
+    "payload_bytes": 0,
+    "session_id": null,
+    "request_id": null,
+    "effect_generation": null
+  }
+}

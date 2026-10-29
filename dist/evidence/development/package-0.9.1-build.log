@@ -1,0 +1,83 @@
++ /Library/Frameworks/Python.framework/Versions/3.14/bin/python3 /Users/harvest/Documents/Ysew_Project/GIT/corridorkey-mac-ofx/scripts/release/lock_assets.py
+Verified 35 publisher assets and locked 39 wheels
++ /Users/harvest/Documents/Ysew_Project/GIT/corridorkey-mac-ofx/.build/runtime/bin/cmake -S /Users/harvest/Documents/Ysew_Project/GIT/corridorkey-mac-ofx -B /Users/harvest/Documents/Ysew_Project/GIT/corridorkey-mac-ofx/build -DOPENFX_SDK_ROOT=/Users/harvest/Documents/Ysew_Project/GIT/corridorkey-mac-ofx/.deps/openfx -DCMAKE_BUILD_TYPE=Release -DBUILD_TESTING=ON
+-- Configuring done (0.1s)
+-- Generating done (0.0s)
+-- Build files have been written to: /Users/harvest/Documents/Ysew_Project/GIT/corridorkey-mac-ofx/build
++ /Users/harvest/Documents/Ysew_Project/GIT/corridorkey-mac-ofx/.build/runtime/bin/cmake --build /Users/harvest/Documents/Ysew_Project/GIT/corridorkey-mac-ofx/build --parallel 6
+[  9%] Built target ckmac-engine-launcher
+[ 22%] Built target ckmac_core
+[ 31%] Built target ckmac-installer-tool
+[ 40%] Built target test_pixels
+[ 50%] Built target bridge_probe
+[ 59%] Built target test_protocol
+[ 63%] Building CXX object CMakeFiles/test_ofx_host.dir/src/ofx_plugin.cpp.o
+[ 72%] Built target ckmac_supervisor
+[ 77%] Building CXX object CMakeFiles/CorridorKeyMac.dir/src/ofx_plugin.cpp.o
+[ 86%] Built target CorridorKeyManager
+[ 90%] Linking CXX executable test_ofx_host
+[ 95%] Built target test_ofx_host
+[100%] Linking CXX shared module CorridorKeyMac.ofx.bundle/Contents/MacOS/CorridorKeyMac.ofx
+ld: warning: ignoring duplicate libraries: 'libckmac_core.a'
+[100%] Built target CorridorKeyMac
++ /Users/harvest/Documents/Ysew_Project/GIT/corridorkey-mac-ofx/.build/runtime/bin/ctest --test-dir /Users/harvest/Documents/Ysew_Project/GIT/corridorkey-mac-ofx/build --output-on-failure
+Test project /Users/harvest/Documents/Ysew_Project/GIT/corridorkey-mac-ofx/build
+    Start 1: pixels
+1/3 Test #1: pixels ...........................   Passed    0.00 sec
+    Start 2: protocol
+2/3 Test #2: protocol .........................   Passed    0.01 sec
+    Start 3: ofx_host
+3/3 Test #3: ofx_host .........................   Passed    0.17 sec
+
+100% tests passed out of 3
+
+Total Test time (real) =   0.18 sec
++ /Users/harvest/Documents/Ysew_Project/GIT/corridorkey-mac-ofx/.build/runtime/bin/python3 -m pytest /Users/harvest/Documents/Ysew_Project/GIT/corridorkey-mac-ofx/tests -q
+.................................................................. [ 69%]
+.............................                                            [100%]
+95 passed, 6 subtests passed in 0.41s
++ /Library/Frameworks/Python.framework/Versions/3.14/bin/python3 /Users/harvest/Documents/Ysew_Project/GIT/corridorkey-mac-ofx/scripts/release/audit_runtime.py /Users/harvest/Documents/Ysew_Project/GIT/corridorkey-mac-ofx/.build/package/Library/Application Support/HarvestPictures/CorridorKeyMac/Incoming/0.9.1-b1.75233102928a/tree/Library/Application Support/HarvestPictures/CorridorKeyMac/Runtime/0.9.1-b1.75233102928a --fix --sign --output /Users/harvest/Documents/Ysew_Project/GIT/corridorkey-mac-ofx/dist/native-dependencies.json
+Audited 273 native images; 0 errors
++ /usr/bin/codesign --force --sign - --timestamp=none /Users/harvest/Documents/Ysew_Project/GIT/corridorkey-mac-ofx/.build/package/Library/Application Support/HarvestPictures/CorridorKeyMac/Incoming/0.9.1-b1.75233102928a/tree/Library/OFX/Plugins/CorridorKeyMac.ofx.bundle
+/Users/harvest/Documents/Ysew_Project/GIT/corridorkey-mac-ofx/.build/package/Library/Application Support/HarvestPictures/CorridorKeyMac/Incoming/0.9.1-b1.75233102928a/tree/Library/OFX/Plugins/CorridorKeyMac.ofx.bundle: replacing existing signature
++ /usr/bin/codesign --verify --strict /Users/harvest/Documents/Ysew_Project/GIT/corridorkey-mac-ofx/.build/package/Library/Application Support/HarvestPictures/CorridorKeyMac/Incoming/0.9.1-b1.75233102928a/tree/Library/OFX/Plugins/CorridorKeyMac.ofx.bundle
++ /usr/bin/codesign --force --sign - --timestamp=none /Users/harvest/Documents/Ysew_Project/GIT/corridorkey-mac-ofx/.build/package/Library/Application Support/HarvestPictures/CorridorKeyMac/Incoming/0.9.1-b1.75233102928a/tree/Applications/CorridorKey Mac Manager.app
+/Users/harvest/Documents/Ysew_Project/GIT/corridorkey-mac-ofx/.build/package/Library/Application Support/HarvestPictures/CorridorKeyMac/Incoming/0.9.1-b1.75233102928a/tree/Applications/CorridorKey Mac Manager.app: replacing existing signature
++ /usr/bin/codesign --verify --strict /Users/harvest/Documents/Ysew_Project/GIT/corridorkey-mac-ofx/.build/package/Library/Application Support/HarvestPictures/CorridorKeyMac/Incoming/0.9.1-b1.75233102928a/tree/Applications/CorridorKey Mac Manager.app
++ /usr/bin/codesign --force --sign - --timestamp=none /Users/harvest/Documents/Ysew_Project/GIT/corridorkey-mac-ofx/.build/package/Library/Application Support/HarvestPictures/CorridorKeyMac/Incoming/0.9.1-b1.75233102928a/tree/Library/Application Support/HarvestPictures/CorridorKeyMac/Maintenance/ckmac-installer-tool
+/Users/harvest/Documents/Ysew_Project/GIT/corridorkey-mac-ofx/.build/package/Library/Application Support/HarvestPictures/CorridorKeyMac/Incoming/0.9.1-b1.75233102928a/tree/Library/Application Support/HarvestPictures/CorridorKeyMac/Maintenance/ckmac-installer-tool: replacing existing signature
++ /usr/bin/codesign --verify --strict /Users/harvest/Documents/Ysew_Project/GIT/corridorkey-mac-ofx/.build/package/Library/Application Support/HarvestPictures/CorridorKeyMac/Incoming/0.9.1-b1.75233102928a/tree/Library/Application Support/HarvestPictures/CorridorKeyMac/Maintenance/ckmac-installer-tool
++ /usr/bin/pkgbuild --nopayload --scripts /Users/harvest/Documents/Ysew_Project/GIT/corridorkey-mac-ofx/.build/uninstall-KeepModels --identifier org.harvestpictures.CorridorKeyMac.uninstall.KeepModels --version 0.9.1 /Users/harvest/Documents/Ysew_Project/GIT/corridorkey-mac-ofx/dist/CorridorKeyMac-Uninstall-KeepModels.pkg
+pkgbuild: Adding top-level preinstall script
+pkgbuild: Adding top-level postinstall script
+pkgbuild: Wrote package to /Users/harvest/Documents/Ysew_Project/GIT/corridorkey-mac-ofx/dist/CorridorKeyMac-Uninstall-KeepModels.pkg
++ /usr/bin/pkgbuild --nopayload --scripts /Users/harvest/Documents/Ysew_Project/GIT/corridorkey-mac-ofx/.build/uninstall-RemoveAll --identifier org.harvestpictures.CorridorKeyMac.uninstall.RemoveAll --version 0.9.1 /Users/harvest/Documents/Ysew_Project/GIT/corridorkey-mac-ofx/dist/CorridorKeyMac-Uninstall-RemoveAll.pkg
+pkgbuild: Adding top-level preinstall script
+pkgbuild: Adding top-level postinstall script
+pkgbuild: Wrote package to /Users/harvest/Documents/Ysew_Project/GIT/corridorkey-mac-ofx/dist/CorridorKeyMac-Uninstall-RemoveAll.pkg
++ /usr/bin/pkgbuild --analyze --root /Users/harvest/Documents/Ysew_Project/GIT/corridorkey-mac-ofx/.build/package /Users/harvest/Documents/Ysew_Project/GIT/corridorkey-mac-ofx/.build/components.plist
+pkgbuild: Inferring bundle components from contents of /Users/harvest/Documents/Ysew_Project/GIT/corridorkey-mac-ofx/.build/package
+pkgbuild: Writing new component property list to /Users/harvest/Documents/Ysew_Project/GIT/corridorkey-mac-ofx/.build/components.plist
++ /usr/bin/pkgbuild --root /Users/harvest/Documents/Ysew_Project/GIT/corridorkey-mac-ofx/.build/package --component-plist /Users/harvest/Documents/Ysew_Project/GIT/corridorkey-mac-ofx/.build/components.plist --scripts /Users/harvest/Documents/Ysew_Project/GIT/corridorkey-mac-ofx/.build/install-hooks --identifier org.harvestpictures.CorridorKeyMac.personal --version 0.9.1 --install-location / --ownership recommended /Users/harvest/Documents/Ysew_Project/GIT/corridorkey-mac-ofx/.build/payload.pkg
+pkgbuild: Reading components from /Users/harvest/Documents/Ysew_Project/GIT/corridorkey-mac-ofx/.build/components.plist
+pkgbuild: Adding component at Library/Application Support/HarvestPictures/CorridorKeyMac/Incoming/0.9.1-b1.75233102928a/tree/Applications/CorridorKey Mac Manager.app
+pkgbuild: Adding component at Library/Application Support/HarvestPictures/CorridorKeyMac/Incoming/0.9.1-b1.75233102928a/tree/Library/OFX/Plugins/CorridorKeyMac.ofx.bundle
+pkgbuild: Adding top-level preinstall script
+pkgbuild: Adding top-level postinstall script
+pkgbuild: Wrote package to /Users/harvest/Documents/Ysew_Project/GIT/corridorkey-mac-ofx/.build/payload.pkg
++ /usr/bin/productbuild --distribution /Users/harvest/Documents/Ysew_Project/GIT/corridorkey-mac-ofx/.build/Distribution.xml --resources /Users/harvest/Documents/Ysew_Project/GIT/corridorkey-mac-ofx/.build/installer-resources --package-path /Users/harvest/Documents/Ysew_Project/GIT/corridorkey-mac-ofx/.build /Users/harvest/Documents/Ysew_Project/GIT/corridorkey-mac-ofx/dist/CorridorKeyMac-0.9.1-beta.1-arm64-Offline.pkg
+productbuild: Wrote product to /Users/harvest/Documents/Ysew_Project/GIT/corridorkey-mac-ofx/dist/CorridorKeyMac-0.9.1-beta.1-arm64-Offline.pkg
++ /usr/sbin/pkgutil --expand-full /Users/harvest/Documents/Ysew_Project/GIT/corridorkey-mac-ofx/dist/CorridorKeyMac-0.9.1-beta.1-arm64-Offline.pkg /Users/harvest/Documents/Ysew_Project/GIT/corridorkey-mac-ofx/.build/expanded
++ /usr/bin/pkgbuild --analyze --root /Users/harvest/Documents/Ysew_Project/GIT/corridorkey-mac-ofx/.build/package /Users/harvest/Documents/Ysew_Project/GIT/corridorkey-mac-ofx/.build/components.plist
+pkgbuild: Inferring bundle components from contents of /Users/harvest/Documents/Ysew_Project/GIT/corridorkey-mac-ofx/.build/package
+pkgbuild: Writing new component property list to /Users/harvest/Documents/Ysew_Project/GIT/corridorkey-mac-ofx/.build/components.plist
++ /usr/bin/pkgbuild --root /Users/harvest/Documents/Ysew_Project/GIT/corridorkey-mac-ofx/.build/package --component-plist /Users/harvest/Documents/Ysew_Project/GIT/corridorkey-mac-ofx/.build/components.plist --scripts /Users/harvest/Documents/Ysew_Project/GIT/corridorkey-mac-ofx/.build/install-hooks --identifier org.harvestpictures.CorridorKeyMac.personal --version 0.9.1 --install-location / --ownership recommended /Users/harvest/Documents/Ysew_Project/GIT/corridorkey-mac-ofx/.build/payload.pkg
+pkgbuild: Reading components from /Users/harvest/Documents/Ysew_Project/GIT/corridorkey-mac-ofx/.build/components.plist
+pkgbuild: Adding component at Library/Application Support/HarvestPictures/CorridorKeyMac/Incoming/0.9.1-b1.75233102928a/tree/Applications/CorridorKey Mac Manager.app
+pkgbuild: Adding component at Library/Application Support/HarvestPictures/CorridorKeyMac/Incoming/0.9.1-b1.75233102928a/tree/Library/OFX/Plugins/CorridorKeyMac.ofx.bundle
+pkgbuild: Adding top-level preinstall script
+pkgbuild: Adding top-level postinstall script
+pkgbuild: Wrote package to /Users/harvest/Documents/Ysew_Project/GIT/corridorkey-mac-ofx/.build/payload.pkg
++ /usr/bin/productbuild --distribution /Users/harvest/Documents/Ysew_Project/GIT/corridorkey-mac-ofx/.build/Distribution.xml --resources /Users/harvest/Documents/Ysew_Project/GIT/corridorkey-mac-ofx/.build/installer-resources --package-path /Users/harvest/Documents/Ysew_Project/GIT/corridorkey-mac-ofx/.build /Users/harvest/Documents/Ysew_Project/GIT/corridorkey-mac-ofx/dist/CorridorKeyMac-0.9.1-beta.1-arm64-Offline.pkg
+productbuild: Wrote product to /Users/harvest/Documents/Ysew_Project/GIT/corridorkey-mac-ofx/dist/CorridorKeyMac-0.9.1-beta.1-arm64-Offline.pkg
+Built /Users/harvest/Documents/Ysew_Project/GIT/corridorkey-mac-ofx/dist/CorridorKeyMac-0.9.1-beta.1-arm64-Offline.pkg (4389183065 bytes); this beta is not a qualified 1.0 release

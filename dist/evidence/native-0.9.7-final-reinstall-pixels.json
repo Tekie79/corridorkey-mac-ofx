@@ -1,0 +1,14 @@
+{
+  "status": "Passed",
+  "artifact_sha256": "f58245db7b45ce9ead793732c7e05f12d97c9c9a6e6681c744437b040ff07e86",
+  "scope": "Actual final reinstall Full1080 native Saver output is finite RGBA with useful partial alpha. Fresh prior-cache-free MPS work confirmed separately.",
+  "shape": [
+    1080,
+    1920,
+    4
+  ],
+  "alpha_min": 0.0,
+  "alpha_max": 1.0,
+  "file_sha256": "6fe3be0cab741c372826858b6bbc65a7d06d2589d6b5e6a849b6607b952182e8",
+  "rgba_pixel_sha256": "b7c5fec25a089c38ee120acf0c115783433765f6dc867f19d53615f58699de50"
+}

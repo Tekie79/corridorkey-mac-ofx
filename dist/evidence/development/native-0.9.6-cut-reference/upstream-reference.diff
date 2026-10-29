@@ -1,0 +1,82 @@
+--- pinned/runtime.py:hann_stage1_stream
++++ QA/float32_cpu_reference
+@@ -18,7 +18,7 @@
+     overlap = max(0, chunk - stride)
+     baton_fp16 = None
+     if on_baton_frames is None:
+-        baton_fp16 = np.memmap(baton_path, dtype=np.float16, mode="w+",
++        baton_fp16 = np.memmap(baton_path, dtype=np.float32, mode="w+",
+                                shape=(T_all, d_16, h16, w16))
+     live_acc = {}
+     live_w = {}
+@@ -28,7 +28,7 @@
+     rvm_map = None
+     if rvm_path is not None:
+         D = model.foundations.rvm.embed_dim
+-        rvm_map = np.memmap(rvm_path, dtype=np.float16, mode="r",
++        rvm_map = np.memmap(rvm_path, dtype=np.float32, mode="r",
+                             shape=(T_all, D, H // 64, W // 64))
+     cradio_map = moge_map = None
+     if foundation_paths is not None:
+@@ -46,7 +46,7 @@
+     def flush_before(t_limit: int):
+         ready = []
+         for k in sorted(k for k in live_acc if k < t_limit):
+-            frame = (live_acc.pop(k) / max(live_w.pop(k), 1e-6)).astype(np.float16)
++            frame = (live_acc.pop(k) / max(live_w.pop(k), 1e-6)).astype(np.float32)
+             if on_baton_frames is None:
+                 baton_fp16[k] = frame
+             else:
+@@ -60,8 +60,8 @@
+             t1 = min(t0 + chunk, T_all)
+             Tc = t1 - t0
+             model_chunk, display_chunk, review_chunk = reader.window(t0, t1)
+-            hint_cpu = torch.zeros(1, Tc, 1, H, W, dtype=torch.bfloat16)
+-            hint_quality_cpu = torch.zeros(1, Tc, dtype=torch.bfloat16)
++            hint_cpu = torch.zeros(1, Tc, 1, H, W, dtype=torch.float32)
++            hint_quality_cpu = torch.zeros(1, Tc, dtype=torch.float32)
+             hint_present = torch.zeros(1, Tc, dtype=torch.bool)
+             if hint_reader is not None:
+                 hint_cpu[0] = hint_reader.window(t0, t1)
+@@ -90,7 +90,7 @@
+             if foundation_paths is None:
+                 rgb_found = display_chunk.unsqueeze(0).to(device, non_blocking=True)
+                 rgb_radio, rgb_moge = _build_foundation_inputs(rgb_found)
+-                with torch.autocast("cuda", dtype=torch.bfloat16):
++                with torch.no_grad():
+                     ff = model.foundations(
+                         rgb_cradio=rgb_radio.reshape(Tc, 3, *rgb_radio.shape[-2:]),
+                         rgb_moge=rgb_moge.reshape(Tc, 3, *rgb_moge.shape[-2:]),
+@@ -106,7 +106,7 @@
+             if rvm_map is not None:
+                 rvm_feat = torch.from_numpy(np.asarray(rvm_map[t0:t1]).copy())
+                 rvm_feat = rvm_feat.unsqueeze(0).to(device, non_blocking=True).float()
+-            with torch.autocast("cuda", dtype=torch.bfloat16):
++            with torch.no_grad():
+                 s1 = model.stage1(
+                     rgb_c, hint_c, moge_feat, cradio_feat=cradio_feat,
+                     rvm_feat=rvm_feat, t_stride=1.0,
+@@ -118,7 +118,7 @@
+                 aux_full = F.interpolate(
+                     aux_alpha, size=(H, W), mode="bilinear",
+                     align_corners=False).clamp(0.0, 1.0)
+-                aux_cpu = aux_full.to("cpu", dtype=torch.bfloat16)
++                aux_cpu = aux_full.to("cpu", dtype=torch.float32)
+                 for j, t_abs in enumerate(range(t0, t1)):
+                     carry_cache[t_abs] = aux_cpu[j].clone()
+                 next_start = starts[i + 1] if i + 1 < len(starts) else T_all
+@@ -143,7 +143,7 @@
+             del model_chunk, display_chunk, review_chunk
+             flush_before(next_start)
+             print(f"      window {i + 1}/{len(starts)} [{t0}:{t1}]", flush=True)
+-        torch.cuda.synchronize()
++        pass # CPU execution is synchronous
+         flush_before(T_all + 1)
+     finally:
+         reader.close()
+@@ -153,4 +153,4 @@
+     if baton_fp16 is not None:
+         baton_fp16.flush()
+     del baton_fp16, live_acc, live_w, rvm_map, cradio_map, moge_map
+-    torch.cuda.empty_cache()
++    pass # no CUDA allocator in this reference

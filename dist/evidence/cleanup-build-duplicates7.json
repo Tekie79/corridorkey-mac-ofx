@@ -1,0 +1,42 @@
+{
+  "status": "Passed",
+  "scope": "Authorized removal of obsolete task-owned download/model/runtime duplicates, earlier installer and overlay staging. Final offline installer, source archive, installed runtime/models, native evidence and user originals preserved.",
+  "removed": [
+    {
+      "path": ".build/downloads",
+      "logical_bytes": 25172086
+    },
+    {
+      "path": ".build/runtime",
+      "logical_bytes": 1125628712
+    },
+    {
+      "path": ".build/models",
+      "logical_bytes": 5076145191
+    },
+    {
+      "path": ".build/wheelhouse",
+      "logical_bytes": 243229383
+    },
+    {
+      "path": ".build/pending-native",
+      "logical_bytes": 4050878032
+    },
+    {
+      "path": ".build/official-reference",
+      "logical_bytes": 0
+    },
+    {
+      "path": ".build/host-overlay",
+      "logical_bytes": 9782801
+    },
+    {
+      "path": ".build/performance-overlay",
+      "logical_bytes": 9866667
+    }
+  ],
+  "logical_bytes": 10540702872,
+  "observed_free_before": 327470374912,
+  "observed_free_after": 338133041152,
+  "unix": 1793197970.927165
+}

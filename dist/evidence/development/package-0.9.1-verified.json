@@ -1,0 +1,10 @@
+{
+  "code_signatures": "ad hoc; verified",
+  "expanded_inventory_records": 27113,
+  "package": "CorridorKeyMac-0.9.1-beta.1-arm64-Offline.pkg",
+  "package_signature": "unsigned",
+  "payload_and_executable_logic_verified": true,
+  "sha256": "50042b7882b77913e4cdd70ac62e470aaf0afdb8778bea14e862fe1394da7b0c",
+  "size": 4389183065,
+  "status": "Passed"
+}

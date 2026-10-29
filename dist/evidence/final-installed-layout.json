@@ -1,0 +1,11 @@
+{
+  "status": "Passed",
+  "scope": "Final installed generations after normal removal/reinstall workflows; no old runtime generations or staging payloads remain.",
+  "runtime_generations": [
+    "0.9.7-b1.027347b5a7e5"
+  ],
+  "model_sets": [
+    "ck2-cf44a8db3f02"
+  ],
+  "incoming_children": []
+}

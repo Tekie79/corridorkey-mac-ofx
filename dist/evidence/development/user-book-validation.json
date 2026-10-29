@@ -1,0 +1,11 @@
+{
+  "status": "Passed",
+  "scope": "Static offline-book integrity and accessibility structure, not a browser visual qualification",
+  "chapters": 12,
+  "embedded_screenshots": 5,
+  "broken_anchors": 0,
+  "external_assets": 0,
+  "print_styles": true,
+  "sha256": "fe4027b42e12a7594d18018f4fd9e7a84fa4d7fd10ff781ffb0065b7944941db",
+  "visual_preview": "Local file browser preview blocked by Browser Use security policy; loopback TCP preview timed out. Actual source screenshots visually inspected."
+}

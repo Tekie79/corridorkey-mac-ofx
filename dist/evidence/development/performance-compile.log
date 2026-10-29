@@ -1,0 +1,28 @@
+[  7%] Built target ckmac-engine-launcher
+[ 22%] Built target ckmac_core
+[ 37%] Built target test_installer_transactions
+[ 37%] Built target ckmac-installer-tool
+[ 55%] Built target test_creative
+[ 59%] Built target test_pixels
+[ 59%] Built target test_protocol
+[ 66%] Built target bridge_probe
+[ 70%] Building CXX object CMakeFiles/test_ofx_host.dir/src/ofx_plugin.cpp.o
+[ 74%] Building OBJCXX object CMakeFiles/ckmac_supervisor.dir/src/worker_manager.mm.o
+[ 77%] Linking CXX executable test_ofx_host
+[ 81%] Built target test_ofx_host
+[ 85%] Linking CXX static library libckmac_supervisor.a
+[ 85%] Built target ckmac_supervisor
+[ 88%] Building CXX object CMakeFiles/CorridorKeyMac.dir/src/ofx_plugin.cpp.o
+[ 92%] Building OBJCXX object CMakeFiles/CorridorKeyManager.dir/src/manager.mm.o
+/Users/harvest/Documents/Ysew_Project/GIT/corridorkey-mac-ofx/src/manager.mm:86:46: warning: 'allowedFileTypes' is deprecated: first deprecated in macOS 12.0 - Use -allowedContentTypes instead [-Wdeprecated-declarations]
+   86 |     NSOpenPanel* p=[NSOpenPanel openPanel];p.allowedFileTypes=@[@"pkg"];p.canChooseDirectories=NO;
+      |                                              ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSSavePanel.h:289:49: note: 'allowedFileTypes' has been explicitly marked deprecated here
+  289 | @property (nullable, copy) NSArray<NSString *> *allowedFileTypes API_DEPRECATED("Use -allowedContentTypes instead", macos(10.3,12.0));
+      |                                                 ^
+1 warning generated.
+[ 96%] Linking CXX executable "CorridorKey Mac Manager.app/Contents/MacOS/CorridorKey Mac Manager"
+[100%] Linking CXX shared module CorridorKeyMac.ofx.bundle/Contents/MacOS/CorridorKeyMac.ofx
+ld: warning: ignoring duplicate libraries: 'libckmac_core.a'
+[100%] Built target CorridorKeyManager
+[100%] Built target CorridorKeyMac

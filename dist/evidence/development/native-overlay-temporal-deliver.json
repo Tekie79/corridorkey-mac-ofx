@@ -1,0 +1,670 @@
+{
+  "status": "Passed",
+  "scope": "Actual 60-frame temporal Fusion/Deliver through descriptor overlay on installed 0.9.3; unchanged offline 0.9.3 remains unqualified",
+  "overlay_sha256": "561fc14c5265f449c4279de6c0177900de43a6fffd78085d861b0f706dab7f81",
+  "job": "92d80617-b35f-4baf-b0f2-6c7ee505d05c",
+  "milliseconds": 533532,
+  "delivered_frame30_vs_prior_random_request_max_error": 0.0,
+  "frames": [
+    {
+      "name": "GS02_temporal00000000.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "GS02_temporal00000001.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "GS02_temporal00000002.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "GS02_temporal00000003.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "GS02_temporal00000004.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "GS02_temporal00000005.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "GS02_temporal00000006.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "GS02_temporal00000007.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "GS02_temporal00000008.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "GS02_temporal00000009.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "GS02_temporal00000010.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "GS02_temporal00000011.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "GS02_temporal00000012.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "GS02_temporal00000013.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "GS02_temporal00000014.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "GS02_temporal00000015.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "GS02_temporal00000016.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "GS02_temporal00000017.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "GS02_temporal00000018.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "GS02_temporal00000019.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "GS02_temporal00000020.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "GS02_temporal00000021.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "GS02_temporal00000022.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "GS02_temporal00000023.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "GS02_temporal00000024.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "GS02_temporal00000025.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "GS02_temporal00000026.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "GS02_temporal00000027.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "GS02_temporal00000028.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "GS02_temporal00000029.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "GS02_temporal00000030.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "GS02_temporal00000031.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "GS02_temporal00000032.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "GS02_temporal00000033.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "GS02_temporal00000034.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "GS02_temporal00000035.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "GS02_temporal00000036.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "GS02_temporal00000037.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "GS02_temporal00000038.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "GS02_temporal00000039.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "GS02_temporal00000040.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "GS02_temporal00000041.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "GS02_temporal00000042.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "GS02_temporal00000043.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "GS02_temporal00000044.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "GS02_temporal00000045.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "GS02_temporal00000046.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "GS02_temporal00000047.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "GS02_temporal00000048.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "GS02_temporal00000049.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "GS02_temporal00000050.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "GS02_temporal00000051.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "GS02_temporal00000052.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "GS02_temporal00000053.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "GS02_temporal00000054.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "GS02_temporal00000055.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "GS02_temporal00000056.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "GS02_temporal00000057.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "GS02_temporal00000058.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "GS02_temporal00000059.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    }
+  ]
+}

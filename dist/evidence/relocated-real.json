@@ -1,0 +1,54 @@
+{
+  "status": "Passed",
+  "sys_path": [
+    "/private/tmp/CorridorKey QA \u96ea/runtime/upstream/third_party/MoGe",
+    "/private/tmp/CorridorKey QA \u96ea/runtime/upstream",
+    "/private/tmp/CorridorKey QA \u96ea/runtime/lib/python312.zip",
+    "/private/tmp/CorridorKey QA \u96ea/runtime/lib/python3.12",
+    "/private/tmp/CorridorKey QA \u96ea/runtime/lib/python3.12/lib-dynload",
+    "/private/tmp/CorridorKey QA \u96ea/runtime/lib/python3.12/site-packages",
+    "/var/folders/m1/1nz5w6lj6j783bxv38qmspww0000gn/T/tmpjy3jl34o",
+    "/private/tmp/CorridorKey QA \u96ea/runtime/lib/python3.12/site-packages/setuptools/_vendor"
+  ],
+  "backend": {
+    "backend": "pytorch_mps",
+    "loaded": true,
+    "device": "mps",
+    "dtype": "float32",
+    "torch_version": "2.9.1",
+    "upstream_root": "/private/tmp/CorridorKey QA \u96ea/runtime/upstream",
+    "model_root": "/private/tmp/CorridorKey QA \u96ea/models",
+    "audited_upstream_commit": "485f5e9ab759ead6138cc990776184b59d6ea971",
+    "temporal_mode": "independent_frame_T1",
+    "clip_temporal_analysis": false,
+    "automatic_cpu_model_fallback": false,
+    "cpu_preprocessing": [
+      "transfer_functions",
+      "reflect_padding",
+      "foundation_area_resize"
+    ],
+    "cpu_postprocessing": [
+      "asinh_decode",
+      "crop",
+      "transfer_functions",
+      "optional_green_despill"
+    ],
+    "input_spaces": [
+      "srgb",
+      "linear",
+      "rec709_gamma24"
+    ],
+    "input_alpha": "only used as a hint when explicitly selected",
+    "output_alpha": "straight foreground RGB plus clamped model matte",
+    "successful_frames": 1,
+    "last_error": null,
+    "mps_current_allocated_bytes": 4938861056,
+    "mps_driver_allocated_bytes": 6308773888
+  },
+  "shape": [
+    270,
+    512,
+    4
+  ],
+  "finite": true
+}

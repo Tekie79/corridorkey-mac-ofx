@@ -1,0 +1,790 @@
+{
+  "installer_sha256": "50042b7882b77913e4cdd70ac62e470aaf0afdb8778bea14e862fe1394da7b0c",
+  "count": 60,
+  "range": [
+    "frame0000.exr",
+    "frame0059.exr"
+  ],
+  "frames": [
+    {
+      "name": "frame0000.exr",
+      "bytes": 19825547,
+      "sha256": "685f29369083925abee485682cdcec07d50ef5641097198c7cc31adb6d7a83c1",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "frame0001.exr",
+      "bytes": 19895331,
+      "sha256": "98c488196c3a4bcbb6054fb71f2b94df1cc0135c210c7d7ef597c6aa745be338",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "frame0002.exr",
+      "bytes": 19906374,
+      "sha256": "2b100ced2fe57bc93fa000c79d76fda77ec1ffd9f0659b264532f18e018d74b5",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "frame0003.exr",
+      "bytes": 19850500,
+      "sha256": "ae80cf33e0d4a2119b9a082ee74b4ae81abc5a619f952e224a2e4e3d7e6f89e8",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "frame0004.exr",
+      "bytes": 19938531,
+      "sha256": "90cf5049d6d33d1eae28ce852db93e9c5a237eb1b70b2d939caeae8e36f346ec",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "frame0005.exr",
+      "bytes": 19889984,
+      "sha256": "d00da10e0df732bd6c2a3ee99f9fcc242b5a9edfa0ccd26bec97c8faed1df5c1",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "frame0006.exr",
+      "bytes": 19922994,
+      "sha256": "e19a77483174019f61def272be867ee87c6f07a64f970c43a4a66cd9787d79b1",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "frame0007.exr",
+      "bytes": 19908930,
+      "sha256": "0c6a754033ea38f77e24fafb286b6a07233441e0a182154975c3cce4a99be6f3",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "frame0008.exr",
+      "bytes": 19911048,
+      "sha256": "79e156dfe5756d732a42a7c05099a2c9cb561a872d79e516c33a091aad4c6159",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "frame0009.exr",
+      "bytes": 19918615,
+      "sha256": "2be6be515a89141ac6130ee088e2788185711bdb12f43c0081a7f8382cc9e7b5",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "frame0010.exr",
+      "bytes": 19949998,
+      "sha256": "5d9c6383d022d33f33585628baaf7484075b94fc90e9176c64f2694daa2a21e9",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "frame0011.exr",
+      "bytes": 19957140,
+      "sha256": "0eb1b8a1b01a82b52d2d5bfeb5671f2f735c0222bafdf2ac407659189c7b69f3",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "frame0012.exr",
+      "bytes": 19977263,
+      "sha256": "794eeb069243e6e699e82ca60084f56649176867d01163221b8fcd6ca7823d0a",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "frame0013.exr",
+      "bytes": 19991052,
+      "sha256": "c345d5bfc31dab50467763e4fe655767e1cc648d7e5fd8e08d50e8acf1d62849",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "frame0014.exr",
+      "bytes": 20022714,
+      "sha256": "113a45a465d73d30ae1bc15622435cd5135130f85c060549842738f86d11d288",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "frame0015.exr",
+      "bytes": 20072404,
+      "sha256": "dda91cb3351aca35fb55ec2c25bc4b56dec4a036ffab9c55f9e360a30c79606d",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "frame0016.exr",
+      "bytes": 20057535,
+      "sha256": "87abc4ce73ff95d50fc3b4c7753b094d71b798ab49d1de83a5872fdd442cd16b",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "frame0017.exr",
+      "bytes": 20064181,
+      "sha256": "c54032127fe58f011b539418e8d5cfb68523e3eefed93cb678c82ec918cf4e2c",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "frame0018.exr",
+      "bytes": 20061416,
+      "sha256": "10c2daa49f7cf67beac1a5339f4276f2b40da3afb12d6f98ddca6989b2b3fcbf",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "frame0019.exr",
+      "bytes": 20074320,
+      "sha256": "1f286162e99e9bd630fd81fdfabb3ee40089fdcb4cfbd5287f59490b14112830",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "frame0020.exr",
+      "bytes": 20060259,
+      "sha256": "de68c02e2e356dbfae40d9419ffb384eb697456dd3d3bd8a9cf99ca5ab4278ad",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "frame0021.exr",
+      "bytes": 20026269,
+      "sha256": "73940a1f62eb8f61fe736789d56b964b7854efc303abd72e2d35a68f7d39c14c",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "frame0022.exr",
+      "bytes": 20004982,
+      "sha256": "d5e79277f93a20d9ec46a478d18bf7b036d0cc5112cc82acccb9a50f3b9c3f14",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "frame0023.exr",
+      "bytes": 19988127,
+      "sha256": "6ee5044367f48a60fb233694a421de7bb5921fbe6b263a66ec4371cdd27387f9",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "frame0024.exr",
+      "bytes": 20008449,
+      "sha256": "a86a298d0cbef41297e0bcc9217b429f7551ec52dbd7b4528e7c77fe0983c333",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "frame0025.exr",
+      "bytes": 20005286,
+      "sha256": "6676e81b4be93d4386a558c0ad71a39e3f57311d8036e7d18e73faa71134465c",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "frame0026.exr",
+      "bytes": 20006992,
+      "sha256": "2a60cd35f23dffb6957ca20a0ac1e5d9e97b4fe277c4c30a5ba04bee7e2c9fc7",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "frame0027.exr",
+      "bytes": 20025165,
+      "sha256": "6fe3be0cab741c372826858b6bbc65a7d06d2589d6b5e6a849b6607b952182e8",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "frame0028.exr",
+      "bytes": 20002243,
+      "sha256": "b678e70a4675b879abca69e7678d331d2ca96933eb1ac0bde32f39a6ab6ea0fe",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "frame0029.exr",
+      "bytes": 19984718,
+      "sha256": "cb6ce7793395497408451569f965708a7569f3aacc07a40c671fbec9b9b58486",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "frame0030.exr",
+      "bytes": 20017156,
+      "sha256": "dfbcd08586af8bdd6bf7fa0d30f768bb4e9c75ffab10ce8f7e29ee6468d5e0a9",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "frame0031.exr",
+      "bytes": 20120384,
+      "sha256": "968c2b8c6f15802f516d354602f2768b69d3bd2293ed88dda9474a6b980ca143",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "frame0032.exr",
+      "bytes": 20099412,
+      "sha256": "62bac1ce680dff1d59ac7611d435c001bc4ba305ba6b9a268e9ec7d4c11176bf",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "frame0033.exr",
+      "bytes": 20139899,
+      "sha256": "66e7fb96c541135f20a4a72efe91e58a20be98feaf09eb7f4908e52480ee7109",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "frame0034.exr",
+      "bytes": 20098067,
+      "sha256": "b1169a8d6adece11d6ff20957617c736fc1e797f8bfdf83d7428bf27ec361648",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "frame0035.exr",
+      "bytes": 20139848,
+      "sha256": "cd59467dafc87826b7a6cf2344f37ae94b6214647e5d8ed6ba7a5280c3a73233",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "frame0036.exr",
+      "bytes": 20119771,
+      "sha256": "47150c01efd19a1bfbc89194399256409a7014bad36e5629c5ce09e8df405400",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "frame0037.exr",
+      "bytes": 20193346,
+      "sha256": "d9f0a26e853777a10fef179a168ff80efec1db11903c324b73d11a3eba0dd2de",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "frame0038.exr",
+      "bytes": 20127976,
+      "sha256": "5c30fd4e5402c7003b7fe2ab73ee8e41b64ed72fd232be7e5db5e7f4bfd4991a",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "frame0039.exr",
+      "bytes": 20157859,
+      "sha256": "5749dc59cf367acaddde9e8615503125247d236e9e91b3a897cc3ba404d6eea4",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "frame0040.exr",
+      "bytes": 20080806,
+      "sha256": "2358d128158a03a3fc40536f9b229baebed9b2515c9708fcfbf34009fb799d4e",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "frame0041.exr",
+      "bytes": 20131494,
+      "sha256": "e506fd8116e3412420ef483429d03309b8b364b7d1698dc7be45cef75822fbc6",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "frame0042.exr",
+      "bytes": 20143579,
+      "sha256": "13288b766a782afd6eeaf0e0f68c768bf19a5f74abedd95faad46adce188ad8e",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "frame0043.exr",
+      "bytes": 20157422,
+      "sha256": "0ebea0251f541b38e40446e797f98d3c789b7f2ae75f5c09ecde2f170562e525",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "frame0044.exr",
+      "bytes": 20098575,
+      "sha256": "61044859ede89029462e30cf46f7f53017b8c0b57e78082da9ee5e2a913f6c8c",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "frame0045.exr",
+      "bytes": 20114756,
+      "sha256": "f05555a4cee2129a5b5c9fa1929c0f8e746f84159053eb07a4ef48ae937fd7ff",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "frame0046.exr",
+      "bytes": 20062375,
+      "sha256": "f27a4398ce654223bcbdc92a74033855f9de599fc794c02401ae6819e8657d6a",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "frame0047.exr",
+      "bytes": 20140085,
+      "sha256": "01db2ff56335f6cd7b28020c20dbf05f78c28fc49655064863b48d51ba995266",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "frame0048.exr",
+      "bytes": 20057465,
+      "sha256": "e36695af46783c5178c57f483a94e896b3e8e6c0ac67989acd77da3f32b738d8",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "frame0049.exr",
+      "bytes": 20061434,
+      "sha256": "88a9e456c67b7fc9b588cc3920f799a83286ed9b765505ed9a14e9a995d5d15f",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "frame0050.exr",
+      "bytes": 20016870,
+      "sha256": "4b43515a58872a7e51837ddbbbfc1cd28e1cdd422949f981a17f30906383e6f1",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "frame0051.exr",
+      "bytes": 20047599,
+      "sha256": "6104637976c085543f464f0dc1f512852d73b1ba2760b636aa39df2095c9aad9",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "frame0052.exr",
+      "bytes": 20013234,
+      "sha256": "dbc45f93e62867d32714c34a4cfcffd4e4259d55d60fac86a3cc6330c1ec4c65",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "frame0053.exr",
+      "bytes": 20036008,
+      "sha256": "53ddf0cf0b381a819a6667263069e68f8f10015b6b9324d4903fa27735b09c2c",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "frame0054.exr",
+      "bytes": 20011004,
+      "sha256": "9bff1a974dbb95649610fb6e1e83f2139644fe1d6426f8e8cda309b559ca0f28",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "frame0055.exr",
+      "bytes": 20040933,
+      "sha256": "33dbee23303bd930938022282ded8e3db05899be1d27beab213c6c646737b5af",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "frame0056.exr",
+      "bytes": 20023554,
+      "sha256": "fb4e995376c6de91915e34bc908973a963a2f44c8befb2139c807868a537fcff",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "frame0057.exr",
+      "bytes": 20070138,
+      "sha256": "a778a7f1b3f3abb22881b0a2bdff5f51310c08d797c909a72e2013b6245fc973",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "frame0058.exr",
+      "bytes": 20031217,
+      "sha256": "9608543abccadbb195d6ad7cf7d5ba95171e38bffab86839069f297eb9eaf953",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "frame0059.exr",
+      "bytes": 20053105,
+      "sha256": "4a86fa5c501d87ee196b0b9301ac1633889ae6d944f460e4ef164c212a11e602",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    }
+  ]
+}

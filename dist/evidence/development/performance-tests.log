@@ -1,0 +1,1209 @@
+.....................FF........................................... [ 59%]
+..............FFFFFFFFFFFFFFFFFF.FFFF....FF..                            [100%]
+=================================== FAILURES ===================================
+________________ test_cpp_client_talks_to_python_worker[False] _________________
+
+fail = False
+
+    @pytest.mark.parametrize("fail", [False, True])
+    def test_cpp_client_talks_to_python_worker(fail):
+        root = Path(__file__).resolve().parents[1]
+        probe = Path(os.environ.get("CKMAC_BRIDGE_PROBE", str(root / "build/bridge_probe")))
+        if not probe.is_file():
+            pytest.skip("Build bridge_probe and set CKMAC_BRIDGE_PROBE to run the C++/Python integration test")
+        with tempfile.TemporaryDirectory(prefix="ckx-", dir="/tmp") as folder:
+            path = Path(folder) / "worker.sock"
+            backend = ExplicitFakeBackend(fail=fail)
+            runtime = Runtime(backend)
+            runtime.load()
+>           server = LocalServer(path, runtime)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_cross_language.py:49: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+worker/ckmac/server.py:174: in __init__
+    super().__init__(str(path), Handler)
+.build/runtime/lib/python3.12/socketserver.py:457: in __init__
+    self.server_bind()
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <ckmac.server.LocalServer object at 0x107bd0b90>
+
+    def server_bind(self):
+        """Called by constructor to bind the socket.
+    
+        May be overridden.
+    
+        """
+        if self.allow_reuse_address and hasattr(socket, "SO_REUSEADDR"):
+            self.socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+        # Since Linux 6.12.9, SO_REUSEPORT is not allowed
+        # on other address families than AF_INET/AF_INET6.
+        if (
+            self.allow_reuse_port and hasattr(socket, "SO_REUSEPORT")
+            and self.address_family in (socket.AF_INET, socket.AF_INET6)
+        ):
+            self.socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEPORT, 1)
+>       self.socket.bind(self.server_address)
+E       PermissionError: [Errno 1] Operation not permitted
+
+.build/runtime/lib/python3.12/socketserver.py:478: PermissionError
+_________________ test_cpp_client_talks_to_python_worker[True] _________________
+
+fail = True
+
+    @pytest.mark.parametrize("fail", [False, True])
+    def test_cpp_client_talks_to_python_worker(fail):
+        root = Path(__file__).resolve().parents[1]
+        probe = Path(os.environ.get("CKMAC_BRIDGE_PROBE", str(root / "build/bridge_probe")))
+        if not probe.is_file():
+            pytest.skip("Build bridge_probe and set CKMAC_BRIDGE_PROBE to run the C++/Python integration test")
+        with tempfile.TemporaryDirectory(prefix="ckx-", dir="/tmp") as folder:
+            path = Path(folder) / "worker.sock"
+            backend = ExplicitFakeBackend(fail=fail)
+            runtime = Runtime(backend)
+            runtime.load()
+>           server = LocalServer(path, runtime)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_cross_language.py:49: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+worker/ckmac/server.py:174: in __init__
+    super().__init__(str(path), Handler)
+.build/runtime/lib/python3.12/socketserver.py:457: in __init__
+    self.server_bind()
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <ckmac.server.LocalServer object at 0x108372630>
+
+    def server_bind(self):
+        """Called by constructor to bind the socket.
+    
+        May be overridden.
+    
+        """
+        if self.allow_reuse_address and hasattr(socket, "SO_REUSEADDR"):
+            self.socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+        # Since Linux 6.12.9, SO_REUSEPORT is not allowed
+        # on other address families than AF_INET/AF_INET6.
+        if (
+            self.allow_reuse_port and hasattr(socket, "SO_REUSEPORT")
+            and self.address_family in (socket.AF_INET, socket.AF_INET6)
+        ):
+            self.socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEPORT, 1)
+>       self.socket.bind(self.server_address)
+E       PermissionError: [Errno 1] Operation not permitted
+
+.build/runtime/lib/python3.12/socketserver.py:478: PermissionError
+______________ test_real_unix_roundtrip_and_model_option_mapping _______________
+
+private_dir = PosixPath('/tmp/ckw-dj_88l27')
+
+    def test_real_unix_roundtrip_and_model_option_mapping(private_dir):
+        rgba = np.array([[[0.2, -0.1, 1.5, 1], [0.8, 0.5, 0.4, 0.2]]], dtype="<f4")
+>       with running_server(private_dir) as (path, runtime, backend):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_worker.py:122: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+.build/runtime/lib/python3.12/contextlib.py:137: in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+tests/test_worker.py:76: in running_server
+    server = LocalServer(path, runtime)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+worker/ckmac/server.py:174: in __init__
+    super().__init__(str(path), Handler)
+.build/runtime/lib/python3.12/socketserver.py:457: in __init__
+    self.server_bind()
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <ckmac.server.LocalServer object at 0x106d64920>
+
+    def server_bind(self):
+        """Called by constructor to bind the socket.
+    
+        May be overridden.
+    
+        """
+        if self.allow_reuse_address and hasattr(socket, "SO_REUSEADDR"):
+            self.socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+        # Since Linux 6.12.9, SO_REUSEPORT is not allowed
+        # on other address families than AF_INET/AF_INET6.
+        if (
+            self.allow_reuse_port and hasattr(socket, "SO_REUSEPORT")
+            and self.address_family in (socket.AF_INET, socket.AF_INET6)
+        ):
+            self.socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEPORT, 1)
+>       self.socket.bind(self.server_address)
+E       PermissionError: [Errno 1] Operation not permitted
+
+.build/runtime/lib/python3.12/socketserver.py:478: PermissionError
+_____________ test_nonfinite_source_rejected_before_inference[nan] _____________
+
+private_dir = PosixPath('/tmp/ckw-rd0xos00'), bad = nan
+
+    @pytest.mark.parametrize("bad", [np.nan, np.inf, -np.inf])
+    def test_nonfinite_source_rejected_before_inference(private_dir, bad):
+        rgba = np.ones((1, 1, 4), dtype="<f4")
+        rgba[0, 0, 0] = bad
+>       with running_server(private_dir) as (path, runtime, backend):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_worker.py:144: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+.build/runtime/lib/python3.12/contextlib.py:137: in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+tests/test_worker.py:76: in running_server
+    server = LocalServer(path, runtime)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+worker/ckmac/server.py:174: in __init__
+    super().__init__(str(path), Handler)
+.build/runtime/lib/python3.12/socketserver.py:457: in __init__
+    self.server_bind()
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <ckmac.server.LocalServer object at 0x1083722d0>
+
+    def server_bind(self):
+        """Called by constructor to bind the socket.
+    
+        May be overridden.
+    
+        """
+        if self.allow_reuse_address and hasattr(socket, "SO_REUSEADDR"):
+            self.socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+        # Since Linux 6.12.9, SO_REUSEPORT is not allowed
+        # on other address families than AF_INET/AF_INET6.
+        if (
+            self.allow_reuse_port and hasattr(socket, "SO_REUSEPORT")
+            and self.address_family in (socket.AF_INET, socket.AF_INET6)
+        ):
+            self.socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEPORT, 1)
+>       self.socket.bind(self.server_address)
+E       PermissionError: [Errno 1] Operation not permitted
+
+.build/runtime/lib/python3.12/socketserver.py:478: PermissionError
+_____________ test_nonfinite_source_rejected_before_inference[inf] _____________
+
+private_dir = PosixPath('/tmp/ckw-e_t8hb8n'), bad = inf
+
+    @pytest.mark.parametrize("bad", [np.nan, np.inf, -np.inf])
+    def test_nonfinite_source_rejected_before_inference(private_dir, bad):
+        rgba = np.ones((1, 1, 4), dtype="<f4")
+        rgba[0, 0, 0] = bad
+>       with running_server(private_dir) as (path, runtime, backend):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_worker.py:144: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+.build/runtime/lib/python3.12/contextlib.py:137: in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+tests/test_worker.py:76: in running_server
+    server = LocalServer(path, runtime)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+worker/ckmac/server.py:174: in __init__
+    super().__init__(str(path), Handler)
+.build/runtime/lib/python3.12/socketserver.py:457: in __init__
+    self.server_bind()
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <ckmac.server.LocalServer object at 0x10856f590>
+
+    def server_bind(self):
+        """Called by constructor to bind the socket.
+    
+        May be overridden.
+    
+        """
+        if self.allow_reuse_address and hasattr(socket, "SO_REUSEADDR"):
+            self.socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+        # Since Linux 6.12.9, SO_REUSEPORT is not allowed
+        # on other address families than AF_INET/AF_INET6.
+        if (
+            self.allow_reuse_port and hasattr(socket, "SO_REUSEPORT")
+            and self.address_family in (socket.AF_INET, socket.AF_INET6)
+        ):
+            self.socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEPORT, 1)
+>       self.socket.bind(self.server_address)
+E       PermissionError: [Errno 1] Operation not permitted
+
+.build/runtime/lib/python3.12/socketserver.py:478: PermissionError
+____________ test_nonfinite_source_rejected_before_inference[-inf] _____________
+
+private_dir = PosixPath('/tmp/ckw-_0ee5dia'), bad = -inf
+
+    @pytest.mark.parametrize("bad", [np.nan, np.inf, -np.inf])
+    def test_nonfinite_source_rejected_before_inference(private_dir, bad):
+        rgba = np.ones((1, 1, 4), dtype="<f4")
+        rgba[0, 0, 0] = bad
+>       with running_server(private_dir) as (path, runtime, backend):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_worker.py:144: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+.build/runtime/lib/python3.12/contextlib.py:137: in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+tests/test_worker.py:76: in running_server
+    server = LocalServer(path, runtime)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+worker/ckmac/server.py:174: in __init__
+    super().__init__(str(path), Handler)
+.build/runtime/lib/python3.12/socketserver.py:457: in __init__
+    self.server_bind()
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <ckmac.server.LocalServer object at 0x108460950>
+
+    def server_bind(self):
+        """Called by constructor to bind the socket.
+    
+        May be overridden.
+    
+        """
+        if self.allow_reuse_address and hasattr(socket, "SO_REUSEADDR"):
+            self.socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+        # Since Linux 6.12.9, SO_REUSEPORT is not allowed
+        # on other address families than AF_INET/AF_INET6.
+        if (
+            self.allow_reuse_port and hasattr(socket, "SO_REUSEPORT")
+            and self.address_family in (socket.AF_INET, socket.AF_INET6)
+        ):
+            self.socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEPORT, 1)
+>       self.socket.bind(self.server_address)
+E       PermissionError: [Errno 1] Operation not permitted
+
+.build/runtime/lib/python3.12/socketserver.py:478: PermissionError
+__ test_bad_model_output_is_error_never_passthrough[<lambda>-invalid image0] ___
+
+private_dir = PosixPath('/tmp/ckw-ikspxj4d')
+output = <function <lambda> at 0x1083b3ce0>, reason = b'invalid image'
+
+    @pytest.mark.parametrize("output,reason", [
+        (lambda x: np.full_like(x, np.nan), b"invalid image"),
+        (lambda x: np.full_like(x, np.inf), b"invalid image"),
+        (lambda x: np.zeros((2, 2, 4), dtype=np.float32), b"invalid image"),
+        (lambda x: np.full_like(x, -0.01), b"alpha outside"),
+        (lambda x: np.full_like(x, 1.01), b"alpha outside"),
+    ])
+    def test_bad_model_output_is_error_never_passthrough(private_dir, output, reason):
+        backend = FakeBackend()
+        backend.output = output
+        rgba = np.ones((1, 1, 4), dtype="<f4")
+>       with running_server(private_dir, backend) as (path, runtime, backend):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_worker.py:164: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+.build/runtime/lib/python3.12/contextlib.py:137: in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+tests/test_worker.py:76: in running_server
+    server = LocalServer(path, runtime)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+worker/ckmac/server.py:174: in __init__
+    super().__init__(str(path), Handler)
+.build/runtime/lib/python3.12/socketserver.py:457: in __init__
+    self.server_bind()
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <ckmac.server.LocalServer object at 0x1085807a0>
+
+    def server_bind(self):
+        """Called by constructor to bind the socket.
+    
+        May be overridden.
+    
+        """
+        if self.allow_reuse_address and hasattr(socket, "SO_REUSEADDR"):
+            self.socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+        # Since Linux 6.12.9, SO_REUSEPORT is not allowed
+        # on other address families than AF_INET/AF_INET6.
+        if (
+            self.allow_reuse_port and hasattr(socket, "SO_REUSEPORT")
+            and self.address_family in (socket.AF_INET, socket.AF_INET6)
+        ):
+            self.socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEPORT, 1)
+>       self.socket.bind(self.server_address)
+E       PermissionError: [Errno 1] Operation not permitted
+
+.build/runtime/lib/python3.12/socketserver.py:478: PermissionError
+__ test_bad_model_output_is_error_never_passthrough[<lambda>-invalid image1] ___
+
+private_dir = PosixPath('/tmp/ckw-aq81a9g3')
+output = <function <lambda> at 0x108408220>, reason = b'invalid image'
+
+    @pytest.mark.parametrize("output,reason", [
+        (lambda x: np.full_like(x, np.nan), b"invalid image"),
+        (lambda x: np.full_like(x, np.inf), b"invalid image"),
+        (lambda x: np.zeros((2, 2, 4), dtype=np.float32), b"invalid image"),
+        (lambda x: np.full_like(x, -0.01), b"alpha outside"),
+        (lambda x: np.full_like(x, 1.01), b"alpha outside"),
+    ])
+    def test_bad_model_output_is_error_never_passthrough(private_dir, output, reason):
+        backend = FakeBackend()
+        backend.output = output
+        rgba = np.ones((1, 1, 4), dtype="<f4")
+>       with running_server(private_dir, backend) as (path, runtime, backend):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_worker.py:164: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+.build/runtime/lib/python3.12/contextlib.py:137: in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+tests/test_worker.py:76: in running_server
+    server = LocalServer(path, runtime)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+worker/ckmac/server.py:174: in __init__
+    super().__init__(str(path), Handler)
+.build/runtime/lib/python3.12/socketserver.py:457: in __init__
+    self.server_bind()
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <ckmac.server.LocalServer object at 0x10856f9e0>
+
+    def server_bind(self):
+        """Called by constructor to bind the socket.
+    
+        May be overridden.
+    
+        """
+        if self.allow_reuse_address and hasattr(socket, "SO_REUSEADDR"):
+            self.socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+        # Since Linux 6.12.9, SO_REUSEPORT is not allowed
+        # on other address families than AF_INET/AF_INET6.
+        if (
+            self.allow_reuse_port and hasattr(socket, "SO_REUSEPORT")
+            and self.address_family in (socket.AF_INET, socket.AF_INET6)
+        ):
+            self.socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEPORT, 1)
+>       self.socket.bind(self.server_address)
+E       PermissionError: [Errno 1] Operation not permitted
+
+.build/runtime/lib/python3.12/socketserver.py:478: PermissionError
+__ test_bad_model_output_is_error_never_passthrough[<lambda>-invalid image2] ___
+
+private_dir = PosixPath('/tmp/ckw-sm2zb2v7')
+output = <function <lambda> at 0x1084082c0>, reason = b'invalid image'
+
+    @pytest.mark.parametrize("output,reason", [
+        (lambda x: np.full_like(x, np.nan), b"invalid image"),
+        (lambda x: np.full_like(x, np.inf), b"invalid image"),
+        (lambda x: np.zeros((2, 2, 4), dtype=np.float32), b"invalid image"),
+        (lambda x: np.full_like(x, -0.01), b"alpha outside"),
+        (lambda x: np.full_like(x, 1.01), b"alpha outside"),
+    ])
+    def test_bad_model_output_is_error_never_passthrough(private_dir, output, reason):
+        backend = FakeBackend()
+        backend.output = output
+        rgba = np.ones((1, 1, 4), dtype="<f4")
+>       with running_server(private_dir, backend) as (path, runtime, backend):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_worker.py:164: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+.build/runtime/lib/python3.12/contextlib.py:137: in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+tests/test_worker.py:76: in running_server
+    server = LocalServer(path, runtime)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+worker/ckmac/server.py:174: in __init__
+    super().__init__(str(path), Handler)
+.build/runtime/lib/python3.12/socketserver.py:457: in __init__
+    self.server_bind()
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <ckmac.server.LocalServer object at 0x108582060>
+
+    def server_bind(self):
+        """Called by constructor to bind the socket.
+    
+        May be overridden.
+    
+        """
+        if self.allow_reuse_address and hasattr(socket, "SO_REUSEADDR"):
+            self.socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+        # Since Linux 6.12.9, SO_REUSEPORT is not allowed
+        # on other address families than AF_INET/AF_INET6.
+        if (
+            self.allow_reuse_port and hasattr(socket, "SO_REUSEPORT")
+            and self.address_family in (socket.AF_INET, socket.AF_INET6)
+        ):
+            self.socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEPORT, 1)
+>       self.socket.bind(self.server_address)
+E       PermissionError: [Errno 1] Operation not permitted
+
+.build/runtime/lib/python3.12/socketserver.py:478: PermissionError
+__ test_bad_model_output_is_error_never_passthrough[<lambda>-alpha outside0] ___
+
+private_dir = PosixPath('/tmp/ckw-97ug60uo')
+output = <function <lambda> at 0x108408360>, reason = b'alpha outside'
+
+    @pytest.mark.parametrize("output,reason", [
+        (lambda x: np.full_like(x, np.nan), b"invalid image"),
+        (lambda x: np.full_like(x, np.inf), b"invalid image"),
+        (lambda x: np.zeros((2, 2, 4), dtype=np.float32), b"invalid image"),
+        (lambda x: np.full_like(x, -0.01), b"alpha outside"),
+        (lambda x: np.full_like(x, 1.01), b"alpha outside"),
+    ])
+    def test_bad_model_output_is_error_never_passthrough(private_dir, output, reason):
+        backend = FakeBackend()
+        backend.output = output
+        rgba = np.ones((1, 1, 4), dtype="<f4")
+>       with running_server(private_dir, backend) as (path, runtime, backend):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_worker.py:164: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+.build/runtime/lib/python3.12/contextlib.py:137: in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+tests/test_worker.py:76: in running_server
+    server = LocalServer(path, runtime)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+worker/ckmac/server.py:174: in __init__
+    super().__init__(str(path), Handler)
+.build/runtime/lib/python3.12/socketserver.py:457: in __init__
+    self.server_bind()
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <ckmac.server.LocalServer object at 0x108580d10>
+
+    def server_bind(self):
+        """Called by constructor to bind the socket.
+    
+        May be overridden.
+    
+        """
+        if self.allow_reuse_address and hasattr(socket, "SO_REUSEADDR"):
+            self.socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+        # Since Linux 6.12.9, SO_REUSEPORT is not allowed
+        # on other address families than AF_INET/AF_INET6.
+        if (
+            self.allow_reuse_port and hasattr(socket, "SO_REUSEPORT")
+            and self.address_family in (socket.AF_INET, socket.AF_INET6)
+        ):
+            self.socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEPORT, 1)
+>       self.socket.bind(self.server_address)
+E       PermissionError: [Errno 1] Operation not permitted
+
+.build/runtime/lib/python3.12/socketserver.py:478: PermissionError
+__ test_bad_model_output_is_error_never_passthrough[<lambda>-alpha outside1] ___
+
+private_dir = PosixPath('/tmp/ckw-233jmocg')
+output = <function <lambda> at 0x108408400>, reason = b'alpha outside'
+
+    @pytest.mark.parametrize("output,reason", [
+        (lambda x: np.full_like(x, np.nan), b"invalid image"),
+        (lambda x: np.full_like(x, np.inf), b"invalid image"),
+        (lambda x: np.zeros((2, 2, 4), dtype=np.float32), b"invalid image"),
+        (lambda x: np.full_like(x, -0.01), b"alpha outside"),
+        (lambda x: np.full_like(x, 1.01), b"alpha outside"),
+    ])
+    def test_bad_model_output_is_error_never_passthrough(private_dir, output, reason):
+        backend = FakeBackend()
+        backend.output = output
+        rgba = np.ones((1, 1, 4), dtype="<f4")
+>       with running_server(private_dir, backend) as (path, runtime, backend):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_worker.py:164: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+.build/runtime/lib/python3.12/contextlib.py:137: in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+tests/test_worker.py:76: in running_server
+    server = LocalServer(path, runtime)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+worker/ckmac/server.py:174: in __init__
+    super().__init__(str(path), Handler)
+.build/runtime/lib/python3.12/socketserver.py:457: in __init__
+    self.server_bind()
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <ckmac.server.LocalServer object at 0x1084608c0>
+
+    def server_bind(self):
+        """Called by constructor to bind the socket.
+    
+        May be overridden.
+    
+        """
+        if self.allow_reuse_address and hasattr(socket, "SO_REUSEADDR"):
+            self.socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+        # Since Linux 6.12.9, SO_REUSEPORT is not allowed
+        # on other address families than AF_INET/AF_INET6.
+        if (
+            self.allow_reuse_port and hasattr(socket, "SO_REUSEPORT")
+            and self.address_family in (socket.AF_INET, socket.AF_INET6)
+        ):
+            self.socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEPORT, 1)
+>       self.socket.bind(self.server_address)
+E       PermissionError: [Errno 1] Operation not permitted
+
+.build/runtime/lib/python3.12/socketserver.py:478: PermissionError
+________ test_backend_failure_is_propagated_and_retry_remains_possible _________
+
+private_dir = PosixPath('/tmp/ckw-rwiqlkyk')
+
+    def test_backend_failure_is_propagated_and_retry_remains_possible(private_dir):
+        backend = FakeBackend()
+        backend.infer_error = RuntimeError("Unsupported MPS operation (fake test error)")
+        rgba = np.ones((1, 1, 4), dtype="<f4")
+>       with running_server(private_dir, backend) as (path, runtime, backend):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_worker.py:177: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+.build/runtime/lib/python3.12/contextlib.py:137: in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+tests/test_worker.py:76: in running_server
+    server = LocalServer(path, runtime)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+worker/ckmac/server.py:174: in __init__
+    super().__init__(str(path), Handler)
+.build/runtime/lib/python3.12/socketserver.py:457: in __init__
+    self.server_bind()
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <ckmac.server.LocalServer object at 0x108580500>
+
+    def server_bind(self):
+        """Called by constructor to bind the socket.
+    
+        May be overridden.
+    
+        """
+        if self.allow_reuse_address and hasattr(socket, "SO_REUSEADDR"):
+            self.socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+        # Since Linux 6.12.9, SO_REUSEPORT is not allowed
+        # on other address families than AF_INET/AF_INET6.
+        if (
+            self.allow_reuse_port and hasattr(socket, "SO_REUSEPORT")
+            and self.address_family in (socket.AF_INET, socket.AF_INET6)
+        ):
+            self.socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEPORT, 1)
+>       self.socket.bind(self.server_address)
+E       PermissionError: [Errno 1] Operation not permitted
+
+.build/runtime/lib/python3.12/socketserver.py:478: PermissionError
+_____________ test_truncated_payload_releases_lock_for_next_render _____________
+
+private_dir = PosixPath('/tmp/ckw-oio40ckf')
+
+    def test_truncated_payload_releases_lock_for_next_render(private_dir):
+        rgba = np.ones((1, 1, 4), dtype="<f4")
+>       with running_server(private_dir) as (path, runtime, backend):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_worker.py:191: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+.build/runtime/lib/python3.12/contextlib.py:137: in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+tests/test_worker.py:76: in running_server
+    server = LocalServer(path, runtime)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+worker/ckmac/server.py:174: in __init__
+    super().__init__(str(path), Handler)
+.build/runtime/lib/python3.12/socketserver.py:457: in __init__
+    self.server_bind()
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <ckmac.server.LocalServer object at 0x108582d50>
+
+    def server_bind(self):
+        """Called by constructor to bind the socket.
+    
+        May be overridden.
+    
+        """
+        if self.allow_reuse_address and hasattr(socket, "SO_REUSEADDR"):
+            self.socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+        # Since Linux 6.12.9, SO_REUSEPORT is not allowed
+        # on other address families than AF_INET/AF_INET6.
+        if (
+            self.allow_reuse_port and hasattr(socket, "SO_REUSEPORT")
+            and self.address_family in (socket.AF_INET, socket.AF_INET6)
+        ):
+            self.socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEPORT, 1)
+>       self.socket.bind(self.server_address)
+E       PermissionError: [Errno 1] Operation not permitted
+
+.build/runtime/lib/python3.12/socketserver.py:478: PermissionError
+__________ test_server_rejects_malformed_header_without_body[width-0] __________
+
+private_dir = PosixPath('/tmp/ckw-gvh666hp'), field = 'width', value = 0
+
+    @pytest.mark.parametrize("field,value", [("width", 0), ("count", 15),
+                                              ("flags", 3), ("flags", 8),
+                                              ("reserved", 1), ("quality", 1001)])
+    def test_server_rejects_malformed_header_without_body(private_dir, field, value):
+        values = dict(magic=b"CKM1", version=1, op=OP_INFER, width=1, height=1,
+                      count=16, flags=0, quality=750, despill=0, reserved=0)
+        values[field] = value
+>       with running_server(private_dir) as (path, runtime, backend):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_worker.py:212: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+.build/runtime/lib/python3.12/contextlib.py:137: in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+tests/test_worker.py:76: in running_server
+    server = LocalServer(path, runtime)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+worker/ckmac/server.py:174: in __init__
+    super().__init__(str(path), Handler)
+.build/runtime/lib/python3.12/socketserver.py:457: in __init__
+    self.server_bind()
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <ckmac.server.LocalServer object at 0x1085802f0>
+
+    def server_bind(self):
+        """Called by constructor to bind the socket.
+    
+        May be overridden.
+    
+        """
+        if self.allow_reuse_address and hasattr(socket, "SO_REUSEADDR"):
+            self.socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+        # Since Linux 6.12.9, SO_REUSEPORT is not allowed
+        # on other address families than AF_INET/AF_INET6.
+        if (
+            self.allow_reuse_port and hasattr(socket, "SO_REUSEPORT")
+            and self.address_family in (socket.AF_INET, socket.AF_INET6)
+        ):
+            self.socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEPORT, 1)
+>       self.socket.bind(self.server_address)
+E       PermissionError: [Errno 1] Operation not permitted
+
+.build/runtime/lib/python3.12/socketserver.py:478: PermissionError
+_________ test_server_rejects_malformed_header_without_body[count-15] __________
+
+private_dir = PosixPath('/tmp/ckw-5z40_ho3'), field = 'count', value = 15
+
+    @pytest.mark.parametrize("field,value", [("width", 0), ("count", 15),
+                                              ("flags", 3), ("flags", 8),
+                                              ("reserved", 1), ("quality", 1001)])
+    def test_server_rejects_malformed_header_without_body(private_dir, field, value):
+        values = dict(magic=b"CKM1", version=1, op=OP_INFER, width=1, height=1,
+                      count=16, flags=0, quality=750, despill=0, reserved=0)
+        values[field] = value
+>       with running_server(private_dir) as (path, runtime, backend):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_worker.py:212: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+.build/runtime/lib/python3.12/contextlib.py:137: in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+tests/test_worker.py:76: in running_server
+    server = LocalServer(path, runtime)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+worker/ckmac/server.py:174: in __init__
+    super().__init__(str(path), Handler)
+.build/runtime/lib/python3.12/socketserver.py:457: in __init__
+    self.server_bind()
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <ckmac.server.LocalServer object at 0x10860af00>
+
+    def server_bind(self):
+        """Called by constructor to bind the socket.
+    
+        May be overridden.
+    
+        """
+        if self.allow_reuse_address and hasattr(socket, "SO_REUSEADDR"):
+            self.socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+        # Since Linux 6.12.9, SO_REUSEPORT is not allowed
+        # on other address families than AF_INET/AF_INET6.
+        if (
+            self.allow_reuse_port and hasattr(socket, "SO_REUSEPORT")
+            and self.address_family in (socket.AF_INET, socket.AF_INET6)
+        ):
+            self.socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEPORT, 1)
+>       self.socket.bind(self.server_address)
+E       PermissionError: [Errno 1] Operation not permitted
+
+.build/runtime/lib/python3.12/socketserver.py:478: PermissionError
+__________ test_server_rejects_malformed_header_without_body[flags-3] __________
+
+private_dir = PosixPath('/tmp/ckw-w2h_vdkg'), field = 'flags', value = 3
+
+    @pytest.mark.parametrize("field,value", [("width", 0), ("count", 15),
+                                              ("flags", 3), ("flags", 8),
+                                              ("reserved", 1), ("quality", 1001)])
+    def test_server_rejects_malformed_header_without_body(private_dir, field, value):
+        values = dict(magic=b"CKM1", version=1, op=OP_INFER, width=1, height=1,
+                      count=16, flags=0, quality=750, despill=0, reserved=0)
+        values[field] = value
+>       with running_server(private_dir) as (path, runtime, backend):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_worker.py:212: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+.build/runtime/lib/python3.12/contextlib.py:137: in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+tests/test_worker.py:76: in running_server
+    server = LocalServer(path, runtime)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+worker/ckmac/server.py:174: in __init__
+    super().__init__(str(path), Handler)
+.build/runtime/lib/python3.12/socketserver.py:457: in __init__
+    self.server_bind()
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <ckmac.server.LocalServer object at 0x1086081d0>
+
+    def server_bind(self):
+        """Called by constructor to bind the socket.
+    
+        May be overridden.
+    
+        """
+        if self.allow_reuse_address and hasattr(socket, "SO_REUSEADDR"):
+            self.socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+        # Since Linux 6.12.9, SO_REUSEPORT is not allowed
+        # on other address families than AF_INET/AF_INET6.
+        if (
+            self.allow_reuse_port and hasattr(socket, "SO_REUSEPORT")
+            and self.address_family in (socket.AF_INET, socket.AF_INET6)
+        ):
+            self.socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEPORT, 1)
+>       self.socket.bind(self.server_address)
+E       PermissionError: [Errno 1] Operation not permitted
+
+.build/runtime/lib/python3.12/socketserver.py:478: PermissionError
+__________ test_server_rejects_malformed_header_without_body[flags-8] __________
+
+private_dir = PosixPath('/tmp/ckw-055aa9oo'), field = 'flags', value = 8
+
+    @pytest.mark.parametrize("field,value", [("width", 0), ("count", 15),
+                                              ("flags", 3), ("flags", 8),
+                                              ("reserved", 1), ("quality", 1001)])
+    def test_server_rejects_malformed_header_without_body(private_dir, field, value):
+        values = dict(magic=b"CKM1", version=1, op=OP_INFER, width=1, height=1,
+                      count=16, flags=0, quality=750, despill=0, reserved=0)
+        values[field] = value
+>       with running_server(private_dir) as (path, runtime, backend):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_worker.py:212: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+.build/runtime/lib/python3.12/contextlib.py:137: in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+tests/test_worker.py:76: in running_server
+    server = LocalServer(path, runtime)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+worker/ckmac/server.py:174: in __init__
+    super().__init__(str(path), Handler)
+.build/runtime/lib/python3.12/socketserver.py:457: in __init__
+    self.server_bind()
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <ckmac.server.LocalServer object at 0x1083f2120>
+
+    def server_bind(self):
+        """Called by constructor to bind the socket.
+    
+        May be overridden.
+    
+        """
+        if self.allow_reuse_address and hasattr(socket, "SO_REUSEADDR"):
+            self.socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+        # Since Linux 6.12.9, SO_REUSEPORT is not allowed
+        # on other address families than AF_INET/AF_INET6.
+        if (
+            self.allow_reuse_port and hasattr(socket, "SO_REUSEPORT")
+            and self.address_family in (socket.AF_INET, socket.AF_INET6)
+        ):
+            self.socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEPORT, 1)
+>       self.socket.bind(self.server_address)
+E       PermissionError: [Errno 1] Operation not permitted
+
+.build/runtime/lib/python3.12/socketserver.py:478: PermissionError
+________ test_server_rejects_malformed_header_without_body[reserved-1] _________
+
+private_dir = PosixPath('/tmp/ckw-vlkdbkqz'), field = 'reserved', value = 1
+
+    @pytest.mark.parametrize("field,value", [("width", 0), ("count", 15),
+                                              ("flags", 3), ("flags", 8),
+                                              ("reserved", 1), ("quality", 1001)])
+    def test_server_rejects_malformed_header_without_body(private_dir, field, value):
+        values = dict(magic=b"CKM1", version=1, op=OP_INFER, width=1, height=1,
+                      count=16, flags=0, quality=750, despill=0, reserved=0)
+        values[field] = value
+>       with running_server(private_dir) as (path, runtime, backend):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_worker.py:212: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+.build/runtime/lib/python3.12/contextlib.py:137: in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+tests/test_worker.py:76: in running_server
+    server = LocalServer(path, runtime)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+worker/ckmac/server.py:174: in __init__
+    super().__init__(str(path), Handler)
+.build/runtime/lib/python3.12/socketserver.py:457: in __init__
+    self.server_bind()
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <ckmac.server.LocalServer object at 0x1086082c0>
+
+    def server_bind(self):
+        """Called by constructor to bind the socket.
+    
+        May be overridden.
+    
+        """
+        if self.allow_reuse_address and hasattr(socket, "SO_REUSEADDR"):
+            self.socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+        # Since Linux 6.12.9, SO_REUSEPORT is not allowed
+        # on other address families than AF_INET/AF_INET6.
+        if (
+            self.allow_reuse_port and hasattr(socket, "SO_REUSEPORT")
+            and self.address_family in (socket.AF_INET, socket.AF_INET6)
+        ):
+            self.socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEPORT, 1)
+>       self.socket.bind(self.server_address)
+E       PermissionError: [Errno 1] Operation not permitted
+
+.build/runtime/lib/python3.12/socketserver.py:478: PermissionError
+_______ test_server_rejects_malformed_header_without_body[quality-1001] ________
+
+private_dir = PosixPath('/tmp/ckw-q7qf4sk7'), field = 'quality', value = 1001
+
+    @pytest.mark.parametrize("field,value", [("width", 0), ("count", 15),
+                                              ("flags", 3), ("flags", 8),
+                                              ("reserved", 1), ("quality", 1001)])
+    def test_server_rejects_malformed_header_without_body(private_dir, field, value):
+        values = dict(magic=b"CKM1", version=1, op=OP_INFER, width=1, height=1,
+                      count=16, flags=0, quality=750, despill=0, reserved=0)
+        values[field] = value
+>       with running_server(private_dir) as (path, runtime, backend):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_worker.py:212: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+.build/runtime/lib/python3.12/contextlib.py:137: in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+tests/test_worker.py:76: in running_server
+    server = LocalServer(path, runtime)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+worker/ckmac/server.py:174: in __init__
+    super().__init__(str(path), Handler)
+.build/runtime/lib/python3.12/socketserver.py:457: in __init__
+    self.server_bind()
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <ckmac.server.LocalServer object at 0x108609940>
+
+    def server_bind(self):
+        """Called by constructor to bind the socket.
+    
+        May be overridden.
+    
+        """
+        if self.allow_reuse_address and hasattr(socket, "SO_REUSEADDR"):
+            self.socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+        # Since Linux 6.12.9, SO_REUSEPORT is not allowed
+        # on other address families than AF_INET/AF_INET6.
+        if (
+            self.allow_reuse_port and hasattr(socket, "SO_REUSEPORT")
+            and self.address_family in (socket.AF_INET, socket.AF_INET6)
+        ):
+            self.socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEPORT, 1)
+>       self.socket.bind(self.server_address)
+E       PermissionError: [Errno 1] Operation not permitted
+
+.build/runtime/lib/python3.12/socketserver.py:478: PermissionError
+_______ test_cache_identity_includes_pixels_dimensions_and_all_settings ________
+
+private_dir = PosixPath('/tmp/ckw-aojscmjr')
+
+    def test_cache_identity_includes_pixels_dimensions_and_all_settings(private_dir):
+        rgba = np.ones((1, 2, 4), dtype="<f4")
+>       with running_server(private_dir) as (path, runtime, backend):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_worker.py:221: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+.build/runtime/lib/python3.12/contextlib.py:137: in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+tests/test_worker.py:76: in running_server
+    server = LocalServer(path, runtime)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+worker/ckmac/server.py:174: in __init__
+    super().__init__(str(path), Handler)
+.build/runtime/lib/python3.12/socketserver.py:457: in __init__
+    self.server_bind()
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <ckmac.server.LocalServer object at 0x10860a510>
+
+    def server_bind(self):
+        """Called by constructor to bind the socket.
+    
+        May be overridden.
+    
+        """
+        if self.allow_reuse_address and hasattr(socket, "SO_REUSEADDR"):
+            self.socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+        # Since Linux 6.12.9, SO_REUSEPORT is not allowed
+        # on other address families than AF_INET/AF_INET6.
+        if (
+            self.allow_reuse_port and hasattr(socket, "SO_REUSEPORT")
+            and self.address_family in (socket.AF_INET, socket.AF_INET6)
+        ):
+            self.socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEPORT, 1)
+>       self.socket.bind(self.server_address)
+E       PermissionError: [Errno 1] Operation not permitted
+
+.build/runtime/lib/python3.12/socketserver.py:478: PermissionError
+___________ test_disabled_or_undersized_cache_does_not_claim_hits[0] ___________
+
+private_dir = PosixPath('/tmp/ckw-nz5ju1pm'), cache_bytes = 0
+
+    @pytest.mark.parametrize("cache_bytes", [0, 15])
+    def test_disabled_or_undersized_cache_does_not_claim_hits(private_dir, cache_bytes):
+        rgba = np.ones((1, 1, 4), dtype="<f4")
+>       with running_server(private_dir, cache_bytes=cache_bytes) as (path, runtime, backend):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_worker.py:263: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+.build/runtime/lib/python3.12/contextlib.py:137: in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+tests/test_worker.py:76: in running_server
+    server = LocalServer(path, runtime)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+worker/ckmac/server.py:174: in __init__
+    super().__init__(str(path), Handler)
+.build/runtime/lib/python3.12/socketserver.py:457: in __init__
+    self.server_bind()
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <ckmac.server.LocalServer object at 0x10860a930>
+
+    def server_bind(self):
+        """Called by constructor to bind the socket.
+    
+        May be overridden.
+    
+        """
+        if self.allow_reuse_address and hasattr(socket, "SO_REUSEADDR"):
+            self.socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+        # Since Linux 6.12.9, SO_REUSEPORT is not allowed
+        # on other address families than AF_INET/AF_INET6.
+        if (
+            self.allow_reuse_port and hasattr(socket, "SO_REUSEPORT")
+            and self.address_family in (socket.AF_INET, socket.AF_INET6)
+        ):
+            self.socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEPORT, 1)
+>       self.socket.bind(self.server_address)
+E       PermissionError: [Errno 1] Operation not permitted
+
+.build/runtime/lib/python3.12/socketserver.py:478: PermissionError
+__________ test_disabled_or_undersized_cache_does_not_claim_hits[15] ___________
+
+private_dir = PosixPath('/tmp/ckw-sywpi_rr'), cache_bytes = 15
+
+    @pytest.mark.parametrize("cache_bytes", [0, 15])
+    def test_disabled_or_undersized_cache_does_not_claim_hits(private_dir, cache_bytes):
+        rgba = np.ones((1, 1, 4), dtype="<f4")
+>       with running_server(private_dir, cache_bytes=cache_bytes) as (path, runtime, backend):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_worker.py:263: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+.build/runtime/lib/python3.12/contextlib.py:137: in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+tests/test_worker.py:76: in running_server
+    server = LocalServer(path, runtime)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+worker/ckmac/server.py:174: in __init__
+    super().__init__(str(path), Handler)
+.build/runtime/lib/python3.12/socketserver.py:457: in __init__
+    self.server_bind()
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <ckmac.server.LocalServer object at 0x10860bd70>
+
+    def server_bind(self):
+        """Called by constructor to bind the socket.
+    
+        May be overridden.
+    
+        """
+        if self.allow_reuse_address and hasattr(socket, "SO_REUSEADDR"):
+            self.socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+        # Since Linux 6.12.9, SO_REUSEPORT is not allowed
+        # on other address families than AF_INET/AF_INET6.
+        if (
+            self.allow_reuse_port and hasattr(socket, "SO_REUSEPORT")
+            and self.address_family in (socket.AF_INET, socket.AF_INET6)
+        ):
+            self.socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEPORT, 1)
+>       self.socket.bind(self.server_address)
+E       PermissionError: [Errno 1] Operation not permitted
+
+.build/runtime/lib/python3.12/socketserver.py:478: PermissionError
+____________ test_loading_and_load_error_health_never_report_ready _____________
+
+private_dir = PosixPath('/tmp/ckw-83yprrfe')
+
+    def test_loading_and_load_error_health_never_report_ready(private_dir):
+        backend = FakeBackend()
+        backend.load_error = RuntimeError("missing weights (fake test error)")
+>       with running_server(private_dir, backend, load=False) as (path, runtime, backend):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_worker.py:274: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+.build/runtime/lib/python3.12/contextlib.py:137: in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+tests/test_worker.py:76: in running_server
+    server = LocalServer(path, runtime)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+worker/ckmac/server.py:174: in __init__
+    super().__init__(str(path), Handler)
+.build/runtime/lib/python3.12/socketserver.py:457: in __init__
+    self.server_bind()
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <ckmac.server.LocalServer object at 0x10860ae10>
+
+    def server_bind(self):
+        """Called by constructor to bind the socket.
+    
+        May be overridden.
+    
+        """
+        if self.allow_reuse_address and hasattr(socket, "SO_REUSEADDR"):
+            self.socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+        # Since Linux 6.12.9, SO_REUSEPORT is not allowed
+        # on other address families than AF_INET/AF_INET6.
+        if (
+            self.allow_reuse_port and hasattr(socket, "SO_REUSEPORT")
+            and self.address_family in (socket.AF_INET, socket.AF_INET6)
+        ):
+            self.socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEPORT, 1)
+>       self.socket.bind(self.server_address)
+E       PermissionError: [Errno 1] Operation not permitted
+
+.build/runtime/lib/python3.12/socketserver.py:478: PermissionError
+__________ test_inference_is_serialized_but_health_remains_responsive __________
+
+private_dir = PosixPath('/tmp/ckw-1jdkkpo_')
+
+    def test_inference_is_serialized_but_health_remains_responsive(private_dir):
+        backend = FakeBackend()
+        backend.entered = threading.Event()
+        backend.release = threading.Event()
+        rgba = np.ones((1, 1, 4), dtype="<f4")
+>       with running_server(private_dir, backend) as (path, runtime, backend):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_worker.py:294: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+.build/runtime/lib/python3.12/contextlib.py:137: in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+tests/test_worker.py:76: in running_server
+    server = LocalServer(path, runtime)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+worker/ckmac/server.py:174: in __init__
+    super().__init__(str(path), Handler)
+.build/runtime/lib/python3.12/socketserver.py:457: in __init__
+    self.server_bind()
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <ckmac.server.LocalServer object at 0x1085eda60>
+
+    def server_bind(self):
+        """Called by constructor to bind the socket.
+    
+        May be overridden.
+    
+        """
+        if self.allow_reuse_address and hasattr(socket, "SO_REUSEADDR"):
+            self.socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+        # Since Linux 6.12.9, SO_REUSEPORT is not allowed
+        # on other address families than AF_INET/AF_INET6.
+        if (
+            self.allow_reuse_port and hasattr(socket, "SO_REUSEPORT")
+            and self.address_family in (socket.AF_INET, socket.AF_INET6)
+        ):
+            self.socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEPORT, 1)
+>       self.socket.bind(self.server_address)
+E       PermissionError: [Errno 1] Operation not permitted
+
+.build/runtime/lib/python3.12/socketserver.py:478: PermissionError
+______________ test_active_socket_without_lock_is_never_replaced _______________
+
+private_dir = PosixPath('/tmp/ckw-1mjys53y')
+
+    def test_active_socket_without_lock_is_never_replaced(private_dir):
+        path = private_dir / "worker.sock"
+        with socket.socket(socket.AF_UNIX, socket.SOCK_STREAM) as active:
+>           active.bind(str(path))
+E           PermissionError: [Errno 1] Operation not permitted
+
+tests/test_worker.py:368: PermissionError
+_____________ test_stale_socket_is_reclaimed_but_lock_is_retained ______________
+
+private_dir = PosixPath('/tmp/ckw-00r31ul_')
+
+    def test_stale_socket_is_reclaimed_but_lock_is_retained(private_dir):
+        path = private_dir / "worker.sock"
+        with socket.socket(socket.AF_UNIX, socket.SOCK_STREAM) as stale:
+>           stale.bind(str(path))
+E           PermissionError: [Errno 1] Operation not permitted
+
+tests/test_worker.py:380: PermissionError
+=========================== short test summary info ============================
+FAILED tests/test_cross_language.py::test_cpp_client_talks_to_python_worker[False]
+FAILED tests/test_cross_language.py::test_cpp_client_talks_to_python_worker[True]
+FAILED tests/test_worker.py::test_real_unix_roundtrip_and_model_option_mapping
+FAILED tests/test_worker.py::test_nonfinite_source_rejected_before_inference[nan]
+FAILED tests/test_worker.py::test_nonfinite_source_rejected_before_inference[inf]
+FAILED tests/test_worker.py::test_nonfinite_source_rejected_before_inference[-inf]
+FAILED tests/test_worker.py::test_bad_model_output_is_error_never_passthrough[<lambda>-invalid image0]
+FAILED tests/test_worker.py::test_bad_model_output_is_error_never_passthrough[<lambda>-invalid image1]
+FAILED tests/test_worker.py::test_bad_model_output_is_error_never_passthrough[<lambda>-invalid image2]
+FAILED tests/test_worker.py::test_bad_model_output_is_error_never_passthrough[<lambda>-alpha outside0]
+FAILED tests/test_worker.py::test_bad_model_output_is_error_never_passthrough[<lambda>-alpha outside1]
+FAILED tests/test_worker.py::test_backend_failure_is_propagated_and_retry_remains_possible
+FAILED tests/test_worker.py::test_truncated_payload_releases_lock_for_next_render
+FAILED tests/test_worker.py::test_server_rejects_malformed_header_without_body[width-0]
+FAILED tests/test_worker.py::test_server_rejects_malformed_header_without_body[count-15]
+FAILED tests/test_worker.py::test_server_rejects_malformed_header_without_body[flags-3]
+FAILED tests/test_worker.py::test_server_rejects_malformed_header_without_body[flags-8]
+FAILED tests/test_worker.py::test_server_rejects_malformed_header_without_body[reserved-1]
+FAILED tests/test_worker.py::test_server_rejects_malformed_header_without_body[quality-1001]
+FAILED tests/test_worker.py::test_cache_identity_includes_pixels_dimensions_and_all_settings
+FAILED tests/test_worker.py::test_disabled_or_undersized_cache_does_not_claim_hits[0]
+FAILED tests/test_worker.py::test_disabled_or_undersized_cache_does_not_claim_hits[15]
+FAILED tests/test_worker.py::test_loading_and_load_error_health_never_report_ready
+FAILED tests/test_worker.py::test_inference_is_serialized_but_health_remains_responsive
+FAILED tests/test_worker.py::test_active_socket_without_lock_is_never_replaced
+FAILED tests/test_worker.py::test_stale_socket_is_reclaimed_but_lock_is_retained
+26 failed, 85 passed, 6 subtests passed in 0.63s

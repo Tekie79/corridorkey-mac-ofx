@@ -1,0 +1,7 @@
+{
+  "status": "Passed",
+  "scope": "Static offline HTML report link integrity, acceptance row count and JavaScript extraction; no browser visual-preview claim.",
+  "acceptance_rows": 45,
+  "local_links": 111,
+  "external_assets": 0
+}

@@ -1,0 +1,18 @@
+{
+  "status": "Passed",
+  "scope": "Actual Fusion temporal result through qualification-only descriptor overlay on 0.9.3; not unchanged-offline-artifact qualification",
+  "shape": [
+    1080,
+    1920,
+    4
+  ],
+  "finite": true,
+  "alpha_min": 0.0,
+  "alpha_max": 1.0,
+  "alpha_mae_vs_independent_frame": 0.0009997287997975945,
+  "frame_requested_first": 30,
+  "analyzed_range": [
+    0,
+    59
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "status": "Passed",
+  "policy": {
+    "alpha_mae": 0.005,
+    "alpha_p99": 0.03,
+    "alpha_max": 0.1,
+    "foreground_mae": 0.01
+  },
+  "metrics": [
+    {
+      "frame": 0,
+      "alpha_mae": 6.277618780359262e-08,
+      "alpha_p99": 1.2516975402832031e-06,
+      "alpha_max": 6.496906280517578e-06,
+      "foreground_mae": 1.2237939017722965e-07
+    },
+    {
+      "frame": 1,
+      "alpha_mae": 5.8759486165627095e-08,
+      "alpha_p99": 1.1920928955078125e-06,
+      "alpha_max": 6.198883056640625e-06,
+      "foreground_mae": 1.205396529257996e-07
+    },
+    {
+      "frame": 2,
+      "alpha_mae": 5.956360027425944e-08,
+      "alpha_p99": 1.1920928955078125e-06,
+      "alpha_max": 7.092952728271484e-06,
+      "foreground_mae": 1.2209864053147612e-07
+    },
+    {
+      "frame": 3,
+      "alpha_mae": 5.3136034239287255e-08,
+      "alpha_p99": 1.0728836059570312e-06,
+      "alpha_max": 4.887580871582031e-06,
+      "foreground_mae": 1.2157155993008928e-07
+    },
+    {
+      "frame": 4,
+      "alpha_mae": 5.330131358505241e-08,
+      "alpha_p99": 1.0728836059570312e-06,
+      "alpha_max": 5.066394805908203e-06,
+      "foreground_mae": 1.2257662262982194e-07
+    },
+    {
+      "frame": 5,
+      "alpha_mae": 5.406173997357655e-08,
+      "alpha_p99": 1.0728836059570312e-06,
+      "alpha_max": 6.139278411865234e-06,
+      "foreground_mae": 1.2174781716112193e-07
+    }
+  ],
+  "seconds": 35.47240537501057,
+  "upstream_function_sha256": "2dc95b6b543d713e78d55fe13d12de051ac486694eb9624fe5ede98d10803ed1",
+  "declared_variant": "float32 CPU; same upstream window/carry/taper/baton order; no half/bfloat16 quantization",
+  "artifact_sha256": "7a023538ad322b9eee26357b3dd2c2aecc16c292f6feb44837e3ffa00d590c0a",
+  "scope": "Fresh CPU pinned-upstream4/2 reference for the second blue shot after a hard cut from green; actual installed MPS6frame640x360 result, no recurrent state inherited across shots"
+}

@@ -1,0 +1,15 @@
+{
+  "status": "Passed",
+  "artifact_sha256": "7a023538ad322b9eee26357b3dd2c2aecc16c292f6feb44837e3ffa00d590c0a",
+  "scope": "Actual installed native1080 temporal4-frame earlier-source0 edit; requestedframe2 source unchanged. Native unlocked disk cache discarded old four files and rebuilt frame2 with actual neural processing; Saver then exported same new model result after native cache disabled.",
+  "input_keys_equal": [
+    false,
+    true,
+    true,
+    true
+  ],
+  "requested_frame": 2,
+  "maximum_changed_rgba": 0.011479973793029785,
+  "cache_lock": false,
+  "branch_lock": false
+}

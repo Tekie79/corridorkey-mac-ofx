@@ -1,0 +1,181 @@
+{
+  "status": "Recorded",
+  "artifact_sha256": "f58245db7b45ce9ead793732c7e05f12d97c9c9a6e6681c744437b040ff07e86",
+  "scope": "Actual installed0.9.7 upstream edit during frame acquisition, before temporal inference; final activation assessed separately",
+  "rendering_at_edit": true,
+  "gain_after_edit": 1.11,
+  "before_health": {
+    "state": "ready",
+    "error": "",
+    "fixture_passed": true,
+    "model_loaded": true,
+    "user_frames_completed": 60,
+    "cache_hits": 2,
+    "active_jobs": 0,
+    "pid": 79657,
+    "facts": {
+      "installation_verification_seconds": 3.3089459579787217,
+      "model_load_seconds": 31.08775558398338,
+      "live_mps_memory": {
+        "current_bytes": 4938861056,
+        "driver_bytes": 10430464000,
+        "recommended_bytes": 40200896512
+      },
+      "maximum_observed_driver_bytes": 14448607232,
+      "fixture_seconds": 0.27728854099405,
+      "backend": {
+        "backend": "pytorch_mps",
+        "loaded": true,
+        "device": "mps",
+        "dtype": "float32",
+        "torch_version": "2.9.1",
+        "upstream_root": "/Library/Application Support/HarvestPictures/CorridorKeyMac/Runtime/0.9.7-b1.027347b5a7e5/upstream",
+        "model_root": "/Library/Application Support/HarvestPictures/CorridorKeyMac/Models/ck2-cf44a8db3f02",
+        "audited_upstream_commit": "485f5e9ab759ead6138cc990776184b59d6ea971",
+        "temporal_mode": "independent_frame_T1",
+        "clip_temporal_analysis": false,
+        "completed_temporal_shots": 0,
+        "automatic_cpu_model_fallback": false,
+        "cpu_preprocessing": [
+          "transfer_functions",
+          "reflect_padding",
+          "foundation_area_resize"
+        ],
+        "cpu_postprocessing": [
+          "asinh_decode",
+          "crop",
+          "transfer_functions",
+          "optional_green_despill"
+        ],
+        "input_spaces": [
+          "srgb",
+          "linear",
+          "rec709_gamma24"
+        ],
+        "input_alpha": "only used as a hint when explicitly selected",
+        "output_alpha": "straight foreground RGB plus clamped model matte",
+        "successful_frames": 61,
+        "completed_network_calls": {
+          "cradio": 61,
+          "moge_encoder": 61,
+          "rvm": 61,
+          "stage1": 61,
+          "stage2": 61
+        },
+        "last_error": null,
+        "mps_current_allocated_bytes": 4938861056,
+        "mps_driver_allocated_bytes": 13066584064
+      },
+      "profile": {
+        "resolution": 0,
+        "window": 4,
+        "memory_limit": 0,
+        "low_memory": false,
+        "internal_hint_quality": 0.95,
+        "reference_index": 0
+      },
+      "last_distinct_frame_seconds": 2.7723511660005897
+    },
+    "cache": {
+      "ram_hits": 60,
+      "disk_hits": 4,
+      "metadata_hits": 3,
+      "staged_bytes": 5613649920,
+      "ram_bytes": 457850880,
+      "ram_limit": 536870912
+    },
+    "ok": true,
+    "protocol": 2,
+    "build_id": "0.9.7-b1.027347b5a7e5",
+    "payload_bytes": 0,
+    "session_id": null,
+    "request_id": null,
+    "effect_generation": null
+  },
+  "observations": [
+    {
+      "seconds": 0.00040008299401961267,
+      "rendering": true,
+      "active_jobs": 0,
+      "new_staged_bytes": 0
+    },
+    {
+      "seconds": 0.052615624997997656,
+      "rendering": true,
+      "active_jobs": 0,
+      "new_staged_bytes": 0
+    },
+    {
+      "seconds": 0.10821500001475215,
+      "rendering": true,
+      "active_jobs": 0,
+      "new_staged_bytes": 0
+    },
+    {
+      "seconds": 0.1619995830114931,
+      "rendering": true,
+      "active_jobs": 0,
+      "new_staged_bytes": 0
+    },
+    {
+      "seconds": 0.2175661250075791,
+      "rendering": true,
+      "active_jobs": 0,
+      "new_staged_bytes": 0
+    },
+    {
+      "seconds": 0.2721585000108462,
+      "rendering": true,
+      "active_jobs": 0,
+      "new_staged_bytes": 0
+    },
+    {
+      "seconds": 0.32693041700986214,
+      "rendering": true,
+      "active_jobs": 0,
+      "new_staged_bytes": 0
+    },
+    {
+      "seconds": 0.38013241699081846,
+      "rendering": true,
+      "active_jobs": 0,
+      "new_staged_bytes": 141557760
+    },
+    {
+      "seconds": 0.433412957994733,
+      "rendering": true,
+      "active_jobs": 0,
+      "new_staged_bytes": 141557760
+    },
+    {
+      "seconds": 0.4866086670081131,
+      "rendering": true,
+      "active_jobs": 0,
+      "new_staged_bytes": 141557760
+    },
+    {
+      "seconds": 0.5395245419931598,
+      "rendering": true,
+      "active_jobs": 0,
+      "new_staged_bytes": 141557760
+    },
+    {
+      "seconds": 0.5946342080133036,
+      "rendering": true,
+      "active_jobs": 0,
+      "new_staged_bytes": 141557760
+    },
+    {
+      "seconds": 0.6496683750010561,
+      "rendering": true,
+      "active_jobs": 0,
+      "new_staged_bytes": 141557760
+    },
+    {
+      "seconds": 0.7037286249978933,
+      "rendering": true,
+      "active_jobs": 0,
+      "new_staged_bytes": 283115520
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+-- Configuring done (0.1s)
+-- Generating done (0.1s)
+-- Build files have been written to: /Users/harvest/Documents/Ysew_Project/GIT/corridorkey-mac-ofx/build
+[  3%] Building OBJCXX object CMakeFiles/test_installer_transactions.dir/src/installer_tool.mm.o
+[ 11%] Built target ckmac-engine-launcher
+[ 25%] Built target ckmac_core
+[ 29%] Building OBJCXX object CMakeFiles/ckmac-installer-tool.dir/src/installer_tool.mm.o
+[ 37%] Built target test_protocol
+[ 51%] Built target test_pixels
+[ 51%] Built target test_creative
+[ 59%] Built target ckmac_supervisor
+[ 66%] Built target bridge_probe
+[ 77%] Built target test_ofx_host
+[ 85%] Built target CorridorKeyMac
+[ 92%] Built target CorridorKeyManager
+[100%] Linking OBJCXX executable ckmac-installer-tool
+[100%] Linking OBJCXX executable test_installer_transactions
+[100%] Built target test_installer_transactions
+[100%] Built target ckmac-installer-tool

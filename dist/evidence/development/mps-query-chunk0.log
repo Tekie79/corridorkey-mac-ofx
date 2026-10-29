@@ -1,0 +1,62 @@
+Loading CorridorKey v2 runtime weights: /Users/harvest/Documents/Ysew_Project/GIT/corridorkey-mac-ofx/.build/models/weights/corridorkey_v2.safetensors
+[RVM] loaded /Users/harvest/Documents/Ysew_Project/GIT/corridorkey-mac-ofx/.build/models/vfms/rvm/pretrain_rvm_small16_256_204031069.npz (309 tensors)
+[FrozenFoundations] loaded stats from /Users/harvest/Documents/Ysew_Project/GIT/corridorkey-mac-ofx/.build/models/weights/foundation_stats.safetensors
+  loaded weights; omitted frozen foundation tensors=982
+Traceback (most recent call last):
+  File "/Users/harvest/Documents/Ysew_Project/GIT/corridorkey-mac-ofx/worker/ckmac/backend.py", line 372, in infer
+    outputs = self._model(
+              ^^^^^^^^^^^^
+  File "/Users/harvest/Documents/Ysew_Project/GIT/corridorkey-mac-ofx/.build/runtime/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/harvest/Documents/Ysew_Project/GIT/corridorkey-mac-ofx/.build/runtime/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/harvest/Documents/Ysew_Project/GIT/corridorkey-mac-ofx/.deps/CorridorKey2.0/corridorkey/model.py", line 261, in forward
+    stage1_out = self.stage1(
+                 ^^^^^^^^^^^^
+  File "/Users/harvest/Documents/Ysew_Project/GIT/corridorkey-mac-ofx/.build/runtime/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/harvest/Documents/Ysew_Project/GIT/corridorkey-mac-ofx/.build/runtime/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1881, in _call_impl
+    return inner()
+           ^^^^^^^
+  File "/Users/harvest/Documents/Ysew_Project/GIT/corridorkey-mac-ofx/.build/runtime/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1829, in inner
+    result = forward_call(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/harvest/Documents/Ysew_Project/GIT/corridorkey-mac-ofx/.deps/CorridorKey2.0/corridorkey/stage1.py", line 768, in forward
+    f_16_enc = self._swin3d_run(
+               ^^^^^^^^^^^^^^^^^
+  File "/Users/harvest/Documents/Ysew_Project/GIT/corridorkey-mac-ofx/.deps/CorridorKey2.0/corridorkey/stage1.py", line 612, in _swin3d_run
+    x = self._ckpt_block(blk, x, t_stride, adaln_cond=cond)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/harvest/Documents/Ysew_Project/GIT/corridorkey-mac-ofx/.deps/CorridorKey2.0/corridorkey/stage1.py", line 555, in _ckpt_block
+    return blk(x, t_stride, adaln_cond)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/harvest/Documents/Ysew_Project/GIT/corridorkey-mac-ofx/.build/runtime/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/harvest/Documents/Ysew_Project/GIT/corridorkey-mac-ofx/.build/runtime/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/harvest/Documents/Ysew_Project/GIT/corridorkey-mac-ofx/.deps/CorridorKey2.0/corridorkey/blocks.py", line 2781, in forward
+    x = self.attn(x)
+        ^^^^^^^^^^^^
+  File "/Users/harvest/Documents/Ysew_Project/GIT/corridorkey-mac-ofx/.build/runtime/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/harvest/Documents/Ysew_Project/GIT/corridorkey-mac-ofx/.build/runtime/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/harvest/Documents/Ysew_Project/GIT/corridorkey-mac-ofx/.deps/CorridorKey2.0/corridorkey/blocks.py", line 2457, in forward
+    attn = F.scaled_dot_product_attention(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: Invalid buffer size: 36.12 GiB
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "<stdin>", line 15, in <module>
+  File "/Users/harvest/Documents/Ysew_Project/GIT/corridorkey-mac-ofx/worker/ckmac/backend.py", line 394, in infer
+    raise BackendError(
+ckmac.backend.BackendError: CorridorKey MPS inference failed; no fallback image was produced: Invalid buffer size: 36.12 GiB. If this is an unsupported MPS operation, capture the worker traceback for the compatibility port. If it is out of memory, test a smaller frame.

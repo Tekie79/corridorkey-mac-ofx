@@ -1,0 +1,22 @@
+{
+  "artifact_sha256": "7a023538ad322b9eee26357b3dd2c2aecc16c292f6feb44837e3ffa00d590c0a",
+  "status": "Passed",
+  "scope": "Actual installed native Resolve render workerSIGKILL duringprocessing; Resolve remained responsive, failed attempt saved no fallback file; normalrenderretry automatically started one matching nonroot worker and completed real temporal inference",
+  "old_pid": 50227,
+  "new_pid": 54985,
+  "compatible_worker_count": 1,
+  "host_retry_elapsed_seconds": 29.38,
+  "recovered_output_finite": true,
+  "recovered_output_shape": [
+    1080,
+    1920,
+    4
+  ],
+  "network_calls_after_restart": {
+    "cradio": 5,
+    "moge_encoder": 5,
+    "rvm": 5,
+    "stage1": 2,
+    "stage2": 5
+  }
+}

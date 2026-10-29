@@ -1,0 +1,12 @@
+{
+  "status": "Passed",
+  "artifact_sha256": "f58245db7b45ce9ead793732c7e05f12d97c9c9a6e6681c744437b040ff07e86",
+  "scope": "Actual native add/copy, disable/enable, delete primary copied node, Undo, close/reopen saved project; all output comparisons exact. Other copied node survives independent deletion.",
+  "maximum_rgba_errors": {
+    "reenabled": 0.0,
+    "undo": 0.0,
+    "reopened": 0.0,
+    "disable_is_source": 0.0,
+    "peer_survives_delete": 0.0
+  }
+}

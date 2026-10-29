@@ -1,0 +1,40 @@
+{
+  "status": "Passed",
+  "artifact_sha256": "f58245db7b45ce9ead793732c7e05f12d97c9c9a6e6681c744437b040ff07e86",
+  "scope": "Actual installed0.9.7 temporal two independent6frame shots at29.97 with nonzero source1001..1012 and timeline109001..109012. All12 source outputs exactly match previously stamped source references; all12 keyed outputs match native reference; blue shot also directly matches fresh pinned-upstream CPU golden.",
+  "frames": 12,
+  "dimensions": [
+    640,
+    360
+  ],
+  "source_stamps": [
+    233,
+    234,
+    235,
+    236,
+    237,
+    238,
+    239,
+    240,
+    241,
+    242,
+    243,
+    244
+  ],
+  "source_maximum_error": 0.0,
+  "keyed_native_maximum_error": 0.0,
+  "blue_cut_cpu_maximum_error": 1.3589859008789062e-05,
+  "exr_deliver_frames": 12,
+  "exr_deliver_maximum_rgba_error": 0.0,
+  "exr_job": "04214c12-dda5-4e9e-a08a-53a6472f6c0b",
+  "movie_probe": {
+    "codec_name": "prores",
+    "width": 640,
+    "height": 360,
+    "pix_fmt": "yuva444p12le",
+    "r_frame_rate": "30000/1001",
+    "avg_frame_rate": "30000/1001",
+    "nb_frames": "12"
+  },
+  "movie_job": "b0b76a59-da5a-4441-83b8-dee2cedb68ec"
+}

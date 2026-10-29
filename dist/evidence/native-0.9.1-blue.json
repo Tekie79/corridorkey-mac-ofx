@@ -1,0 +1,669 @@
+{
+  "installer_sha256": "50042b7882b77913e4cdd70ac62e470aaf0afdb8778bea14e862fe1394da7b0c",
+  "job": "6a9879a0-317b-437c-8ce1-5ad54b213cfd",
+  "status": "Passed",
+  "scope": "Actual installed Single Frame blue-screen Fusion/Deliver, 60 native 1080p frames; visual review recorded separately",
+  "milliseconds": 192778,
+  "frames": [
+    {
+      "name": "BS01_00000000.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "BS01_00000001.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "BS01_00000002.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "BS01_00000003.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "BS01_00000004.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "BS01_00000005.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "BS01_00000006.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "BS01_00000007.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "BS01_00000008.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "BS01_00000009.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "BS01_00000010.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "BS01_00000011.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "BS01_00000012.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "BS01_00000013.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "BS01_00000014.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "BS01_00000015.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "BS01_00000016.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "BS01_00000017.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "BS01_00000018.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "BS01_00000019.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "BS01_00000020.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "BS01_00000021.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "BS01_00000022.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "BS01_00000023.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "BS01_00000024.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "BS01_00000025.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "BS01_00000026.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "BS01_00000027.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "BS01_00000028.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "BS01_00000029.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "BS01_00000030.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "BS01_00000031.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "BS01_00000032.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "BS01_00000033.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "BS01_00000034.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "BS01_00000035.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "BS01_00000036.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "BS01_00000037.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "BS01_00000038.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "BS01_00000039.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "BS01_00000040.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "BS01_00000041.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "BS01_00000042.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "BS01_00000043.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "BS01_00000044.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "BS01_00000045.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "BS01_00000046.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "BS01_00000047.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "BS01_00000048.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "BS01_00000049.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "BS01_00000050.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "BS01_00000051.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "BS01_00000052.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "BS01_00000053.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "BS01_00000054.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "BS01_00000055.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "BS01_00000056.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "BS01_00000057.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "BS01_00000058.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    },
+    {
+      "name": "BS01_00000059.exr",
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "finite": true,
+      "alpha_min": 0.0,
+      "alpha_max": 1.0
+    }
+  ]
+}

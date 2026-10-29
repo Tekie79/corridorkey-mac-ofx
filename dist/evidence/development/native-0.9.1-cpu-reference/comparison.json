@@ -1,0 +1,23 @@
+{
+  "status": "Passed",
+  "scope": "Same-version float32 CPU QA reference against actual native Fusion input and installed MPS output; no CPU production fallback",
+  "installer_sha256": "50042b7882b77913e4cdd70ac62e470aaf0afdb8778bea14e862fe1394da7b0c",
+  "dimensions": [
+    1920,
+    1080
+  ],
+  "policy": {
+    "alpha_mae": 0.005,
+    "alpha_p99": 0.03,
+    "alpha_max": 0.1,
+    "foreground_mae": 0.01
+  },
+  "metrics": {
+    "alpha_mae": 3.375854262799294e-08,
+    "alpha_p99": 7.748603820800781e-07,
+    "alpha_max": 8.106231689453125e-06,
+    "foreground_mae": 1.2064067789196997e-07
+  },
+  "load_seconds": 5.296755499992287,
+  "cpu_inference_seconds": 24.93862737499876
+}

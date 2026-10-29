@@ -1,0 +1,14 @@
+{
+  "scope": "Qualification-only overlay; not a full offline release",
+  "baseline_build": "0.9.6-b1.8e66e8a42b10",
+  "sha256": "80d61b96e8e0d3907e4030f18eb34d9e08fa3c706495a9d82dfcdd017e4a9731",
+  "files": [
+    "Library/OFX/Plugins/CorridorKeyMac.ofx.bundle/Contents/Info.plist",
+    "Library/OFX/Plugins/CorridorKeyMac.ofx.bundle/Contents/_CodeSignature/CodeResources",
+    "Library/OFX/Plugins/CorridorKeyMac.ofx.bundle/Contents/MacOS/CorridorKeyMac.ofx",
+    "Library/Application Support/HarvestPictures/CorridorKeyMac/install-manifest.json",
+    "Library/Application Support/HarvestPictures/CorridorKeyMac/Runtime/0.9.6-b1.8e66e8a42b10/lib/python3.12/site-packages/ckmac/temporal.py",
+    "Library/Application Support/HarvestPictures/CorridorKeyMac/Runtime/0.9.6-b1.8e66e8a42b10/lib/python3.12/site-packages/ckmac/cache.py",
+    "Library/Application Support/HarvestPictures/CorridorKeyMac/Runtime/0.9.6-b1.8e66e8a42b10/lib/python3.12/site-packages/ckmac/engine.py"
+  ]
+}

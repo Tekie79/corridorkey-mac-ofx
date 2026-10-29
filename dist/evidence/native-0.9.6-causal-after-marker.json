@@ -1,0 +1,48 @@
+{
+  "identity": {
+    "algorithm": "upstream-float32-RVM-continuous-Hann-configurable-v2",
+    "build": "0.9.6-b1.8e66e8a42b10",
+    "inputs": [
+      "07a6cbdfc3a8f920b779ba7604c1f7b4b271ec05e7b8d0779dc8f43eaefdc89a",
+      "685d8d57d8d0b14a3e99ab39cde59e0a6ea28a71c5cc26b8fc784c1593bb6e84",
+      "5b1bee6783aec794d58341b4268b4e1ada87a61ca7e8ba5aceae51bb3d199580",
+      "18db71b600cb48c74814874a23fb38904e79f2c40aac18eaa8e91f2224b7a71f"
+    ],
+    "settings": {
+      "input_space": "srgb",
+      "hint_mode": "none",
+      "hint_quality": 0.95,
+      "despill_strength": 0.0
+    },
+    "first_hint": false,
+    "revision": 0,
+    "provenance": {
+      "start": 0,
+      "time_domain": "integer_OFX_frames",
+      "end": 3,
+      "fps": 25,
+      "origin": [
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1
+      ]
+    },
+    "profile": {
+      "resolution": 0,
+      "window": 4,
+      "memory_limit": 0,
+      "low_memory": false,
+      "internal_hint_quality": 0.95,
+      "reference_index": 0
+    }
+  },
+  "outputs": [
+    "d34e2bff330e73820b6162c0c62034b3ee37e69c9acec458b8f0f790ca45aabf",
+    "48e2c15a697c912d8a6b0aadca81761150ae9cbbb0b9d275282f56f23384c875",
+    "d7b9e2c9b8bc22f714380e0a787f46b78cd7af1e98434d69290b9421441bb44e",
+    "348f199530fa59ce7afd151ebae1fb9c24ac3486c395750f8ca3e03ea085deba"
+  ]
+}

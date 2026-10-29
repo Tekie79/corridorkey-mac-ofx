@@ -1,0 +1,17 @@
+{
+  "status": "Passed",
+  "scope": "Native prototype capture guard installed as a qualification overlay on0.9.6; not final0.9.7 acceptance",
+  "upstream_edit_during_acquisition": true,
+  "first_pass_output": false,
+  "first_pass_completed_temporal_shots": 0,
+  "second_independent_changed_capture_output": false,
+  "third_stable_capture_completed_temporal_shots": 1,
+  "frames": 60,
+  "canvas": [
+    4096,
+    2160
+  ],
+  "internal_profile": "explicit Quarter",
+  "output_max_error_against_worker": 0.0,
+  "marker": "a7184391765cf7a7f4ba4cdb6ff5ce527661297ebd5c001c01b8afb18d0311cc.analysis.json"
+}

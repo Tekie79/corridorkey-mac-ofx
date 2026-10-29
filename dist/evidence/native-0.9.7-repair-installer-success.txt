@@ -1,0 +1,23 @@
+Window: "Install CorridorKey2.0 hp beta", App: Installer.
+0 standard window Install CorridorKey2.0 hp beta, ID: kIAAutomationIdentifierWindowDark, Secondary Actions: Raise, URL: file:///Users/harvest/Documents/Ysew_Project/GIT/corridorkey-mac-ofx/dist/Repair%20Test%20%E2%80%93%20%E6%97%A5%E6%9C%AC%E8%AA%9E/CorridorKeyMac-0.9.7-beta.1-arm64-Offline.pkg
+	1 image kIAAutomationIdentifierBackgroundImageNone
+	2 scroll area
+		3 text entry area Installation complete. Open DaVinci Resolve and add CorridorKey2.0 hp beta. Its GPU engine starts automatically.
+This is an unqualified personal beta. Read the native qualification report before relying on its output.
+
+	4 button (disabled) Go Back
+	5 button Close, ID: kIAAutomationIdentifierContinueButton
+	6 text Introduction Destination Select Installation Type Installation Summary The installation was completed successfully.
+	7 close button
+	8 zoom button (disabled)
+	9 minimize button
+	10 image CorridorKeyMac-0.9.7-beta.1-arm64-Offline.pkg
+	11 text Install CorridorKey2.0 hp beta
+12 menu bar
+	13 Installer
+	14 File
+	15 Edit
+	16 Window
+	17 Help
+
+The focused UI element is 0 standard window Install CorridorKey2.0 hp beta, ID: kIAAutomationIdentifierWindowDark, Secondary Actions: Raise, URL: file:///Users/harvest/Documents/Ysew_Project/GIT/corridorkey-mac-ofx/dist/Repair%20Test%20%E2%80%93%20%E6%97%A5%E6%9C%AC%E8%AA%9E/CorridorKeyMac-0.9.7-beta.1-arm64-Offline.pkg

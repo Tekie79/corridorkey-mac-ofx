@@ -1,0 +1,41 @@
+[
+  {
+    "clip": "Green",
+    "frame": 30,
+    "shape": [
+      1080,
+      1920,
+      4
+    ],
+    "finite": true,
+    "alpha_min": 0.0,
+    "alpha_max": 1.0,
+    "soft_alpha_fraction": 0.00998119212962963
+  },
+  {
+    "clip": "Blue",
+    "frame": 30,
+    "shape": [
+      1080,
+      1920,
+      4
+    ],
+    "finite": true,
+    "alpha_min": 0.0,
+    "alpha_max": 1.0,
+    "soft_alpha_fraction": 0.02236304012345679
+  },
+  {
+    "clip": "Glass",
+    "frame": 30,
+    "shape": [
+      1080,
+      1920,
+      4
+    ],
+    "finite": true,
+    "alpha_min": 0.0,
+    "alpha_max": 1.0,
+    "soft_alpha_fraction": 0.1862379436728395
+  }
+]

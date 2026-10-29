@@ -1,0 +1,28 @@
+-- Configuring done (0.1s)
+-- Generating done (0.1s)
+-- Build files have been written to: /Users/harvest/Documents/Ysew_Project/GIT/corridorkey-mac-ofx/build
+[  7%] Built target ckmac-engine-launcher
+[ 11%] Building CXX object CMakeFiles/ckmac_core.dir/src/creative.cpp.o
+[ 25%] Built target test_installer_transactions
+[ 25%] Built target ckmac-installer-tool
+[ 29%] Linking CXX static library libckmac_core.a
+[ 37%] Built target ckmac_core
+[ 40%] Linking CXX executable test_protocol
+[ 44%] Building CXX object CMakeFiles/test_creative.dir/tests/test_creative.cpp.o
+[ 51%] Linking CXX executable test_pixels
+[ 51%] Linking CXX executable bridge_probe
+[ 55%] Building CXX object CMakeFiles/test_ofx_host.dir/src/ofx_plugin.cpp.o
+[ 62%] Built target ckmac_supervisor
+[ 66%] Building CXX object CMakeFiles/CorridorKeyMac.dir/src/ofx_plugin.cpp.o
+[ 77%] Built target bridge_probe
+[ 77%] Built target test_pixels
+[ 77%] Built target test_protocol
+[ 81%] Linking CXX executable "CorridorKey Mac Manager.app/Contents/MacOS/CorridorKey Mac Manager"
+[ 85%] Built target CorridorKeyManager
+[ 88%] Linking CXX executable test_creative
+[ 88%] Built target test_creative
+[ 92%] Linking CXX executable test_ofx_host
+[ 96%] Built target test_ofx_host
+[100%] Linking CXX shared module CorridorKeyMac.ofx.bundle/Contents/MacOS/CorridorKeyMac.ofx
+ld: warning: ignoring duplicate libraries: 'libckmac_core.a'
+[100%] Built target CorridorKeyMac

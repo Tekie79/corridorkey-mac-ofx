@@ -1,0 +1,9 @@
+{
+  "artifact_sha256": "7a023538ad322b9eee26357b3dd2c2aecc16c292f6feb44837e3ffa00d590c0a",
+  "status": "Failed",
+  "scope": "Actual 0.9.6 Resolve acquisition-phase edit activated a mixed-source result. Supersedes the earlier inconclusive same-action checks.",
+  "render_active_at_edit": true,
+  "expression_after_edit": "1.03",
+  "gain_after_edit": 1.03,
+  "finding": "Captured frames 1..10 equal baseline*1.02, frame11 equals baseline*1.03; the output Saver file was written. No atomic upstream snapshot was preserved."
+}

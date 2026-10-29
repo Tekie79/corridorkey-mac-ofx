@@ -1,0 +1,30 @@
+{
+  "status": "Passed",
+  "scope": "Authorized removal of task-owned native EXR/movie exports, synthetic temporary sequences, Fusion cache fixtures and detached APFS test image after preserving numeric results, per-file inventories, screenshots, project snapshots and QA scripts. Original GS02/BS_01/Glass01, official app/plugin/DMG and Resolve general cache were untouched.",
+  "removed": [
+    {
+      "path": "/private/tmp/ckmac-native-qualification",
+      "logical_bytes": 29085603805
+    },
+    {
+      "path": "/Users/harvest/Documents/Ysew_Project/GIT/corridorkey-mac-ofx/.build/fusion-cache7",
+      "logical_bytes": 1343627072
+    },
+    {
+      "path": "/Users/harvest/Documents/Ysew_Project/GIT/corridorkey-mac-ofx/.build/fusion-invalidation6",
+      "logical_bytes": 22961552
+    },
+    {
+      "path": "/Users/harvest/Documents/Ysew_Project/GIT/corridorkey-mac-ofx/.build/qa-cache-0.9.7.sparseimage",
+      "logical_bytes": 13635584
+    },
+    {
+      "path": "/Users/harvest/Documents/Ysew_Project/GIT/corridorkey-mac-ofx/.build/qa-cache-seed7",
+      "logical_bytes": 152
+    }
+  ],
+  "logical_bytes": 30465828165,
+  "observed_free_before": 387346411520,
+  "observed_free_after": 417803214848,
+  "unix": 1793198195.948201
+}

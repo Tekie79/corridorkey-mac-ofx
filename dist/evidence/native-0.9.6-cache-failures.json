@@ -1,0 +1,12 @@
+{
+  "artifact_sha256": "7a023538ad322b9eee26357b3dd2c2aecc16c292f6feb44837e3ffa00d590c0a",
+  "status": "Passed",
+  "scope": "Installed production DiskCache on actual mounted isolated5GB APFS volume: free-space safety rejection preserves old valid image; same-area extent header corruption invalidates already-RAM-cached data; restoration succeeds; incomplete writer is never treated as a committed entry. Source footage and main Mac volume unchanged.",
+  "actual_free_bytes": 5106012160,
+  "low_space_error": "Insufficient cache space; keep at least 5 GiB free for Resolve and macOS.",
+  "bounded_failure_seconds": 0.0013867919915355742,
+  "existing_entry_hash_preserved": true,
+  "header_corruption_ignored": true,
+  "restored_valid_entry": true,
+  "incomplete_files_not_promoted": true
+}

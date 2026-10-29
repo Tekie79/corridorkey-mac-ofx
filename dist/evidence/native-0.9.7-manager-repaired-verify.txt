@@ -1,0 +1,30 @@
+Window: "CorridorKey2.0 hp beta Manager", App: CorridorKey2.0 hp beta Manager.
+0 standard window CorridorKey2.0 hp beta Manager, Secondary Actions: Raise
+	1 button Verify
+	2 button GPU status
+	3 button Release GPU
+	4 button Repair…
+	5 button Keep Models
+	6 button Remove All
+	7 button Storage
+	8 button Open Cache
+	9 button Choose Cache…
+	10 button Support File
+	11 button User Guide
+	12 button Notices
+	13 scroll area Secondary Actions: Scroll Up, Scroll Down
+		14 text entry area Verified 27113 installed files.
+Build: 0.9.7-b1.027347b5a7e5
+This is integrity verification, not GPU or Resolve qualification.
+
+		15 scroll bar (disabled, settable, float) 0
+	16 close button
+	17 zoom button (disabled)
+	18 minimize button
+	19 text CorridorKey2.0 hp beta Manager
+20 menu bar
+	21 CorridorKey2.0 hp beta Manager
+
+The focused UI element is 14 text entry area Verified 27113 installed files.
+Build: 0.9.7-b1.027347b5a7e5
+This is integrity verification, not GPU or Resolve qualification.

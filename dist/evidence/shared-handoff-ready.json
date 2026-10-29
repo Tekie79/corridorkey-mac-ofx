@@ -1,0 +1,12 @@
+{
+  "status": "Ready; physical tests not run",
+  "scope": "Minimal allowlisted shared handoff for the remaining clean Standard-account/offline/restart test. No source, reports or prior evidence copied there. Remove this folder after collecting the new test results.",
+  "path": "/Users/Shared/CorridorKeyMac-0.9.7-Qualification",
+  "contents": [
+    "BS_01.mp4",
+    "CorridorKeyMac-0.9.7-beta.1-arm64-Offline.pkg",
+    "OFFLINE_CHECKS.html",
+    "Test Results",
+    "USER-BOOK-OFFLINE-TEST.html"
+  ]
+}

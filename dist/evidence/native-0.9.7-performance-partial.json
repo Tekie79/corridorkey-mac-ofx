@@ -1,0 +1,16 @@
+{
+  "status": "Passed",
+  "artifact_sha256": "f58245db7b45ce9ead793732c7e05f12d97c9c9a6e6681c744437b040ff07e86",
+  "scope": "Actual installed0.9.7 on M5 Pro48GB with Resolve open. Cold/warm startup, distinct inference, temporal analysis, native cached Saver/Deliver and disk-cached playback measured separately.",
+  "temporal60_analysis_seconds": 245.89460104098544,
+  "profile": "Full1920x1080 float32, window4/stride2",
+  "maximum_observed_driver_bytes": 18455724032,
+  "cold_install_verification_seconds": 3.3089459579787217,
+  "model_load_seconds": 31.08775558398338,
+  "real_fixture_seconds": 0.27728854099405,
+  "representative_distinct_full_single_seconds": 2.8222445830178913,
+  "temporal_cached_saver60_seconds": 34.459957,
+  "cached_single_deliver60_seconds": 6.224,
+  "cached_temporal_deliver60_seconds": 49.958,
+  "native_fusion_disk_cached_fps": 24.680573735287457
+}

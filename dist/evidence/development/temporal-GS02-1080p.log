@@ -1,0 +1,100 @@
+Loading CorridorKey v2 runtime weights: /Users/harvest/Documents/Ysew_Project/GIT/corridorkey-mac-ofx/.build/models/weights/corridorkey_v2.safetensors
+[RVM] loaded /Users/harvest/Documents/Ysew_Project/GIT/corridorkey-mac-ofx/.build/models/vfms/rvm/pretrain_rvm_small16_256_204031069.npz (309 tensors)
+[FrozenFoundations] loaded stats from /Users/harvest/Documents/Ysew_Project/GIT/corridorkey-mac-ofx/.build/models/weights/foundation_stats.safetensors
+  loaded weights; omitted frozen foundation tensors=982
+Progress 0.037
+Progress 0.075
+Progress 0.112
+Progress 0.150
+Progress 0.188
+Progress 0.225
+Progress 0.263
+Progress 0.300
+Progress 0.533
+Progress 0.767
+Progress 1.000
+{
+  "status": "Passed",
+  "profile": "float32 continuous RVM, Hann baton window4/stride2, full-resolution stage2",
+  "dimensions": [
+    1920,
+    1080
+  ],
+  "frames": 8,
+  "analysis_seconds": 29.266854707995662,
+  "reverse_bit_identical": true,
+  "cached_reverse_seconds": [
+    0.11379066598601639,
+    0.1132722080219537,
+    0.11331354200956412,
+    0.11348195798927918,
+    0.11723616701783612,
+    0.12033416700433008,
+    0.11330700002145022,
+    0.11372920798021369
+  ],
+  "identity": {
+    "algorithm": "upstream-float32-RVM-continuous-Hann4-stride2-v1",
+    "build": "QA-upstream-f32-v1",
+    "inputs": [
+      "25d92e0d2f6ff21f0256dd44688c33380bd4a32138ae1c2cc21abfb790ad07d3",
+      "f827c7670a067cc318168c09d5b85f2cc856d72ebb71d564be47b8acb3dd27cc",
+      "d814b7acab480aa5049d005cd64e40fadfbcf22601a2d672efc26d4899918321",
+      "9eb9745648c94bed73e0ef87690f454c188d7a6573a8319ad0225b6dbb9ae2f9",
+      "1efbebe34a84dd258191ea05ad23a364855646a378075d167885d02930d37022",
+      "cd02d1aa6cb5c5331807fef77842a016d420acbaf2046acf865a59d29fcfcbf8",
+      "58cd9c401800ee3324574f291a1aa835baadebf868a5c650adb4ee767b400969",
+      "d35b7afaeaec05afc7d69737956a1bf582cfbeb4749b03a9a06ba67fa0ebbe80"
+    ],
+    "settings": {
+      "input_space": "srgb",
+      "hint_mode": "none",
+      "hint_quality": 0.95,
+      "despill_strength": 0.0
+    },
+    "first_hint": false,
+    "revision": 0
+  },
+  "backend": {
+    "backend": "pytorch_mps",
+    "loaded": true,
+    "device": "mps",
+    "dtype": "float32",
+    "torch_version": "2.9.1",
+    "upstream_root": "/Users/harvest/Documents/Ysew_Project/GIT/corridorkey-mac-ofx/.deps/CorridorKey2.0",
+    "model_root": "/Users/harvest/Documents/Ysew_Project/GIT/corridorkey-mac-ofx/.build/models",
+    "audited_upstream_commit": "485f5e9ab759ead6138cc990776184b59d6ea971",
+    "temporal_mode": "independent_frame_T1",
+    "clip_temporal_analysis": false,
+    "automatic_cpu_model_fallback": false,
+    "cpu_preprocessing": [
+      "transfer_functions",
+      "reflect_padding",
+      "foundation_area_resize"
+    ],
+    "cpu_postprocessing": [
+      "asinh_decode",
+      "crop",
+      "transfer_functions",
+      "optional_green_despill"
+    ],
+    "input_spaces": [
+      "srgb",
+      "linear",
+      "rec709_gamma24"
+    ],
+    "input_alpha": "only used as a hint when explicitly selected",
+    "output_alpha": "straight foreground RGB plus clamped model matte",
+    "successful_frames": 0,
+    "completed_network_calls": {
+      "cradio": 8,
+      "moge_encoder": 8,
+      "rvm": 8,
+      "stage1": 3,
+      "stage2": 8
+    },
+    "last_error": null,
+    "mps_current_allocated_bytes": 4938861056,
+    "mps_driver_allocated_bytes": 16272703488
+  }
+}

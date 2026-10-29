@@ -1,0 +1,20 @@
+{
+  "scope": "Scoped qualification fixture used only to create the backed-up missing Maintenance document and real interrupted transaction. Binary/package removed after native repair passed.",
+  "files": [
+    {
+      "path": ".build/qa-maintenance.mm",
+      "bytes": 2717,
+      "sha256": "b7e245553bc008f47df3b133c1ebedf3452f1a8c8057709c8ba22de492ac4034"
+    },
+    {
+      "path": ".build/qa-maintenance-tool",
+      "bytes": 133472,
+      "sha256": "74caa13f063b916d08d76455a47049fffb3818d85ed024d186e5d3961e97ca93"
+    },
+    {
+      "path": ".build/qa-maintenance-packages/CorridorKeyMac-QA-Repair-Fixture.pkg",
+      "bytes": 32572,
+      "sha256": "34f8c6fc4ad5da69a4a923606d620f4e479a5cbbce881699f84e2d218e7a81d2"
+    }
+  ]
+}

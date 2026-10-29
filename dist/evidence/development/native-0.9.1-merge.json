@@ -1,0 +1,21 @@
+{
+  "installer_sha256": "50042b7882b77913e4cdd70ac62e470aaf0afdb8778bea14e862fe1394da7b0c",
+  "scope": "Actual Fusion Merge nodes exported via Deliver; encoded RGB working space, not yet linear-light qualification",
+  "results": [
+    {
+      "name": "MergeWhite",
+      "count": 60,
+      "max_rgb_error": 1.069058164659964e-06
+    },
+    {
+      "name": "MergeBlack",
+      "count": 60,
+      "max_rgb_error": 0.0
+    },
+    {
+      "name": "MergeSaturated",
+      "count": 60,
+      "max_rgb_error": 1.0679371058586185e-06
+    }
+  ]
+}

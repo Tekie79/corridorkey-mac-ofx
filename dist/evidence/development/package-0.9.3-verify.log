@@ -1,0 +1,4 @@
++ /usr/sbin/pkgutil --expand-full dist/CorridorKeyMac-0.9.3-beta.1-arm64-Offline.pkg /Users/harvest/Documents/Ysew_Project/GIT/corridorkey-mac-ofx/.build/candidate-expanded
++ /usr/bin/codesign --verify --strict /Users/harvest/Documents/Ysew_Project/GIT/corridorkey-mac-ofx/.build/candidate-expanded/payload.pkg/Payload/Library/Application Support/HarvestPictures/CorridorKeyMac/Incoming/0.9.3-b1.ef6705c82c56/tree/Library/OFX/Plugins/CorridorKeyMac.ofx.bundle
++ /usr/bin/codesign --verify --strict /Users/harvest/Documents/Ysew_Project/GIT/corridorkey-mac-ofx/.build/candidate-expanded/payload.pkg/Payload/Library/Application Support/HarvestPictures/CorridorKeyMac/Incoming/0.9.3-b1.ef6705c82c56/tree/Applications/CorridorKey Mac Manager.app
+Final package inventory, executable logic and contained bundle signatures verified

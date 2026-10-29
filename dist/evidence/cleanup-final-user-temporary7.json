@@ -1,0 +1,68 @@
+{
+  "status": "Passed",
+  "scope": "After measured automatic idle exit, removed regenerated user cache/logs and task-owned temporary exports/controllers/stale IPC credentials. No model process was signaled. Shared installed assets and all original media preserved.",
+  "removed": [
+    {
+      "path": "/Users/harvest/Library/Caches/org.harvestpictures.CorridorKeyMac",
+      "logical_bytes": 132711575
+    },
+    {
+      "path": "/Users/harvest/Library/Logs/org.harvestpictures.CorridorKeyMac",
+      "logical_bytes": 2113
+    },
+    {
+      "path": "/private/tmp/ckmac-native-qualification",
+      "logical_bytes": 20025165
+    },
+    {
+      "path": "/private/tmp/ckmac-qa7-control",
+      "logical_bytes": 754354
+    },
+    {
+      "path": "/private/tmp/ckmac-501",
+      "logical_bytes": 589
+    },
+    {
+      "path": "/private/tmp/ckmac-host-frd9fl",
+      "logical_bytes": 0
+    },
+    {
+      "path": "/private/tmp/ckmac-host-PCuyNI",
+      "logical_bytes": 0
+    },
+    {
+      "path": "/private/tmp/ckmac-host-1Qtsvl",
+      "logical_bytes": 0
+    },
+    {
+      "path": "/private/tmp/ckmac-test-CTmrsG",
+      "logical_bytes": 0
+    },
+    {
+      "path": "/private/tmp/ckmac-test-TuJftV",
+      "logical_bytes": 0
+    },
+    {
+      "path": "/private/tmp/ckmac-test-5vSWTj",
+      "logical_bytes": 0
+    },
+    {
+      "path": "/private/tmp/ckmac-acquisition-501.jsonl",
+      "logical_bytes": 3739
+    },
+    {
+      "path": "/private/tmp/ckmac-changes-501.log",
+      "logical_bytes": 166
+    },
+    {
+      "path": "/private/tmp/ckmac-guard-status.txt",
+      "logical_bytes": 2817
+    },
+    {
+      "path": "/private/tmp/ckmac-python-release.json",
+      "logical_bytes": 2098792
+    }
+  ],
+  "logical_bytes": 155599310,
+  "unix": 1793199590.0138721
+}

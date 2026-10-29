@@ -1,0 +1,7 @@
+{
+  "status": "Passed",
+  "artifact_sha256": "f58245db7b45ce9ead793732c7e05f12d97c9c9a6e6681c744437b040ff07e86",
+  "scope": "Actual unchanged final candidate preinstall hook while Resolve is open: refuses before payload changes and never kills the host.",
+  "returncode": 1,
+  "message": "Close DaVinci Resolve and Fusion, then retry. No host was stopped."
+}

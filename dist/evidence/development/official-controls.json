@@ -1,0 +1,701 @@
+{
+  "name": "CorridorKey201",
+  "creative_controls": [
+    {
+      "id": "Source",
+      "name": "Source",
+      "value": "None",
+      "control": null,
+      "minimum": 0.0,
+      "maximum": 1.0,
+      "choices": {}
+    },
+    {
+      "id": "AlphaHint",
+      "name": "AlphaHint",
+      "value": "None",
+      "control": null,
+      "minimum": 0.0,
+      "maximum": 1.0,
+      "choices": {}
+    },
+    {
+      "id": "statusGroup",
+      "name": "Status",
+      "value": "1.0",
+      "control": "NestControl",
+      "minimum": 0.0,
+      "maximum": 1.0,
+      "choices": {}
+    },
+    {
+      "id": "status",
+      "name": "Status",
+      "value": "-",
+      "control": "TextEditControl",
+      "minimum": 0.0,
+      "maximum": 1.0,
+      "choices": {}
+    },
+    {
+      "id": "fitForecast",
+      "name": "GPU Memory",
+      "value": "-",
+      "control": "TextEditControl",
+      "minimum": 0.0,
+      "maximum": 1.0,
+      "choices": {}
+    },
+    {
+      "id": "controlsGroup",
+      "name": "Controls",
+      "value": "1.0",
+      "control": "NestControl",
+      "minimum": 0.0,
+      "maximum": 1.0,
+      "choices": {}
+    },
+    {
+      "id": "inputIsLinear",
+      "name": "Input is Linear?",
+      "value": "0.0",
+      "control": "CheckboxControl",
+      "minimum": 0.0,
+      "maximum": 1.0,
+      "choices": {}
+    },
+    {
+      "id": "inputLinearGuess",
+      "name": "Linear Guess",
+      "value": "-",
+      "control": "TextEditControl",
+      "minimum": 0.0,
+      "maximum": 1.0,
+      "choices": {}
+    },
+    {
+      "id": "internalResolution",
+      "name": "Internal Resolution",
+      "value": "0.0",
+      "control": "ComboControl",
+      "minimum": 0.0,
+      "maximum": 3.0,
+      "choices": {
+        "INPST_ComboControl_String": {
+          "1": "Full",
+          "2": "Two Thirds (Upscaled)",
+          "3": "Half (Upscaled)",
+          "4": "Quarter (Upscaled)"
+        }
+      }
+    },
+    {
+      "id": "quality",
+      "name": "Internal Resolution",
+      "value": "0.0",
+      "control": "ComboControl",
+      "minimum": 0.0,
+      "maximum": 3.0,
+      "choices": {
+        "INPST_ComboControl_String": {
+          "1": "Full",
+          "2": "Half (Upscaled)",
+          "3": "Quarter (Upscaled)",
+          "4": "Two Thirds (Upscaled)"
+        }
+      }
+    },
+    {
+      "id": "reuseCapturedFrames",
+      "name": "Reuse captured frames?",
+      "value": "0.0",
+      "control": "CheckboxControl",
+      "minimum": 0.0,
+      "maximum": 1.0,
+      "choices": {}
+    },
+    {
+      "id": "timeAwarenessGroup",
+      "name": "Time Awareness",
+      "value": "0.0",
+      "control": "NestControl",
+      "minimum": 0.0,
+      "maximum": 1.0,
+      "choices": {}
+    },
+    {
+      "id": "useTimeAwareness",
+      "name": "Use Time Awareness?",
+      "value": "0.0",
+      "control": "CheckboxControl",
+      "minimum": 0.0,
+      "maximum": 1.0,
+      "choices": {}
+    },
+    {
+      "id": "useTimeAwarenessNote",
+      "name": "(Requires rendering)",
+      "value": "",
+      "control": "LabelControl",
+      "minimum": 0.0,
+      "maximum": 1.0,
+      "choices": {}
+    },
+    {
+      "id": "window",
+      "name": "Time Awareness",
+      "value": "4.0",
+      "control": "SliderControl",
+      "minimum": 1.0,
+      "maximum": 48.0,
+      "choices": {}
+    },
+    {
+      "id": "vramLimit",
+      "name": "GPU Memory Limit",
+      "value": "0.0",
+      "control": "ComboControl",
+      "minimum": 0.0,
+      "maximum": 5.0,
+      "choices": {
+        "INPST_ComboControl_String": {
+          "1": "Auto",
+          "2": "50% of GPU",
+          "3": "60% of GPU",
+          "4": "70% of GPU",
+          "5": "80% of GPU",
+          "6": "90% of GPU"
+        }
+      }
+    },
+    {
+      "id": "lowGpuMemory",
+      "name": "Low GPU Memory",
+      "value": "0.0",
+      "control": "CheckboxControl",
+      "minimum": 0.0,
+      "maximum": 1.0,
+      "choices": {}
+    },
+    {
+      "id": "alphaHintGroup",
+      "name": "Alpha Hint",
+      "value": "0.0",
+      "control": "NestControl",
+      "minimum": 0.0,
+      "maximum": 1.0,
+      "choices": {}
+    },
+    {
+      "id": "useAlphaHint",
+      "name": "Use Alpha Hint?",
+      "value": "1.0",
+      "control": "CheckboxControl",
+      "minimum": 0.0,
+      "maximum": 1.0,
+      "choices": {}
+    },
+    {
+      "id": "useAlphaHintTouched",
+      "name": "useAlphaHintTouched",
+      "value": "0.0",
+      "control": "SliderControl",
+      "minimum": 0.0,
+      "maximum": 1.0,
+      "choices": {}
+    },
+    {
+      "id": "useAlphaHintSeen",
+      "name": "useAlphaHintSeen",
+      "value": "0.0",
+      "control": "SliderControl",
+      "minimum": 0.0,
+      "maximum": 1.0,
+      "choices": {}
+    },
+    {
+      "id": "hintFrames",
+      "name": "Hint Frames",
+      "value": "0.0",
+      "control": "ComboControl",
+      "minimum": 0.0,
+      "maximum": 1.0,
+      "choices": {
+        "INPST_ComboControl_String": {
+          "1": "All Frames",
+          "2": "Single Frame (requires Time Awareness)"
+        }
+      }
+    },
+    {
+      "id": "guideSource",
+      "name": "Hint Source",
+      "value": "-",
+      "control": "TextEditControl",
+      "minimum": 0.0,
+      "maximum": 1.0,
+      "choices": {}
+    },
+    {
+      "id": "referenceFrame",
+      "name": "Reference Frame",
+      "value": "",
+      "control": "TextEditControl",
+      "minimum": 0.0,
+      "maximum": 1.0,
+      "choices": {}
+    },
+    {
+      "id": "referenceFrameSet",
+      "name": "Set Current Frame as Reference",
+      "value": "0.0",
+      "control": "ButtonControl",
+      "minimum": 0.0,
+      "maximum": 1.0,
+      "choices": {}
+    },
+    {
+      "id": "hintTrust",
+      "name": "Alpha Hint Strength",
+      "value": "0.75",
+      "control": "SliderControl",
+      "minimum": 0.0,
+      "maximum": 1.0,
+      "choices": {}
+    },
+    {
+      "id": "modelHintTrust",
+      "name": "Internal Hint Strength",
+      "value": "0.95",
+      "control": "SliderControl",
+      "minimum": 0.0,
+      "maximum": 1.0,
+      "choices": {}
+    },
+    {
+      "id": "edgeSpillGroup",
+      "name": "Despill",
+      "value": "0.0",
+      "control": "NestControl",
+      "minimum": 0.0,
+      "maximum": 1.0,
+      "choices": {}
+    },
+    {
+      "id": "screenColour",
+      "name": "Despill Color",
+      "value": "0.0",
+      "control": "ComboControl",
+      "minimum": 0.0,
+      "maximum": 3.0,
+      "choices": {
+        "INPST_ComboControl_String": {
+          "1": "Auto",
+          "2": "Green",
+          "3": "Blue",
+          "4": "Picked"
+        }
+      }
+    },
+    {
+      "id": "screenColourPickedRed",
+      "name": "Picked Color Red",
+      "value": "0.0",
+      "control": "ColorControl",
+      "minimum": 0.0,
+      "maximum": 1.0,
+      "choices": {}
+    },
+    {
+      "id": "screenColourPickedGreen",
+      "name": "Picked Color Green",
+      "value": "1.0",
+      "control": "ColorControl",
+      "minimum": 0.0,
+      "maximum": 1.0,
+      "choices": {}
+    },
+    {
+      "id": "screenColourPickedBlue",
+      "name": "Picked Color Blue",
+      "value": "0.0",
+      "control": "ColorControl",
+      "minimum": 0.0,
+      "maximum": 1.0,
+      "choices": {}
+    },
+    {
+      "id": "sampleAutoColour",
+      "name": "Freeze Auto Color",
+      "value": "0.0",
+      "control": "ButtonControl",
+      "minimum": 0.0,
+      "maximum": 1.0,
+      "choices": {}
+    },
+    {
+      "id": "autoColourHeld",
+      "name": "autoColourHeld",
+      "value": "0.0",
+      "control": "CheckboxControl",
+      "minimum": 0.0,
+      "maximum": 1.0,
+      "choices": {}
+    },
+    {
+      "id": "autoColourHeldValueRed",
+      "name": "autoColourHeldValue Red",
+      "value": "0.0",
+      "control": "ColorControl",
+      "minimum": 0.0,
+      "maximum": 1.0,
+      "choices": {}
+    },
+    {
+      "id": "autoColourHeldValueGreen",
+      "name": "autoColourHeldValue Green",
+      "value": "1.0",
+      "control": "ColorControl",
+      "minimum": 0.0,
+      "maximum": 1.0,
+      "choices": {}
+    },
+    {
+      "id": "autoColourHeldValueBlue",
+      "name": "autoColourHeldValue Blue",
+      "value": "0.0",
+      "control": "ColorControl",
+      "minimum": 0.0,
+      "maximum": 1.0,
+      "choices": {}
+    },
+    {
+      "id": "autoColourHeldShot",
+      "name": "autoColourHeldShot",
+      "value": "",
+      "control": "TextEditControl",
+      "minimum": 0.0,
+      "maximum": 1.0,
+      "choices": {}
+    },
+    {
+      "id": "spillMethod",
+      "name": "Despill Method",
+      "value": "0.0",
+      "control": "ComboControl",
+      "minimum": 0.0,
+      "maximum": 2.0,
+      "choices": {
+        "INPST_ComboControl_String": {
+          "1": "Average",
+          "2": "Double Limit",
+          "3": "Neutral"
+        }
+      }
+    },
+    {
+      "id": "despill",
+      "name": "Despill Amount",
+      "value": "0.0",
+      "control": "SliderControl",
+      "minimum": 0.0,
+      "maximum": 1.0,
+      "choices": {}
+    },
+    {
+      "id": "outputGroup",
+      "name": "Output",
+      "value": "0.0",
+      "control": "NestControl",
+      "minimum": 0.0,
+      "maximum": 1.0,
+      "choices": {}
+    },
+    {
+      "id": "outputMode",
+      "name": "Output",
+      "value": "0.0",
+      "control": "ComboControl",
+      "minimum": 0.0,
+      "maximum": 3.0,
+      "choices": {
+        "INPST_ComboControl_String": {
+          "1": "Premultiplied",
+          "2": "Matte",
+          "3": "Straight FG",
+          "4": "Original"
+        }
+      }
+    },
+    {
+      "id": "linearizeOutput",
+      "name": "Linearize Output?",
+      "value": "0.0",
+      "control": "CheckboxControl",
+      "minimum": 0.0,
+      "maximum": 1.0,
+      "choices": {}
+    },
+    {
+      "id": "recoverDetails",
+      "name": "Keep Original in Solid Areas?",
+      "value": "0.0",
+      "control": "CheckboxControl",
+      "minimum": 0.0,
+      "maximum": 1.0,
+      "choices": {}
+    },
+    {
+      "id": "alphaWhitePoint",
+      "name": "Alpha white point?",
+      "value": "1.0",
+      "control": "CheckboxControl",
+      "minimum": 0.0,
+      "maximum": 1.0,
+      "choices": {}
+    },
+    {
+      "id": "renderGroup",
+      "name": "Render",
+      "value": "1.0",
+      "control": "NestControl",
+      "minimum": 0.0,
+      "maximum": 1.0,
+      "choices": {}
+    },
+    {
+      "id": "shotStatus",
+      "name": "Render",
+      "value": "not rendered",
+      "control": "TextEditControl",
+      "minimum": 0.0,
+      "maximum": 1.0,
+      "choices": {}
+    },
+    {
+      "id": "gpuMemoryRequired",
+      "name": "GPU Memory Required",
+      "value": "-",
+      "control": "TextEditControl",
+      "minimum": 0.0,
+      "maximum": 1.0,
+      "choices": {}
+    },
+    {
+      "id": "gpuMemoryAvailable",
+      "name": "GPU Memory Available",
+      "value": "-",
+      "control": "TextEditControl",
+      "minimum": 0.0,
+      "maximum": 1.0,
+      "choices": {}
+    },
+    {
+      "id": "processShotArmTick",
+      "name": "processShotArmTick",
+      "value": "0.0",
+      "control": "SliderControl",
+      "minimum": 0.0,
+      "maximum": 1000000000.0,
+      "choices": {}
+    },
+    {
+      "id": "keptRenderOwner",
+      "name": "keptRenderOwner",
+      "value": "",
+      "control": "TextEditControl",
+      "minimum": 0.0,
+      "maximum": 1.0,
+      "choices": {}
+    },
+    {
+      "id": "renderSpaceAbove",
+      "name": " ",
+      "value": "",
+      "control": "LabelControl",
+      "minimum": 0.0,
+      "maximum": 1.0,
+      "choices": {}
+    },
+    {
+      "id": "processShot",
+      "name": "Render",
+      "value": "0.0",
+      "control": "ButtonControl",
+      "minimum": 0.0,
+      "maximum": 1.0,
+      "choices": {}
+    },
+    {
+      "id": "cancelPass",
+      "name": "Cancel",
+      "value": "0.0",
+      "control": "ButtonControl",
+      "minimum": 0.0,
+      "maximum": 1.0,
+      "choices": {}
+    },
+    {
+      "id": "renderSpaceBelow",
+      "name": " ",
+      "value": "",
+      "control": "LabelControl",
+      "minimum": 0.0,
+      "maximum": 1.0,
+      "choices": {}
+    },
+    {
+      "id": "displayRenderedFrames",
+      "name": "Display rendered frames?",
+      "value": "1.0",
+      "control": "CheckboxControl",
+      "minimum": 0.0,
+      "maximum": 1.0,
+      "choices": {}
+    },
+    {
+      "id": "cacheFolder",
+      "name": "Render Folder",
+      "value": "",
+      "control": "FileControl",
+      "minimum": 0.0,
+      "maximum": 1.0,
+      "choices": {}
+    },
+    {
+      "id": "renderFolderLine",
+      "name": "Render Folder",
+      "value": "-",
+      "control": "TextEditControl",
+      "minimum": 0.0,
+      "maximum": 1.0,
+      "choices": {}
+    },
+    {
+      "id": "chooseRenderFolder",
+      "name": "Choose Render Folder",
+      "value": "0.0",
+      "control": "ButtonControl",
+      "minimum": 0.0,
+      "maximum": 1.0,
+      "choices": {}
+    },
+    {
+      "id": "cacheFolderSize",
+      "name": "Render Folder Size",
+      "value": "-",
+      "control": "TextEditControl",
+      "minimum": 0.0,
+      "maximum": 1.0,
+      "choices": {}
+    },
+    {
+      "id": "openCacheFolder",
+      "name": "Open Render Folder",
+      "value": "0.0",
+      "control": "ButtonControl",
+      "minimum": 0.0,
+      "maximum": 1.0,
+      "choices": {}
+    },
+    {
+      "id": "help",
+      "name": "Help & Support",
+      "value": "0.0",
+      "control": "NestControl",
+      "minimum": 0.0,
+      "maximum": 1.0,
+      "choices": {}
+    },
+    {
+      "id": "supportPackageStatus",
+      "name": "Support package",
+      "value": "Ready",
+      "control": "TextEditControl",
+      "minimum": 0.0,
+      "maximum": 1.0,
+      "choices": {}
+    },
+    {
+      "id": "cacheStatus",
+      "name": "Cache",
+      "value": "Ready",
+      "control": "TextEditControl",
+      "minimum": 0.0,
+      "maximum": 1.0,
+      "choices": {}
+    },
+    {
+      "id": "version",
+      "name": "Version",
+      "value": "2.0.0.161",
+      "control": "TextEditControl",
+      "minimum": 0.0,
+      "maximum": 1.0,
+      "choices": {}
+    },
+    {
+      "id": "updateAvailable",
+      "name": "Update available\u2026",
+      "value": "0.0",
+      "control": "ButtonControl",
+      "minimum": 0.0,
+      "maximum": 1.0,
+      "choices": {}
+    },
+    {
+      "id": "startGuidedHelp",
+      "name": "Open CorridorKey Help",
+      "value": "0.0",
+      "control": "ButtonControl",
+      "minimum": 0.0,
+      "maximum": 1.0,
+      "choices": {}
+    },
+    {
+      "id": "collectDiagnostics",
+      "name": "Create support file",
+      "value": "0.0",
+      "control": "ButtonControl",
+      "minimum": 0.0,
+      "maximum": 1.0,
+      "choices": {}
+    },
+    {
+      "id": "openDiscord",
+      "name": "Corridor Creates Discord",
+      "value": "0.0",
+      "control": "ButtonControl",
+      "minimum": 0.0,
+      "maximum": 1.0,
+      "choices": {}
+    },
+    {
+      "id": "clearCache",
+      "name": "Delete this shot from Cache",
+      "value": "0.0",
+      "control": "ButtonControl",
+      "minimum": 0.0,
+      "maximum": 1.0,
+      "choices": {}
+    },
+    {
+      "id": "checkUpdates",
+      "name": "Check for Updates",
+      "value": "0.0",
+      "control": "ButtonControl",
+      "minimum": 0.0,
+      "maximum": 1.0,
+      "choices": {}
+    },
+    {
+      "id": "EffectMask",
+      "name": "Effect Mask",
+      "value": "None",
+      "control": null,
+      "minimum": 0.0,
+      "maximum": 1.0,
+      "choices": {}
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "status": "Passed",
+  "artifact_sha256": "7a023538ad322b9eee26357b3dd2c2aecc16c292f6feb44837e3ffa00d590c0a",
+  "scope": "Actual native Loader->OFX MPS->linear output->FusionSaver, corresponding sRGB,linear709,gamma2.4 inputs",
+  "comparisons": [
+    {
+      "encoding": "srgb",
+      "max_rgb_error": 5.960464477539063e-08,
+      "max_alpha_error": 0.0
+    },
+    {
+      "encoding": "gamma24",
+      "max_rgb_error": 4.202127456665039e-06,
+      "max_alpha_error": 5.543231964111328e-06
+    }
+  ]
+}
