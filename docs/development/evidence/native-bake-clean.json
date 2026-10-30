@@ -1,0 +1,8 @@
+{
+  "previous_rgba_60_frames_unchanged": true,
+  "alpha_60_frames_verified": true,
+  "remaining_ckf": 0,
+  "remaining_analysis_markers": 0,
+  "alpha_manifest": "${WORKSPACE}/.build/evidence/mlx-cache-bake/resolve/control-bakes/bake-4037cc98de2f4fb789a11303cc56e0e3/manifest.json",
+  "rgba_manifest": "${WORKSPACE}/.build/evidence/mlx-cache-bake/resolve/control-bakes/bake-464293a660f1400f95015f8aa2d8e1ae/manifest.json"
+}

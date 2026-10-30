@@ -1,0 +1,74 @@
+[
+  {
+    "path": "scripts/release/mlx-v2-lock.json",
+    "sha256": "e039ad8cf301404f1e6c8ac33cabb4fa24119385dc6b62713d4068b881964f7b"
+  },
+  {
+    "path": "worker/ckmac/__init__.py",
+    "sha256": "adb25e514fad3b71fd33ccb9f28e4faf5c3479cb248c98f0d9aa8934753ec224"
+  },
+  {
+    "path": "worker/ckmac/backend.py",
+    "sha256": "9cdf1c0f06b1f2d447dd5fc294eb92c0f98b432922cee547810804b6dc1cbdce"
+  },
+  {
+    "path": "worker/ckmac/backends/__init__.py",
+    "sha256": "83d2d2747c6172b71fe65548879c10f75f178a03460d32a0d097a43a123d22b0"
+  },
+  {
+    "path": "worker/ckmac/backends/mlx_v2_backend.py",
+    "sha256": "bc2e40b55b3c939cd114d6a4a818bfdfc3e0717d72e45e5f3bc03b0bb23ba977"
+  },
+  {
+    "path": "worker/ckmac/backends/mps_backend.py",
+    "sha256": "891b91338a8459f2aeda04f2635aead6fa990c0f4db3f169db5b26a883feb463"
+  },
+  {
+    "path": "worker/ckmac/bake.py",
+    "sha256": "f1f155aac32af0c178f5bdd359cd0cb83a81103a7787e93771165984ba606b68"
+  },
+  {
+    "path": "worker/ckmac/cache.py",
+    "sha256": "2630744d9cdc93637ab524ff82de53e9d9692ad07867a4672e7e4f6a9e1c21ca"
+  },
+  {
+    "path": "worker/ckmac/client.py",
+    "sha256": "63e4dd7902fdb49ff7fd7462486fb24937997fb4129764430529b3ee3ae62d8f"
+  },
+  {
+    "path": "worker/ckmac/engine.py",
+    "sha256": "a4c43aaa31ebdf00f40caf9f10d9a2285fb3babb04213364ddcc4e6076135b37"
+  },
+  {
+    "path": "worker/ckmac/exr.py",
+    "sha256": "cd1895becf4565589ce610bbb6d36b4997a33f7319248b8cc3f5a585add2c5be"
+  },
+  {
+    "path": "worker/ckmac/generations.py",
+    "sha256": "6f0e005ecd89cedc99b32bf4f9d4c4aed2ced39c7e5cb9e5722cfc902c96d793"
+  },
+  {
+    "path": "worker/ckmac/maintenance.py",
+    "sha256": "b4be795b0afb41da210a66ca07b3f0b1cc468cdbee97e8daefeed5987126a56f"
+  },
+  {
+    "path": "worker/ckmac/profiles.py",
+    "sha256": "c36e7279a3f8bfee1ad6b79561812ee57eaa2c71ae7976e9b842ccf9f8a2c7dd"
+  },
+  {
+    "path": "worker/ckmac/protocol.py",
+    "sha256": "3ed3bfa11f95d0ae712841dce0986c7401a0c60670f3dd86be62e87d08513067"
+  },
+  {
+    "path": "worker/ckmac/resolve_geometry.py",
+    "sha256": "4afc4a5d420a6ca8b62ecc14c73801e4b45bda9c8a01af2cfaeb05f2598d2b5a"
+  },
+  {
+    "path": "worker/ckmac/server.py",
+    "sha256": "47d5dbb9153a0222e4819024db349c5460a5d66219c0b6ce08e1a4afa92ba309"
+  },
+  {
+    "path": "worker/ckmac/temporal.py",
+    "sha256": "bc06aa612490f38feee405f13b05e4163066998105b788c6a9b56bb196e58ea1"
+  }
+]

@@ -9,6 +9,8 @@ import shutil
 import struct
 import tempfile
 import threading
+import time
+import fcntl
 
 import numpy as np
 
@@ -17,8 +19,9 @@ MAX_PIXELS = 33554432
 
 
 class DiskCache:
-    def __init__(self, root: Path, budget=20 * 2**30, ram_budget=512 * 2**20):
+    def __init__(self, root: Path, budget=20 * 2**30, ram_budget=512 * 2**20, temporary_root=None):
         self.root = root
+        self.temporary_root = Path(temporary_root) if temporary_root is not None else root
         self.budget = budget
         root.mkdir(parents=True, exist_ok=True, mode=0o700)
         self.lock = threading.RLock()
@@ -27,7 +30,25 @@ class DiskCache:
         self.ram_bytes = 0
         self.ram = OrderedDict()
         self.verified = OrderedDict()
-        self.stats=dict(ram_hits=0,disk_hits=0,metadata_hits=0,staged_bytes=0)
+        self.access = OrderedDict()
+        self.writer_lock = root / '.writer.lock'
+        try:
+            fd=os.open(self.writer_lock,os.O_CREAT|os.O_EXCL|os.O_WRONLY,0o600);os.close(fd)
+        except FileExistsError:pass
+        self.stats=dict(ram_hits=0,disk_hits=0,metadata_hits=0,staged_bytes=0,
+                        puts=0,put_dedup=0,cache_bytes_written=0,cache_bytes_evicted=0)
+
+    @contextmanager
+    def transaction(self):
+        # One worker owns a cache, but also serialize diagnostic/repair clients.
+        with self.lock, self.writer_lock.open('rb') as f:
+            fcntl.flock(f, fcntl.LOCK_EX)
+            yield
+
+    def accessed(self,key):
+        self.access[key]=time.monotonic_ns()
+        self.access.move_to_end(key)
+        while len(self.access)>16384:self.access.popitem(last=False)
 
     def signature(self, key):
         """Changes to file contents, replacement, truncation or removal invalidate RAM."""
@@ -80,6 +101,7 @@ class DiskCache:
                 path = self.path(key)
                 signature=self.signature(key)
                 if signature is None:return None
+                self.accessed(key)
                 if signature is not None and self.verified.get(key)==signature and key in self.ram:
                     result=self.ram.pop(key);self.ram[key]=result
                     self.stats['ram_hits']+=1
@@ -102,11 +124,6 @@ class DiskCache:
                 if not np.isfinite(result).all():
                     return None
                 if self.signature(key)!=signature:return None
-                # Persist LRU usage at most once a minute; repeated reads should
-                # neither write the filesystem nor invalidate other readers.
-                import time
-                if time.time_ns()-signature[3]>60_000_000_000:
-                    os.utime(path,None);signature=self.signature(key)
                 self._remember(key,signature,result)
                 self.stats['disk_hits']+=1
                 return result
@@ -114,12 +131,18 @@ class DiskCache:
                 return None
 
     def put(self, key, value):
-        a = np.ascontiguousarray(value, dtype='<f4')
-        if a.ndim != 3 or a.shape[2] != 4 or a.shape[0]*a.shape[1] > MAX_PIXELS or not np.isfinite(a).all():
+        a = np.array(value, dtype='<f4',order='C',copy=True)
+        if a.ndim != 3 or a.shape[2] != 4 or min(a.shape[:2])<1 or max(a.shape[:2])>8192 or a.shape[0]*a.shape[1] > MAX_PIXELS or not np.isfinite(a).all():
             raise ValueError('Invalid cached image')
         data = memoryview(a).cast('B')
-        with self.lock:
+        with self.transaction():
             path = self.path(key)
+            existing=self.get(key)
+            if existing is not None:
+                if existing.shape!=a.shape or existing.tobytes()!=a.tobytes():
+                    raise ValueError('Immutable cache key already contains different pixels')
+                self.stats['put_dedup']+=1
+                return False
             old_size=path.stat().st_size if path.is_file() and not path.is_symlink() else 0
             self.pin([key])
             temp=None
@@ -139,24 +162,36 @@ class DiskCache:
                     f.flush()
                     os.fsync(f.fileno())
                 os.replace(temp, path)
+                directory=os.open(self.root,os.O_RDONLY)
+                try:os.fsync(directory)
+                finally:os.close(directory)
                 self.stats['staged_bytes']+=a.nbytes
+                self.stats['puts']+=1
+                self.stats['cache_bytes_written']+=a.nbytes+56
                 # Own immutable bytes: a caller may reuse/mutate its input array.
                 stored=np.frombuffer(bytes(data),dtype='<f4').reshape(a.shape)
                 self._remember(key,self.signature(key),stored)
+                self.accessed(key)
+                return True
             finally:
                 if temp is not None:Path(temp).unlink(missing_ok=True)
                 self.unpin([key])
 
     def reserve(self, size):
+        with self.lock:self._reserve(size)
+
+    def _reserve(self, size):
         if size > self.budget:
             raise OSError('This analysis exceeds the cache budget. Select a shorter shot range.')
         all_files=list(self.root.glob('*.ckf'))
-        files = sorted((p for p in all_files if p.stem not in self.pins), key=lambda p: p.stat().st_mtime)
+        files = sorted((p for p in all_files if p.stem not in self.pins), key=lambda p: self.access.get(p.stem,0))
         total = sum(p.stat().st_size for p in all_files)
         while files and total + size > self.budget:
             p = files.pop(0)
-            total -= p.stat().st_size
+            evicted_size=p.stat().st_size
+            total -= evicted_size
             p.unlink(missing_ok=True)
+            self.stats['cache_bytes_evicted']+=evicted_size
         if total+size>self.budget:raise OSError('Active temporal inputs occupy the cache budget; select a shorter range')
         if shutil.disk_usage(self.root).free < size + 5 * 2**30:
             raise OSError('Insufficient cache space; keep at least 5 GiB free for Resolve and macOS.')

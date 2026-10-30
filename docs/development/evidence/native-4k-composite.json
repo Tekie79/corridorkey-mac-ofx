@@ -1,0 +1,29 @@
+{
+  "scope": "Native Resolve Saver 4K original Source RGB composed with scaled baked Alpha. Worker stopped before both requests; frame 0 may use host RAM cache, frame 59 newly requested.",
+  "source_size": [
+    4096,
+    2160
+  ],
+  "alpha_size": [
+    4096,
+    2160
+  ],
+  "frames": [
+    {
+      "frame": 0,
+      "alpha_max_error": 0.0,
+      "source_RGB_times_alpha_max_error": 0.0,
+      "masked_sha256": "5b97628dee2b96b7b7e72b443d147fda284a19227e07d548ea1583a0fabc8141",
+      "source_sha256": "4fba3d5b90a56377c0fb4091af0eaaab3a0160409dd99b16a5150f0056a928f2"
+    },
+    {
+      "frame": 59,
+      "alpha_max_error": 0.0,
+      "source_RGB_times_alpha_max_error": 0.0,
+      "masked_sha256": "5f8d88bcfa77eff817ee72185b7c2682bd06148a1f0bd9e6e3aa47c21f537e79",
+      "source_sha256": "9d2443db53b474018e3875897d4da6846959d4622e9776f41f0e5f2d1d02a3f6"
+    }
+  ],
+  "worker_socket_absent": true,
+  "temporary_blobs": 0
+}

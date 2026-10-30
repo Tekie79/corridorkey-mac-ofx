@@ -1,0 +1,85 @@
+{
+  "backend": "mps",
+  "status": "Passed",
+  "source_sha256": "3f18e69235db36ae8c4be26e8a299cfebcb9ac982d348549f54a132c7050bcd4",
+  "thresholds": {
+    "alpha_mae": 0.001,
+    "alpha_p99": 0.01,
+    "alpha_max": 0.05,
+    "foreground_mae": 0.01,
+    "foreground_p99": 0.05
+  },
+  "scope": "Native standalone process, not Resolve",
+  "shape": [
+    6,
+    720,
+    1280,
+    4
+  ],
+  "load_seconds": 9.818217749998439,
+  "single_frame_seconds": [
+    2.0099105830304325,
+    1.016436000005342,
+    0.9821078749955632,
+    0.98284358298406,
+    0.9897227500332519,
+    0.988028249994386,
+    0.9811543339747004,
+    0.9917869589990005
+  ],
+  "cold_seconds": 2.0099105830304325,
+  "warm_seconds": 1.016436000005342,
+  "diagnostics": {
+    "backend": "pytorch_mps",
+    "loaded": true,
+    "device": "mps",
+    "dtype": "float32",
+    "torch_version": "2.9.1",
+    "upstream_root": "/Library/Application Support/HarvestPictures/CorridorKeyMac/Runtime/0.9.7-b1.027347b5a7e5/upstream",
+    "model_root": "/Library/Application Support/HarvestPictures/CorridorKeyMac/Models/ck2-cf44a8db3f02",
+    "audited_upstream_commit": "485f5e9ab759ead6138cc990776184b59d6ea971",
+    "temporal_mode": "independent_frame_T1",
+    "clip_temporal_analysis": false,
+    "completed_temporal_shots": 0,
+    "automatic_cpu_model_fallback": false,
+    "cpu_preprocessing": [
+      "transfer_functions",
+      "reflect_padding",
+      "foundation_area_resize"
+    ],
+    "cpu_postprocessing": [
+      "asinh_decode",
+      "crop",
+      "transfer_functions",
+      "optional_green_despill"
+    ],
+    "input_spaces": [
+      "srgb",
+      "linear",
+      "rec709_gamma24"
+    ],
+    "input_alpha": "only used as a hint when explicitly selected",
+    "output_alpha": "straight foreground RGB plus clamped model matte",
+    "successful_frames": 8,
+    "completed_network_calls": {
+      "cradio": 8,
+      "moge_encoder": 8,
+      "rvm": 8,
+      "stage1": 8,
+      "stage2": 8
+    },
+    "last_error": null,
+    "mps_current_allocated_bytes": 4938861056,
+    "mps_driver_allocated_bytes": 8221327360
+  },
+  "alpha_range": [
+    0.0,
+    1.0
+  ],
+  "foreground_range": [
+    -0.006433395203202963,
+    0.7365705966949463
+  ],
+  "total_seconds": 18.80767516704509,
+  "process_peak_rss_bytes": 6744555520
+}

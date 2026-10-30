@@ -1,0 +1,22 @@
+{
+  "path": "${SOURCE_DIR}/GS02.mp4",
+  "sha256": "756191c3f2c996b97e7552d2ac388dfb5bad8606321476e5aee03c6c66fe5409",
+  "source_frames": [
+    30,
+    31,
+    32,
+    33,
+    34,
+    35
+  ],
+  "fps": 25.0,
+  "explicit_test_resize": [
+    1280,
+    720
+  ],
+  "original": [
+    4096,
+    2160
+  ],
+  "scope": "Same-footage explicit supported-profile comparison, not native 1080p MLX qualification"
+}

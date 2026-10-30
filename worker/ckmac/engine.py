@@ -16,15 +16,17 @@ import threading
 import time
 import traceback
 from dataclasses import asdict
-from collections import OrderedDict
+from collections import OrderedDict,defaultdict
 
 import numpy as np
-from .backend import CorridorKeyBackend, INPUT_SPACES
+from .backend import INPUT_SPACES
+from .backends import create_backend
 from .cache import DiskCache
 from .protocol import recv_exact
 from .server import prepare_socket
 from .temporal import TemporalProcessor
 from .profiles import Profile
+from .resolve_geometry import GeometryCache,SDK_PATH
 
 LOG = logging.getLogger('ckmac.engine')
 
@@ -33,10 +35,10 @@ class Engine:
     def __init__(self, manifest, cache,installation_inventory=None):
         self.manifest = manifest
         self.build = manifest['build_id']
-        self.backend = CorridorKeyBackend(manifest['code_root'], manifest['model_root'])
-        self.cache = DiskCache(cache / 'frames')
-        self.lock = threading.Lock()
-        self.state = 'loading_model'
+        self.backend = create_backend(manifest)
+        self.cache = DiskCache(cache / 'frames',temporary_root=cache)
+        self.lock = threading.RLock()
+        self.state = 'cache_ready'
         self.error = ''
         self.last_activity = time.monotonic()
         self.active = 0
@@ -46,16 +48,42 @@ class Engine:
         self.stopping = False
         self.facts = {}
         self.temporal = TemporalProcessor(self.backend,self.cache,self.build)
-        self.owners=OrderedDict()
-        self.owner_lock=threading.Lock()
+        self.records=self.temporal.records
         self.installation_inventory=installation_inventory
+        self.counters=dict(input_stage_attempts=0,input_stage_new=0,input_stage_dedup=0)
+        self.node_counters=defaultdict(dict)
+        self.metrics_lock=threading.Lock()
+        self.source_geometry=GeometryCache(cache)
 
-    def remember(self,owner,keys):
+    def count(self,owner,generation,**counts):
         if not isinstance(owner,str) or not 1<=len(owner)<=128:return
-        with self.owner_lock:
-            previous=self.owners.pop(owner,set())
-            self.owners[owner]=set(list(previous.union(keys))[-1024:])
-            while len(self.owners)>128:self.owners.popitem(last=False)
+        with self.metrics_lock:
+            bucket=self.node_counters[(owner,generation or 'capture')]
+            for key,value in counts.items():bucket[key]=bucket.get(key,0)+int(value)
+
+    def remember(self,owner,keys,kind='capture'):
+        self.records.remember(owner,keys,kind)
+
+    def settings(self,req):
+        space=req['input_space']
+        if type(space) is not int or not 0<=space<len(INPUT_SPACES):raise ValueError('Invalid input encoding')
+        return dict(input_space=INPUT_SPACES[space],hint_mode='source_alpha' if req['hint'] else 'none',
+                    hint_quality=float(req['quality']),despill_strength=float(req['despill']))
+
+    def analysis_status(self,req):
+        profile=Profile.from_request(req)
+        if hasattr(self.backend,'validate_canvas'):self.backend.validate_canvas(req['height'],req['width'],profile)
+        identity=self.temporal.identity(req['keys'],self.settings(req),req['revision'],req.get('first_hint',False),req.get('provenance'),profile)
+        from .generations import digest
+        generation=digest(identity)
+        record=self.records.record(generation)
+        # Playback queries validate only the requested output. A full audit is
+        # available separately; eviction elsewhere does not invalidate this frame.
+        if record is None:return dict(state='Unanalyzed',generation=generation)
+        self.records.lease(req.get('session_id'),generation)
+        try:self.records.result(generation,req['requested'],(req['height'],req['width'],4))
+        except RuntimeError:return dict(state='Stale',generation=generation)
+        return dict(state='Analyzed',generation=generation)
 
     def load(self):
         try:
@@ -76,7 +104,7 @@ class Engine:
             self.backend.load()
             self.facts['model_load_seconds'] = time.perf_counter()-t
             self.state = 'checking_gpu'
-            fixture = np.zeros((128,128,4), dtype=np.float32)
+            fixture = np.zeros((*getattr(self.backend,'fixture_shape',(128,128)),4), dtype=np.float32)
             fixture[...,1] = .5
             fixture[...,3] = 1
             fixture[24:104,40:88,:3] = [.6,.2,.1]
@@ -86,6 +114,7 @@ class Engine:
                 raise RuntimeError('GPU fixture returned non-finite data')
             self.fixture_passed = True
             self.facts.update(fixture_seconds=time.perf_counter()-t, backend=self.backend.diagnostics())
+            self.error=''
             self.state = 'ready'
         except Exception as exc:
             self.error = f'{type(exc).__name__}: {exc}'
@@ -100,16 +129,27 @@ class Engine:
                 self.facts['live_mps_memory']=memory
                 self.facts['maximum_observed_driver_bytes']=max(memory['driver_bytes'],self.facts.get('maximum_observed_driver_bytes',0))
             except (AttributeError,RuntimeError):pass
+        with self.metrics_lock:node_stats=[dict(node=k[0],generation=k[1],counters=dict(v)) for k,v in self.node_counters.items()]
         return dict(state=self.state,error=self.error,fixture_passed=self.fixture_passed,
                     model_loaded=self.backend._model is not None,user_frames_completed=self.completed,
                     cache_hits=self.cache_hits, active_jobs=self.active, pid=os.getpid(), facts=self.facts,
-                    cache=dict(self.cache.stats,ram_bytes=self.cache.ram_bytes,ram_limit=self.cache.ram_budget))
+                    cache=dict(self.cache.stats,ram_bytes=self.cache.ram_bytes,ram_limit=self.cache.ram_budget),
+                    counters=dict(self.counters,**self.temporal.stats,model_network_invocations=sum(getattr(self.backend,'_network_calls',{}).values())),node_counters=node_stats,cache_domains=['temporary captures/results','Resolve playback cache (host controlled)','durable EXR bake'])
 
     def frame(self, req, data=None):
+        with self.lock:return self._frame(req,data)
+
+    def frame_key(self,req,data=None):
+        w,h=req["width"],req["height"]
+        if hasattr(self.backend,'validate_canvas'):self.backend.validate_canvas(h,w,Profile.from_request(req))
+        identity=json.dumps([self.build,getattr(self.backend,"identity",{"backend":"mps","precision":"float32"}),"adapter-math-v3",w,h,self.settings(req),asdict(Profile.from_request(req))],sort_keys=True,allow_nan=False).encode()
+        if data is not None:return hashlib.sha256(identity+data).hexdigest()
+        self.cache.path(req["source_key"])
+        return hashlib.sha256(identity+b":source-key:"+bytes.fromhex(req["source_key"])).hexdigest()
+
+    def _frame(self, req, data=None):
         if self.stopping:
             raise RuntimeError('Maintenance is draining this GPU engine; retry after maintenance completes')
-        if self.state not in ('ready', 'processing'):
-            raise RuntimeError(self.error or 'Engine is preparing. Please wait, then retry.')
         w,h = req['width'],req['height']
         if type(w) is not int or type(h) is not int or min(w,h)<1 or max(w,h)>8192 or w*h>33554432 or (data is not None and len(data)!=w*h*16):
             raise ValueError('Invalid frame extent or payload')
@@ -120,17 +160,15 @@ class Engine:
                         hint_quality=float(req['quality']), despill_strength=float(req['despill']))
         profile=Profile.from_request(req)
         profile.dimensions(h,w)
-        identity = json.dumps([self.build,w,h,settings,asdict(profile)], sort_keys=True, allow_nan=False).encode()
-        if data is None:
-            source_key=req['source_key']
-            self.cache.path(source_key)  # Strictly validate the data identifier.
-            key=hashlib.sha256(identity+b':source-key:'+bytes.fromhex(source_key)).hexdigest()
-        else:key = hashlib.sha256(identity + data).hexdigest()
-        self.remember(req.get('session_id'),[key])
+        key=self.frame_key(req,data)
+        if data is None:source_key=req['source_key']
+        self.remember(req.get('session_id'),[key],'result')
         cached = self.cache.get(key)
         if cached is not None and cached.shape==(h,w,4):
             self.cache_hits += 1
             return cached
+        if self.backend._model is None:self.load()
+        if self.state not in ('ready','processing'):raise RuntimeError(self.error or 'Engine is preparing')
         if data is None:
             rgba=self.cache.get(source_key)
             if rgba is None:raise RuntimeError('Captured input was evicted or changed. Render again to recapture it.')
@@ -190,7 +228,7 @@ class Handler(socketserver.BaseRequestHandler):
             if op == 'health' and n == 0:
                 answer = e.health()
             elif op == 'release' and n == 0:
-                if e.state not in ('ready','error') or not e.lock.acquire(False):
+                if e.state not in ('ready','cache_ready','error') or not e.lock.acquire(False):
                     raise RuntimeError('Maintenance blocked: GPU work is active')
                 try:
                     e.stopping=True
@@ -201,7 +239,10 @@ class Handler(socketserver.BaseRequestHandler):
                     e.lock.release()
             elif op == 'input_lookup' and n==0:
                 key=req['key']
+                e.counters['input_stage_attempts']+=1
                 present=e.cache.valid(key)
+                if present:e.counters['input_stage_dedup']+=1
+                e.count(req.get('session_id'),None,input_stage_attempts=1,input_stage_dedup=int(present))
                 if present:e.remember(req.get('session_id'),[key])
                 answer={'present':present,'key':key}
             elif op == 'inputs_lookup' and n==0:
@@ -220,42 +261,110 @@ class Handler(socketserver.BaseRequestHandler):
                 value=np.frombuffer(data,dtype='<f4').reshape(h,w,4)
                 if not np.isfinite(value).all():raise ValueError('Non-finite temporal input')
                 e.remember(req.get('session_id'),[key])
-                e.cache.put(key,value)
-                answer={'key':key}
+                new=e.cache.put(key,value)
+                e.counters['input_stage_new' if new else 'input_stage_dedup']+=1
+                e.count(req.get('session_id'),None,input_stage_new=int(new),input_stage_dedup=int(not new),cache_bytes_written=(value.nbytes+56) if new else 0)
+                answer={'key':key,'new':new}
             elif op=='clear_shot' and n==0:
                 if not e.lock.acquire(False):raise RuntimeError('Finish or cancel active processing before clearing this node cache')
                 try:
-                    with e.owner_lock:
-                        owned=e.owners.pop(req.get('session_id'),set())
-                        shared=set().union(*e.owners.values()) if e.owners else set()
-                        count=e.cache.remove(owned-shared)
-                    answer={'removed_entries':count,'shared_entries_preserved':len(owned&shared)}
+                    answer=e.records.clear(req.get('session_id'),req.get('generation'))
+                finally:e.lock.release()
+            elif op=='diagnostic_counters' and n==0:
+                allowed={'source_frames_fetched','bake_reads'}
+                counts=req.get('counts',{})
+                if not isinstance(counts,dict) or set(counts)-allowed or any(type(v) is not int or not 0<=v<=100000 for v in counts.values()):raise ValueError('Invalid diagnostic counters')
+                e.count(req.get('session_id'),req.get('generation'),**counts)
+                answer=dict(recorded=True)
+            elif op=='frame_lookup' and n==0:
+                key=e.frame_key(req)
+                image=e.cache.get(key)
+                answer=dict(present=image is not None,key=key)
+            elif op=='analyze_status' and n==0:
+                answer=e.analysis_status(req)
+            elif op=='result_get' and n==0:
+                try:
+                    record=e.records.record(req['generation'])
+                    if record is None:raise RuntimeError('Analysis generation missing; use Analyze/Resume')
+                    identity=record['identity']
+                    # Client supplies a verified causal snapshot, not just an ID.
+                    if req.get('source_keys')!=identity['inputs']:raise ValueError('Source snapshot does not match analysis')
+                    e.records.lease(req.get('session_id'),req['generation'])
+                    image=e.records.result(req['generation'],req['requested'],(req['height'],req['width'],4))
+                    e.temporal.stats['result_cache_hits']+=1
+                    e.count(req.get('session_id'),req['generation'],result_cache_hits=1)
+                except RuntimeError:
+                    e.temporal.stats['result_cache_misses']+=1
+                    raise
+                result=memoryview(np.ascontiguousarray(image,dtype='<f4')).cast('B')
+                answer=dict(state='ready',alpha='straight',width=image.shape[1],height=image.shape[0],generation=req['generation'],cache_hit=True)
+            elif op=='bake' and n==0:
+                if not e.lock.acquire(False):raise RuntimeError('Finish active analysis before baking')
+                try:
+                    from .bake import bake,bake_from_manifest
+                    generation=req.get('generation');owned=generation in e.records.owned_generations(req.get('session_id'))
+                    source_size=req.get('source_size')
+                    if source_size==[0,0]:source_size=None
+                    if source_size is not None and (not isinstance(source_size,list) or len(source_size)!=2 or any(type(v) is not int or v<1 for v in source_size)):raise ValueError('Invalid source-footage dimensions')
+                    if not req.get('source_size_explicit',False):
+                        original_size=e.source_geometry.get(req.get('session_id',''),generation or '')
+                        if original_size:source_size=original_size
+                    if owned:
+                        record=e.records.record(generation);sample=e.records.result(generation,0)
+                        if source_size is None:source_size=record['identity'].get('provenance',{}).get('source_size') or [sample.shape[1],sample.shape[0]]
+                    else:
+                        source_manifest=Path(req.get('source_manifest',''))
+                        if not source_manifest.is_absolute():raise ValueError('Analyze this node or relink a verified bake before exporting')
+                        source_record=json.loads(source_manifest.read_text())
+                        if source_size is None:source_size=source_record.get('source_size') or source_record.get('analysis_size') or [source_record['width'],source_record['height']]
+                    mode=req.get('size_mode',0)
+                    if type(mode) is not int or mode not in range(5):raise ValueError('Invalid bake size option')
+                    if mode==0 and req.get('resolve_host',False) and not req.get('source_size_explicit',False) and not e.source_geometry.get(req.get('session_id',''),generation or ''):
+                        e.source_geometry.schedule(req.get('session_id'),generation)
+                        raise RuntimeError('Original footage dimensions are being read after Resolve releases this callback. Retry Bake, or set both Original Source dimensions explicitly. The previous bake is preserved.')
+                    target=source_size if mode==0 else None if mode==1 else [3840,2160] if mode==2 else [4096,2160] if mode==3 else req.get('output_size')
+                    if mode==4 and target is None:raise ValueError('Custom export dimensions are required')
+                    destination=Path(req['destination'])
+                    if destination.resolve()==e.cache.temporary_root.resolve() or e.cache.temporary_root.resolve() in destination.resolve().parents:raise ValueError('Durable media cannot use the temporary cache')
+                    if owned:answer=bake(e.records,generation,destination,req['kind'],req.get('precision','half'),req.get('post'),target,source_size)
+                    else:answer=bake_from_manifest(source_manifest,destination,req['kind'],req.get('precision','half'),target,source_size,generation)
+                    answer['temporary_owned']=owned
                 finally:e.lock.release()
             elif op == 'temporal' and n==0:
                 w,h=req['width'],req['height']
                 if type(w) is not int or type(h) is not int or min(w,h)<1 or max(w,h)>8192 or w*h>33554432:raise ValueError('Invalid temporal canvas')
-                if e.state!='ready' or e.stopping:raise RuntimeError(e.error or 'GPU engine is preparing or busy')
+                if e.state not in ('ready','cache_ready','error') or e.stopping:raise RuntimeError(e.error or 'GPU engine is preparing or busy')
                 if not e.lock.acquire(timeout=10):raise RuntimeError('GPU queue is busy')
                 try:
                     e.active+=1;e.state='processing'
-                    settings=dict(input_space=INPUT_SPACES[req['input_space']],hint_mode='source_alpha' if req['hint'] else 'none',hint_quality=float(req['quality']),despill_strength=float(req['despill']))
+                    settings=e.settings(req)
+                    status=e.analysis_status(req)
+                    need_model=status['state']=='Unanalyzed' or (req.get('resume',False) and e.records.status(status['generation'])['state']=='Stale')
+                    if need_model and e.backend._model is None:
+                        e.load()
+                        if e.state=='error':raise RuntimeError(e.error)
+                    e.state='processing'
                     def canceled():
                         return bool(select.select([c],[],[],0)[0] and c.recv(1,socket.MSG_PEEK)==b'')
                     def progress(value):e.facts['temporal_progress']=value
                     t=time.perf_counter();completed_before=e.backend._temporal_completed
+                    stats_before=dict(e.temporal.stats);calls_before=sum(e.backend._network_calls.values());writes_before=e.cache.stats['cache_bytes_written'];evicted_before=e.cache.stats['cache_bytes_evicted']
                     profile=Profile.from_request(req)
                     e.temporal.last_outputs=set()
-                    image=e.temporal.run(req['keys'],settings,req['requested'],revision=req['revision'],first_hint=req.get('first_hint',False),provenance=req.get('provenance'),cancel=canceled,progress=progress,profile=profile,expected_shape=(h,w,4))
-                    e.remember(req.get('session_id'),e.temporal.last_outputs)
+                    image=e.temporal.run(req['keys'],settings,req['requested'],revision=req['revision'],first_hint=req.get('first_hint',False),provenance=req.get('provenance'),cancel=canceled,progress=progress,profile=profile,expected_shape=(h,w,4),resume=req.get('resume',False),owner=req.get('session_id'))
+                    e.remember(req.get('session_id'),e.temporal.last_outputs,'result')
+                    e.count(req.get('session_id'),e.temporal.last_generation,**{k:e.temporal.stats[k]-stats_before[k] for k in stats_before},model_network_invocations=sum(e.backend._network_calls.values())-calls_before,cache_bytes_written=e.cache.stats['cache_bytes_written']-writes_before,cache_bytes_evicted=e.cache.stats['cache_bytes_evicted']-evicted_before)
                     e.facts['last_temporal_request_seconds']=time.perf_counter()-t
                     if e.backend._temporal_completed>completed_before:e.facts['last_temporal_analysis_seconds']=e.facts['last_temporal_request_seconds']
                     e.facts['temporal_algorithm']=f'float32 continuous RVM / Hann baton {profile.window}/{max(1,profile.window//2)} / stage2'
                     e.facts['profile']=asdict(profile)
                     e.facts['backend']=e.backend.diagnostics()
                     result=memoryview(np.ascontiguousarray(image,dtype='<f4')).cast('B')
-                    answer={'state':'ready','alpha':'straight','width':image.shape[1],'height':image.shape[0]}
+                    answer={'state':'ready','alpha':'straight','width':image.shape[1],'height':image.shape[0],'generation':e.temporal.last_generation,'cache_hit':e.backend._temporal_completed==completed_before}
                 finally:
-                    e.active-=1;e.state='ready';e.last_activity=time.monotonic();e.lock.release()
+                    e.active-=1
+                    if e.state!='error':e.state='ready' if e.backend._model is not None else 'cache_ready'
+                    e.last_activity=time.monotonic();e.lock.release()
             elif op == 'frame' or (op=='frame_cached' and n==0):
                 # Serialize before receiving pixels: a bounded number of header-only waiters.
                 if not e.lock.acquire(timeout=10):
@@ -276,6 +385,10 @@ class Handler(socketserver.BaseRequestHandler):
             c.sendall(struct.pack('>I',len(header))+header)
             if result:
                 c.sendall(result)
+            # The vendor SDK cannot recursively inspect a Fusion graph while
+            # Resolve waits for this OFX request. Probe once the host can return
+            # from Render, then retain geometry by immutable analysis generation.
+            e.source_geometry.schedule(req.get('session_id'),answer.get('generation') or req.get('generation'))
         except (BrokenPipeError,ConnectionError):
             LOG.info('Client canceled or disconnected')
         except Exception as exc:
@@ -336,14 +449,15 @@ def main():
     token=args.token_file.read_text()
     server=Server(str(args.socket),e,token)
     os.chmod(args.socket,0o600)
-    threading.Thread(target=e.load,daemon=True).start()
+    # Cached generation reads and bake export need no model, fixture or GPU.
+    # The serialized first genuinely uncached job initializes the backend.
     signal.signal(signal.SIGTERM,lambda *_:threading.Thread(target=server.shutdown,daemon=True).start())
     try:
         server.serve_forever(poll_interval=.25)
     finally:
         server.server_close()
         args.socket.unlink(missing_ok=True)
-        if e.active==0 and (e.stopping or e.state=='ready'):
+        if e.active==0 and (e.stopping or e.state in ('ready','cache_ready')):
             marker=Path(str(args.socket)+f'.clean-{os.getpid()}')
             try:
                 with marker.open('x') as f:f.write(e.build);f.flush();os.fsync(f.fileno())

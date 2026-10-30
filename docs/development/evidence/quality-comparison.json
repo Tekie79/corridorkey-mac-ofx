@@ -1,0 +1,28 @@
+{
+  "single": {
+    "alpha": {
+      "mae": 0.00011108284892273971,
+      "p99": 0.001287996768951416,
+      "maximum": 0.02155095338821411
+    },
+    "linear_foreground": {
+      "mae": 1.4385299518990146e-05,
+      "p99": 0.00018481541424989617,
+      "maximum": 0.011137306690216064
+    },
+    "passes_preregistered_thresholds": true
+  },
+  "temporal": {
+    "alpha": {
+      "mae": 9.735442365429966e-05,
+      "p99": 0.0012804865837097168,
+      "maximum": 0.0058158040046691895
+    },
+    "linear_foreground": {
+      "mae": 1.2077352264549815e-05,
+      "p99": 0.00016613304615020752,
+      "maximum": 0.0025891363620758057
+    },
+    "passes_preregistered_thresholds": true
+  }
+}

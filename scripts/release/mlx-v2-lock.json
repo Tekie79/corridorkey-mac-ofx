@@ -1,0 +1,289 @@
+{
+  "source_commit": "74065491ebd2eddea494ab34c15a6d84d7415353",
+  "source_url": "https://github.com/peterteravskis/corridorkey-v2-mlx",
+  "model_revision": "7bb9a4443d5f1b4b696bcc0547d49ae0ac5e5f7e",
+  "model_repo": "cdelta/CorridorKey-v2-MLX-fp32",
+  "source_files": [
+    {
+      "path": "LICENSE",
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    {
+      "path": "NOTICE",
+      "sha256": "89867d0472f8a355de90d5f6b878f623e72f3ce88616779b21f547fb0fc89c65"
+    },
+    {
+      "path": "corridorkey_mlx/__init__.py",
+      "sha256": "f8d66429d4d8349a31428a696a639b47e6fa8c230be6e9a6d164da37f8b6b3e4"
+    },
+    {
+      "path": "corridorkey_mlx/__main__.py",
+      "sha256": "935a1c1166b0c1ea35a82256345000bf2c73ded718d77773bc27a71ecce28f7d"
+    },
+    {
+      "path": "corridorkey_mlx/benchmarking.py",
+      "sha256": "a34352df86c264eeee9e49b35515587202d991848bbb814be6471da48927a96c"
+    },
+    {
+      "path": "corridorkey_mlx/cli.py",
+      "sha256": "c215f71ae813bb9443dbef03534793ccde72ff9ae88cf85703ab95ea81f79112"
+    },
+    {
+      "path": "corridorkey_mlx/mlx_backend.py",
+      "sha256": "7bf795aceeadbf6b1e7fa553f5fed164abc46a803272fddfbc696ddd93c42cfb"
+    },
+    {
+      "path": "corridorkey_mlx/mlx_graph.py",
+      "sha256": "ccbb2ef5a00658ddc9b3973c36d3eb8e18787007e56fc93f722cb9ea1e87b821"
+    },
+    {
+      "path": "corridorkey_mlx/mlx_kernels.py",
+      "sha256": "788f080ff0524c8ea8dc532eb28c17acaa688c9d076d68c3e41bfe55720e675d"
+    },
+    {
+      "path": "corridorkey_mlx/mlx_render.py",
+      "sha256": "21bc3996c1c4bb390dfaa41ff2ebfb19a7c8e34ba7c99f1de79f9eeac0aeff64"
+    },
+    {
+      "path": "corridorkey_mlx/pipeline.py",
+      "sha256": "65418ac4128e11ba95fdadaac8c442f8a5728f86c5d1518c918d7c077310d5d8"
+    },
+    {
+      "path": "infer_mlx.py",
+      "sha256": "cd9e0a1f68a0c3b173e137d6e707e31abda910c3a22f34c110807f618fef3acc"
+    },
+    {
+      "path": "pyproject.toml",
+      "sha256": "1219e2e313621e9f49ef6e0c7a15b3e69f6e87ed3f5980a01ae8b427fde076a8"
+    },
+    {
+      "path": "scripts/convert_mlx_precision.py",
+      "sha256": "abe5a47bfa61569ef4062517d8926baef001368c4060a010e7ebb6d677bee09b"
+    },
+    {
+      "path": "scripts/convert_mlx_q8.py",
+      "sha256": "11b425be11bdeef01b714e734a2bf4f4a28f491972590c147c772c6685807046"
+    },
+    {
+      "path": "scripts/render_benchmarks.py",
+      "sha256": "b96766649f4f90b9e45432e97d4fe4aeaba341486def175cbb3210c636444044"
+    },
+    {
+      "path": "scripts/render_cli_benchmarks.py",
+      "sha256": "2061615f2552bddb4cd962b3b5fa12ebfb56d8a616ab231da630956a34ee0bc7"
+    },
+    {
+      "path": "scripts/verify_parent.py",
+      "sha256": "ced9279e7adc5e82651c4c22304d8117cd7d0083f50978a355fcd7e4d4d53f55"
+    },
+    {
+      "path": "tests/test_cli_contract.py",
+      "sha256": "214b0644b67579d5fa1193afcf04b5699d2e25f8d5f7db9e8b58abf66192af8d"
+    },
+    {
+      "path": "tests/test_mlx_dense_rewrite.py",
+      "sha256": "2809f3babf87b6df6e07d9e0a2437283bc5326bb7586640d18107c1ffebe49aa"
+    },
+    {
+      "path": "tests/test_mlx_half_dense.py",
+      "sha256": "6e7df19bf894ebc645ecc1865126c9a1edd6158fa7b1839c93be29cebacac4c1"
+    },
+    {
+      "path": "tests/test_mlx_kernels.py",
+      "sha256": "2ad71a72275bcf815a2db2711ce2adeab7f706fd437653482a008b77e85f2e55"
+    },
+    {
+      "path": "tests/test_mlx_pipeline_batching.py",
+      "sha256": "c697ca71d6a5c5406529fdaaba2c4f9a38beff4a832d0de3ec7033529e4b7b50"
+    },
+    {
+      "path": "tests/test_mlx_precision.py",
+      "sha256": "a7025290e9b2a8619825c52694c26343e5b37d5877d22c7bde9e8d6921d98b37"
+    }
+  ],
+  "model_manifest_sha256": "01976ea64b47f7aa2bbd7a2221ac8644bf7ac03f437abf6a2b8b5bd25dc3b188",
+  "model_files": [
+    {
+      "path": "1024x1536-t1/foundations/graph.json",
+      "bytes": 236495,
+      "sha256": "77c756637c439664ed0054ee7a295f1b491eb66134d93b485524e66d953cfaa9",
+      "source_copy_verified": true
+    },
+    {
+      "path": "1024x1536-t1/foundations/weights.safetensors",
+      "bytes": 2277354168,
+      "sha256": "0169815bec10185e2a4ea96c4e3a67e22dbe18ed215f14c04c47efa74d00a3c9",
+      "source_copy_verified": true
+    },
+    {
+      "path": "1024x1536-t1/provenance.json",
+      "bytes": 1566,
+      "sha256": "9995ea1a05c583f9ecc4e335760dc6cc18867111dc4f252ab349f82ed5a429c1",
+      "source_copy_verified": true
+    },
+    {
+      "path": "1024x1536-t1/rvm/graph.json",
+      "bytes": 113532,
+      "sha256": "77bd2505c003d242026266fbfef839e882885c0f64ca2093aa8308e765d44d3c",
+      "source_copy_verified": true
+    },
+    {
+      "path": "1024x1536-t1/rvm/weights.safetensors",
+      "bytes": 133318984,
+      "sha256": "b6faf48ad7ca749bdd65ec751bed47933ac60e04e43b03a54364fd4f215eea99",
+      "source_copy_verified": true
+    },
+    {
+      "path": "1024x1536-t1/stage1/graph.json",
+      "bytes": 1020172,
+      "sha256": "0b8f045dc7e1020cf211341d60beb070cf6a278706d8ae095e0928227b5f1148",
+      "source_copy_verified": true
+    },
+    {
+      "path": "1024x1536-t1/stage1/weights.safetensors",
+      "bytes": 1854524880,
+      "sha256": "5ced2c6ae2c9a84e8180364e10c5dec44faa938f0e2c2d86b564be1791d0c32d",
+      "source_copy_verified": true
+    },
+    {
+      "path": "1024x1536-t1/stage2/graph.json",
+      "bytes": 471287,
+      "sha256": "9440b147e0acc0808c70df34e0c041c9fdc8286627b1f3cf2518e700d2b850d4",
+      "source_copy_verified": true
+    },
+    {
+      "path": "1024x1536-t1/stage2/weights.safetensors",
+      "bytes": 807237944,
+      "sha256": "6095df3876161c915282547fc6854081d1b52aae9063914651e11efb05b2ae30",
+      "source_copy_verified": true
+    },
+    {
+      "path": "1024x1536-t1/stats.json",
+      "bytes": 15674,
+      "sha256": "5ec9ff6099f469defa2f63183694218d20609dcd104238cb4f2159a4c9f7f9fd",
+      "source_copy_verified": true
+    },
+    {
+      "path": "1024x1536-t4/provenance.json",
+      "bytes": 1566,
+      "sha256": "be39b9f19066933eac282480cf9d7b85e6899b762a2da0c1101eab9629f86cbe",
+      "source_copy_verified": true
+    },
+    {
+      "path": "1024x1536-t4/stage1/graph.json",
+      "bytes": 1035908,
+      "sha256": "7effa7d44bea3c4c9b0638e7204d840e8d3ba7ccdce86cc363a6d8da50256720",
+      "source_copy_verified": true
+    },
+    {
+      "path": "1024x1536-t4/stage1/weights.safetensors",
+      "bytes": 1854586368,
+      "sha256": "55194a1e041f5c128de0aac6b4debe0922ef3a654a9840d40493d030c489e77b",
+      "source_copy_verified": true
+    },
+    {
+      "path": "1024x1536-t4/stats.json",
+      "bytes": 15674,
+      "sha256": "5ec9ff6099f469defa2f63183694218d20609dcd104238cb4f2159a4c9f7f9fd",
+      "source_copy_verified": true
+    },
+    {
+      "path": "768x1280-t1/foundations/graph.json",
+      "bytes": 236494,
+      "sha256": "ad9ca0715e4e8068c192bde857564e2a6f542f331794d8def2417bb20243fddd",
+      "source_copy_verified": true
+    },
+    {
+      "path": "768x1280-t1/foundations/weights.safetensors",
+      "bytes": 2277354168,
+      "sha256": "0169815bec10185e2a4ea96c4e3a67e22dbe18ed215f14c04c47efa74d00a3c9",
+      "source_copy_verified": true
+    },
+    {
+      "path": "768x1280-t1/provenance.json",
+      "bytes": 1666,
+      "sha256": "914268e2d4d226126e377083b9a29dc07c349c9fd310626201df8a5190d439bf",
+      "source_copy_verified": true
+    },
+    {
+      "path": "768x1280-t1/rvm/graph.json",
+      "bytes": 113531,
+      "sha256": "3704fd397813afe661126f2425e57b373e7c1257637bdf9b8aedcc02a012e1cd",
+      "source_copy_verified": true
+    },
+    {
+      "path": "768x1280-t1/rvm/weights.safetensors",
+      "bytes": 133318984,
+      "sha256": "b6faf48ad7ca749bdd65ec751bed47933ac60e04e43b03a54364fd4f215eea99",
+      "source_copy_verified": true
+    },
+    {
+      "path": "768x1280-t1/stage1/graph.json",
+      "bytes": 1020167,
+      "sha256": "2cd88f794750f26759e1a57f889a332682faafba8b7fb4d158062a595386e48f",
+      "source_copy_verified": true
+    },
+    {
+      "path": "768x1280-t1/stage1/weights.safetensors",
+      "bytes": 1854524312,
+      "sha256": "2fb9820639d5f09bb9a2c407a608779ec84dbca2958d21a804fd9c8bb5f1c2ab",
+      "source_copy_verified": true
+    },
+    {
+      "path": "768x1280-t1/stage2/graph.json",
+      "bytes": 471284,
+      "sha256": "250d90effbec1f9ff0313ea85ff2ff14d86d00b4cd76da2b788bf697a86d8333",
+      "source_copy_verified": true
+    },
+    {
+      "path": "768x1280-t1/stage2/weights.safetensors",
+      "bytes": 807237464,
+      "sha256": "76a24d41ef0df88e595729dffbf28b564e282b041c79d215a425a44a5055e911",
+      "source_copy_verified": true
+    },
+    {
+      "path": "768x1280-t1/stats.json",
+      "bytes": 15674,
+      "sha256": "5ec9ff6099f469defa2f63183694218d20609dcd104238cb4f2159a4c9f7f9fd",
+      "source_copy_verified": true
+    },
+    {
+      "path": "768x1280-t4/provenance.json",
+      "bytes": 1666,
+      "sha256": "08c400205a359b3f9d97e99d8218dfe64437b9670e5d0a13c85e72bac48b1176",
+      "source_copy_verified": true
+    },
+    {
+      "path": "768x1280-t4/stage1/graph.json",
+      "bytes": 1035789,
+      "sha256": "b4fedb73ece34b59dfc67e99ac99855216d5bbf7ec86d73514ea85c79105e669",
+      "source_copy_verified": true
+    },
+    {
+      "path": "768x1280-t4/stage1/weights.safetensors",
+      "bytes": 1854585800,
+      "sha256": "58e521eddb581aa06691701b4fa00d9d7c08e35a55a977a0e2822e0c7bc3a21b",
+      "source_copy_verified": true
+    },
+    {
+      "path": "768x1280-t4/stats.json",
+      "bytes": 15674,
+      "sha256": "5ec9ff6099f469defa2f63183694218d20609dcd104238cb4f2159a4c9f7f9fd",
+      "source_copy_verified": true
+    }
+  ],
+  "source_license": "Apache-2.0",
+  "model_license": "Corridor Key Licence 2.0 and foundation terms",
+  "native_1080p": false,
+  "qualification": "experimental; native gates pending",
+  "model_license_files": [
+    {
+      "path": "LICENSE",
+      "sha256": "c92ce56f64162b231c7ce08ce3ed7d8cae15f01a560ca05a8e8db67878eb0065"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES.md",
+      "sha256": "092fc24883ee64d7115b392ada74b88b38e5e3629bb347579622fe9557d8d822"
+    }
+  ]
+}

@@ -27,7 +27,7 @@ def test_failed_atomic_promotion_preserves_old_valid_entry(tmp_path):
     a=np.ones((3,5,4),dtype=np.float32)
     c.put(key,a)
     with patch('ckmac.cache.os.replace',side_effect=OSError('simulated full disk')):
-        with pytest.raises(OSError):c.put(key,a*.5)
+        with pytest.raises(ValueError,match='Immutable'):c.put(key,a*.5)
     np.testing.assert_array_equal(c.get(key),a)
     assert not list(tmp_path.glob('.writing-*'))
 
@@ -37,7 +37,7 @@ def test_nonfinite_and_untrusted_paths_never_enter_cache(tmp_path):
     with pytest.raises(ValueError):c.path('../anything')
     a=np.ones((3,5,4),dtype=np.float32);a[0,0,0]=np.nan
     with pytest.raises(ValueError):c.put('a'*64,a)
-    assert not list(tmp_path.iterdir())
+    assert not list(tmp_path.glob('*.ckf'))
 
 
 def test_failed_replacement_at_budget_preserves_existing_data(tmp_path):
@@ -46,7 +46,7 @@ def test_failed_replacement_at_budget_preserves_existing_data(tmp_path):
     a=np.ones((3,5,4),dtype=np.float32)
     c.put(key,a)
     with patch('ckmac.cache.os.replace',side_effect=OSError('simulated write failure')):
-        with pytest.raises(OSError):c.put(key,a*.25)
+        with pytest.raises(ValueError,match='Immutable'):c.put(key,a*.25)
     np.testing.assert_array_equal(c.get(key),a)
 
 
@@ -94,3 +94,24 @@ def test_corrupt_extent_with_unchanged_area_is_a_cache_miss(tmp_path,warm):
     data[8:16]=struct.pack('>II',5,3)
     path.write_bytes(data)
     assert c.get(key) is None
+
+
+def test_failed_new_atomic_write_preserves_other_valid_content(tmp_path):
+    c=DiskCache(tmp_path);a=np.ones((3,5,4),np.float32)
+    c.put('a'*64,a);before=c.path('a'*64).read_bytes()
+    with patch('ckmac.cache.os.replace',side_effect=OSError('simulated disk failure')):
+        with pytest.raises(OSError):c.put('b'*64,a*.5)
+    assert c.path('a'*64).read_bytes()==before
+    assert not c.path('b'*64).exists() and not list(tmp_path.glob('.writing-*'))
+
+
+def test_eviction_reserves_the_incoming_size_across_multiple_smaller_entries(tmp_path):
+    c=DiskCache(tmp_path,budget=800)
+    small=np.ones((3,5,4),np.float32)  # 296 bytes including header.
+    c.put('a'*64,small);c.put('b'*64,small)
+    big=np.ones((5,8,4),np.float32)  # 696 bytes; both smaller entries must go.
+    c.put('c'*64,big)
+    assert [p.stem for p in tmp_path.glob('*.ckf')]==['c'*64]
+    assert sum(p.stat().st_size for p in tmp_path.glob('*.ckf'))<=c.budget
+    assert c.stats['cache_bytes_evicted']==592
+    np.testing.assert_array_equal(c.get('c'*64),big)

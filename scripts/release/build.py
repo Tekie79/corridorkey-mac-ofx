@@ -39,7 +39,7 @@ fi
 
 def components(tree):
     return dict(package_version=VERSION,build_id=BUILD,model_set_id=MODEL_SET,protocol=2,
-        component_versions=dict(plugin='0.9.7',worker=5,manager=2,adapter_math=3,cache_format=3,temporal='upstream-float32-continuous-RVM-configurable-Hann-v2'),
+        component_versions=dict(plugin='0.9.7',worker=6,manager=2,adapter_math=3,cache_format=3,temporal='upstream-float32-continuous-RVM-configurable-Hann-v3'),
         python=str(PRODUCT/'Runtime'/BUILD/'bin/python3'),
         code_root=str(PRODUCT/'Runtime'/BUILD/'upstream'),model_root=str(PRODUCT/'Models'/MODEL_SET),
         inventory=inventory(tree))

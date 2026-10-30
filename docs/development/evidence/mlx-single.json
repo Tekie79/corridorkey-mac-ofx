@@ -1,0 +1,78 @@
+{
+  "backend": "mlx_v2",
+  "status": "Passed",
+  "source_sha256": "3f18e69235db36ae8c4be26e8a299cfebcb9ac982d348549f54a132c7050bcd4",
+  "thresholds": {
+    "alpha_mae": 0.001,
+    "alpha_p99": 0.01,
+    "alpha_max": 0.05,
+    "foreground_mae": 0.01,
+    "foreground_p99": 0.05
+  },
+  "scope": "Native standalone process, not Resolve",
+  "shape": [
+    6,
+    720,
+    1280,
+    4
+  ],
+  "load_seconds": 1.9850453750113957,
+  "single_frame_seconds": [
+    7.140610291971825,
+    0.7250889590359293,
+    0.6679502500337549,
+    0.6657282909727655,
+    0.662055499968119,
+    0.662997915991582,
+    0.6642565830261447,
+    0.6640259579871781
+  ],
+  "cold_seconds": 7.140610291971825,
+  "warm_seconds": 0.7250889590359293,
+  "diagnostics": {
+    "backend": "mlx_v2",
+    "precision": "float32",
+    "source_commit": "74065491ebd2eddea494ab34c15a6d84d7415353",
+    "model_manifest_sha256": "01976ea64b47f7aa2bbd7a2221ac8644bf7ac03f437abf6a2b8b5bd25dc3b188",
+    "adapter": "raw-float-v1",
+    "loaded": true,
+    "device": "mlx_gpu",
+    "automatic_mps_fallback": false,
+    "cpu_preprocessing": [
+      "transfer",
+      "padding",
+      "torch CPU interpolation",
+      "scheduling"
+    ],
+    "supported_padded_shapes": [
+      [
+        768,
+        1280
+      ],
+      [
+        1024,
+        1536
+      ]
+    ],
+    "completed_network_calls": {
+      "rvm": 8,
+      "foundations": 8,
+      "stage1": 8,
+      "stage2": 8
+    },
+    "completed_temporal_shots": 0,
+    "experimental": true,
+    "active_bytes": 5074195572,
+    "peak_bytes": 7012358244
+  },
+  "alpha_range": [
+    0.0,
+    1.0
+  ],
+  "foreground_range": [
+    -0.0064077721908688545,
+    0.7368189692497253
+  ],
+  "total_seconds": 13.88816729199607,
+  "process_peak_rss_bytes": 5407457280
+}

@@ -272,7 +272,7 @@ void WorkerManager::waitReady() {
         auto report=control("{\"op\":\"health\"}");
         id d=[NSJSONSerialization JSONObjectWithData:[NSData dataWithBytes:report.data() length:report.size()] options:0 error:nil];
         NSString* state=d[@"state"];
-        if([state isEqual:@"ready"]||[state isEqual:@"processing"])return;
+        if([state isEqual:@"ready"]||[state isEqual:@"cache_ready"]||[state isEqual:@"processing"])return;
         if([state isEqual:@"error"])fail(str(d[@"error"]));
         if(cancelled_&&cancelled_())throw Cancelled();
         if(std::chrono::steady_clock::now()>deadline)fail("Model loading/self-check timed out.");
@@ -289,7 +289,7 @@ std::vector<float> WorkerManager::infer(unsigned w,unsigned h,const std::vector<
         auto report=control("{\"op\":\"health\"}");
         id d=[NSJSONSerialization JSONObjectWithData:[NSData dataWithBytes:report.data() length:report.size()] options:0 error:nil];
         NSString* state=d[@"state"];
-        if([state isEqual:@"ready"]||[state isEqual:@"processing"])break;
+        if([state isEqual:@"ready"]||[state isEqual:@"cache_ready"]||[state isEqual:@"processing"])break;
         if([state isEqual:@"error"])fail(str(d[@"error"]));
         if(cancelled_&&cancelled_())throw Cancelled();
         if(std::chrono::steady_clock::now()>deadline)fail("Model loading/self-check timed out.");
@@ -305,18 +305,29 @@ std::vector<float> WorkerManager::infer(unsigned w,unsigned h,const std::vector<
       return out;
     }
 }
+std::string WorkerManager::fingerprint(unsigned w,unsigned h,const std::vector<float>& pixels) {
+    if(checkedPayloadSize(w,h)!=pixels.size()*sizeof(float))fail("Invalid input geometry.");
+    CC_SHA256_CTX hash;CC_SHA256_Init(&hash);uint32_t shape[]{htonl(w),htonl(h)};
+    CC_SHA256_Update(&hash,shape,sizeof(shape));CC_SHA256_Update(&hash,pixels.data(),CC_LONG(pixels.size()*sizeof(float)));
+    unsigned char digest[32];CC_SHA256_Final(digest,&hash);std::string key;const char* hex="0123456789abcdef";
+    for(auto b:digest){key+=hex[b>>4];key+=hex[b&15];}
+    return key;
+}
 std::string WorkerManager::stage(unsigned w,unsigned h,const std::vector<float>& pixels,bool reuse) {
     if(checkedPayloadSize(w,h)!=pixels.size()*sizeof(float))fail("Invalid temporal input geometry.");
     if(endpoint_.empty())ensure();
     @autoreleasepool {
-        CC_SHA256_CTX hash;CC_SHA256_Init(&hash);uint32_t shape[]{htonl(w),htonl(h)};
-        CC_SHA256_Update(&hash,shape,sizeof(shape));CC_SHA256_Update(&hash,pixels.data(),CC_LONG(pixels.size()*sizeof(float)));
-        unsigned char digest[32];CC_SHA256_Final(digest,&hash);std::string key;const char* hex="0123456789abcdef";
-        for(auto b:digest){key+=hex[b>>4];key+=hex[b&15];}
+        auto key=fingerprint(w,h,pixels);
         auto lookup=control(encode(@{@"op":@"input_lookup",@"key":@(key.c_str())}));
         id d=[NSJSONSerialization JSONObjectWithData:[NSData dataWithBytes:lookup.data() length:lookup.size()] options:0 error:nil];
         if(!reuse||![d[@"present"] boolValue])exchange(encode(@{@"op":@"stage",@"key":@(key.c_str()),@"width":@(w),@"height":@(h)}),pixels.data(),pixels.size()*sizeof(float));
         return key;
+    }
+}
+bool WorkerManager::framePresent(unsigned w,unsigned h,const std::string& key,const Settings& s) {
+    @autoreleasepool {
+        auto json=control(encode(@{@"op":@"frame_lookup",@"source_key":@(key.c_str()),@"width":@(w),@"height":@(h),@"input_space":@(s.inputSpace),@"hint":@(s.sourceAlphaHint),@"quality":@(s.hintQuality),@"despill":@(s.despillStrength),@"profile":profile(s)}));
+        id d=[NSJSONSerialization JSONObjectWithData:[NSData dataWithBytes:json.data() length:json.size()] options:0 error:nil];return [d[@"present"] boolValue];
     }
 }
 std::vector<float> WorkerManager::inferCaptured(unsigned w,unsigned h,const std::string& key,const Settings& s) {
@@ -343,16 +354,39 @@ std::vector<std::string> WorkerManager::inputsPresent(const std::vector<std::str
         return found;
     }
 }
-std::vector<float> WorkerManager::temporal(unsigned w,unsigned h,const std::vector<std::string>& keys,unsigned requested,const Settings& s,int revision,bool firstHint,const std::string& provenance) {
+std::vector<std::string> WorkerManager::analysisStatus(unsigned w,unsigned h,const std::vector<std::string>& keys,unsigned requested,const Settings& s,int revision,bool firstHint,const std::string& provenance) {
+    if(endpoint_.empty())ensure();
+    @autoreleasepool {
+        NSMutableArray* list=[NSMutableArray array];for(auto& k:keys)[list addObject:@(k.c_str())];
+        id origin=[NSJSONSerialization JSONObjectWithData:[NSData dataWithBytes:provenance.data() length:provenance.size()] options:0 error:nil];
+        if(![origin isKindOfClass:[NSDictionary class]])fail("Invalid source snapshot provenance");
+        auto response=control(encode(@{@"op":@"analyze_status",@"width":@(w),@"height":@(h),@"keys":list,@"requested":@(requested),@"input_space":@(s.inputSpace),@"hint":@(s.sourceAlphaHint),@"quality":@(s.hintQuality),@"despill":@(s.despillStrength),@"revision":@(revision),@"first_hint":@(firstHint),@"provenance":origin,@"profile":profile(s)}));
+        id d=[NSJSONSerialization JSONObjectWithData:[NSData dataWithBytes:response.data() length:response.size()] options:0 error:nil];
+        return {str(d[@"state"]),str(d[@"generation"])};
+    }
+}
+std::string WorkerManager::bake(const std::string& generation,const std::string& destination,const std::string& kind,const PostSettings& post,const BakeOptions& options) {
+    @autoreleasepool {
+        auto response=control(encode(@{@"op":@"bake",@"generation":@(generation.c_str()),@"destination":@(destination.c_str()),@"kind":@(kind.c_str()),@"precision":options.fullFloat?@"float":@"half",@"size_mode":@(options.sizeMode),@"output_size":@[@(options.width),@(options.height)],@"source_size":@[@(options.sourceWidth),@(options.sourceHeight)],@"source_size_explicit":@(options.sourceSizeExplicit),@"resolve_host":@(options.resolveHost),@"source_manifest":@(options.sourceManifest.c_str()),@"post":@{@"despill":@(post.despill),@"whitePoint":@(post.whitePoint),@"recoverDetails":@(post.recoverDetails),@"linearize":@(post.linearize),@"screen":@(post.screen),@"method":@(post.method),@"picked":@[@(post.picked[0]),@(post.picked[1]),@(post.picked[2])]}}));
+        id d=[NSJSONSerialization JSONObjectWithData:[NSData dataWithBytes:response.data() length:response.size()] options:0 error:nil];
+        bakeOwnsAnalysis=[d[@"temporary_owned"] boolValue];return str(d[@"manifest"]);
+    }
+}
+std::vector<float> WorkerManager::temporal(unsigned w,unsigned h,const std::vector<std::string>& keys,unsigned requested,const Settings& s,int revision,bool firstHint,const std::string& provenance,bool resume) {
     ensure();waitReady();
     @autoreleasepool {
         NSMutableArray* list=[NSMutableArray array];for(auto& k:keys)[list addObject:@(k.c_str())];
         id origin=[NSJSONSerialization JSONObjectWithData:[NSData dataWithBytes:provenance.data() length:provenance.size()] options:0 error:nil];
         if(![origin isKindOfClass:[NSDictionary class]])fail("Invalid temporal provenance.");
-        std::string json=encode(@{@"op":@"temporal",@"width":@(w),@"height":@(h),@"keys":list,@"requested":@(requested),@"input_space":@(s.inputSpace),
+        std::string json=encode(@{@"op":@"temporal",@"resume":@(resume),@"width":@(w),@"height":@(h),@"keys":list,@"requested":@(requested),@"input_space":@(s.inputSpace),
             @"hint":@(s.sourceAlphaHint),@"quality":@(s.hintQuality),@"despill":@(s.despillStrength),@"revision":@(revision),@"first_hint":@(firstHint),@"provenance":origin,@"profile":profile(s)});
+        auto state=analysisStatus(w,h,keys,requested,s,revision,firstHint,provenance);
+        if(state[0]=="Analyzed"&&!resume)json=encode(@{@"op":@"result_get",@"generation":@(state[1].c_str()),@"source_keys":list,@"requested":@(requested),@"width":@(w),@"height":@(h)});
+        if(state[0]=="Stale"&&!resume)fail("Stale analysis: requested result missing. Use Analyze/Resume; playback does not rerun the shot.");
         std::string metadata;auto bytes=exchange(json,nullptr,0,&metadata);
         checkImageMetadata(metadata,w,h);
+        id response=[NSJSONSerialization JSONObjectWithData:[NSData dataWithBytes:metadata.data() length:metadata.size()] options:0 error:nil];
+        lastGeneration=str(response[@"generation"]);cacheHit=[response[@"cache_hit"] boolValue];
         if(bytes.size()!=checkedPayloadSize(w,h))fail("Wrong temporal output dimensions.");
         std::vector<float> result(bytes.size()/4);memcpy(result.data(),bytes.data(),bytes.size());
         for(size_t i=0;i<result.size();i++)if(!std::isfinite(result[i])||(i%4==3&&(result[i]<0||result[i]>1)))fail("Invalid temporal output.");

@@ -1,0 +1,24 @@
+{
+  "new": [],
+  "removed": [],
+  "timestamp_or_inode_changes": [],
+  "byte_delta": 0,
+  "interpretation": "New names indicate new content/generations; removed names indicate eviction/cleanup. Timestamp-only changes do not establish neural work. Compare worker analysis/network counters too.",
+  "counter_delta": {
+    "input_stage_attempts": 0,
+    "input_stage_new": 0,
+    "input_stage_dedup": 0,
+    "analysis_starts": 0,
+    "analysis_completions": 0,
+    "result_cache_hits": 59,
+    "result_cache_misses": 0
+  },
+  "network_delta": {
+    "cradio": 0,
+    "moge_encoder": 0,
+    "rvm": 0,
+    "stage1": 0,
+    "stage2": 0
+  },
+  "scope": "Native Resolve 60 forward + 60 reverse + three seeded shuffled passes of 60 GetValue requests. Resolve RAM cache can satisfy requests; 59 worker hits are distinguished from host hits."
+}

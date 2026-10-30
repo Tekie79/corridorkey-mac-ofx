@@ -1,0 +1,15 @@
+{
+  "scope": "Actual installed Python DiskCache on this Mac, isolated synthetic cache; not Resolve reproduction",
+  "installed_plugin_sha256": "e6304a001859f5026735b5d4e12156573c30109a7fae250dfe4ee647cb09fae2",
+  "filename_unchanged": true,
+  "bytes_unchanged": true,
+  "mtime_changed": true,
+  "ctime_changed": true,
+  "neural_work": 0,
+  "cache_stats": {
+    "ram_hits": 0,
+    "disk_hits": 1,
+    "metadata_hits": 0,
+    "staged_bytes": 240
+  }
+}

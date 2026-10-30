@@ -40,3 +40,14 @@ def test_staged_frame_reuses_result_without_neural_work_and_invalidates(tmp_path
         assert len(calls)==3
         req['source_key']='../untrusted'
         with pytest.raises(ValueError):e.frame(req)
+
+
+def test_cold_cached_result_never_loads_model(tmp_path):
+    e=Engine({'build_id':'lazy-test','code_root':str(tmp_path),'model_root':str(tmp_path)},tmp_path)
+    e.backend=SimpleNamespace(_model=None,load=lambda:(_ for _ in ()).throw(AssertionError('cached read loaded model')))
+    req=dict(width=5,height=3,input_space=1,hint=False,quality=.75,despill=0.,session_id='node-a',source_key='a'*64)
+    a=np.ones((3,5,4),dtype=np.float32)
+    e.cache.put(e.frame_key(req),a)
+    assert e.state=='cache_ready'
+    np.testing.assert_array_equal(e.frame(req),a)
+    assert e.backend._model is None and e.cache_hits==1

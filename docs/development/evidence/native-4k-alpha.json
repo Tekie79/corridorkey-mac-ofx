@@ -1,0 +1,62 @@
+{
+  "scope": "Native Resolve Bake Alpha with Match Source=0 and both original-size overrides=0 (Auto), following deferred vendor-SDK metadata lookup; temporary analysis already cleaned",
+  "manifest": "${WORKSPACE}/.build/evidence/mlx-cache-bake/resolve/control-bakes/bake-c6c9c9edd33548e1ae1fbb1cb92d0d83/manifest.json",
+  "source_size": [
+    4096,
+    2160
+  ],
+  "analysis_size": [
+    1920,
+    1080
+  ],
+  "resampling": {
+    "applied": true,
+    "from_size": [
+      1920,
+      1080
+    ],
+    "method": "bilinear_pixel_centers_full_frame_no_crop",
+    "to_size": [
+      4096,
+      2160
+    ]
+  },
+  "frames": 60,
+  "fps": 25,
+  "start": 0,
+  "end": 59,
+  "verified_all_checksums": true,
+  "verified_all_A_HALF_dimensions_and_range": true,
+  "distinct_frames": 60,
+  "sampled_resize_max_error": 0.0,
+  "examples": [
+    {
+      "frame": 0,
+      "opaque_bbox": [
+        1182,
+        82,
+        2741,
+        2160
+      ]
+    },
+    {
+      "frame": 29,
+      "opaque_bbox": [
+        1221,
+        103,
+        2755,
+        2160
+      ]
+    },
+    {
+      "frame": 59,
+      "opaque_bbox": [
+        1200,
+        111,
+        2739,
+        2160
+      ]
+    }
+  ],
+  "temporary_blobs": 0
+}

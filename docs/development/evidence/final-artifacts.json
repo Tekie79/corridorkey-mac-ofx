@@ -1,0 +1,15 @@
+{
+  "branch": "feature/mlx-cache-bake",
+  "base_commit": "deb84c2d619983663ef31e5a9d5ef40191b6cca4",
+  "installed_build": "0.9.7-b1.027347b5a7e5",
+  "installed_plugin_sha256": "e6304a001859f5026735b5d4e12156573c30109a7fae250dfe4ee647cb09fae2",
+  "candidate_product_sha256": "232a890a6fd9544bc3c78d8063d1431912d0566c7b93ce3b3674a01eb87f9a6d",
+  "qa_alias_sha256": "960fe75e61a762cabb5d08b80fed941530ddf2f00b804b1853b4a7f2269a5ca6",
+  "python_tests": 138,
+  "python_subtests": 6,
+  "native_tests": 7,
+  "os": "26.3.2",
+  "machine": "arm64",
+  "packaged": false,
+  "installed": false
+}

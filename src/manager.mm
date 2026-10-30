@@ -70,7 +70,7 @@
     }
 }
 - (void)status:(id)s {
-    self.text.string=@"Preparing GPU engine…";
+    self.text.string=@"Reading engine status…";
     dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED,0),^{
         std::string answer;try{answer=ckmac::WorkerManager().status();}catch(const std::exception& e){answer=e.what();}
         NSString* value=@(answer.c_str());dispatch_async(dispatch_get_main_queue(),^{self.text.string=value;});

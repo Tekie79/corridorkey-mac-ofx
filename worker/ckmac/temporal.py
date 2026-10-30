@@ -15,58 +15,92 @@ from dataclasses import asdict,replace
 import numpy as np
 from .backend import prepare_frame,finish_frame
 from .profiles import Profile
+from .generations import Generations,digest
 
 
 class TemporalProcessor:
     def __init__(self,backend,cache,build):
         self.backend,self.cache,self.build=backend,cache,build
         self.last_outputs=set()
+        self.records=Generations(cache) if cache is not None else None
+        self.last_generation=None
+        self.stats=dict(analysis_starts=0,analysis_completions=0,result_cache_hits=0,result_cache_misses=0)
 
-    def run(self,keys,settings,requested,*,revision=0,first_hint=False,provenance=None,cancel=lambda:False,progress=lambda x:None,profile=None,expected_shape=None):
+    def identity(self,keys,settings,revision=0,first_hint=False,provenance=None,profile=None):
+        return dict(algorithm='upstream-float32-RVM-continuous-Hann-configurable-v3',build=self.build,
+                    backend=getattr(self.backend,'identity',{'backend':'mps','precision':'float32'}),
+                    inputs=keys,settings=settings,first_hint=first_hint,revision=revision,
+                    provenance=provenance,profile=asdict(profile or Profile()))
+
+    def run(self,keys,settings,requested,*,revision=0,first_hint=False,provenance=None,cancel=lambda:False,progress=lambda x:None,profile=None,expected_shape=None,resume=False,owner=None):
         profile=profile or Profile()
         if first_hint and settings.get('hint_mode')!='none' and profile.window<2:
             raise ValueError('Reference hints need a Window of 2 or higher for propagation')
         if not 2<=len(keys)<=240 or not 0<=requested<len(keys):
             raise ValueError('Temporal range must contain 2–240 integer frames; select a shorter range or bake retiming')
         if not 0<=profile.reference_index<len(keys):raise ValueError('Reference Frame must lie inside the selected shot')
+        identity=self.identity(keys,settings,revision,first_hint,provenance,profile)
+        master=digest(identity)
+        outputs=[hashlib.sha256(f'{master}:{i}'.encode()).hexdigest() for i in range(len(keys))]
+        self.last_outputs=set(outputs)
+        self.last_generation=master
+        existing=self.records.record(master)
+        if existing is not None:
+            self.records.lease(owner,master)
+            try:
+                # A missing *other* result cannot prevent this immutable result
+                # from being read. No run-wide availability scan on playback.
+                result=self.records.result(master,requested,expected_shape)
+                if not resume or self.records.status(master)['state']=='Analyzed':
+                    self.stats['result_cache_hits']+=1
+                    return result
+            except RuntimeError:
+                if not resume:
+                    self.stats['result_cache_misses']+=1
+                    raise
+            # Repair is explicit. Old completion cannot describe a partial run.
+        self.stats['analysis_starts']+=1
+        self.records.remember(owner,keys)
+        self.records.remember(owner,outputs,'result')
         if profile.reference_index:
-            # Independent recurrent passes start at the explicit reference,
-            # moving outwards. Both halves finish before any result is returned.
-            # This is an explicitly named bidirectional variant, not last-viewed
-            # recurrent state. The full source set remains in each provenance.
-            ref=profile.reference_index
+            ref=profile.reference_index;children=[]
             origin=dict(parent=provenance,all_inputs=keys,variant='reference-outward-two-pass-v1')
-            runs=[(keys[ref::-1],ref-requested,'backward'),(keys[ref:],requested-ref,'forward')]
-            answer=None
-            for part,index,direction in runs:
+            for indices,direction in [(list(range(ref,-1,-1)),'backward'),(list(range(ref,len(keys))),'forward')]:
+                part=[keys[i] for i in indices]
                 if len(part)==1:
                     frame=self.cache.get(part[0])
                     if frame is None:raise RuntimeError('Reference input was evicted; analyze again')
-                    if expected_shape is not None and frame.shape!=expected_shape:raise ValueError('Reference input extent does not match the requested canvas')
                     value=self.backend.infer(profile.resize(frame,settings['input_space']),**settings)
-                    value=profile.restore(value,frame.shape[:2],settings['input_space'])
+                    self.cache.put(outputs[indices[0]],profile.restore(value,frame.shape[:2],settings['input_space']))
                 else:
-                    value=self.run(part,settings,min(len(part)-1,max(0,index)),revision=revision,first_hint=first_hint,
-                                   provenance=dict(origin,direction=direction),cancel=cancel,progress=progress,
-                                   profile=replace(profile,reference_index=0),expected_shape=expected_shape)
-                if 0<=index<len(part):answer=value
-            return answer
-        stride=max(1,profile.window//2)
-        identity=dict(algorithm='upstream-float32-RVM-continuous-Hann-configurable-v2',build=self.build,
-                      inputs=keys,settings=settings,first_hint=first_hint,revision=revision,provenance=provenance,profile=asdict(profile))
-        master=hashlib.sha256(json.dumps(identity,sort_keys=True,allow_nan=False).encode()).hexdigest()
-        outputs=[hashlib.sha256(f'{master}:{i}'.encode()).hexdigest() for i in range(len(keys))]
-        self.last_outputs.update(outputs)
-        complete=self.cache.root/(master+'.analysis.json')
-        if complete.exists():
+                    self.run(part,settings,0,revision=revision,first_hint=first_hint,
+                             provenance=dict(origin,direction=direction),cancel=cancel,progress=progress,
+                             profile=replace(profile,reference_index=0),expected_shape=expected_shape,resume=resume,owner=owner)
+                    child=self.records.record(self.last_generation);children.append(self.last_generation)
+                    for j,i in enumerate(indices):
+                        # Reference frame belongs to the forward pass.
+                        if direction=='backward' and i==ref:continue
+                        self.cache.put(outputs[i],self.records.result(child['generation'],j,expected_shape))
+            self.last_outputs=set(outputs);self.last_generation=master
+            self.records.complete(master,identity,outputs,owner,children)
+            self.stats['analysis_completions']+=1
+            return self.records.result(master,requested,expected_shape)
+        if hasattr(self.backend,'analyze_ordered_shot'):
+            self.backend.first_hint=first_hint
+            self.cache.pin(keys+outputs)
             try:
-                record=json.loads(complete.read_text())
-                if record['identity']==identity and record['outputs']==outputs:
-                    result=self.cache.get(outputs[requested])
-                    # A completion marker is valid only while the complete set
-                    # remains present and checksummed, not merely this one frame.
-                    if result is not None and (expected_shape is None or result.shape==expected_shape) and all(self.cache.valid(k) for k in outputs):return result
-            except (OSError,ValueError,KeyError):pass
+                def frame(i):
+                    value=self.cache.get(keys[i])
+                    if value is None:raise RuntimeError('Captured input missing; Analyze/Resume must recapture')
+                    if expected_shape is not None and value.shape!=expected_shape:raise ValueError('Captured input extent mismatch')
+                    return value
+                self.backend.analyze_ordered_shot(frame,len(keys),settings,profile,
+                    lambda i,value:None if self.cache.valid(outputs[i]) else self.cache.put(outputs[i],value),cancel,progress,self.cache.root)
+                self.records.complete(master,identity,outputs,owner)
+                self.stats['analysis_completions']+=1
+                return self.records.result(master,requested,expected_shape)
+            finally:self.cache.unpin(keys+outputs)
+        stride=max(1,profile.window//2)
         torch=self.backend._torch;model=self.backend._model
         if model is None:self.backend.load();torch=self.backend._torch;model=self.backend._model
         profile.configure(self.backend)
@@ -90,7 +124,7 @@ class TemporalProcessor:
         nbytes=sample.nbytes
         if 2*nbytes*len(keys)+2**30>self.cache.budget:
             raise OSError('The complete native temporal range exceeds the cache budget. Select a shorter range.')
-        self.cache.pin(keys)
+        self.cache.pin(keys+outputs)
         try:
             self.cache.reserve(nbytes*len(keys)+2**30)
             with tempfile.TemporaryDirectory(prefix='.temporal-',dir=self.cache.root) as tmp:
@@ -125,7 +159,7 @@ class TemporalProcessor:
                             alpha=logits[0,0,0:1].permute(1,2,0).float().cpu().numpy()
                             result=finish_frame(fg,alpha,p,input_space=settings['input_space'],despill_strength=settings['despill_strength'])
                             result=profile.restore(result,sample.shape[:2],settings['input_space'])
-                            self.cache.put(outputs[i],result)
+                            if not self.cache.valid(outputs[i]):self.cache.put(outputs[i],result)
                             del baton,rgb,logits,fg,alpha,result,p
                     for window,t0 in enumerate(starts):
                         check();t1=min(t0+profile.window,len(keys));count=t1-t0
@@ -160,15 +194,10 @@ class TemporalProcessor:
                         flush(next_start)
                         progress(.3+.7*(window+1)/len(starts))
                     flush(len(keys));torch.mps.synchronize();check()
-            # Only a complete, immutable set can be activated. No pickle/state RPC.
-            fd,temp=tempfile.mkstemp(prefix='.analysis-',dir=self.cache.root)
-            try:
-                with os.fdopen(fd,'w') as f:
-                    json.dump(dict(identity=identity,outputs=outputs),f,allow_nan=False);f.flush();os.fsync(f.fileno())
-                os.replace(temp,complete)
-            finally:Path(temp).unlink(missing_ok=True)
+            self.records.complete(master,identity,outputs,owner)
+            self.stats['analysis_completions']+=1
             result=self.cache.get(outputs[requested])
             if result is None:raise RuntimeError('Temporal output was not retained')
             self.backend._temporal_completed += 1
             return result
-        finally:self.cache.unpin(keys)
+        finally:self.cache.unpin(keys+outputs)

@@ -11,8 +11,33 @@ import xml.etree.ElementTree as ET
 import platform
 import time
 import zipfile
+import socket
+import struct
 
 ROOT=Path('/Library/Application Support/HarvestPictures/CorridorKeyMac')
+
+def running_engine_health(active,endpoint=None):
+    """Read local counters for support; never start a worker or include tokens."""
+    path=endpoint or Path(f'/private/tmp/ckmac-{os.getuid()}/{active["build_id"][:32]}.sock')
+    try:
+        token=Path(str(path)+'.token').read_text()
+        request=dict(op='health',protocol=2,build_id=active['build_id'],token=token,payload_bytes=0,session_id='support-report',request_id=1,effect_generation=0)
+        body=json.dumps(request).encode()
+        with socket.socket(socket.AF_UNIX,socket.SOCK_STREAM) as c:
+            c.settimeout(2);c.connect(str(path));c.sendall(b'CKJ2'+struct.pack('>I',len(body))+body)
+            def read(n):
+                data=b''
+                while len(data)<n:
+                    chunk=c.recv(n-len(data))
+                    if not chunk:raise ValueError('Truncated engine health')
+                    data+=chunk
+                return data
+            n=struct.unpack('>I',read(4))[0]
+            if not 1<=n<=2**20:raise ValueError('Unbounded engine health')
+            health=json.loads(read(n))
+        fields={'state','error','fixture_passed','model_loaded','user_frames_completed','cache_hits','active_jobs','facts','cache','counters','node_counters','cache_domains'}
+        return {k:v for k,v in health.items() if k in fields}
+    except (OSError,ValueError,KeyError):return dict(state='not_running_or_unavailable',worker_started=False)
 
 def sha(path):
     h=hashlib.sha256()
@@ -58,6 +83,7 @@ def main():
         with zipfile.ZipFile(destination,'x',compression=zipfile.ZIP_DEFLATED) as z:
             z.writestr('system-and-storage.json',json.dumps(details,indent=2))
             z.writestr('versions.json',json.dumps(active,indent=2).replace(str(Path.home()),'~'))
+            z.writestr('engine-counters.json',json.dumps(running_engine_health(active),indent=2).replace(str(Path.home()),'~'))
             log=cache/'engine.log'
             if log.is_file() and not log.is_symlink():z.writestr('engine.log',log.read_bytes()[-2**20:].decode('utf-8',errors='replace').replace(str(Path.home()),'~'))
         destination.chmod(0o600)

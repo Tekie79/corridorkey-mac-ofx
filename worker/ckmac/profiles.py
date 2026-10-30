@@ -48,6 +48,9 @@ class Profile:
         return np.ascontiguousarray(np.concatenate((rgb,alpha),axis=2),dtype=np.float32)
 
     def configure(self,backend):
+        if hasattr(backend,"configure_profile"):
+            backend.configure_profile(self)
+            return
         backend.load()
         torch=backend._torch
         # This is a fraction of Metal's recommended working set, not physical

@@ -219,6 +219,10 @@ def finish_frame(
 class CorridorKeyBackend:
     """One persistent, serialized, actual CorridorKey model on the Mac GPU."""
 
+    identity = dict(backend='mps',precision='float32',adapter='math-v3',
+                    source_commit=UPSTREAM_COMMIT,
+                    model_lock_sha256='b4276fb3c756b3c56285e611913dc4d6313f9f0a71b88317f4dacf5f90da6133')
+
     def __init__(self, upstream_root: str | Path, model_root: str | Path | None = None):
         root = Path(upstream_root).expanduser()
         if not root.is_absolute():

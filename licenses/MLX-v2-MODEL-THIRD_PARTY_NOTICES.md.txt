@@ -1,0 +1,42 @@
+# Attribution and model licenses
+
+**CorridorKey 2.0** was designed and trained by Zachary Harris in collaboration
+with Niko Pueringer and Corridor Digital.
+
+- Original source: https://github.com/nikopueringer/CorridorKey2.0
+- Original weights: https://huggingface.co/nikopueringer/CorridorKey2.0
+- CorridorKey-derived weights and graphs: [Corridor Key Licence 2.0](LICENSE), unchanged.
+
+This repository contains MLX conversions by Peter Teravskis. The FP32 conversion
+preserves the learned parameter values; FP16 and Q8 variants apply rounding and
+quantization. The conversion exports shape-specialized component graphs and
+safetensors. It is a community conversion, without implied endorsement.
+
+## Foundation components
+
+| Component | Original source | Bundled license |
+| :--- | :--- | :--- |
+| NVIDIA C-RADIOv4-SO400M | https://huggingface.co/nvidia/C-RADIOv4-SO400M | [NVIDIA Open Model License](licenses/LICENSE-NVIDIA-OPEN-MODEL.pdf) |
+| Microsoft / Ruicheng MoGe-2 ViT-B | https://huggingface.co/Ruicheng/moge-2-vitb-normal | [MIT / MoGe notices](licenses/MoGe-LICENSE) |
+| Google DeepMind RVM small | https://github.com/google-deepmind/representations4d | [CC BY 4.0](licenses/LICENSE-CC-BY-4.0.txt) |
+
+Licensed by NVIDIA Corporation under the NVIDIA Open Model License.
+The NVIDIA notice is also retained in [licenses/NVIDIA-NOTICE](licenses/NVIDIA-NOTICE).
+
+RVM attribution: Copyright 2025 Google LLC. Associated work: *Recurrent Video
+Masked Autoencoders*, Daniel Zoran, Nikhil Parthasarathy, Yi Yang, Drew A. Hudson,
+Joao Carreira, and Andrew Zisserman. Reference source uses Apache 2.0; the
+checkpoint is CC BY 4.0. MLX export changes the graph/container representation.
+This is not an official Google product.
+
+The combined `foundations` profile contains C-RADIO and MoGe. The `rvm` profile
+contains the recurrent encoder; `stage1` and `stage2` contain CorridorKey's
+matting networks. Model-specific terms continue to apply within combined files.
+Identified DINOv2 source in the MoGe project is Apache 2.0; its notice is retained
+within the MoGe license text. No original foundation-model Python source is
+included in this model bundle.
+
+[UPSTREAM_THIRD_PARTY_NOTICES.md](UPSTREAM_THIRD_PARTY_NOTICES.md) preserves the
+original public project's notices verbatim. Its statement that foundation models
+are downloaded separately describes the upstream repository. This derivative
+bundle includes their converted profiles, under the licenses listed above.
