@@ -115,3 +115,15 @@ def test_eviction_reserves_the_incoming_size_across_multiple_smaller_entries(tmp
     assert sum(p.stat().st_size for p in tmp_path.glob('*.ckf'))<=c.budget
     assert c.stats['cache_bytes_evicted']==592
     np.testing.assert_array_equal(c.get('c'*64),big)
+    assert c.miss_reason('a'*64)=='evicted_for_cache_budget'
+
+
+def test_cache_miss_causes_are_precise_without_invented_eviction_history(tmp_path):
+    c=DiskCache(tmp_path);key='a'*64;a=np.ones((3,5,4),np.float32)
+    assert c.miss_reason(key)=='missing_blob_cause_unknown'
+    c.put(key,a);c.path(key).write_bytes(b'corrupted')
+    assert c.get(key) is None and c.miss_reason(key)=='corrupt_or_invalid_blob'
+    c.remove([key]);assert c.miss_reason(key)=='explicit_temporary_cleanup'
+    restarted=DiskCache(tmp_path)
+    assert restarted.miss_reason(key)=='missing_blob_cause_unknown'
+    restarted.volume=-1;assert restarted.miss_reason(key)=='cache_volume_changed'

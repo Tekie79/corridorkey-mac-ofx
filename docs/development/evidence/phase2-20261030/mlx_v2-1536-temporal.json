@@ -1,0 +1,100 @@
+{
+  "backend": "mlx_v2",
+  "status": "Passed",
+  "source_sha256": "a22d70c7c577cb883b3e89ffb052fd52887efba122761d10e71eccae5a583cff",
+  "thresholds": {
+    "alpha_mae": 0.001,
+    "alpha_p99": 0.01,
+    "alpha_max": 0.05,
+    "foreground_mae": 0.01,
+    "foreground_p99": 0.05
+  },
+  "scope": "Native standalone process, not Resolve",
+  "shape": [
+    6,
+    1024,
+    1536,
+    4
+  ],
+  "load_seconds": 1.0942800830234773,
+  "temporal_seconds": 10.711361583031248,
+  "cached_replay_seconds": 0.014217040967196226,
+  "cached_replay_frames": 18,
+  "replay_no_new_files_or_timestamp_changes": true,
+  "replay_no_neural_work": true,
+  "cache_counters": {
+    "ram_hits": 51,
+    "disk_hits": 0,
+    "metadata_hits": 0,
+    "staged_bytes": 301989888,
+    "puts": 12,
+    "put_dedup": 0,
+    "cache_bytes_written": 301990560,
+    "cache_bytes_evicted": 0,
+    "analysis_starts": 1,
+    "analysis_completions": 1,
+    "result_cache_hits": 18,
+    "result_cache_misses": 0
+  },
+  "diagnostics": {
+    "backend": "mlx_v2",
+    "precision": "float32",
+    "source_commit": "74065491ebd2eddea494ab34c15a6d84d7415353",
+    "model_manifest_sha256": "01976ea64b47f7aa2bbd7a2221ac8644bf7ac03f437abf6a2b8b5bd25dc3b188",
+    "adapter": "raw-float-v1",
+    "loaded": true,
+    "device": "mlx_gpu",
+    "automatic_mps_fallback": false,
+    "cpu_preprocessing": [
+      "transfer",
+      "padding",
+      "torch CPU interpolation",
+      "scheduling"
+    ],
+    "supported_padded_shapes": [
+      [
+        768,
+        1280
+      ],
+      [
+        1024,
+        1536
+      ]
+    ],
+    "completed_network_calls": {
+      "rvm": 6,
+      "foundations": 6,
+      "stage1": 2,
+      "stage2": 6
+    },
+    "native_1080_padded_shape": [
+      1152,
+      1920
+    ],
+    "native_1080_qualified": false,
+    "completed_temporal_shots": 1,
+    "experimental": true,
+    "torch_module_forward_calls": 0,
+    "neural_components": [
+      "RVM",
+      "C-RADIO",
+      "MoGe",
+      "stage1",
+      "stage2"
+    ],
+    "active_bytes": 5075937748,
+    "peak_bytes": 7474887900
+  },
+  "alpha_range": [
+    0.0,
+    1.0
+  ],
+  "foreground_range": [
+    -0.010960379615426064,
+    6.561954021453857
+  ],
+  "sampled_peak_physical_footprint_bytes": 8968607768,
+  "physical_sample_interval_ms": 50,
+  "total_seconds": 11.980871375009883,
+  "process_peak_rss_bytes": 7057817600
+}

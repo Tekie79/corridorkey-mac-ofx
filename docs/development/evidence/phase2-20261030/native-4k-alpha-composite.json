@@ -1,0 +1,11 @@
+{
+  "frame": 23,
+  "dimensions": [
+    4096,
+    2160
+  ],
+  "alpha_max_error": 0.0,
+  "original_RGB_times_alpha_max_error": 0.0,
+  "worker_socket_absent": true,
+  "temporary_ckf": 0
+}

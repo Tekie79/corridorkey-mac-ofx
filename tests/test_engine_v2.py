@@ -49,6 +49,15 @@ def test_v2_serialization_snapshot_validation_and_durable_clear(_geometry,tmp_pa
         e.records.complete(g,identity,outputs,'node-a')
         req=dict(generation=g,source_keys=[key,key],requested=0)
         response,payload=request('result_get',**req);assert response['ok'] and payload==data
+        status=dict(keys=[key,key],requested=0,revision=0,provenance=identity['provenance'])
+        assert request('analyze_status',**status)[0]['state']=='Analyzed'
+        assert request('analyze_status',**dict(status,revision=1))[0]['miss_reasons']==['revision_changed']
+        assert request('analyze_status',**dict(status,keys=['b'*64,key]))[0]['miss_reasons']==['inputs_changed']
+        assert request('analyze_status',**dict(status,profile=dict(window=8)))[0]['miss_reasons']==['profile_changed']
+        e.cache.path(outputs[0]).write_bytes(b'corrupt')
+        stale=request('analyze_status',**status)[0]
+        assert stale['state']=='Stale' and stale['miss_reasons']==['corrupt_or_invalid_blob']
+        e.cache.put(outputs[0],a)
         req['source_keys']=['b'*64,key]
         assert not request('result_get',**req)[0]['ok']
         response,_=request('bake',generation=g,destination=str(tmp_path/'durable'),kind='alpha')
@@ -56,18 +65,36 @@ def test_v2_serialization_snapshot_validation_and_durable_clear(_geometry,tmp_pa
         baked=json.loads(Path(response['manifest']).read_text())
         assert [baked['width'],baked['height']]==[10,6]  # Match source by default.
         source_manifest=response['manifest']
+        from ckmac.bake import bake as original_bake
+        entered=threading.Event();finish=threading.Event()
+        def delayed_bake(*pos,**kw):
+            entered.set();assert finish.wait(3);return original_bake(*pos,**kw)
+        with patch('ckmac.bake.bake',side_effect=delayed_bake),ThreadPoolExecutor(1) as pool:
+            pending=pool.submit(request,'bake',generation=g,destination=str(tmp_path/'durable'),kind='alpha',size_mode=1)
+            try:
+                assert entered.wait(2)
+                health=request('health')[0];assert health['state']=='baking' and health['active_jobs']==1
+                assert not request('release')[0]['ok']
+            finally:finish.set()
+            assert pending.result()[0]['ok']
         response,_=request('bake',generation=g,destination=str(tmp_path/'durable'),kind='alpha',resolve_host=True)
         assert not response['ok'] and 'Retry Bake' in response['error']
         assert Path(source_manifest).exists()
         e.source_geometry.sizes['node-a:'+g]=[12,8]
+        e.source_geometry.verified.add('node-a:'+g)
         response,_=request('bake',generation=g,destination=str(tmp_path/'durable'),kind='alpha',resolve_host=True)
         assert response['ok']
         original_size=json.loads(Path(response['manifest']).read_text())
         assert [original_size['width'],original_size['height']]==[12,8]
+        verified_manifest=response['manifest'];assert original_size['source_size_basis']=='resolve_sdk'
         # Clearing the owner removes outputs and completion, but never media.
         assert request('clear_shot')[0]['removed_entries']>=3
         assert not (e.cache.root/(g+'.analysis.json')).exists()
         puts=e.cache.stats['puts']
+        e.source_geometry.verified.clear()  # Worker restart/disconnected Source.
+        response,_=request('bake',generation=g,source_manifest=verified_manifest,destination=str(tmp_path/'durable'),kind='alpha',resolve_host=True)
+        assert response['ok'] and not response['temporary_owned']
+        assert json.loads(Path(response['manifest']).read_text())['source_size']==[12,8]
         response,_=request('bake',generation=g,source_manifest=source_manifest,destination=str(tmp_path/'durable'),kind='alpha',size_mode=4,output_size=[20,12])
         assert response['ok'] and not response['temporary_owned']
         exported=json.loads(Path(response['manifest']).read_text())

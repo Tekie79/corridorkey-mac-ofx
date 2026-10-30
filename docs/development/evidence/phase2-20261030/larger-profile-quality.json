@@ -1,0 +1,46 @@
+{
+  "single": {
+    "alpha": {
+      "mae": 0.0007573515176773071,
+      "p99": 0.004617810249328613,
+      "maximum": 0.018309950828552246
+    },
+    "linear_foreground": {
+      "mae": 0.0003644755051936954,
+      "p99": 0.0035109215974806762,
+      "maximum": 0.21784734725952148
+    },
+    "passes_preregistered_thresholds": true,
+    "foreground_maximum_context": {
+      "frame": 0,
+      "x": 509,
+      "y": 258,
+      "channel": 0,
+      "mps_alpha": 0.03707706928253174,
+      "mlx_alpha": 0.037897225469350815,
+      "premultiplied_linear_rgb_maximum": 0.01734018325805664
+    }
+  },
+  "temporal": {
+    "alpha": {
+      "mae": 0.0005480654072016478,
+      "p99": 0.002453625202178955,
+      "maximum": 0.003954589366912842
+    },
+    "linear_foreground": {
+      "mae": 0.00016256638627965003,
+      "p99": 0.0013962388038635254,
+      "maximum": 0.049674034118652344
+    },
+    "passes_preregistered_thresholds": true,
+    "foreground_maximum_context": {
+      "frame": 0,
+      "x": 509,
+      "y": 258,
+      "channel": 0,
+      "mps_alpha": 0.0395125150680542,
+      "mlx_alpha": 0.03954356163740158,
+      "premultiplied_linear_rgb_maximum": 0.007513999938964844
+    }
+  }
+}

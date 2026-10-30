@@ -1,0 +1,103 @@
+{
+  "base_commit": "221ded8a0b09d7cd6959657fbe80aef5ab739561",
+  "branch": "feature/mlx-cache-bake",
+  "product_sha256": "3d8c09120394ec37b4207cf3f3c713228597102645c2e3a3b4b5dca96595dcaa",
+  "QA_sha256": "0b5aa24e7e4986f17066a31bb497d7d2f745aa0e51f7c1c5b21e8999df05225e",
+  "installed_plugin_sha256": "e6304a001859f5026735b5d4e12156573c30109a7fae250dfe4ee647cb09fae2",
+  "installed_changed": false,
+  "new_package_built": false,
+  "source_inventory": [
+    {
+      "path": "include/ckmac/analysis_attempt.hpp",
+      "sha256": "7bd03f7a97b8815c2ad5d4c7c9b25c728dfd23964a9d36d125b62d66ededa1bf"
+    },
+    {
+      "path": "scripts/release/run_fault_qa.py",
+      "sha256": "11b1b1569b360efb232dd8bdc495b84a1a7f61973d302b96106673b61fa3cdff"
+    },
+    {
+      "path": "src/bake.mm",
+      "sha256": "c7f851e63d3c4779a7fe3e29f03f6f09f9a897c7ea1801771114e35891d397c3"
+    },
+    {
+      "path": "src/ofx_plugin.cpp",
+      "sha256": "578573b275cca7d5a9b1bc021b8dc798ae01a94abf4acfdc60818d0e8fc7bc32"
+    },
+    {
+      "path": "src/worker_manager.mm",
+      "sha256": "406e6477e29d98833329abcbd9158fd419689b303b83513595f39721f2f57dc1"
+    },
+    {
+      "path": "worker/ckmac/__init__.py",
+      "sha256": "adb25e514fad3b71fd33ccb9f28e4faf5c3479cb248c98f0d9aa8934753ec224"
+    },
+    {
+      "path": "worker/ckmac/backend.py",
+      "sha256": "9cdf1c0f06b1f2d447dd5fc294eb92c0f98b432922cee547810804b6dc1cbdce"
+    },
+    {
+      "path": "worker/ckmac/backends/__init__.py",
+      "sha256": "83d2d2747c6172b71fe65548879c10f75f178a03460d32a0d097a43a123d22b0"
+    },
+    {
+      "path": "worker/ckmac/backends/mlx_v2_backend.py",
+      "sha256": "a417a1e711599c9a9f1ebab9ba8b0aa03751b9facb2ba5853124f40ba3463d4f"
+    },
+    {
+      "path": "worker/ckmac/backends/mps_backend.py",
+      "sha256": "891b91338a8459f2aeda04f2635aead6fa990c0f4db3f169db5b26a883feb463"
+    },
+    {
+      "path": "worker/ckmac/bake.py",
+      "sha256": "1c9059b7057ace243ce288d832fe084af825f67c7b6c0b05369ea1d0d8e1f5d4"
+    },
+    {
+      "path": "worker/ckmac/bake_transaction.py",
+      "sha256": "6f9104296905d32d929ad56a5b780f17382a58941084699a47f5cf05adda9a6f"
+    },
+    {
+      "path": "worker/ckmac/cache.py",
+      "sha256": "02ea73870297b59f8fec4b049ef8e3a7dbbf4f698885e602012cf148e0913010"
+    },
+    {
+      "path": "worker/ckmac/client.py",
+      "sha256": "63e4dd7902fdb49ff7fd7462486fb24937997fb4129764430529b3ee3ae62d8f"
+    },
+    {
+      "path": "worker/ckmac/engine.py",
+      "sha256": "fd847ac2be90a0010ba3b74d464f06408743319c6303bb8ccaf7d0272967c183"
+    },
+    {
+      "path": "worker/ckmac/exr.py",
+      "sha256": "cd1895becf4565589ce610bbb6d36b4997a33f7319248b8cc3f5a585add2c5be"
+    },
+    {
+      "path": "worker/ckmac/generations.py",
+      "sha256": "4875d7ae569e413dd954c21faf3faed8bf3e8ca7036ba40eadbd845647cf316d"
+    },
+    {
+      "path": "worker/ckmac/maintenance.py",
+      "sha256": "b4be795b0afb41da210a66ca07b3f0b1cc468cdbee97e8daefeed5987126a56f"
+    },
+    {
+      "path": "worker/ckmac/profiles.py",
+      "sha256": "c36e7279a3f8bfee1ad6b79561812ee57eaa2c71ae7976e9b842ccf9f8a2c7dd"
+    },
+    {
+      "path": "worker/ckmac/protocol.py",
+      "sha256": "3ed3bfa11f95d0ae712841dce0986c7401a0c60670f3dd86be62e87d08513067"
+    },
+    {
+      "path": "worker/ckmac/resolve_geometry.py",
+      "sha256": "5bb61abb5eb0282ab32221932e5614aabd7901d6be20c38c1f7a92e60062b716"
+    },
+    {
+      "path": "worker/ckmac/server.py",
+      "sha256": "47d5dbb9153a0222e4819024db349c5460a5d66219c0b6ce08e1a4afa92ba309"
+    },
+    {
+      "path": "worker/ckmac/temporal.py",
+      "sha256": "bc06aa612490f38feee405f13b05e4163066998105b788c6a9b56bb196e58ea1"
+    }
+  ]
+}

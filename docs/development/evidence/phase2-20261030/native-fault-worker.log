@@ -1,0 +1,40 @@
+2026-10-30 17:09:00,582 INFO using MLP layer as FFN
+2026-10-30 17:09:08,713 ERROR Request failed
+Traceback (most recent call last):
+  File "${WORKSPACE}/worker/ckmac/engine.py", line 365, in handle
+    image=e.temporal.run(req['keys'],settings,req['requested'],revision=req['revision'],first_hint=req.get('first_hint',False),provenance=req.get('provenance'),cancel=canceled,progress=progress,profile=profile,expected_shape=(h,w,4),resume=req.get('resume',False),owner=req.get('session_id'))
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${WORKSPACE}/scripts/release/run_fault_qa.py", line 38, in faulted
+    if mode=='error':raise RuntimeError('QA injected temporal exception')
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: QA injected temporal exception
+2026-10-30 17:09:34,871 ERROR Request failed
+Traceback (most recent call last):
+  File "${WORKSPACE}/worker/ckmac/engine.py", line 365, in handle
+    image=e.temporal.run(req['keys'],settings,req['requested'],revision=req['revision'],first_hint=req.get('first_hint',False),provenance=req.get('provenance'),cancel=canceled,progress=progress,profile=profile,expected_shape=(h,w,4),resume=req.get('resume',False),owner=req.get('session_id'))
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${WORKSPACE}/scripts/release/run_fault_qa.py", line 37, in faulted
+    if mode=='cancel':raise RuntimeError('QA injected canceled analysis')
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: QA injected canceled analysis
+2026-10-30 17:09:42,692 ERROR Request failed
+Traceback (most recent call last):
+  File "${WORKSPACE}/worker/ckmac/engine.py", line 365, in handle
+    image=e.temporal.run(req['keys'],settings,req['requested'],revision=req['revision'],first_hint=req.get('first_hint',False),provenance=req.get('provenance'),cancel=canceled,progress=progress,profile=profile,expected_shape=(h,w,4),resume=req.get('resume',False),owner=req.get('session_id'))
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${WORKSPACE}/scripts/release/run_fault_qa.py", line 36, in faulted
+    if mode=='oom':raise RuntimeError('QA injected MPS out-of-memory failure; no physical memory exhaustion')
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: QA injected MPS out-of-memory failure; no physical memory exhaustion
+2026-10-30 17:09:50,860 ERROR Request failed
+Traceback (most recent call last):
+  File "${WORKSPACE}/worker/ckmac/engine.py", line 365, in handle
+    image=e.temporal.run(req['keys'],settings,req['requested'],revision=req['revision'],first_hint=req.get('first_hint',False),provenance=req.get('provenance'),cancel=canceled,progress=progress,profile=profile,expected_shape=(h,w,4),resume=req.get('resume',False),owner=req.get('session_id'))
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${WORKSPACE}/scripts/release/run_fault_qa.py", line 41, in faulted
+    return original(self,keys,*pos,**kw)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${WORKSPACE}/worker/ckmac/temporal.py", line 122, in run
+    if sample is None:raise RuntimeError('Temporal input was evicted or corrupted. Shorten the range or analyze again.')
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: Temporal input was evicted or corrupted. Shorten the range or analyze again.

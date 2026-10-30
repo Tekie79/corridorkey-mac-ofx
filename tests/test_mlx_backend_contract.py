@@ -14,6 +14,7 @@ def test_mlx_profile_selection_is_lazy_and_never_downscales(tmp_path):
     b=candidate(tmp_path)
     b.validate_canvas(720,1280,Profile())
     assert b._model is None and b._torch is None
+    with pytest.raises(BackendError,match=r'\(1152, 1920\)'):b.validate_canvas(1080,1920,Profile())
     for h,w in [(1080,1920),(2160,3840),(864,1536)]:
         with pytest.raises((BackendError,ValueError)):b.validate_canvas(h,w,Profile())
     assert b._model is None and b._torch is None

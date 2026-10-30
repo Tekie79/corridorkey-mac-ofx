@@ -372,6 +372,18 @@ std::string WorkerManager::bake(const std::string& generation,const std::string&
         bakeOwnsAnalysis=[d[@"temporary_owned"] boolValue];return str(d[@"manifest"]);
     }
 }
+CleanupReport WorkerManager::clearAnalysis(const std::string& generation) {
+    @autoreleasepool {
+        NSMutableDictionary* request=[@{@"op":@"clear_shot"} mutableCopy];
+        if(!generation.empty())request[@"generation"]=@(generation.c_str());
+        auto response=control(encode(request));
+        NSDictionary* data=[NSJSONSerialization JSONObjectWithData:[NSData dataWithBytes:response.data() length:response.size()] options:0 error:nil];
+        bool complete=[data[@"cleanup_complete"] boolValue];
+        NSString* summary=[NSString stringWithFormat:@"Removed %@ captures and %@ results (%@ bytes); %@ already absent. Retained %@ shared entries and %@ entries used by this node's other generations. Durable bakes retained.",data[@"removed_captures"]?:@0,data[@"removed_results"]?:@0,data[@"reclaimed_bytes"]?:@0,data[@"already_missing_entries"]?:@0,data[@"shared_entries_preserved"]?:@0,data[@"retained_entries_for_other_generations"]?:@0];
+        if(!complete)summary=[summary stringByAppendingFormat:@" Temporary cleanup incomplete: %@",data[@"failures"]?:@"No confirmed cleanup result; retry Clear Temporary Analysis."];
+        return {complete,str(summary)};
+    }
+}
 std::vector<float> WorkerManager::temporal(unsigned w,unsigned h,const std::vector<std::string>& keys,unsigned requested,const Settings& s,int revision,bool firstHint,const std::string& provenance,bool resume) {
     ensure();waitReady();
     @autoreleasepool {

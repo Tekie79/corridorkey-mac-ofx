@@ -16,6 +16,7 @@ struct BakeOptions {
     bool fullFloat=false,sourceSizeExplicit=false,resolveHost=false;
     std::string sourceManifest;
 };
+struct CleanupReport {bool complete=false;std::string message;};
 class WorkerManager {
 public:
     explicit WorkerManager(std::function<bool()> cancelled = {},std::uint64_t generation=0,const std::string& owner="");
@@ -27,6 +28,7 @@ public:
     std::vector<float> inferCaptured(unsigned width,unsigned height,const std::string& key,const Settings& settings);
     // JSON control transport is bounded and authenticated, independent of v1.
     std::string control(const std::string& json);
+    CleanupReport clearAnalysis(const std::string& generation="");
     static std::string fingerprint(unsigned width,unsigned height,const std::vector<float>& pixels);
     std::string bake(const std::string& generation,const std::string& destination,const std::string& kind,const PostSettings& post,const BakeOptions& options={});
     bool bakeOwnsAnalysis=false;

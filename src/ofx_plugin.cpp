@@ -2,6 +2,7 @@
 #include "ckmac/protocol.hpp"
 #include "ckmac/creative.hpp"
 #include "ckmac/capture_guard.hpp"
+#include "ckmac/analysis_attempt.hpp"
 #include "ofxCore.h"
 #include "ofxProgress.h"
 #include <fcntl.h>
@@ -64,7 +65,7 @@ struct Instance {
     std::map<std::int64_t,Capture> captures;
     std::map<double,Capture> frameCaptures;
     int capturedRevision=-1;
-    std::atomic<bool> resumeAnalysis{false};
+    ckmac::AnalysisAttempt analysisAttempt;
     std::string analysisGeneration;
     std::uint64_t sourceFramesFetched=0,bakeReads=0;
     ckmac::PostSettings analyzedPost;
@@ -481,6 +482,7 @@ OfxStatus renderBaked(OfxImageEffectHandle effect,OfxPropertySetHandle in,double
 
 OfxStatus render(OfxImageEffectHandle effect, OfxPropertySetHandle in) {
     auto* instance = instanceOf(effect);
+    const bool resumeAnalysis=instance->analysisAttempt.take();
     std::unique_lock<std::timed_mutex> guard(instance->renderMutex,std::defer_lock);
     while(!guard.try_lock_for(std::chrono::milliseconds(100)))if(effects->abort&&effects->abort(effect))throw ckmac::Cancelled();
     const auto generation=instance->generation.load();
@@ -505,7 +507,7 @@ OfxStatus render(OfxImageEffectHandle effect, OfxPropertySetHandle in) {
     require(params->paramGetValueAtTime(instance->creative.at("bakedManifest"),time,&bakedPath),"read saved bake activation");
     require(params->paramGetValueAtTime(instance->outputMode,time,&earlyMode),"read baked output selection");
     std::string activeBake=bakedPath?bakedPath:"";
-    if(integer(instance,"useBakedResult",time)&&!activeBake.empty()&&earlyMode!=3&&!instance->resumeAnalysis.load())
+    if(integer(instance,"useBakedResult",time)&&!activeBake.empty()&&earlyMode!=3&&!resumeAnalysis)
         return renderBaked(effect,in,time,earlyMode,activeBake);
 #endif
     int probe=0;
@@ -658,7 +660,9 @@ OfxStatus render(OfxImageEffectHandle effect, OfxPropertySetHandle in) {
             if(!instance->captureGuard.observe(captureContext,keys))
                 throw std::runtime_error("Capture ready. Render again to verify the shot before analysis. Keep upstream settings unchanged.");
             auto status=client.analysisStatus(sourceView.bounds.x2-sourceView.bounds.x1,sourceView.bounds.y2-sourceView.bounds.y1,keys,unsigned(time-start),settings,revision,hintTiming==1,provenance.str());
-            bool resume=instance->resumeAnalysis.load();
+            bool resume=resumeAnalysis;
+            if(status[0]=="Unanalyzed"&&!resume&&!instance->analysisGeneration.empty()&&status[1]==instance->analysisGeneration)
+                throw std::runtime_error("Completed temporary analysis is unavailable after cache removal, a volume change or metadata loss. Use Analyze/Resume; playback never silently reruns this generation.");
             if(status[0]=="Stale"&&!resume)throw std::runtime_error("Stale analysis: requested output missing. Use Analyze/Resume; no automatic whole-shot reanalysis.");
             if(status[0]!="Analyzed"||resume){
                 auto present=client.inputsPresent(keys);std::set<std::string> available(present.begin(),present.end());
@@ -699,7 +703,6 @@ OfxStatus render(OfxImageEffectHandle effect, OfxPropertySetHandle in) {
             }
             instance->analysisGeneration=client.lastGeneration;instance->analyzedPost=post;
             if(instance->parameterProperties)props->propSetInt(instance->parameterProperties,kOfxPropParamSetNeedsSyncing,0,1);
-            instance->resumeAnalysis.store(false);
             // Bound identity metadata as shots/ranges change; never retain frames.
             if(instance->captures.size()>480) {
                 for(auto i=instance->captures.begin();i!=instance->captures.end();) {
@@ -800,12 +803,18 @@ OfxStatus changed(OfxImageEffectHandle effect, OfxPropertySetHandle in) {
             require(params->paramSetValue(instance->revision,revision==2147483647?0:revision+1),"activate saved analysis revision");
         }
         int request=0;require(params->paramGetValue(instance->creative.at("analysisRequest"),&request),"read analysis request");
-        require(params->paramSetValue(instance->creative.at("analysisRequest"),request==2147483647?0:request+1),"invalidate host output for Analyze/Resume");
-        instance->resumeAnalysis.store(true);
-        instance->generation.fetch_add(1);return kOfxStatOK;
+        instance->analysisAttempt.arm();instance->generation.fetch_add(1);
+        try {require(params->paramSetValue(instance->creative.at("analysisRequest"),request==2147483647?0:request+1),"invalidate host output for Analyze/Resume");}
+        catch(...){instance->analysisAttempt.cancel();throw;}
+        return kOfxStatOK;
+    }
+    if(!std::strcmp(name,"cancelPass")||!std::strcmp(name,"cancelAnalysis")){
+        instance->analysisAttempt.cancel();instance->generation.fetch_add(1);
+        report(effect,kOfxMessageMessage,"Analysis wait canceled. The previous verified bake remains available.");return kOfxStatOK;
     }
 #ifdef CKMAC_INSTALLED_RUNTIME
     if(!std::strcmp(name,"revertBake")||!std::strcmp(name,"relinkBake")){
+        instance->analysisAttempt.cancel();instance->generation.fetch_add(1);
         std::string path;char* old=nullptr;require(params->paramGetValue(instance->creative.at("bakedManifest"),&old),"read active bake");std::string previous=old?old:"";
         if(!std::strcmp(name,"relinkBake"))path=ckmac::chooseBakeManifest();
         else {char* value=nullptr;require(params->paramGetValue(instance->creative.at("previousBake"),&value),"read previous bake");path=value?value:"";}
@@ -834,20 +843,9 @@ OfxStatus changed(OfxImageEffectHandle effect, OfxPropertySetHandle in) {
         options.sourceWidth=integer(instance,"sourceFootageWidth",time);options.sourceHeight=integer(instance,"sourceFootageHeight",time);
         options.sourceSizeExplicit=options.sourceWidth>0&&options.sourceHeight>0;
         if((options.sourceWidth==0)!=(options.sourceHeight==0))throw std::runtime_error("Set both original footage dimensions, or leave both at Auto.");
-        if(options.sourceWidth==0){
-            OfxPropertySetHandle sourceProperties=nullptr;int connected=0;
-            require(effects->clipGetPropertySet(instance->source,&sourceProperties),"inspect source-footage geometry");
-            props->propGetInt(sourceProperties,kOfxImageClipPropConnected,0,&connected);
-            if(connected){
-                // Metadata only; no clipGetImage outside Render. Canonical X
-                // includes pixel aspect, so convert back to footage pixels.
-                OfxRectD rod{};double par=1;props->propGetDouble(sourceProperties,kOfxImagePropPixelAspectRatio,0,&par);
-                if(effects->clipGetRegionOfDefinition(instance->source,time,&rod)==kOfxStatOK&&std::isfinite(par)&&par>0){
-                    double w=(rod.x2-rod.x1)/par,h=rod.y2-rod.y1;
-                    if(std::isfinite(w)&&std::isfinite(h)&&w>=1&&h>=1&&w<=8192&&h<=8192){options.sourceWidth=int(std::llround(w));options.sourceHeight=int(std::llround(h));}
-                }
-            }
-        }
+        // Resolve may evaluate upstream images even for clipGetRegionOfDefinition
+        // here, deadlocking its UI while the parameter callback owns host locks.
+        // Use captured provenance and the deferred SDK probe in the worker.
         char* sourceManifest=nullptr;require(params->paramGetValue(instance->creative.at("bakedManifest"),&sourceManifest),"read source bake for re-export");options.sourceManifest=sourceManifest?sourceManifest:"";
         auto path=client.bake(instance->analysisGeneration,folder,kind,instance->analyzedPost,options);
         ckmac::inspectBake(path,true); // Native reader verifies every checksum and sample before activation.
@@ -855,16 +853,22 @@ OfxStatus changed(OfxImageEffectHandle effect, OfxPropertySetHandle in) {
         require(params->paramSetValue(instance->creative.at("previousBake"),previous.c_str()),"preserve previous bake");
         require(params->paramSetValue(instance->creative.at("bakedManifest"),path.c_str()),"activate verified bake");
         setInteger(instance->creative.at("useBakedResult"),1);instance->generation.fetch_add(1);
-        if(client.bakeOwnsAnalysis&&(!std::strcmp(name,"bakeClean")||integer(instance,"autoCleanBake",time)))
-            client.control("{\"op\":\"clear_shot\",\"generation\":\""+instance->analysisGeneration+"\"}");
-        report(effect,kOfxMessageMessage,kind=="alpha"?"Verified alpha bake active. Current original RGB is used; recovered foreground is not baked.":"Verified RGBA bake active. Playback requires neither the model worker nor Source.");
+        std::string summary=kind=="alpha"?"Verified alpha bake active. Current original RGB is used; recovered foreground is not baked.":"Verified RGBA bake active. Playback requires neither the model worker nor Source.";
+        bool cleanComplete=true;
+        if(client.bakeOwnsAnalysis&&(!std::strcmp(name,"bakeClean")||integer(instance,"autoCleanBake",time))){
+            try {auto cleanup=client.clearAnalysis(instance->analysisGeneration);cleanComplete=cleanup.complete;summary+=" "+cleanup.message;}
+            catch(const std::exception& error){cleanComplete=false;summary+=" Bake verified and active; temporary cleanup incomplete: "+std::string(error.what());}
+        }
+        require(params->paramSetValue(instance->creative.at("shotStatus"),summary.c_str()),"show bake and cleanup result");
+        report(effect,cleanComplete?kOfxMessageMessage:kOfxMessageWarning,summary);
         return kOfxStatOK;
     }
     if(!std::strcmp(name,"clearCache")){
         ckmac::WorkerManager client({},instance->generation.load(),instance->owner);
-        client.control("{\"op\":\"clear_shot\"}");
+        auto cleanup=client.clearAnalysis();
         int revision=0;params->paramGetValue(instance->revision,&revision);require(params->paramSetValue(instance->revision,revision==2147483647?0:revision+1),"invalidate deleted shot cache");
-        report(effect,kOfxMessageMessage,"This node's unshared captured and processed cache entries were deleted. Shared entries were retained.");return kOfxStatOK;
+        require(params->paramSetValue(instance->creative.at("shotStatus"),cleanup.message.c_str()),"show temporary cleanup result");
+        report(effect,cleanup.complete?kOfxMessageMessage:kOfxMessageWarning,cleanup.message);return kOfxStatOK;
     }
     if(!std::strcmp(name,"openCacheFolder")||!std::strcmp(name,"chooseRenderFolder")||!std::strcmp(name,"collectDiagnostics")||!std::strcmp(name,"startGuidedHelp")||!std::strcmp(name,"clearCache")||!std::strcmp(name,"checkUpdates")){
         ckmac::openMaintenance(name);return kOfxStatOK;
@@ -911,7 +915,7 @@ OfxStatus mainEntry(const char* action, const void* rawEffect, OfxPropertySetHan
             char* baked=nullptr;int mode=0;
             require(params->paramGetValueAtTime(instance->creative.at("bakedManifest"),time,&baked),"baked frame dependencies");
             require(params->paramGetValueAtTime(instance->outputMode,time,&mode),"baked dependency output");
-            bool bakedActive=integer(instance,"useBakedResult",time)&&baked&&*baked&&mode!=3&&!instance->resumeAnalysis.load();
+            bool bakedActive=integer(instance,"useBakedResult",time)&&baked&&*baked&&mode!=3&&!instance->analysisAttempt.pending();
             if(bakedActive){
                 require(props->propSetDoubleN(out,"OfxImageClipPropFrameRange_Source",2,range),"baked current-frame dependency");
                 return kOfxStatOK;

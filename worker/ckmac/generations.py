@@ -111,7 +111,8 @@ class Generations:
                 rec=self.record(g)
                 for child in (rec or {}).get('children',[]):
                     if child in self.owned_generations(owner) and child not in selected:selected.append(child)
-            keys={r[0] for r in self.db.execute('SELECT key FROM ownership WHERE owner=?',(owner,))}
+            kinds=dict(self.db.execute('SELECT key,kind FROM ownership WHERE owner=?',(owner,)))
+            keys=set(kinds);retained=set()
             if generation is not None:
                 selected_keys=set()
                 for g in selected:
@@ -120,15 +121,39 @@ class Generations:
                 # Same owner's other generations retain their captures.
                 for g in self.owned_generations(owner):
                     if g not in selected:
-                        r=self.record(g);keys-=set(r['identity']['inputs']+r['outputs'])
+                        r=self.record(g);keep=keys&set(r['identity']['inputs']+r['outputs']);retained.update(keep);keys-=keep
             shared={k for k in keys if self.db.execute('SELECT 1 FROM ownership WHERE key=? AND owner<>?',(k,owner)).fetchone()}
             removable=keys-shared
             if any(k in self.cache.pins for k in removable):raise RuntimeError('Active analysis lease prevents cleanup')
-            count=self.cache.remove(removable)
-            self.db.executemany('DELETE FROM ownership WHERE owner=? AND key=?',[(owner,k) for k in keys])
+            report=dict(removed_entries=0,removed_captures=0,removed_results=0,reclaimed_bytes=0,
+                        already_missing_entries=0,shared_entries_preserved=0,shared_missing_entries=0,
+                        retained_entries_for_other_generations=len(retained),completion_records_removed=0,
+                        completion_records_preserved=0,cleanup_complete=True,failures=[])
+            for key in shared:
+                report['shared_entries_preserved' if self.cache.path(key).exists() else 'shared_missing_entries']+=1
+            failed=set();released=set(shared)
+            for key in sorted(removable):
+                path=self.cache.path(key)
+                try:
+                    size=path.lstat().st_size if path.exists() else 0
+                    count=self.cache.remove([key])
+                except OSError as exc:
+                    failed.add(key);report['failures'].append(dict(key=key,error=str(exc)));continue
+                released.add(key);report['removed_entries']+=count
+                report['removed_results' if kinds[key]=='result' else 'removed_captures']+=count
+                report['already_missing_entries']+=int(count==0);report['reclaimed_bytes']+=size if count else 0
+            self.db.executemany('DELETE FROM ownership WHERE owner=? AND key=?',[(owner,k) for k in released])
             for g in selected:
+                record=self.record(g)
+                if failed.intersection(record['identity']['inputs']+record['outputs']):
+                    report['completion_records_preserved']+=1;continue
+                shared_generation=self.db.execute('SELECT 1 FROM leases WHERE generation=? AND owner<>?',(g,owner)).fetchone()
+                if not shared_generation:
+                    try:(self.cache.root/(g+'.analysis.json')).unlink(missing_ok=True)
+                    except OSError as exc:
+                        report['failures'].append(dict(generation=g,error=str(exc)));report['completion_records_preserved']+=1;continue
+                    self.db.execute('DELETE FROM generations WHERE id=?',(g,));report['completion_records_removed']+=1
+                else:report['completion_records_preserved']+=1
                 self.db.execute('DELETE FROM leases WHERE owner=? AND generation=?',(owner,g))
-                if not self.db.execute('SELECT 1 FROM leases WHERE generation=?',(g,)).fetchone():
-                    (self.cache.root/(g+'.analysis.json')).unlink(missing_ok=True)
-                    self.db.execute('DELETE FROM generations WHERE id=?',(g,))
-            return dict(removed_entries=count,shared_entries_preserved=len(shared))
+            report['cleanup_complete']=not report['failures']
+            return report

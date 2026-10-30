@@ -31,6 +31,7 @@ class DiskCache:
         self.ram = OrderedDict()
         self.verified = OrderedDict()
         self.access = OrderedDict()
+        self.absent=OrderedDict();self.volume=root.stat().st_dev
         self.writer_lock = root / '.writer.lock'
         try:
             fd=os.open(self.writer_lock,os.O_CREAT|os.O_EXCL|os.O_WRONLY,0o600);os.close(fd)
@@ -94,6 +95,19 @@ class DiskCache:
         if len(key) != 64 or any(c not in '0123456789abcdef' for c in key):
             raise ValueError('Invalid content identity')
         return self.root / (key + '.ckf')
+
+    def miss_reason(self,key):
+        """Diagnostic only; never guess eviction after its process history is lost."""
+        with self.lock:
+            try:
+                if self.root.stat().st_dev!=self.volume:return 'cache_volume_changed'
+            except OSError:return 'cache_volume_unavailable'
+            if self.signature(key) is not None:return 'corrupt_or_invalid_blob'
+            return self.absent.get(key,'missing_blob_cause_unknown')
+
+    def note_absent(self,key,reason):
+        self.absent[key]=reason;self.absent.move_to_end(key)
+        while len(self.absent)>4096:self.absent.popitem(last=False)
 
     def get(self, key):
         with self.lock:
@@ -171,6 +185,7 @@ class DiskCache:
                 # Own immutable bytes: a caller may reuse/mutate its input array.
                 stored=np.frombuffer(bytes(data),dtype='<f4').reshape(a.shape)
                 self._remember(key,self.signature(key),stored)
+                self.absent.pop(key,None)
                 self.accessed(key)
                 return True
             finally:
@@ -192,6 +207,7 @@ class DiskCache:
             total -= evicted_size
             p.unlink(missing_ok=True)
             self.stats['cache_bytes_evicted']+=evicted_size
+            self.note_absent(p.stem,'evicted_for_cache_budget')
         if total+size>self.budget:raise OSError('Active temporal inputs occupy the cache budget; select a shorter range')
         if shutil.disk_usage(self.root).free < size + 5 * 2**30:
             raise OSError('Insufficient cache space; keep at least 5 GiB free for Resolve and macOS.')
@@ -203,6 +219,7 @@ class DiskCache:
             count=0
             for p in paths:
                 if p.exists():p.unlink();count+=1
+                self.note_absent(p.stem,'explicit_temporary_cleanup')
                 self.verified.pop(p.stem,None)
                 value=self.ram.pop(p.stem,None)
                 if value is not None:self.ram_bytes-=value.nbytes

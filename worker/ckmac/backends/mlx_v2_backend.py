@@ -15,6 +15,7 @@ import numpy as np
 from ..backend import BackendError,prepare_frame,finish_frame
 
 SUPPORTED=((768,1280),(1024,1536))
+NATIVE_1080_PADDED=(1152,1920)
 SOURCE_COMMIT='74065491ebd2eddea494ab34c15a6d84d7415353'
 
 
@@ -70,12 +71,12 @@ class MLXV2Backend:
     def validate_canvas(self,h,w,profile):
         h,w=profile.dimensions(h,w)
         shape=(((h+127)//128)*128,((w+127)//128)*128)
-        if shape not in SUPPORTED:raise BackendError(f'MLX unsupported padded canvas {shape}; native 1080p needs unavailable 1152x2048 graphs. Select MPS; no downscale was performed.')
+        if shape not in SUPPORTED:raise BackendError(f'MLX has no locked FP32 graph for padded canvas {shape}. Native 1920x1080 pads to {NATIVE_1080_PADDED}; neither that shape nor optional 1152x2048 is published. Select MPS; no downscale was performed.')
         if profile.window not in (1,4):raise BackendError('MLX supports t1/t4 profiles only')
 
     def check_shape(self,shape):
         if shape not in SUPPORTED:
-            raise BackendError(f'MLX v2 unsupported padded canvas {shape}. Native 1080p needs unavailable 1152x2048 graphs/exporter; use explicit MPS. No downscale was performed.')
+            raise BackendError(f'MLX v2 has no locked FP32 graph for {shape}. Native 1080p needs unpublished {NATIVE_1080_PADDED} graphs/exporter; use explicit MPS. No downscale was performed.')
         self.load()
         if self.shape is not None and self.shape!=shape:
             self.graphs.clear();self.mx.clear_cache()
@@ -195,6 +196,7 @@ class MLXV2Backend:
         return dict(self.identity,loaded=self._model is not None,device='mlx_gpu',automatic_mps_fallback=False,
                     cpu_preprocessing=['transfer','padding','torch CPU interpolation','scheduling'],
                     supported_padded_shapes=SUPPORTED,completed_network_calls=dict(self._network_calls),
+                    native_1080_padded_shape=NATIVE_1080_PADDED,native_1080_qualified=False,
                     completed_temporal_shots=self._temporal_completed,experimental=True,
                     torch_module_forward_calls=self.torch_module_forward_calls,neural_components=['RVM','C-RADIO','MoGe','stage1','stage2'],
                     active_bytes=int(self.mx.get_active_memory()) if self.mx else 0,

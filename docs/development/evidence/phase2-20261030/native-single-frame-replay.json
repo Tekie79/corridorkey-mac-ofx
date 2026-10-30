@@ -1,0 +1,7 @@
+{
+  "scope": "Native Resolve Single Frame, full 1920x1080; three render-affecting request tokens force host reevaluation of the same source fingerprint",
+  "genuine_user_inferences": 1,
+  "worker_cache_hits": 3,
+  "extra_neural_calls": 0,
+  "new_cache_puts": 0
+}

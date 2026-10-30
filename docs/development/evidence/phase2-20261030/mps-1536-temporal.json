@@ -1,0 +1,94 @@
+{
+  "backend": "mps",
+  "status": "Passed",
+  "source_sha256": "a22d70c7c577cb883b3e89ffb052fd52887efba122761d10e71eccae5a583cff",
+  "thresholds": {
+    "alpha_mae": 0.001,
+    "alpha_p99": 0.01,
+    "alpha_max": 0.05,
+    "foreground_mae": 0.01,
+    "foreground_p99": 0.05
+  },
+  "scope": "Native standalone process, not Resolve",
+  "shape": [
+    6,
+    1024,
+    1536,
+    4
+  ],
+  "load_seconds": 7.952015125018079,
+  "temporal_seconds": 12.67251937504625,
+  "cached_replay_seconds": 0.013612707960419357,
+  "cached_replay_frames": 18,
+  "replay_no_new_files_or_timestamp_changes": true,
+  "replay_no_neural_work": true,
+  "cache_counters": {
+    "ram_hits": 46,
+    "disk_hits": 0,
+    "metadata_hits": 0,
+    "staged_bytes": 301989888,
+    "puts": 12,
+    "put_dedup": 0,
+    "cache_bytes_written": 301990560,
+    "cache_bytes_evicted": 0,
+    "analysis_starts": 1,
+    "analysis_completions": 1,
+    "result_cache_hits": 18,
+    "result_cache_misses": 0
+  },
+  "diagnostics": {
+    "backend": "pytorch_mps",
+    "loaded": true,
+    "device": "mps",
+    "dtype": "float32",
+    "torch_version": "2.9.1",
+    "upstream_root": "/Library/Application Support/HarvestPictures/CorridorKeyMac/Runtime/0.9.7-b1.027347b5a7e5/upstream",
+    "model_root": "/Library/Application Support/HarvestPictures/CorridorKeyMac/Models/ck2-cf44a8db3f02",
+    "audited_upstream_commit": "485f5e9ab759ead6138cc990776184b59d6ea971",
+    "temporal_mode": "upstream_float32_continuous_RVM_Hann_configurable",
+    "clip_temporal_analysis": true,
+    "completed_temporal_shots": 1,
+    "automatic_cpu_model_fallback": false,
+    "cpu_preprocessing": [
+      "transfer_functions",
+      "reflect_padding",
+      "foundation_area_resize"
+    ],
+    "cpu_postprocessing": [
+      "asinh_decode",
+      "crop",
+      "transfer_functions",
+      "optional_green_despill"
+    ],
+    "input_spaces": [
+      "srgb",
+      "linear",
+      "rec709_gamma24"
+    ],
+    "input_alpha": "only used as a hint when explicitly selected",
+    "output_alpha": "straight foreground RGB plus clamped model matte",
+    "successful_frames": 0,
+    "completed_network_calls": {
+      "cradio": 6,
+      "moge_encoder": 6,
+      "rvm": 6,
+      "stage1": 2,
+      "stage2": 6
+    },
+    "last_error": null,
+    "mps_current_allocated_bytes": 4938861056,
+    "mps_driver_allocated_bytes": 12367380480
+  },
+  "alpha_range": [
+    0.0,
+    1.0
+  ],
+  "foreground_range": [
+    -0.011031816713511944,
+    6.61162805557251
+  ],
+  "sampled_peak_physical_footprint_bytes": 15610530576,
+  "physical_sample_interval_ms": 50,
+  "total_seconds": 20.800627707969397,
+  "process_peak_rss_bytes": 6807470080
+}

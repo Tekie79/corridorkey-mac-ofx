@@ -79,10 +79,16 @@ class Engine:
         record=self.records.record(generation)
         # Playback queries validate only the requested output. A full audit is
         # available separately; eviction elsewhere does not invalidate this frame.
-        if record is None:return dict(state='Unanalyzed',generation=generation)
+        if record is None:
+            reasons=['not_analyzed']
+            previous=self.records.owned_generations(req.get('session_id'))
+            if previous:
+                old=self.records.record(previous[0])['identity']
+                reasons=[name+'_changed' for name in ('inputs','backend','profile','settings','revision','provenance','build') if old.get(name)!=identity.get(name)] or ['generation_not_completed']
+            return dict(state='Unanalyzed',generation=generation,miss_reasons=reasons)
         self.records.lease(req.get('session_id'),generation)
         try:self.records.result(generation,req['requested'],(req['height'],req['width'],4))
-        except RuntimeError:return dict(state='Stale',generation=generation)
+        except RuntimeError:return dict(state='Stale',generation=generation,miss_reasons=[self.cache.miss_reason(record['outputs'][req['requested']])])
         return dict(state='Analyzed',generation=generation)
 
     def load(self):
@@ -279,7 +285,7 @@ class Handler(socketserver.BaseRequestHandler):
             elif op=='frame_lookup' and n==0:
                 key=e.frame_key(req)
                 image=e.cache.get(key)
-                answer=dict(present=image is not None,key=key)
+                answer=dict(present=image is not None,key=key,miss_reason=None if image is not None else e.cache.miss_reason(key))
             elif op=='analyze_status' and n==0:
                 answer=e.analysis_status(req)
             elif op=='result_get' and n==0:
@@ -300,15 +306,18 @@ class Handler(socketserver.BaseRequestHandler):
                 answer=dict(state='ready',alpha='straight',width=image.shape[1],height=image.shape[0],generation=req['generation'],cache_hit=True)
             elif op=='bake' and n==0:
                 if not e.lock.acquire(False):raise RuntimeError('Finish active analysis before baking')
+                previous_state=e.state;e.state='baking';e.active+=1
                 try:
                     from .bake import bake,bake_from_manifest
                     generation=req.get('generation');owned=generation in e.records.owned_generations(req.get('session_id'))
                     source_size=req.get('source_size')
+                    source_basis='user_explicit' if req.get('source_size_explicit',False) else 'captured_source'
+                    original_size=None
                     if source_size==[0,0]:source_size=None
                     if source_size is not None and (not isinstance(source_size,list) or len(source_size)!=2 or any(type(v) is not int or v<1 for v in source_size)):raise ValueError('Invalid source-footage dimensions')
                     if not req.get('source_size_explicit',False):
                         original_size=e.source_geometry.get(req.get('session_id',''),generation or '')
-                        if original_size:source_size=original_size
+                        if original_size:source_size=original_size;source_basis='resolve_sdk'
                     if owned:
                         record=e.records.record(generation);sample=e.records.result(generation,0)
                         if source_size is None:source_size=record['identity'].get('provenance',{}).get('source_size') or [sample.shape[1],sample.shape[0]]
@@ -317,19 +326,21 @@ class Handler(socketserver.BaseRequestHandler):
                         if not source_manifest.is_absolute():raise ValueError('Analyze this node or relink a verified bake before exporting')
                         source_record=json.loads(source_manifest.read_text())
                         if source_size is None:source_size=source_record.get('source_size') or source_record.get('analysis_size') or [source_record['width'],source_record['height']]
+                        if not req.get('source_size_explicit',False) and not original_size and source_record.get('source_size_basis') in ('resolve_sdk','user_explicit'):
+                            source_size=source_record['source_size'];source_basis=source_record['source_size_basis']
                     mode=req.get('size_mode',0)
                     if type(mode) is not int or mode not in range(5):raise ValueError('Invalid bake size option')
-                    if mode==0 and req.get('resolve_host',False) and not req.get('source_size_explicit',False) and not e.source_geometry.get(req.get('session_id',''),generation or ''):
+                    if mode==0 and req.get('resolve_host',False) and source_basis=='captured_source':
                         e.source_geometry.schedule(req.get('session_id'),generation)
-                        raise RuntimeError('Original footage dimensions are being read after Resolve releases this callback. Retry Bake, or set both Original Source dimensions explicitly. The previous bake is preserved.')
+                        raise RuntimeError(e.source_geometry.reason(req.get('session_id',''),generation or '')+' Set both Original Source dimensions explicitly only after verifying alignment. The previous bake is preserved.')
                     target=source_size if mode==0 else None if mode==1 else [3840,2160] if mode==2 else [4096,2160] if mode==3 else req.get('output_size')
                     if mode==4 and target is None:raise ValueError('Custom export dimensions are required')
                     destination=Path(req['destination'])
                     if destination.resolve()==e.cache.temporary_root.resolve() or e.cache.temporary_root.resolve() in destination.resolve().parents:raise ValueError('Durable media cannot use the temporary cache')
-                    if owned:answer=bake(e.records,generation,destination,req['kind'],req.get('precision','half'),req.get('post'),target,source_size)
-                    else:answer=bake_from_manifest(source_manifest,destination,req['kind'],req.get('precision','half'),target,source_size,generation)
+                    if owned:answer=bake(e.records,generation,destination,req['kind'],req.get('precision','half'),req.get('post'),target,source_size,source_basis)
+                    else:answer=bake_from_manifest(source_manifest,destination,req['kind'],req.get('precision','half'),target,source_size,generation,source_basis)
                     answer['temporary_owned']=owned
-                finally:e.lock.release()
+                finally:e.active-=1;e.state=previous_state;e.lock.release()
             elif op == 'temporal' and n==0:
                 w,h=req['width'],req['height']
                 if type(w) is not int or type(h) is not int or min(w,h)<1 or max(w,h)>8192 or w*h>33554432:raise ValueError('Invalid temporal canvas')

@@ -1,0 +1,31 @@
+{
+  "cleanup_failure_kept_new_bake_active": true,
+  "shared_owner_cleanup": {
+    "removed_captures": 0,
+    "removed_results": 60,
+    "reclaimed_bytes": 1990659360,
+    "preserved_shared": 60
+  },
+  "remaining_owner_cleanup": {
+    "removed_captures": 60,
+    "removed_results": 0,
+    "reclaimed_bytes": 1990659360,
+    "already_absent": 60
+  },
+  "orphan_output_keys_explanation": "Failed temporal attempts can own output identities before any corresponding blobs are written; they are reported already absent, not reclaimed bytes.",
+  "final_1080_cleanup": {
+    "removed_captures": 60,
+    "removed_results": 60,
+    "reclaimed_bytes": 3981318720
+  },
+  "single_frame_cleanup": {
+    "removed_captures": 1,
+    "removed_results": 1,
+    "reclaimed_bytes": 66355312
+  },
+  "startup_failure": {
+    "isolated_QA_runtime_unavailable": true,
+    "attempt_returned_no_image": true,
+    "subsequent_baked_image_available": true
+  }
+}

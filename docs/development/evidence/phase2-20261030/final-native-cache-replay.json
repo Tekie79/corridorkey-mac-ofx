@@ -1,0 +1,23 @@
+{
+  "new": [],
+  "removed": [],
+  "timestamp_or_inode_changes": [],
+  "byte_delta": 0,
+  "interpretation": "New names indicate new content/generations; removed names indicate eviction/cleanup. Timestamp-only changes do not establish neural work. Compare worker analysis/network counters too.",
+  "counter_delta": {
+    "input_stage_attempts": 0,
+    "input_stage_new": 0,
+    "input_stage_dedup": 0,
+    "analysis_starts": 0,
+    "analysis_completions": 0,
+    "result_cache_hits": 59,
+    "result_cache_misses": 0,
+    "model_network_invocations": 0
+  },
+  "requests": 300,
+  "source_size": [
+    1920,
+    1080
+  ],
+  "scope": "Final QA artifact, live cached mode; 60 forward, 60 reverse, three seeded shuffled passes; other requests satisfied by Resolve RAM."
+}

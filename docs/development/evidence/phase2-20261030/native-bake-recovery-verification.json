@@ -1,0 +1,126 @@
+{
+  "bakes": {
+    "alpha_4k": {
+      "manifest": "${WORKSPACE}/.build/evidence/phase2-cache-bake/bakes/bake-6897e8f2dad141c1857836f8e7960492/manifest.json",
+      "frames": 60,
+      "dimensions": [
+        4096,
+        2160
+      ],
+      "source_size": [
+        4096,
+        2160
+      ],
+      "source_size_basis": "resolve_sdk",
+      "all_checksums_valid": true,
+      "maximum_error_vs_prior_MPS_RGBA": null
+    },
+    "rgba_hd": {
+      "manifest": "${WORKSPACE}/.build/evidence/phase2-cache-bake/bakes/bake-246589b1fcba4f9e98c953e8babae194/manifest.json",
+      "frames": 60,
+      "dimensions": [
+        1920,
+        1080
+      ],
+      "source_size": [
+        4096,
+        2160
+      ],
+      "source_size_basis": "resolve_sdk",
+      "all_checksums_valid": true,
+      "maximum_error_vs_prior_MPS_RGBA": 0.0
+    },
+    "cleanup_failure_alpha_hd": {
+      "manifest": "${WORKSPACE}/.build/evidence/phase2-cache-bake/bakes/bake-ca73a2d390b44c818f4375c52330969c/manifest.json",
+      "frames": 60,
+      "dimensions": [
+        1920,
+        1080
+      ],
+      "source_size": [
+        1920,
+        1080
+      ],
+      "source_size_basis": "captured_source",
+      "all_checksums_valid": true,
+      "maximum_error_vs_prior_MPS_RGBA": null
+    }
+  },
+  "recovery": {
+    "error": {
+      "attempt_returned_no_image": true,
+      "previous_bake_preserved": true,
+      "subsequent_baked_image_available": true,
+      "counter_delta": {
+        "input_stage_attempts": 0,
+        "input_stage_new": 0,
+        "input_stage_dedup": 0,
+        "analysis_starts": 0,
+        "analysis_completions": 0,
+        "result_cache_hits": 0,
+        "result_cache_misses": 0,
+        "model_network_invocations": 0
+      },
+      "injected": true
+    },
+    "cancel": {
+      "attempt_returned_no_image": true,
+      "previous_bake_preserved": true,
+      "subsequent_baked_image_available": true,
+      "counter_delta": {
+        "input_stage_attempts": 0,
+        "input_stage_new": 0,
+        "input_stage_dedup": 0,
+        "analysis_starts": 0,
+        "analysis_completions": 0,
+        "result_cache_hits": 0,
+        "result_cache_misses": 0,
+        "model_network_invocations": 0
+      },
+      "injected": true
+    },
+    "oom": {
+      "attempt_returned_no_image": true,
+      "previous_bake_preserved": true,
+      "subsequent_baked_image_available": true,
+      "counter_delta": {
+        "input_stage_attempts": 0,
+        "input_stage_new": 0,
+        "input_stage_dedup": 0,
+        "analysis_starts": 0,
+        "analysis_completions": 0,
+        "result_cache_hits": 0,
+        "result_cache_misses": 0,
+        "model_network_invocations": 0
+      },
+      "injected": true
+    },
+    "missing_capture": {
+      "attempt_returned_no_image": true,
+      "previous_bake_preserved": true,
+      "subsequent_baked_image_available": true,
+      "counter_delta": {
+        "input_stage_attempts": 0,
+        "input_stage_new": 0,
+        "input_stage_dedup": 0,
+        "analysis_starts": 0,
+        "analysis_completions": 0,
+        "result_cache_hits": 0,
+        "result_cache_misses": 0,
+        "model_network_invocations": 0
+      },
+      "injected": true
+    }
+  },
+  "worker_crash": {
+    "actual_process_exit_code": 87,
+    "baked_image_available_after_crash": true
+  },
+  "revert_and_relink": {
+    "pending_attempt_cleared": true,
+    "Source_disconnected": true,
+    "baked_image_available": true,
+    "offline_directory_simulation_returned_no_image": true,
+    "physical_SSD_unplug": "Not run"
+  }
+}

@@ -6,12 +6,11 @@ reader and sets a saved render-affecting manifest parameter before cleanup.
 from pathlib import Path
 import hashlib
 import json
-import uuid
-import os
 import shutil
 import numpy as np
 from . import exr
 from .generations import atomic_json
+from .bake_transaction import BakeTransaction
 from .backend import decode_input_rgb,encode_output_rgb
 
 
@@ -78,35 +77,33 @@ def write_sequence(provider,count,metadata,destination,kind,precision,size=None)
     destination.mkdir(parents=True,exist_ok=True)
     expected_bytes=h*w*(1 if kind=='alpha' else 4)*(2 if precision=='half' else 4)*count
     if shutil.disk_usage(destination).free<expected_bytes+5*2**30:raise OSError('Insufficient durable bake storage; keep 5 GiB free')
-    bake_id=uuid.uuid4().hex;staging=destination/('.staging-'+bake_id);staging.mkdir(mode=0o700);final=destination/('bake-'+bake_id)
-    channels=('A',) if kind=='alpha' else ('R','G','B','A');files=[]
-    for i in range(count):
-        values=first if i==0 else resize_pixels(provider(i),size,metadata['rgb_encoding'])
-        if values.shape!=(h,w,len(channels)) or not np.isfinite(values).all():raise ValueError('Bake canvas or finite-sample contract changed')
-        name=f'frame.{start+i:08d}.exr';path=staging/name
-        exr.write(path,values,channels,precision,pixel_aspect=metadata.get('pixel_aspect',1.))
-        read,names,types,origin=exr.read(path)
-        expected=values.astype(np.float16).astype(np.float32) if precision=='half' else values
-        expected=expected[...,[channels.index(c) for c in names]]
-        if names!=sorted(channels) or not np.array_equal(read,expected):raise ValueError('EXR readback verification failed')
-        alpha=read[...,names.index('A')]
-        if alpha.min()<0 or alpha.max()>1:raise ValueError('EXR alpha outside [0,1]')
-        files.append(dict(name=name,frame=start+i,sha256=hashlib.sha256(path.read_bytes()).hexdigest()))
-    if {p.name for p in staging.glob('*.exr')}!={entry['name'] for entry in files}:raise ValueError('Unexpected bake frame set')
-    manifest=dict(metadata,version=1,state='Verified',bake_id=bake_id,kind=kind,precision=precision,width=w,height=h,files=files)
-    manifest.setdefault('analysis_size',[source_hw[1],source_hw[0]])
-    manifest.setdefault('source_size',[source_hw[1],source_hw[0]])
-    manifest['resampling']=dict(method='bilinear_pixel_centers_full_frame_no_crop',from_size=[source_hw[1],source_hw[0]],to_size=[w,h],applied=(h,w)!=source_hw)
-    original=metadata.get('origin',[0,0]);manifest['origin']=[round(original[0]*w/source_hw[1]),round(original[1]*h/source_hw[0])]
-    atomic_json(staging/'manifest.json',manifest)
-    os.rename(staging,final)
-    fd=os.open(destination,os.O_RDONLY)
-    try:os.fsync(fd)
-    finally:os.close(fd)
-    return dict(state='Verified',manifest=str(final/'manifest.json'),generation=metadata['generation'],bake_id=bake_id)
+    with BakeTransaction(destination) as transaction:
+        bake_id=transaction.id;staging=transaction.staging;final=transaction.final
+        channels=('A',) if kind=='alpha' else ('R','G','B','A');files=[]
+        for i in range(count):
+            values=first if i==0 else resize_pixels(provider(i),size,metadata['rgb_encoding'])
+            if values.shape!=(h,w,len(channels)) or not np.isfinite(values).all():raise ValueError('Bake canvas or finite-sample contract changed')
+            name=f'frame.{start+i:08d}.exr';path=staging/name
+            exr.write(path,values,channels,precision,pixel_aspect=metadata.get('pixel_aspect',1.))
+            read,names,types,origin=exr.read(path)
+            expected=values.astype(np.float16).astype(np.float32) if precision=='half' else values
+            expected=expected[...,[channels.index(c) for c in names]]
+            if names!=sorted(channels) or not np.array_equal(read,expected):raise ValueError('EXR readback verification failed')
+            alpha=read[...,names.index('A')]
+            if alpha.min()<0 or alpha.max()>1:raise ValueError('EXR alpha outside [0,1]')
+            files.append(dict(name=name,frame=start+i,sha256=hashlib.sha256(path.read_bytes()).hexdigest()))
+        if {p.name for p in staging.glob('*.exr')}!={entry['name'] for entry in files}:raise ValueError('Unexpected bake frame set')
+        manifest=dict(metadata,version=1,state='Verified',bake_id=bake_id,kind=kind,precision=precision,width=w,height=h,files=files)
+        manifest.setdefault('analysis_size',[source_hw[1],source_hw[0]])
+        manifest.setdefault('source_size',[source_hw[1],source_hw[0]])
+        manifest['resampling']=dict(method='bilinear_pixel_centers_full_frame_no_crop',from_size=[source_hw[1],source_hw[0]],to_size=[w,h],applied=(h,w)!=source_hw)
+        original=metadata.get('origin',[0,0]);manifest['origin']=[round(original[0]*w/source_hw[1]),round(original[1]*h/source_hw[0])]
+        atomic_json(staging/'manifest.json',manifest)
+        transaction.promote()
+        return dict(state='Verified',manifest=str(final/'manifest.json'),generation=metadata['generation'],bake_id=bake_id)
 
 
-def bake(records,generation,destination,kind,precision='half',post=None,size=None,source_size=None):
+def bake(records,generation,destination,kind,precision='half',post=None,size=None,source_size=None,source_size_basis='captured_source'):
     if destination.resolve()==records.cache.temporary_root.resolve() or records.cache.temporary_root.resolve() in destination.resolve().parents:raise ValueError('Bake media must be outside the temporary cache')
     record=records.record(generation)
     if record is None:raise RuntimeError('Complete analysis is required before baking')
@@ -124,11 +121,12 @@ def bake(records,generation,destination,kind,precision='half',post=None,size=Non
                       rgb_encoding='linear' if (post or {}).get('linearize') else identity['settings']['input_space'],alpha='straight',post=post or {},identity=identity)
         if source_size:metadata['source_size']=source_size
         elif provenance.get('source_size'):metadata['source_size']=provenance['source_size']
+        metadata['source_size_basis']=source_size_basis
         return write_sequence(provider,len(record['outputs']),metadata,destination,kind,precision,size)
     finally:records.cache.unpin(keys)
 
 
-def bake_from_manifest(path,destination,kind,precision='half',size=None,source_size=None,generation=None):
+def bake_from_manifest(path,destination,kind,precision='half',size=None,source_size=None,generation=None,source_size_basis=None):
     """Re-export verified durable media after cache cleanup, with no model access."""
     path=Path(path);original=json.loads(path.read_text())
     if original.get('version')!=1 or original.get('state')!='Verified':raise ValueError('Use a verified bake')
@@ -149,4 +147,5 @@ def bake_from_manifest(path,destination,kind,precision='half',size=None,source_s
     metadata={k:v for k,v in original.items() if k not in ('files','bake_id','state','width','height','precision','kind','resampling')}
     metadata['source_bake_id']=original['bake_id']
     if source_size:metadata['source_size']=source_size
+    if source_size_basis:metadata['source_size_basis']=source_size_basis
     return write_sequence(provider,len(files),metadata,destination,kind,precision,size)

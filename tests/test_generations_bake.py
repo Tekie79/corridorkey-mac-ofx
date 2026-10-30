@@ -64,6 +64,18 @@ def test_durable_cleanup_preserves_other_owner_and_markers(tmp_path):
     assert not list(c.root.glob('*.ckf')) and not list(c.root.glob('*.analysis.json'))
 
 
+def test_shared_evicted_entries_are_reported_as_absent_after_restart(tmp_path):
+    c,r,g,a=fixture(tmp_path,4);r.lease('node-b',g)
+    c.budget=4*(a.nbytes+56)
+    c.reserve(c.budget)  # Leases do not pin disposable data forever.
+    answer=Generations(DiskCache(c.root)).clear('node-a',g)
+    assert answer['shared_entries_preserved']==0 and answer['shared_missing_entries']==8
+    assert answer['removed_entries']==0 and answer['cleanup_complete']
+    answer=r.clear('node-b',g)
+    assert answer['already_missing_entries']==8 and answer['reclaimed_bytes']==0
+    assert not r.record(g)
+
+
 def test_concurrent_idempotent_put_and_old_timestamps_never_change(tmp_path):
     c=DiskCache(tmp_path,ram_budget=0);a=np.ones((3,5,4),np.float32);k='a'*64
     with ThreadPoolExecutor(8) as pool:assert sum(pool.map(lambda _:c.put(k,a),range(32)))==1
@@ -109,6 +121,23 @@ def test_failed_bake_never_activates_or_cleans_and_previous_is_immutable(tmp_pat
         with pytest.raises(OSError):bake(r,g,tmp_path/'durable','alpha')
     assert signatures(first.parent)==before and r.status(g)['state']=='Analyzed'
     assert len(list((tmp_path/'durable').glob('bake-*')))==1
+    assert not list((tmp_path/'durable').glob('.staging-*'))
+
+
+def test_partial_cleanup_failure_reports_actual_bytes_and_retry_survives_restart(tmp_path):
+    c,r,g,a=fixture(tmp_path,4);record=r.record(g);failed_key=record['outputs'][0]
+    original_remove=c.remove
+    def remove(keys):
+        if failed_key in keys:raise OSError('simulated volume removal')
+        return original_remove(keys)
+    with patch.object(c,'remove',side_effect=remove):answer=r.clear('node-a',g)
+    assert not answer['cleanup_complete'] and len(answer['failures'])==1
+    assert answer['removed_captures']==4 and answer['removed_results']==3
+    assert answer['removed_entries']==7 and answer['reclaimed_bytes']==7*(a.nbytes+56)
+    assert r.record(g) and c.path(failed_key).exists()
+    restarted=Generations(DiskCache(c.root));answer=restarted.clear('node-a',g)
+    assert answer['cleanup_complete'] and answer['removed_results']==1
+    assert not restarted.record(g) and not list(c.root.glob('*.ckf'))
 
 
 def test_half_overflow_is_refused_full_float_preserves_it(tmp_path):

@@ -1,0 +1,33 @@
+{
+  "mps": {
+    "load_seconds": 6.911188375030179,
+    "first_inference_seconds": 1.9874242499936372,
+    "warm_repeated_still_median_seconds": 1.7264794789953157,
+    "six_frame_temporal_seconds": 12.67251937504625,
+    "eighteen_cached_reads_seconds": 0.013612707960419357,
+    "temporal_peak_physical_bytes": 15610530576,
+    "neural_components": {
+      "cradio": 6,
+      "moge_encoder": 6,
+      "rvm": 6,
+      "stage1": 2,
+      "stage2": 6
+    },
+    "torch_module_forward_calls": null
+  },
+  "mlx_v2": {
+    "load_seconds": 1.1186490829568356,
+    "first_inference_seconds": 4.219712916994467,
+    "warm_repeated_still_median_seconds": 1.1041054585075472,
+    "six_frame_temporal_seconds": 10.711361583031248,
+    "eighteen_cached_reads_seconds": 0.014217040967196226,
+    "temporal_peak_physical_bytes": 8968607768,
+    "neural_components": {
+      "rvm": 6,
+      "foundations": 6,
+      "stage1": 2,
+      "stage2": 6
+    },
+    "torch_module_forward_calls": 0
+  }
+}

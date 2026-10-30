@@ -1,0 +1,34 @@
+{
+  "leases": [
+    [
+      "ad4039e4-a94d3e93-9bdd7edc-cd33e2a2-ab21807f-bfe392fa-10844ffd-206abec-",
+      "ff1ca940e23d0cd34e336f43109be2d64aee2587c6b9086c35fabad8389687e0"
+    ],
+    [
+      "bd95bca0-9a5a700d-6ab6965-9625c6e6-44aae6c8-f405dc7e-f94f0ef0-874b61db-",
+      "ff1ca940e23d0cd34e336f43109be2d64aee2587c6b9086c35fabad8389687e0"
+    ]
+  ],
+  "ownership": [
+    [
+      "ad4039e4-a94d3e93-9bdd7edc-cd33e2a2-ab21807f-bfe392fa-10844ffd-206abec-",
+      "capture",
+      60
+    ],
+    [
+      "ad4039e4-a94d3e93-9bdd7edc-cd33e2a2-ab21807f-bfe392fa-10844ffd-206abec-",
+      "result",
+      60
+    ],
+    [
+      "bd95bca0-9a5a700d-6ab6965-9625c6e6-44aae6c8-f405dc7e-f94f0ef0-874b61db-",
+      "capture",
+      60
+    ],
+    [
+      "bd95bca0-9a5a700d-6ab6965-9625c6e6-44aae6c8-f405dc7e-f94f0ef0-874b61db-",
+      "result",
+      60
+    ]
+  ]
+}

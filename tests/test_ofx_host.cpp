@@ -219,6 +219,24 @@ int main(int argc,char** argv){
         auto& result=e.clips["Output"].pixels;
         // Fixture: source origin -2,3,2x2; top-row alpha .25; bottom .5.
         check(result[0]==-1.F&&result[3]==.5F&&result[8]==-.5F&&result[11]==.25F,"Native baked samples/orientation/HDR mismatch");
+        // Every rejected attempt must consume its one-shot request, including
+        // abort before acquiring images. Ordinary next render uses the old bake.
+        for(int failure=0;failure<3;++failure){
+            in.strings[kOfxPropName]={"forceReanalyze"};
+            check(action(kOfxActionInstanceChanged)==kOfxStatOK,"arm failed reanalysis");
+            if(failure==0)e.aborted=true;
+            if(failure==1)in.integers["OfxImageEffectPropMetalEnabled"]={1};
+            if(failure==2)in.strings[kOfxImageEffectPropFieldToRender]={"OfxImageFieldBoth"};
+            check(action(kOfxImageEffectActionRender)==kOfxStatFailed,"Attempt must report its error");
+            e.aborted=false;in.integers["OfxImageEffectPropMetalEnabled"]={0};in.strings[kOfxImageEffectPropFieldToRender]={kOfxImageFieldNone};
+            fetched=released=0;
+            check(action(kOfxImageEffectActionRender)==kOfxStatOK,"Prior bake stranded after failed attempt");
+            check(fetched==1&&released==1,"Recovered RGBA must not fetch Source or worker");
+            check(e.parameters.parameters["bakedManifest"].properties.strings[kOfxParamPropDefault][0]==argv[1],"Failed attempt changed active manifest");
+        }
+        in.strings[kOfxPropName]={"processShot"};check(action(kOfxActionInstanceChanged)==kOfxStatOK,"arm cancel");
+        in.strings[kOfxPropName]={"cancelPass"};check(action(kOfxActionInstanceChanged)==kOfxStatOK,"cancel pending attempt");
+        check(action(kOfxImageEffectActionRender)==kOfxStatOK,"Canceled pending request stranded prior bake");
         check(action(kOfxActionSyncPrivateData)==kOfxStatOK,"Serialize completed analysis identity");
         check(e.parameters.parameters["savedAnalysisGeneration"].properties.strings[kOfxParamPropDefault][0]==info.generation,"Analysis identity must survive project save");
         check(action(kOfxActionDestroyInstance)==kOfxStatOK,"baked destroy");
@@ -245,6 +263,8 @@ int main(int argc,char** argv){
         check(action(kOfxImageEffectActionRender)==kOfxStatFailed,"Missing bake must fail");
         check(lastMessage.find("NeedsRelink")!=std::string::npos,"Missing bake needs an explicit relink state");
         e.parameters.parameters["previousBake"].properties.strings[kOfxParamPropDefault]={argv[1]};
+        in.strings[kOfxPropName]={"forceReanalyze"};
+        check(action(kOfxActionInstanceChanged)==kOfxStatOK,"arm before revert");
         in.strings[kOfxPropName]={"revertBake"};
         check(action(kOfxActionInstanceChanged)==kOfxStatOK,"Revert verified bake");
         check(action(kOfxImageEffectActionRender)==kOfxStatOK,"Reverted bake render");

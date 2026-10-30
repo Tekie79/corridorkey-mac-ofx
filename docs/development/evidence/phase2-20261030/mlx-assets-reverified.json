@@ -1,0 +1,12 @@
+{
+  "source_commit": "74065491ebd2eddea494ab34c15a6d84d7415353",
+  "model_revision": "7bb9a4443d5f1b4b696bcc0547d49ae0ac5e5f7e",
+  "verified_model_files": 14,
+  "profile": "768x1280 t1/t4 FP32",
+  "native_1080_padded": [
+    1152,
+    1920
+  ],
+  "native_1080_graphs_present": false,
+  "fresh_shape_exporter_present": false
+}
