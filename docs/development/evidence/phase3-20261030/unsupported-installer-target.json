@@ -1,0 +1,7 @@
+{
+  "status": "Passed",
+  "artifact_sha256": "2249be84fb0152d2bbb7608a3492d357bcdde7bd3f91c97458b6570dee4d57cd",
+  "scope": "Exact final package rejects a non-startup target before changing files",
+  "returncode": 1,
+  "message": "Only the startup volume is supported.\n"
+}

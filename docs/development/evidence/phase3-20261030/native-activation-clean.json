@@ -1,0 +1,6 @@
+{
+  "image": true,
+  "manifest": "/Users/harvest/Documents/Ysew_Project/GIT/corridorkey-mac-ofx/.build/evidence/phase3-final/rgba-bakes/bake-e41e30350dec4516a1f2e9d4fba3fd41/manifest.json",
+  "previous": "/Users/harvest/Documents/Ysew_Project/GIT/corridorkey-mac-ofx/.build/evidence/phase3-final/bakes/bake-3c6e70d66c7b49669b12963772a37cc4/manifest.json",
+  "cleanup": "Removed 60 captures and 60 results (3981318720 bytes); 0 already absent. Retained 0 shared entries and 0 entries used by this node's other generations. Durable bakes retained. Removed 0 abandoned temporal jobs (0 bytes); retained 0 active jobs, 0 other jobs and 0 unmarked scratch folders."
+}

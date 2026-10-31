@@ -1,0 +1,20 @@
+{
+  "requests": 300,
+  "failed": 0,
+  "patterns": [
+    "forward60",
+    "reverse60",
+    "three seeded shuffled60"
+  ],
+  "files_unchanged": true,
+  "delta": {
+    "input_stage_attempts": 0,
+    "input_stage_new": 0,
+    "input_stage_dedup": 0,
+    "analysis_starts": 0,
+    "analysis_completions": 0,
+    "result_cache_hits": 60,
+    "result_cache_misses": 0,
+    "model_network_invocations": 0
+  }
+}

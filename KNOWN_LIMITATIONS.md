@@ -12,11 +12,21 @@ memory, macOS 26.3.2 (25D2150), Resolve Studio 21.1.1 build 10.
 The 0.9.6 acquisition-phase edit test exposed a mixed-source temporal result.
 The 0.9.7 implementation requires an identical complete causal capture in a
 separate Render action before submitting a newly observed shot. A first pass
-can stop with “Capture ready”; keep inputs unchanged and render again. This
+can stop for capture confirmation. In 0.9.8, one Analyze / Resume click retains
+its intent for the next independent host Render for up to 30 seconds. Scrub one
+frame or render again without clicking Analyze / Resume a second time. Changed
+source/settings during confirmation fail the attempt; errors and cancellation
+restore ordinary baked navigation. OpenFX supplies no portable request-render
+API, so automatic host scheduling is not promised. This
 replacement needs its own actual installed-artifact acceptance result. Do not
 edit upstream media, grades, hints or timing while analysis is running.
 
 ## Actual evidence and its limits
+
+Unmarked temporal scratch directories from older builds have no durable node
+ownership or job lock. Version 0.9.8 reports and preserves them for manual review;
+it does not delete them by filename. New scratch jobs are owned and locked so
+this node's inactive jobs can be recovered safely by Clear Temporary Analysis.
 
 0.9.6 completed genuine MPS float32 Single Frame and Temporal 60-frame 1080p
 Fusion/Deliver sequences. EXR exports matched native Saver outputs exactly.

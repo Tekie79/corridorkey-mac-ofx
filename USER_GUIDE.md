@@ -6,7 +6,7 @@ Read `dist/NATIVE_QUALIFICATION.md` before using it for important work.
 ## Install
 
 Close DaVinci Resolve and Fusion. Double-click
-`CorridorKeyMac-0.9.7-beta.1-arm64-Offline.pkg` and use the normal macOS
+`CorridorKeyMac-0.9.8-beta.1-arm64-Offline.pkg` and use the normal macOS
 Installer authorization. Install on the startup volume. The package includes
 the private arm64 runtime, publisher models, native plugin and optional Manager.
 It does not need a Python installation, model download or manually launched worker.
@@ -53,11 +53,16 @@ remaps alpha and leaves straight RGB intact; 1 is neutral.
 
 Single Frame processes each frame independently. For Temporal, set the inclusive
 Shot Start and Shot End to one continuous shot, then select Temporal and click
-Analyze Shot / Reanalyze. The next render acquires the images arriving at the node,
-records a candidate capture. A new source set must be observed identically in a
+Analyze / Resume once. The next render acquires the images arriving at the node
+and records a candidate capture. A new source set must be observed identically in a
 separate Render action before analysis is submitted. If the message says
-“Capture ready”, keep upstream settings unchanged and render again. Only a
-verified capture is analyzed and returned as a keyed result. Resolve's progress/cancel surface
+"Capture confirmation pending", keep upstream settings unchanged and request
+another frame within 30 seconds (scrub one frame or render again). The request
+is retained; do not click Analyze / Resume again. OpenFX has no portable way to
+force that second host render. A changed source/settings generation, actual
+error or cancel ends the attempt; ordinary navigation returns to the previous
+verified bake. Pending intent is transient and is discarded on project reopen.
+Only a verified capture is analyzed and returned as a keyed result. Resolve's progress/cancel surface
 is used during the render. A negative Shot End uses the available source range;
 explicitly shorten it when the input includes more than one shot or over 240 frames.
 
@@ -71,7 +76,9 @@ Metal's recommended working set; Auto uses 80%, which is not a measurement of
 currently free memory.
 It revalidates every contributing input frame before returning the result.
 Changing earlier input pixels invalidates later recurrent-dependent outputs too.
-Reanalyze advances a saved render revision so Resolve can refresh its own cache.
+Analyze / Resume reuses complete valid analysis. Force Reanalyze advances the
+saved model revision. Both invalidate Resolve's output cache. Neither activates
+or replaces a durable bake; use Bake Alpha / Bake RGBA after successful analysis.
 
 With a useful hint, Hint Frames chooses All Frames or Single Frame and Propagate.
 Reference Frame may be empty for the shot start, or an integer within the shot.
@@ -86,10 +93,40 @@ projects; the separate Use Source Alpha toggle remains available for compatibili
 Reuse Captures also reuses verified inputs across explicit reanalysis. Ordinary
 playback always reuses unchanged captures. The complete causal source and hint
 set is checked using host image identities, with content checks where identities
-are absent. Analyze Shot selects Temporal and advances the saved revision. Cancel
+are absent. Analyze Shot selects Temporal without changing the model revision. Cancel
 stops this node's wait without terminating the shared engine.
 
 ## Faster editing and playback
+
+For durable output, use **Analyze / Resume → Bake Alpha or Bake RGBA → Verify →
+Activate → Clean Temporary Analysis → Playback**. Bake & Clean verifies every
+EXR before activating it, then removes only this node's unshared temporary data.
+The UI reports actual capture/result counts and bytes. A cleanup failure keeps
+the verified bake active and offers a retry. Model weights, source footage and
+older bake versions are retained.
+
+Temporal scratch jobs carry node ownership and a held job lock. Clear Temporary
+Analysis recovers abandoned jobs for this node after a worker crash and reports
+their bytes separately from captured/result blobs. Active jobs and other nodes'
+jobs are retained. Older unmarked scratch folders cannot be attributed safely:
+they are retained with an incomplete-cleanup warning for review in Open Cache.
+
+**Match Source** is the default export size; **Baked / Analysis Size** retains
+the analysis dimensions. Explicit UHD, DCI 4K and custom dimensions are also
+available. For a known 4096×2160 source analyzed at 1920×1080, Match Source writes
+4096×2160 EXRs. This resamples the analysis; it does not run native 4K inference.
+Automatic original dimensions may require a deferred SDK lookup and a Bake
+retry. Crops, retimes, non-square pixels or ambiguous transforms require verified
+alignment and explicit dimensions. Never use guessed dimensions to compose a
+matte against original footage.
+
+Alpha EXRs contain one A channel and use current Source RGB for plugin playback.
+RGBA EXRs contain straight recovered foreground RGB and A, and play with Source
+disconnected. HALF is the default; FLOAT preserves values outside HALF range.
+Baked playback never launches neural analysis. Save the project after activation;
+it retains the manifest path. Missing or corrupt baked media requests Relink.
+Relink and Revert cancel pending analysis and preserve immutable prior versions.
+Keep the entire bake directory together when moving it to external storage.
 
 Use **Half** or **Quarter** Internal Resolution while adjusting the key. These
 are saved quality choices: switch back to **Full** before a native final render.

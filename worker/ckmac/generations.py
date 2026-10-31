@@ -155,5 +155,8 @@ class Generations:
                     self.db.execute('DELETE FROM generations WHERE id=?',(g,));report['completion_records_removed']+=1
                 else:report['completion_records_preserved']+=1
                 self.db.execute('DELETE FROM leases WHERE owner=? AND generation=?',(owner,g))
-            report['cleanup_complete']=not report['failures']
+            from .temporal_scratch import clear_scratch
+            scratch=clear_scratch(self.cache.root,owner,generation)
+            report.update(scratch);report['failures'].extend(scratch['scratch_failures'])
+            report['cleanup_complete']=not report['failures'] and not scratch['active_scratch_jobs_preserved'] and not scratch['unmarked_scratch_directories_preserved']
             return report

@@ -1,0 +1,7 @@
+{
+  "scope": "Known scratch of the isolated SIGKILL QA job; explicit manual QA cleanup",
+  "path": "/Users/harvest/Documents/Ysew_Project/GIT/corridorkey-mac-ofx/.build/evidence/phase3-reanalysis/frames/.temporal-55sowakw",
+  "files": 60,
+  "logical_bytes": 298643040,
+  "product_recovery_policy": "Unmarked legacy directories are preserved and reported; only this known task-created directory was removed manually"
+}

@@ -1,4 +1,6 @@
 .build/
+.deps/
+dist/0.9.8-beta.1/
 build/
 __pycache__/
 .pytest_cache/

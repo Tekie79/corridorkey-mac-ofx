@@ -1,0 +1,16 @@
+{
+  "status": "Passed",
+  "rgba_frames": 60,
+  "rgba_max_error": 0.0,
+  "alpha_frame": 23,
+  "alpha_size": [
+    4096,
+    2160
+  ],
+  "alpha_error": 0.0,
+  "original_rgb_times_alpha_error": 0.0,
+  "source_disconnected_for_rgba": true,
+  "worker_absent": true,
+  "temporary_blobs": 0,
+  "scratch_jobs": 0
+}

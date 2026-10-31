@@ -1,0 +1,8 @@
+{
+  "status": "Excluded from reuse pass",
+  "reason": "Native Paste changed graph connections; the new capture is the original unedited frame 17",
+  "original_frame17": "4866661c548ee17af238bee9c88d6ac32a779e4e32aa340a92010d24a06c409a",
+  "equals_original": true,
+  "initial_generation": "7410a002f731cfc71921c5c8c153f962110e7d0b0723ff37ccf59fede7409a9d",
+  "edited_generation": "4f2a416582a5ab75370092971e56a3b97326d29abee45fec8a441996727e1ce1"
+}

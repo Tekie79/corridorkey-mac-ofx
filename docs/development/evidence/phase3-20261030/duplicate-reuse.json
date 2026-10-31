@@ -1,0 +1,18 @@
+{
+  "native_copy_paste": true,
+  "explicit_graph_repair": true,
+  "first_confirmation_returned_no_image": true,
+  "second_returned_image": true,
+  "one_analyze_click": true,
+  "model_loaded": false,
+  "counters": {
+    "input_stage_attempts": 0,
+    "input_stage_new": 0,
+    "input_stage_dedup": 0,
+    "analysis_starts": 0,
+    "analysis_completions": 0,
+    "result_cache_hits": 1,
+    "result_cache_misses": 0,
+    "model_network_invocations": 0
+  }
+}

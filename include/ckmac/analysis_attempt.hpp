@@ -1,29 +1,79 @@
 #pragma once
-#include <atomic>
 #include <chrono>
 #include <cstdint>
+#include <mutex>
+#include <stdexcept>
+#include <string>
 
 namespace ckmac {
-// A button arms one Render, not a persistent mode. Taking it before any host
-// call/lock means every return, abort and exception restores baked navigation.
-// A request the host never renders expires without background host-suite calls.
+// Host-driven, transient intent: only source confirmation can survive a Render.
+// No images, saved parameters, timers or host calls are retained here.
 class AnalysisAttempt {
 public:
     using Clock=std::chrono::steady_clock;
-    void arm(Clock::time_point now=Clock::now()) {
-        until_.store(ticks(now+std::chrono::seconds(30)));
+    enum class Phase { Idle, Requested, Capturing, AwaitingConfirmation, Verifying, Analyzing };
+    class Render {
+        friend class AnalysisAttempt;
+        AnalysisAttempt* owner_;
+        std::uint64_t id_;
+        Render(AnalysisAttempt* owner,std::uint64_t id):owner_(owner),id_(id){}
+    public:
+        Render(const Render&)=delete;
+        Render& operator=(const Render&)=delete;
+        ~Render(){if(owner_)owner_->finish(id_);}
+        explicit operator bool() const {return owner_!=nullptr;}
+        void verifySource(const std::string& generation) {
+            if(!owner_)return;
+            std::lock_guard<std::mutex> lock(owner_->mutex_);
+            owner_->check(id_);
+            if(owner_->phase_==Phase::Verifying&&owner_->source_!=generation)
+                throw std::runtime_error("Source or analysis settings changed during capture confirmation. The previous bake is preserved; retry Analyze/Resume with upstream settings unchanged.");
+        }
+        void awaitConfirmation(const std::string& generation,Clock::time_point now=Clock::now()) {
+            if(!owner_)return;
+            std::lock_guard<std::mutex> lock(owner_->mutex_);
+            owner_->check(id_);
+            if(owner_->phase_!=Phase::Capturing)
+                throw std::runtime_error("Source confirmation failed. The previous bake is preserved; retry Analyze/Resume.");
+            owner_->source_=generation;owner_->phase_=Phase::AwaitingConfirmation;
+            owner_->until_=now+std::chrono::seconds(30);
+            owner_=nullptr; // Explicit handoff only; exceptions always finish.
+        }
+        void analyzing() {
+            if(!owner_)return;
+            std::lock_guard<std::mutex> lock(owner_->mutex_);
+            owner_->check(id_);owner_->phase_=Phase::Analyzing;
+        }
+    };
+    void arm(std::uint64_t generation,Clock::time_point now=Clock::now()) {
+        std::lock_guard<std::mutex> lock(mutex_);
+        ++id_;generation_=generation;source_.clear();phase_=Phase::Requested;
+        until_=now+std::chrono::seconds(30);
+    }
+    Render begin(std::uint64_t generation,Clock::time_point now=Clock::now()) {
+        std::lock_guard<std::mutex> lock(mutex_);
+        if(phase_!=Phase::Requested&&phase_!=Phase::AwaitingConfirmation)return Render(nullptr,0);
+        if(generation_!=generation||now>=until_){phase_=Phase::Idle;source_.clear();return Render(nullptr,0);}
+        phase_=phase_==Phase::Requested?Phase::Capturing:Phase::Verifying;
+        return Render(this,id_);
     }
     bool pending(Clock::time_point now=Clock::now()) const {
-        return until_.load()>ticks(now);
+        std::lock_guard<std::mutex> lock(mutex_);
+        return (phase_==Phase::Requested||phase_==Phase::AwaitingConfirmation)&&now<until_;
     }
-    bool take(Clock::time_point now=Clock::now()) {
-        return until_.exchange(0)>ticks(now);
-    }
-    void cancel(){until_.store(0);}
+    void cancel(){std::lock_guard<std::mutex> lock(mutex_);++id_;phase_=Phase::Idle;source_.clear();}
 private:
-    static std::int64_t ticks(Clock::time_point now) {
-        return std::chrono::duration_cast<std::chrono::nanoseconds>(now.time_since_epoch()).count();
+    void check(std::uint64_t id) const {
+        if(id!=id_||phase_==Phase::Idle)throw std::runtime_error("Analysis attempt canceled or superseded. The previous bake is preserved.");
     }
-    std::atomic<std::int64_t> until_{0};
+    void finish(std::uint64_t id) {
+        std::lock_guard<std::mutex> lock(mutex_);
+        if(id==id_){phase_=Phase::Idle;source_.clear();}
+    }
+    mutable std::mutex mutex_;
+    Phase phase_=Phase::Idle;
+    std::uint64_t id_=0,generation_=0;
+    Clock::time_point until_{};
+    std::string source_;
 };
 }

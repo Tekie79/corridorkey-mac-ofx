@@ -1,0 +1,12 @@
+{
+  "pid": 71423,
+  "signal": "SIGKILL",
+  "job": ".staging-dd530113e4284c8f8fa259e2e5892fee",
+  "context": {
+    "build": "cachebake-qa-p3-final",
+    "generation": "b81803522a8e872addb12417b6fa98da26e86a58a45556726b13ce42a7e798e5",
+    "owner": "e38f647-7945b71e-c202d9dd-16654e23-30596bc3-b04d3ba2-9e42e596-785a7b81-"
+  },
+  "files": 1,
+  "logical_bytes": 4977805
+}

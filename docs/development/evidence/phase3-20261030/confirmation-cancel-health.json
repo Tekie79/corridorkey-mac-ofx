@@ -1,0 +1,106 @@
+{
+  "state": "cache_ready",
+  "error": "",
+  "fixture_passed": false,
+  "model_loaded": false,
+  "user_frames_completed": 0,
+  "cache_hits": 0,
+  "active_jobs": 0,
+  "pid": 67787,
+  "facts": {
+    "last_temporal_request_seconds": 0.0014416659832932055,
+    "temporal_algorithm": "float32 continuous RVM / Hann baton 4/2 / stage2",
+    "profile": {
+      "resolution": 0,
+      "window": 4,
+      "memory_limit": 0,
+      "low_memory": false,
+      "internal_hint_quality": 0.95,
+      "reference_index": 0
+    },
+    "backend": {
+      "backend": "pytorch_mps",
+      "loaded": false,
+      "device": null,
+      "dtype": null,
+      "torch_version": null,
+      "upstream_root": "/Library/Application Support/HarvestPictures/CorridorKeyMac/Runtime/0.9.7-b1.027347b5a7e5/upstream",
+      "model_root": "/Library/Application Support/HarvestPictures/CorridorKeyMac/Models/ck2-cf44a8db3f02",
+      "audited_upstream_commit": "485f5e9ab759ead6138cc990776184b59d6ea971",
+      "temporal_mode": "independent_frame_T1",
+      "clip_temporal_analysis": false,
+      "completed_temporal_shots": 0,
+      "automatic_cpu_model_fallback": false,
+      "cpu_preprocessing": [
+        "transfer_functions",
+        "reflect_padding",
+        "foundation_area_resize"
+      ],
+      "cpu_postprocessing": [
+        "asinh_decode",
+        "crop",
+        "transfer_functions",
+        "optional_green_despill"
+      ],
+      "input_spaces": [
+        "srgb",
+        "linear",
+        "rec709_gamma24"
+      ],
+      "input_alpha": "only used as a hint when explicitly selected",
+      "output_alpha": "straight foreground RGB plus clamped model matte",
+      "successful_frames": 0,
+      "completed_network_calls": {},
+      "last_error": null
+    }
+  },
+  "cache": {
+    "ram_hits": 4,
+    "disk_hits": 121,
+    "metadata_hits": 241,
+    "staged_bytes": 0,
+    "puts": 0,
+    "put_dedup": 0,
+    "cache_bytes_written": 0,
+    "cache_bytes_evicted": 0,
+    "ram_bytes": 0,
+    "ram_limit": 536870912
+  },
+  "counters": {
+    "input_stage_attempts": 0,
+    "input_stage_new": 0,
+    "input_stage_dedup": 0,
+    "analysis_starts": 0,
+    "analysis_completions": 0,
+    "result_cache_hits": 1,
+    "result_cache_misses": 0,
+    "model_network_invocations": 0
+  },
+  "node_counters": [
+    {
+      "node": "528ef5de-269bab04-9573acb1-fb616fa0-f31537c6-701cb816-e7fe3c59-9385ada0-",
+      "generation": "4f2a416582a5ab75370092971e56a3b97326d29abee45fec8a441996727e1ce1",
+      "counters": {
+        "analysis_starts": 0,
+        "analysis_completions": 0,
+        "result_cache_hits": 1,
+        "result_cache_misses": 0,
+        "model_network_invocations": 0,
+        "cache_bytes_written": 0,
+        "cache_bytes_evicted": 0
+      }
+    }
+  ],
+  "cache_domains": [
+    "temporary captures/results",
+    "Resolve playback cache (host controlled)",
+    "durable EXR bake"
+  ],
+  "ok": true,
+  "protocol": 2,
+  "build_id": "cachebake-qa-p3",
+  "payload_bytes": 0,
+  "session_id": "qa-control",
+  "request_id": 1,
+  "effect_generation": 0
+}

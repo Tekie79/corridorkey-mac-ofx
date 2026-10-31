@@ -34,7 +34,7 @@ public:
     bool bakeOwnsAnalysis=false;
     std::string lastGeneration;
     bool cacheHit=false;
-    std::vector<std::string> analysisStatus(unsigned width,unsigned height,const std::vector<std::string>& keys,unsigned requested,const Settings& settings,int revision,bool firstHint,const std::string& provenance);
+    std::vector<std::string> analysisStatus(unsigned width,unsigned height,const std::vector<std::string>& keys,unsigned requested,const Settings& settings,int revision,bool firstHint,const std::string& provenance,bool audit=false);
     std::string stage(unsigned width,unsigned height,const std::vector<float>& pixels,bool reuse=true);
     std::vector<std::string> inputsPresent(const std::vector<std::string>& keys);
     std::vector<float> temporal(unsigned width,unsigned height,const std::vector<std::string>& keys,

@@ -9,13 +9,13 @@ import hashlib
 import json
 import os
 from pathlib import Path
-import tempfile
 from dataclasses import asdict,replace
 
 import numpy as np
 from .backend import prepare_frame,finish_frame
 from .profiles import Profile
 from .generations import Generations,digest
+from .temporal_scratch import scratch
 
 
 class TemporalProcessor:
@@ -94,8 +94,9 @@ class TemporalProcessor:
                     if value is None:raise RuntimeError('Captured input missing; Analyze/Resume must recapture')
                     if expected_shape is not None and value.shape!=expected_shape:raise ValueError('Captured input extent mismatch')
                     return value
-                self.backend.analyze_ordered_shot(frame,len(keys),settings,profile,
-                    lambda i,value:None if self.cache.valid(outputs[i]) else self.cache.put(outputs[i],value),cancel,progress,self.cache.root)
+                with scratch(self.cache.root,owner,master,self.build) as tmp:
+                    self.backend.analyze_ordered_shot(frame,len(keys),settings,profile,
+                        lambda i,value:None if self.cache.valid(outputs[i]) else self.cache.put(outputs[i],value),cancel,progress,tmp)
                 self.records.complete(master,identity,outputs,owner)
                 self.stats['analysis_completions']+=1
                 return self.records.result(master,requested,expected_shape)
@@ -127,8 +128,8 @@ class TemporalProcessor:
         self.cache.pin(keys+outputs)
         try:
             self.cache.reserve(nbytes*len(keys)+2**30)
-            with tempfile.TemporaryDirectory(prefix='.temporal-',dir=self.cache.root) as tmp:
-                tmp=Path(tmp);state=None;geometry=None
+            with scratch(self.cache.root,owner,master,self.build) as tmp:
+                state=None;geometry=None
                 with torch.inference_mode():
                     # Frozen context is computed once, in source order. RVM uses
                     # upstream's bilinear quarter proxy and carries through every frame.

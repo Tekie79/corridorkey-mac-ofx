@@ -234,6 +234,10 @@ int main(int argc,char** argv){
             check(fetched==1&&released==1,"Recovered RGBA must not fetch Source or worker");
             check(e.parameters.parameters["bakedManifest"].properties.strings[kOfxParamPropDefault][0]==argv[1],"Failed attempt changed active manifest");
         }
+        in.strings[kOfxPropName]={"processShot"};check(action(kOfxActionInstanceChanged)==kOfxStatOK,"arm token notification");
+        in.strings[kOfxPropName]={"analysisRequest"};action(kOfxActionInstanceChanged);
+        check(action(kOfxImageEffectActionRender)==kOfxStatFailed,"Internal token notification consumed analysis intent");
+        check(action(kOfxImageEffectActionRender)==kOfxStatOK,"Rejected source format stranded bake");
         in.strings[kOfxPropName]={"processShot"};check(action(kOfxActionInstanceChanged)==kOfxStatOK,"arm cancel");
         in.strings[kOfxPropName]={"cancelPass"};check(action(kOfxActionInstanceChanged)==kOfxStatOK,"cancel pending attempt");
         check(action(kOfxImageEffectActionRender)==kOfxStatOK,"Canceled pending request stranded prior bake");

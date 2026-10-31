@@ -51,6 +51,13 @@ def test_v2_serialization_snapshot_validation_and_durable_clear(_geometry,tmp_pa
         response,payload=request('result_get',**req);assert response['ok'] and payload==data
         status=dict(keys=[key,key],requested=0,revision=0,provenance=identity['provenance'])
         assert request('analyze_status',**status)[0]['state']=='Analyzed'
+        e.cache.remove([outputs[1]])
+        # Ordinary playback reads only its requested output; explicit resume
+        # audits the shot before deciding whether missing inputs need staging.
+        assert request('analyze_status',**status)[0]['state']=='Analyzed'
+        audit=request('analyze_status',**status,audit=True)[0]
+        assert audit['state']=='Stale' and audit['miss_reasons']==['analysis_outputs_incomplete']
+        e.cache.put(outputs[1],a)
         assert request('analyze_status',**dict(status,revision=1))[0]['miss_reasons']==['revision_changed']
         assert request('analyze_status',**dict(status,keys=['b'*64,key]))[0]['miss_reasons']==['inputs_changed']
         assert request('analyze_status',**dict(status,profile=dict(window=8)))[0]['miss_reasons']==['profile_changed']

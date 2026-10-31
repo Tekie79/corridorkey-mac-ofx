@@ -354,13 +354,13 @@ std::vector<std::string> WorkerManager::inputsPresent(const std::vector<std::str
         return found;
     }
 }
-std::vector<std::string> WorkerManager::analysisStatus(unsigned w,unsigned h,const std::vector<std::string>& keys,unsigned requested,const Settings& s,int revision,bool firstHint,const std::string& provenance) {
+std::vector<std::string> WorkerManager::analysisStatus(unsigned w,unsigned h,const std::vector<std::string>& keys,unsigned requested,const Settings& s,int revision,bool firstHint,const std::string& provenance,bool audit) {
     if(endpoint_.empty())ensure();
     @autoreleasepool {
         NSMutableArray* list=[NSMutableArray array];for(auto& k:keys)[list addObject:@(k.c_str())];
         id origin=[NSJSONSerialization JSONObjectWithData:[NSData dataWithBytes:provenance.data() length:provenance.size()] options:0 error:nil];
         if(![origin isKindOfClass:[NSDictionary class]])fail("Invalid source snapshot provenance");
-        auto response=control(encode(@{@"op":@"analyze_status",@"width":@(w),@"height":@(h),@"keys":list,@"requested":@(requested),@"input_space":@(s.inputSpace),@"hint":@(s.sourceAlphaHint),@"quality":@(s.hintQuality),@"despill":@(s.despillStrength),@"revision":@(revision),@"first_hint":@(firstHint),@"provenance":origin,@"profile":profile(s)}));
+        auto response=control(encode(@{@"op":@"analyze_status",@"audit":@(audit),@"width":@(w),@"height":@(h),@"keys":list,@"requested":@(requested),@"input_space":@(s.inputSpace),@"hint":@(s.sourceAlphaHint),@"quality":@(s.hintQuality),@"despill":@(s.despillStrength),@"revision":@(revision),@"first_hint":@(firstHint),@"provenance":origin,@"profile":profile(s)}));
         id d=[NSJSONSerialization JSONObjectWithData:[NSData dataWithBytes:response.data() length:response.size()] options:0 error:nil];
         return {str(d[@"state"]),str(d[@"generation"])};
     }
@@ -380,7 +380,8 @@ CleanupReport WorkerManager::clearAnalysis(const std::string& generation) {
         NSDictionary* data=[NSJSONSerialization JSONObjectWithData:[NSData dataWithBytes:response.data() length:response.size()] options:0 error:nil];
         bool complete=[data[@"cleanup_complete"] boolValue];
         NSString* summary=[NSString stringWithFormat:@"Removed %@ captures and %@ results (%@ bytes); %@ already absent. Retained %@ shared entries and %@ entries used by this node's other generations. Durable bakes retained.",data[@"removed_captures"]?:@0,data[@"removed_results"]?:@0,data[@"reclaimed_bytes"]?:@0,data[@"already_missing_entries"]?:@0,data[@"shared_entries_preserved"]?:@0,data[@"retained_entries_for_other_generations"]?:@0];
-        if(!complete)summary=[summary stringByAppendingFormat:@" Temporary cleanup incomplete: %@",data[@"failures"]?:@"No confirmed cleanup result; retry Clear Temporary Analysis."];
+        summary=[summary stringByAppendingFormat:@" Removed %@ abandoned temporal jobs (%@ bytes); retained %@ active jobs, %@ other jobs and %@ unmarked scratch folders.",data[@"removed_scratch_jobs"]?:@0,data[@"reclaimed_scratch_bytes"]?:@0,data[@"active_scratch_jobs_preserved"]?:@0,data[@"other_scratch_jobs_preserved"]?:@0,data[@"unmarked_scratch_directories_preserved"]?:@0];
+        if(!complete)summary=[summary stringByAppendingFormat:@" Temporary cleanup incomplete. Retry after active work ends; review unmarked scratch folders in Open Cache. Details: %@",data[@"failures"]?:@"No confirmed cleanup result."];
         return {complete,str(summary)};
     }
 }

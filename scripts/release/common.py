@@ -5,10 +5,11 @@ import subprocess
 
 ROOT = Path(__file__).resolve().parents[2]
 WORK = ROOT / '.build'
-OUT = ROOT / 'dist'
 PRODUCT = Path('/Library/Application Support/HarvestPictures/CorridorKeyMac')
-VERSION = '0.9.7-beta.1'
-BUILD = '0.9.7-beta.1'
+VERSION = '0.9.8-beta.1'
+BUILD = VERSION
+# Keep previous release artifacts/evidence immutable.
+OUT = ROOT / 'dist' / VERSION
 MODEL_SET = 'ck2-cf44a8db3f02'
 PYTHON = dict(name='cpython-3.12.16+20261026-aarch64-apple-darwin-install_only.tar.gz',
               sha256='fbf4afef53c2a6b72bb741bc06d5671a9dfaf87bd84e5aa73ac9b3d0d589f14e',

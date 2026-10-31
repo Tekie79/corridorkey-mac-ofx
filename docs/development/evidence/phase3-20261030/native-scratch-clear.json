@@ -1,0 +1,7 @@
+{
+  "cleanup": "Removed 60 captures and 0 results (1990659360 bytes); 60 already absent. Retained 0 shared entries and 0 entries used by this node's other generations. Durable bakes retained. Removed 1 abandoned temporal jobs (4977805 bytes); retained 0 active jobs, 0 other jobs and 0 unmarked scratch folders.",
+  "baked_recovery": true,
+  "manifest_unchanged": true,
+  "revision": 15,
+  "request": 32
+}

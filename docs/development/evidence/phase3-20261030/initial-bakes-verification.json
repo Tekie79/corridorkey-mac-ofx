@@ -1,0 +1,28 @@
+{
+  "rgba": {
+    "frames": 60,
+    "width": 1920,
+    "height": 1080,
+    "channels": [
+      "A",
+      "B",
+      "G",
+      "R"
+    ],
+    "precision": "half",
+    "max_difference_from_previous_MPS_bake": 0.0,
+    "source_basis": "resolve_sdk"
+  },
+  "alpha": {
+    "frames": 60,
+    "width": 4096,
+    "height": 2160,
+    "channels": [
+      "A"
+    ],
+    "precision": "half",
+    "max_difference_from_previous_MPS_bake": 0.0,
+    "source_basis": "resolve_sdk"
+  },
+  "original_media_sha256": "756191c3f2c996b97e7552d2ac388dfb5bad8606321476e5aee03c6c66fe5409"
+}

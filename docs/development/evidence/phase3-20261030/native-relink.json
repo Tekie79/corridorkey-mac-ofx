@@ -1,0 +1,10 @@
+{
+  "controlled_directory_offline": true,
+  "missing_bake_returned_no_image": true,
+  "no_silent_reanalysis": true,
+  "pending_force_then_revert_succeeded": true,
+  "pending_force_then_native_relink_succeeded": true,
+  "source_disconnected": true,
+  "worker_absent": true,
+  "restored_manifest": "/Users/harvest/Documents/Ysew_Project/GIT/corridorkey-mac-ofx/.build/evidence/phase3-bakes/bake-5acd27c067ce4724aab97a908b2b4ce5/manifest.json"
+}

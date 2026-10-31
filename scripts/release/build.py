@@ -38,8 +38,8 @@ fi
 
 
 def components(tree):
-    return dict(package_version=VERSION,build_id=BUILD,model_set_id=MODEL_SET,protocol=2,
-        component_versions=dict(plugin='0.9.7',worker=7,manager=2,adapter_math=3,cache_format=3,temporal='upstream-float32-continuous-RVM-configurable-Hann-v3'),
+    return dict(package_version=VERSION,build_id=BUILD,model_set_id=MODEL_SET,protocol=2,backend='mps',
+        component_versions=dict(plugin='0.9.8',worker=9,manager=2,adapter_math=3,cache_format=3,temporal='upstream-float32-continuous-RVM-configurable-Hann-v3'),
         python=str(PRODUCT/'Runtime'/BUILD/'bin/python3'),
         code_root=str(PRODUCT/'Runtime'/BUILD/'upstream'),model_root=str(PRODUCT/'Models'/MODEL_SET),
         inventory=inventory(tree))
@@ -49,9 +49,9 @@ def build(a):
     global BUILD
     if a.final:
         finalize();return
-    BUILD='0.9.7-b1.'+source_identity()[:12]
+    BUILD='0.9.8-b1.'+source_identity()[:12]
     if platform.system()!='Darwin' or platform.machine()!='arm64':raise RuntimeError('Build natively on Apple Silicon')
-    OUT.mkdir(exist_ok=True);WORK.mkdir(exist_ok=True)
+    OUT.mkdir(parents=True,exist_ok=True);WORK.mkdir(exist_ok=True)
     if not (WORK/'runtime/bin/python3').exists() or not (WORK/'models/weights/corridorkey_v2.safetensors').exists():
         run(sys.executable,ROOT/'scripts/release/acquire.py')
     run(sys.executable,ROOT/'scripts/release/lock_assets.py')
@@ -100,7 +100,7 @@ def build(a):
         hook(hooks/'preinstall',PREFLIGHT+f'\nexec "{PRODUCT}/Maintenance/ckmac-installer-tool" {op} "$3"')
         hook(hooks/'postinstall','/usr/sbin/pkgutil --forget org.harvestpictures.CorridorKeyMac.personal >/dev/null 2>&1 || true')
         pkg=OUT/f'CorridorKeyMac-Uninstall-{choice}.pkg'
-        run('/usr/bin/pkgbuild','--nopayload','--scripts',hooks,'--identifier','org.harvestpictures.CorridorKeyMac.uninstall.'+choice,'--version','0.9.7',pkg)
+        run('/usr/bin/pkgbuild','--nopayload','--scripts',hooks,'--identifier','org.harvestpictures.CorridorKeyMac.uninstall.'+choice,'--version','0.9.8',pkg)
         shutil.copy2(pkg,maintenance/pkg.name);uninstalls[pkg.name]=sha(pkg)
     active=components(tree);active.pop('inventory')
     write_json(tree/PRODUCT.relative_to('/')/'active.json',active)
@@ -127,7 +127,7 @@ if (( free_kb < {required_kb} )); then echo 'Insufficient space for staging, ins
 <domains enable_localSystem="true" enable_currentUserHome="false" enable_anywhere="false"/>
 <allowed-os-versions><os-version min="14.0"/></allowed-os-versions>
 <choices-outline><line choice="default"/></choices-outline><choice id="default" visible="false"><pkg-ref id="org.harvestpictures.CorridorKeyMac.personal"/></choice>
-<pkg-ref id="org.harvestpictures.CorridorKeyMac.personal" version="0.9.7" onConclusion="none">payload.pkg</pkg-ref>
+<pkg-ref id="org.harvestpictures.CorridorKeyMac.personal" version="0.9.8" onConclusion="none">payload.pkg</pkg-ref>
 </installer-gui-script>''')
     pkg=OUT/f'CorridorKeyMac-{VERSION}-arm64-Offline.pkg'
     def package():
@@ -137,7 +137,7 @@ if (( free_kb < {required_kb} )); then echo 'Insufficient space for staging, ins
         for d in definitions:
             d['BundleIsRelocatable']=False;d['BundleIsVersionChecked']=False
         components.write_bytes(plistlib.dumps(definitions))
-        run('/usr/bin/pkgbuild','--root',stage,'--component-plist',components,'--scripts',hooks,'--identifier','org.harvestpictures.CorridorKeyMac.personal','--version','0.9.7','--install-location','/','--ownership','recommended','--compression','latest','--min-os-version','14.0',WORK/'payload.pkg')
+        run('/usr/bin/pkgbuild','--root',stage,'--component-plist',components,'--scripts',hooks,'--identifier','org.harvestpictures.CorridorKeyMac.personal','--version','0.9.8','--install-location','/','--ownership','recommended','--compression','latest','--min-os-version','14.0',WORK/'payload.pkg')
         run('/usr/bin/productbuild','--distribution',distribution,'--resources',resources,'--package-path',WORK,pkg)
     package()
     # Protect executable package logic without a circular final-package hash.

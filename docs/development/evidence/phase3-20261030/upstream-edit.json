@@ -1,0 +1,12 @@
+{
+  "old_generation": "7410a002f731cfc71921c5c8c153f962110e7d0b0723ff37ccf59fede7409a9d",
+  "new_generation": "4f2a416582a5ab75370092971e56a3b97326d29abee45fec8a441996727e1ce1",
+  "changed_source_frames": [
+    17
+  ],
+  "analyze_clicks": 1,
+  "request_before": 18,
+  "request_after": 19,
+  "model_revision_before": 3,
+  "model_revision_after": 3
+}

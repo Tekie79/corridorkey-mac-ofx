@@ -8,7 +8,7 @@ from common import ROOT,WORK,OUT,sha,write_json
 
 
 def main():
-    OUT.mkdir(exist_ok=True)
+    OUT.mkdir(parents=True,exist_ok=True)
     artifact=json.loads((OUT/'artifact.json').read_text()) if (OUT/'artifact.json').exists() else None
     events_path=WORK/'qualification-events.json'
     events=json.loads(events_path.read_text()) if events_path.exists() else {}
@@ -42,14 +42,14 @@ def main():
     complete=all(r['status']=='Passed' for r in rows if r['class']=='U' or r['applicability']=='claimed')
     combinations=events.get('_qualified_combinations',[]) if complete else []
     report=dict(release_status='QUALIFIED PERSONAL BETA' if complete and combinations and artifact and artifact.get('qualified') else 'UNQUALIFIED PERSONAL BETA',artifact=artifact,
-        primary=dict(model='MacBook Pro Mac17,8',chip='Apple M5 Pro',cpu_cores=18,gpu_cores=20,unified_memory_bytes=48*2**30,macos='26.3.2',macos_build='25D2150',architecture='arm64',resolve='DaVinci Resolve Studio 21.1.1 build 10'),
+        primary=dict(model='MacBook Pro Mac17,8',chip='Apple M5 Pro',cpu_cores=18,gpu_cores=20,unified_memory_bytes=48*2**30,macos='26.3.2',macos_build='25D2150',architecture='arm64',resolve='DaVinci Resolve Studio 21.1.2'),
         qualified_combinations=combinations,unqualified_combinations=['M2 Mac Studio: unavailable','Other OS/Resolve versions','Native UHD / 4096×2160: numerical quality failure under investigation','Free Resolve / other host contexts: not qualified','Transferred-package Gatekeeper route: not qualified'],
         acceptance=rows,development_and_partial_evidence=developmental,
         no_cpu_production_fallback=True,notes=['Portable/mock tests are not Resolve/GPU acceptance.','Per-process outbound-IP denial is recorded separately from clean-account installation.','Only explicitly recorded applicable Passed gates can qualify a final release.'])
     write_json(OUT/'qualification.json',report)
     lines=['# Native qualification — personal beta','',report['release_status'],'']
     if artifact:lines += [f"Installer: `{artifact['filename']}`",f"Bytes: {artifact['size']}",f"SHA-256: `{artifact['sha256']}`",'']
-    lines += ['Primary: Apple M5 Pro MacBook Pro (20-core GPU, 48 GB), macOS 26.3.2 (25D2150), Resolve Studio 21.1.1 build 10.','No fully qualified release combination is claimed while universal gates remain incomplete.','','| Gate | Class | Result | Evidence / limitation |','| --- | --- | --- | --- |']
+    lines += ['Primary: Apple M5 Pro MacBook Pro (20-core GPU, 48 GB), macOS 26.3.2 (25D2150), Resolve Studio 21.1.2.','No fully qualified release combination is claimed while universal gates remain incomplete.','','| Gate | Class | Result | Evidence / limitation |','| --- | --- | --- | --- |']
     for row in rows:lines.append(f"| {row['id']}: {row['scenario']} | {row['class']} | {row['status']} | {row['note'].replace('|','/')} |")
     lines += ['','## Actual model and partial native evidence','']
     for e in developmental:lines.append(f"- `{e['file']}` — {e['status']}. {e['scope']}")

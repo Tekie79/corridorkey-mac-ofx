@@ -480,9 +480,12 @@ OfxStatus renderBaked(OfxImageEffectHandle effect,OfxPropertySetHandle in,double
 }
 #endif
 
+struct CaptureConfirmationRequired : std::runtime_error {using std::runtime_error::runtime_error;};
+
 OfxStatus render(OfxImageEffectHandle effect, OfxPropertySetHandle in) {
     auto* instance = instanceOf(effect);
-    const bool resumeAnalysis=instance->analysisAttempt.take();
+    auto attempt=instance->analysisAttempt.begin(instance->generation.load());
+    const bool resumeAnalysis=bool(attempt);
     std::unique_lock<std::timed_mutex> guard(instance->renderMutex,std::defer_lock);
     while(!guard.try_lock_for(std::chrono::milliseconds(100)))if(effects->abort&&effects->abort(effect))throw ckmac::Cancelled();
     const auto generation=instance->generation.load();
@@ -657,14 +660,21 @@ OfxStatus render(OfxImageEffectHandle effect, OfxPropertySetHandle in) {
             if(hasFps)provenance<<fps;else provenance<<"null";
             provenance<<",\"source_size\":["<<sourceView.bounds.x2-sourceView.bounds.x1<<","<<sourceView.bounds.y2-sourceView.bounds.y1<<"],\"pixel_aspect\":"<<par<<",\"origin\":["<<sourceView.bounds.x1<<","<<sourceView.bounds.y1<<"],\"scale\":["<<sx<<","<<sy<<"]}";
             auto captureContext=provenance.str()+":"+std::to_string(sourceView.bounds.x2-sourceView.bounds.x1)+":"+std::to_string(sourceView.bounds.y2-sourceView.bounds.y1);
-            if(!instance->captureGuard.observe(captureContext,keys))
-                throw std::runtime_error("Capture ready. Render again to verify the shot before analysis. Keep upstream settings unchanged.");
-            auto status=client.analysisStatus(sourceView.bounds.x2-sourceView.bounds.x1,sourceView.bounds.y2-sourceView.bounds.y1,keys,unsigned(time-start),settings,revision,hintTiming==1,provenance.str());
+            auto status=client.analysisStatus(sourceView.bounds.x2-sourceView.bounds.x1,sourceView.bounds.y2-sourceView.bounds.y1,keys,unsigned(time-start),settings,revision,hintTiming==1,provenance.str(),resumeAnalysis);
+            attempt.verifySource(status[1]);
+            if(!instance->captureGuard.observe(captureContext+":"+status[1],keys)) {
+                if(cancelled())throw ckmac::Cancelled();
+                attempt.awaitConfirmation(status[1]);
+                throw CaptureConfirmationRequired(resumeAnalysis?
+                    "Capture confirmation pending. Keep upstream settings unchanged and request another frame within 30 seconds (scrub one frame or render again). Analyze/Resume is retained; do not click it again. The previous bake is unchanged.":
+                    "Capture confirmation required. Keep upstream settings unchanged and render again to verify the shot before analysis.");
+            }
+            attempt.analyzing();
             bool resume=resumeAnalysis;
             if(status[0]=="Unanalyzed"&&!resume&&!instance->analysisGeneration.empty()&&status[1]==instance->analysisGeneration)
                 throw std::runtime_error("Completed temporary analysis is unavailable after cache removal, a volume change or metadata loss. Use Analyze/Resume; playback never silently reruns this generation.");
             if(status[0]=="Stale"&&!resume)throw std::runtime_error("Stale analysis: requested output missing. Use Analyze/Resume; no automatic whole-shot reanalysis.");
-            if(status[0]!="Analyzed"||resume){
+            if(status[0]!="Analyzed"){
                 auto present=client.inputsPresent(keys);std::set<std::string> available(present.begin(),present.end());
                 for(std::int64_t t=start;t<=end;t++)if(!available.count(keys[size_t(t-start)])){
                     if(cancelled())throw ckmac::Cancelled();
@@ -803,7 +813,7 @@ OfxStatus changed(OfxImageEffectHandle effect, OfxPropertySetHandle in) {
             require(params->paramSetValue(instance->revision,revision==2147483647?0:revision+1),"activate saved analysis revision");
         }
         int request=0;require(params->paramGetValue(instance->creative.at("analysisRequest"),&request),"read analysis request");
-        instance->analysisAttempt.arm();instance->generation.fetch_add(1);
+        auto generation=instance->generation.fetch_add(1)+1;instance->analysisAttempt.arm(generation);
         try {require(params->paramSetValue(instance->creative.at("analysisRequest"),request==2147483647?0:request+1),"invalidate host output for Analyze/Resume");}
         catch(...){instance->analysisAttempt.cancel();throw;}
         return kOfxStatOK;
@@ -874,6 +884,9 @@ OfxStatus changed(OfxImageEffectHandle effect, OfxPropertySetHandle in) {
         ckmac::openMaintenance(name);return kOfxStatOK;
     }
 #endif
+    // Hosts may notify this synchronously or later after paramSetValue. It is
+    // our output-cache token, not a new source/model generation or cancel.
+    if(!std::strcmp(name,"analysisRequest"))return kOfxStatReplyDefault;
     if(std::strcmp(name,"checkWorker")) {instance->generation.fetch_add(1);clearMessage(effect);return kOfxStatReplyDefault;}
 #ifdef CKMAC_INSTALLED_RUNTIME
     if(instance->bakeReads){
@@ -957,6 +970,9 @@ OfxStatus mainEntry(const char* action, const void* rawEffect, OfxPropertySetHan
         }
         if (!std::strcmp(action, kOfxActionInstanceChanged)) return changed(effect, in);
         return kOfxStatReplyDefault;
+    } catch (const CaptureConfirmationRequired& waiting) {
+        if(effect)report(effect,kOfxMessageMessage,waiting.what());
+        return kOfxStatFailed; // No image was produced; this is a confirmation state, not inference success.
     } catch (const ckmac::Cancelled&) {
         return kOfxStatFailed;
     } catch (const std::bad_alloc&) {

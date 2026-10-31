@@ -1,0 +1,26 @@
+{
+  "status": "Passed",
+  "job": "3a03f2ce-18d0-4c89-aa55-1d57947bfb6a",
+  "frames": 60,
+  "distinct_sha256": 60,
+  "first": "final_rgba00000030.exr",
+  "last": "final_rgba00000089.exr",
+  "fusion_range": [
+    0,
+    59
+  ],
+  "original_source_range": [
+    30,
+    89
+  ],
+  "width": 1920,
+  "height": 1080,
+  "fps": 25,
+  "precision": "float",
+  "alpha_mode": "premultiplied",
+  "max_error": 0.0,
+  "source_disconnected": true,
+  "worker_absent": true,
+  "temporary_blobs": 0,
+  "scratch_jobs": 0
+}

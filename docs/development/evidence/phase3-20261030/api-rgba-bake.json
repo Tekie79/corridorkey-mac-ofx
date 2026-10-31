@@ -1,0 +1,14 @@
+{
+  "state": "Verified",
+  "manifest": "/Users/harvest/Documents/Ysew_Project/GIT/corridorkey-mac-ofx/.build/evidence/phase3-final/rgba-bakes/bake-e41e30350dec4516a1f2e9d4fba3fd41/manifest.json",
+  "generation": "7c0f117d5693d1c001c167bc1fe4bd237675dc59f1c61382c8d515b9cd3b22b1",
+  "bake_id": "e41e30350dec4516a1f2e9d4fba3fd41",
+  "temporary_owned": true,
+  "ok": true,
+  "protocol": 2,
+  "build_id": "cachebake-qa-p3-final",
+  "payload_bytes": 0,
+  "session_id": "e38f647-7945b71e-c202d9dd-16654e23-30596bc3-b04d3ba2-9e42e596-785a7b81-",
+  "request_id": 1,
+  "effect_generation": 0
+}

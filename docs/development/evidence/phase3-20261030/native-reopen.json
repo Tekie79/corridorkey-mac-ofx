@@ -1,0 +1,12 @@
+{
+  "project": "CorridorKey_Phase3_Reanalysis_QA_20261030",
+  "saved_during_confirmation": true,
+  "request_before": 26,
+  "request_after": 27,
+  "confirmation_returned_no_image": true,
+  "worker_stopped_before_quit": true,
+  "fresh_session_frame44": true,
+  "source_disconnected_frame45": true,
+  "manifest": "/Users/harvest/Documents/Ysew_Project/GIT/corridorkey-mac-ofx/.build/evidence/phase3-bakes/bake-5acd27c067ce4724aab97a908b2b4ce5/manifest.json",
+  "temporary_blobs": 0
+}

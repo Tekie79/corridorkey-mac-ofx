@@ -89,6 +89,8 @@ class Engine:
         self.records.lease(req.get('session_id'),generation)
         try:self.records.result(generation,req['requested'],(req['height'],req['width'],4))
         except RuntimeError:return dict(state='Stale',generation=generation,miss_reasons=[self.cache.miss_reason(record['outputs'][req['requested']])])
+        if req.get('audit',False) and self.records.status(generation)['state']!='Analyzed':
+            return dict(state='Stale',generation=generation,miss_reasons=['analysis_outputs_incomplete'])
         return dict(state='Analyzed',generation=generation)
 
     def load(self):

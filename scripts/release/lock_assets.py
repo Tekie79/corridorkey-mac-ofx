@@ -69,7 +69,7 @@ def main():
     write_json(OUT/'runtime-lock.json',dict(python=PYTHON,wheels=wheels,deployment_target='14.0',
         upstream_commit='485f5e9ab759ead6138cc990776184b59d6ea971',
         openfx_commit='c3f1c2dcf4f51762b794c4fc21181b4a501be1bf',
-        utils3d_commit='83bfa5bda008803f6521ce9547f94023b8afeddd',adapter_math_version=2,cache_format=2,protocol=2))
+        utils3d_commit='83bfa5bda008803f6521ce9547f94023b8afeddd',adapter_math_version=3,cache_format=3,protocol=2))
     print(f'Verified {len(assets)} publisher assets and locked {len(wheels)} wheels',flush=True)
 
 if __name__=='__main__':main()

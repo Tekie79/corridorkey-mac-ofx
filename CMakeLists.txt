@@ -7,7 +7,7 @@ if(CMAKE_HOST_APPLE OR CMAKE_SYSTEM_NAME STREQUAL "Darwin")
     set(CMAKE_OSX_DEPLOYMENT_TARGET 14.0 CACHE STRING "Minimum macOS version")
   endif()
 endif()
-project(CorridorKeyMac VERSION 0.9.7 LANGUAGES CXX)
+project(CorridorKeyMac VERSION 0.9.8 LANGUAGES CXX)
 
 set(OPENFX_SDK_ROOT "" CACHE PATH "ASF OpenFX SDK checkout (pinned c3f1c2dcf4f51762b794c4fc21181b4a501be1bf)")
 if(NOT EXISTS "${OPENFX_SDK_ROOT}/include/ofxImageEffect.h")
@@ -49,7 +49,7 @@ if(APPLE)
   set_target_properties(CorridorKeyManager PROPERTIES OUTPUT_NAME "CorridorKey Mac Manager"
     MACOSX_BUNDLE_INFO_PLIST "${CMAKE_CURRENT_SOURCE_DIR}/cmake/Manager-Info.plist.in"
     MACOSX_BUNDLE_GUI_IDENTIFIER "org.harvestpictures.CorridorKeyMac.Manager"
-    MACOSX_BUNDLE_BUNDLE_VERSION "9071" MACOSX_BUNDLE_SHORT_VERSION_STRING "0.9.7")
+    MACOSX_BUNDLE_BUNDLE_VERSION "9081" MACOSX_BUNDLE_SHORT_VERSION_STRING "0.9.8")
   target_compile_options(CorridorKeyManager PRIVATE -fobjc-arc)
   target_link_libraries(CorridorKeyManager PRIVATE ckmac_supervisor "-framework Cocoa")
   add_executable(ckmac-installer-tool src/installer_tool.mm)

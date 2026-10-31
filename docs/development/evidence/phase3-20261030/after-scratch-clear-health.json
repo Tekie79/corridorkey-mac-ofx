@@ -1,0 +1,46 @@
+{
+  "state": "cache_ready",
+  "error": "",
+  "fixture_passed": false,
+  "model_loaded": false,
+  "user_frames_completed": 0,
+  "cache_hits": 0,
+  "active_jobs": 0,
+  "pid": 71670,
+  "facts": {},
+  "cache": {
+    "ram_hits": 0,
+    "disk_hits": 0,
+    "metadata_hits": 0,
+    "staged_bytes": 0,
+    "puts": 0,
+    "put_dedup": 0,
+    "cache_bytes_written": 0,
+    "cache_bytes_evicted": 0,
+    "ram_bytes": 0,
+    "ram_limit": 536870912
+  },
+  "counters": {
+    "input_stage_attempts": 0,
+    "input_stage_new": 0,
+    "input_stage_dedup": 0,
+    "analysis_starts": 0,
+    "analysis_completions": 0,
+    "result_cache_hits": 0,
+    "result_cache_misses": 0,
+    "model_network_invocations": 0
+  },
+  "node_counters": [],
+  "cache_domains": [
+    "temporary captures/results",
+    "Resolve playback cache (host controlled)",
+    "durable EXR bake"
+  ],
+  "ok": true,
+  "protocol": 2,
+  "build_id": "cachebake-qa-p3-final",
+  "payload_bytes": 0,
+  "session_id": "qa-control",
+  "request_id": 1,
+  "effect_generation": 0
+}

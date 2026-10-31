@@ -1,0 +1,70 @@
+[
+  {
+    "mode": "error",
+    "attempt": {
+      "result": {
+        "first": false,
+        "attempt_image": false,
+        "manifest_unchanged": true,
+        "revision": 6
+      }
+    },
+    "recovery": {
+      "result": {
+        "baked_recovery": true,
+        "manifest": "/Users/harvest/Documents/Ysew_Project/GIT/corridorkey-mac-ofx/.build/evidence/phase3-bakes/bake-5acd27c067ce4724aab97a908b2b4ce5/manifest.json"
+      }
+    }
+  },
+  {
+    "mode": "oom",
+    "attempt": {
+      "result": {
+        "first": false,
+        "attempt_image": false,
+        "manifest_unchanged": true,
+        "revision": 7
+      }
+    },
+    "recovery": {
+      "result": {
+        "baked_recovery": true,
+        "manifest": "/Users/harvest/Documents/Ysew_Project/GIT/corridorkey-mac-ofx/.build/evidence/phase3-bakes/bake-5acd27c067ce4724aab97a908b2b4ce5/manifest.json"
+      }
+    }
+  },
+  {
+    "mode": "cancel",
+    "attempt": {
+      "result": {
+        "first": false,
+        "attempt_image": false,
+        "manifest_unchanged": true,
+        "revision": 8
+      }
+    },
+    "recovery": {
+      "result": {
+        "baked_recovery": true,
+        "manifest": "/Users/harvest/Documents/Ysew_Project/GIT/corridorkey-mac-ofx/.build/evidence/phase3-bakes/bake-5acd27c067ce4724aab97a908b2b4ce5/manifest.json"
+      }
+    }
+  },
+  {
+    "mode": "missing_capture",
+    "attempt": {
+      "result": {
+        "first": false,
+        "attempt_image": false,
+        "manifest_unchanged": true,
+        "revision": 9
+      }
+    },
+    "recovery": {
+      "result": {
+        "baked_recovery": true,
+        "manifest": "/Users/harvest/Documents/Ysew_Project/GIT/corridorkey-mac-ofx/.build/evidence/phase3-bakes/bake-5acd27c067ce4724aab97a908b2b4ce5/manifest.json"
+      }
+    }
+  }
+]

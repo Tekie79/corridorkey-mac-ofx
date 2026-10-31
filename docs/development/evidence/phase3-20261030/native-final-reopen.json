@@ -1,0 +1,14 @@
+{
+  "project": "CorridorKey_Phase3_Final_QA_20261030",
+  "fresh_session": true,
+  "source_disconnected": true,
+  "successful_frames": [
+    0,
+    43,
+    59
+  ],
+  "manifest": "/Users/harvest/Documents/Ysew_Project/GIT/corridorkey-mac-ofx/.build/evidence/phase3-final/rgba-bakes/bake-e41e30350dec4516a1f2e9d4fba3fd41/manifest.json",
+  "worker_absent": true,
+  "temporary_blobs": 0,
+  "scratch_jobs": 0
+}

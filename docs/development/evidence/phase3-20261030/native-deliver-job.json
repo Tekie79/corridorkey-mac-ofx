@@ -1,0 +1,35 @@
+{
+  "job": "3a03f2ce-18d0-4c89-aa55-1d57947bfb6a",
+  "status": {
+    "JobStatus": "Complete",
+    "CompletionPercentage": 100,
+    "TimeTakenToRenderInMs": 5761
+  },
+  "jobs": [
+    {
+      "JobId": "3a03f2ce-18d0-4c89-aa55-1d57947bfb6a",
+      "RenderJobName": "Job 1",
+      "TargetDir": "/Users/harvest/Documents/Ysew_Project/GIT/corridorkey-mac-ofx/.build/evidence/phase3-final/deliver",
+      "ExportAlpha": true,
+      "OutputFilename": "final_rgba00000030.exr",
+      "PresetName": "Custom",
+      "TimelineName": "Native 60 frames at 1080p",
+      "MarkIn": 0,
+      "MarkOut": 59,
+      "FormatWidth": 1920,
+      "FormatHeight": 1080,
+      "FrameRate": "25",
+      "PixelAspectRatio": 1,
+      "AudioBitDepth": 24,
+      "AudioSampleRate": 48000,
+      "IsExportVideo": true,
+      "IsExportAudio": false,
+      "AlphaMode": 0,
+      "RenderMode": "Individual clips",
+      "VideoFormat": "EXR",
+      "VideoCodec": "RGB float",
+      "ClipStartFrame": 1,
+      "TimelineStartTimecode": "00:00:00:00"
+    }
+  ]
+}

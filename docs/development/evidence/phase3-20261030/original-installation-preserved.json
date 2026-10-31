@@ -1,0 +1,9 @@
+{
+  "status": "Passed",
+  "installed_build": "0.9.7-b1.027347b5a7e5",
+  "inventory_records": 27113,
+  "installed_plugin_sha256": "e6304a001859f5026735b5d4e12156573c30109a7fae250dfe4ee647cb09fae2",
+  "active_manifest_sha256": "3fc10a7b0a48ded8f74f68ce5c8dda65cf4aa90e25eee907f451a4fe8820d79a",
+  "original_media_sha256": "756191c3f2c996b97e7552d2ac388dfb5bad8606321476e5aee03c6c66fe5409",
+  "scope": "Original protected installation and footage preserved; not qualification of the new installer"
+}
