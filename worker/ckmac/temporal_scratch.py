@@ -5,7 +5,8 @@ import stat
 
 from .bake_transaction import BakeTransaction,recover_staging
 
-PRODUCT='org.harvestpictures.CorridorKeyMac.temporal-scratch'
+from .installation import installed_profile
+PRODUCT=installed_profile().domain+'.temporal-scratch'
 
 
 def scratch_root(root):

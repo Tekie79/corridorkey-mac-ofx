@@ -12,7 +12,7 @@ import subprocess
 import sys
 import tarfile
 import xml.etree.ElementTree as ET
-from common import ROOT,WORK,OUT,PRODUCT,VERSION,BUILD,MODEL_SET,PYTHON,sha,write_json,run,inventory,source_identity
+from common import ROOT,WORK,OUT,PRODUCT,VERSION,BUILD,MODEL_SET,PYTHON,sha,write_json,run,inventory,source_identity,PROFILE
 
 
 def copy(src,dst):
@@ -38,31 +38,63 @@ fi
 
 
 def components(tree):
-    return dict(package_version=VERSION,build_id=BUILD,model_set_id=MODEL_SET,protocol=2,backend='mps',
+    return dict(installation_profile=PROFILE.name,package_version=VERSION,build_id=BUILD,model_set_id=MODEL_SET,protocol=2,backend='mps',
         component_versions=dict(plugin='0.9.8',worker=9,manager=2,adapter_math=3,cache_format=3,temporal='upstream-float32-continuous-RVM-configurable-Hann-v3'),
         python=str(PRODUCT/'Runtime'/BUILD/'bin/python3'),
         code_root=str(PRODUCT/'Runtime'/BUILD/'upstream'),model_root=str(PRODUCT/'Models'/MODEL_SET),
         inventory=inventory(tree))
 
 
+def assert_namespace(tree):
+    """Reject any payload outside the three fixed profile destinations."""
+    roots=(PRODUCT,PROFILE.plugin,PROFILE.manager)
+    for record in inventory(tree):
+        path=Path('/')/record['path']
+        if not any(path==root or path.is_relative_to(root) for root in roots):
+            raise ValueError('Payload escapes installation namespace: '+str(path))
+
+
+def installed_guide(text):
+    text=text.replace('CorridorKeyMac-0.9.8-beta.1-arm64-Offline.pkg',f'CorridorKeyMac-{VERSION}-arm64-Offline.pkg')
+    if PROFILE.name=='qa':
+        text=text.replace('/Library/Application Support/HarvestPictures/CorridorKeyMac/',str(PRODUCT)+'/')
+        text=text.replace('/Applications/CorridorKey Mac Manager.app',str(PROFILE.manager))
+        text=text.replace('CorridorKey2.0 hp beta Manager',PROFILE.display_name+' Manager')
+        text=text.replace('CorridorKey2.0 hp beta',PROFILE.display_name)
+        text='# Isolated QA installation\n\nUse only the QA plugin and QA Manager for testing. Production is separate.\n\n'+text
+    return text
+
+
 def build(a):
-    global BUILD
+    global BUILD,OUT,PRODUCT,VERSION,PROFILE
+    # Re-exec before importing build constants, and propagate only to build tools.
+    if a.profile!=PROFILE.name:
+        env=os.environ.copy();env['CKMAC_BUILD_PROFILE']=a.profile
+        os.execve(sys.executable,[sys.executable,__file__,*sys.argv[1:]],env)
     if a.final:
         finalize();return
-    BUILD='0.9.8-b1.'+source_identity()[:12]
+    BUILD=('0.9.8-qa2.' if PROFILE.name=='qa' else '0.9.8-b2.')+source_identity()[:12]
+    build_dir=ROOT/'build'/PROFILE.name
+    package_work=WORK/('release-'+PROFILE.name)
+    package_work.mkdir(parents=True,exist_ok=True)
     if platform.system()!='Darwin' or platform.machine()!='arm64':raise RuntimeError('Build natively on Apple Silicon')
     OUT.mkdir(parents=True,exist_ok=True);WORK.mkdir(exist_ok=True)
     if not (WORK/'runtime/bin/python3').exists() or not (WORK/'models/weights/corridorkey_v2.safetensors').exists():
         run(sys.executable,ROOT/'scripts/release/acquire.py')
     run(sys.executable,ROOT/'scripts/release/lock_assets.py')
     cmake=WORK/'runtime/bin/cmake'
-    run(cmake,'-S',ROOT,'-B',ROOT/'build','-DOPENFX_SDK_ROOT='+str(ROOT/'.deps/openfx'),'-DCMAKE_BUILD_TYPE=Release','-DBUILD_TESTING=ON')
-    run(cmake,'--build',ROOT/'build','--parallel','6')
+    # Discard only generated bundles so renamed executables cannot leave stale
+    # Mach-O files or signatures in a later package. Object build caches remain.
+    for bundle in (build_dir/PROFILE.plugin.name,build_dir/PROFILE.manager.name):
+        if bundle.exists():shutil.rmtree(bundle)
+    run(cmake,'-S',ROOT,'-B',build_dir,'-DOPENFX_SDK_ROOT='+str(ROOT/'.deps/openfx'),'-DCKMAC_INSTALL_PROFILE='+PROFILE.name,'-DCKMAC_BUNDLE_VERSION=9083','-DCMAKE_BUILD_TYPE=Release','-DBUILD_TESTING=ON')
+    run(cmake,'--build',build_dir,'--parallel','6')
     if a.verify:
-        run(WORK/'runtime/bin/ctest','--test-dir',ROOT/'build','--output-on-failure')
-        env=os.environ.copy();env['PYTHONPATH']=str(ROOT/'worker')
+        run(WORK/'runtime/bin/ctest','--test-dir',build_dir,'--output-on-failure')
+        env=os.environ.copy();env['PYTHONPATH']=str(ROOT/'worker');env['CKMAC_BUILT_BUNDLE']=str(build_dir/PROFILE.plugin.name)
         run(WORK/'runtime/bin/python3','-m','pytest',ROOT/'tests','-q',env=env)
-    stage=WORK/'package';incoming=stage/PRODUCT.relative_to('/')/'Incoming'/BUILD
+    if (OUT/'artifact.json').exists():raise RuntimeError('Candidate already exists; preserve it and increment the release identity')
+    stage=package_work/'package';incoming=stage/PRODUCT.relative_to('/')/'Incoming'/BUILD
     if stage.exists():shutil.rmtree(stage)
     tree=incoming/'tree';tree.mkdir(parents=True)
     runtime=tree/PRODUCT.relative_to('/')/'Runtime'/BUILD
@@ -73,7 +105,7 @@ def build(a):
             else:p.unlink()
     copy(ROOT/'worker/ckmac',runtime/'lib/python3.12/site-packages/ckmac')
     code=runtime/'upstream';code.mkdir()
-    shutil.copy2(ROOT/'build/ckmac-engine-launcher',runtime/'bin/ckmac-engine-launcher')
+    shutil.copy2(build_dir/'ckmac-engine-launcher',runtime/'bin/ckmac-engine-launcher')
     copy(ROOT/'.deps/CorridorKey2.0/corridorkey',code/'corridorkey')
     copy(ROOT/'.deps/CorridorKey2.0/third_party',code/'third_party')
     for name in ('LICENSE','THIRD_PARTY_NOTICES.md','requirements.txt'):
@@ -83,32 +115,34 @@ def build(a):
     copy(ROOT/'licenses',runtime/'licenses')
     for name in ('model-manifest.json','runtime-lock.json','requirements.lock'):
         shutil.copy2(OUT/name,runtime/name)
-    copy(ROOT/'build/CorridorKeyMac.ofx.bundle',tree/'Library/OFX/Plugins/CorridorKeyMac.ofx.bundle')
-    copy(ROOT/'build/CorridorKey Mac Manager.app',tree/'Applications/CorridorKey Mac Manager.app')
+    copy(build_dir/PROFILE.plugin.name,tree/PROFILE.plugin.relative_to('/'))
+    copy(build_dir/PROFILE.manager.name,tree/PROFILE.manager.relative_to('/'))
     maintenance=tree/PRODUCT.relative_to('/')/'Maintenance';maintenance.mkdir(parents=True)
     for name in ('USER_GUIDE.md','KNOWN_LIMITATIONS.md'):shutil.copy2(ROOT/name,maintenance/name)
+    (maintenance/'USER_GUIDE.md').write_text(installed_guide((ROOT/'USER_GUIDE.md').read_text()))
     shutil.copy2(ROOT/'docs/PERFORMANCE.md',maintenance/'PERFORMANCE.md')
-    shutil.copy2(ROOT/'build/ckmac-installer-tool',maintenance/'ckmac-installer-tool')
+    shutil.copy2(build_dir/'ckmac-installer-tool',maintenance/'ckmac-installer-tool')
     run(sys.executable,ROOT/'scripts/release/audit_runtime.py',runtime,'--fix','--sign','--output',OUT/'native-dependencies.json')
-    for p in (tree/'Library/OFX/Plugins/CorridorKeyMac.ofx.bundle',tree/'Applications/CorridorKey Mac Manager.app',maintenance/'ckmac-installer-tool'):
+    for p in (tree/PROFILE.plugin.relative_to('/'),tree/PROFILE.manager.relative_to('/'),maintenance/'ckmac-installer-tool'):
         run('/usr/bin/codesign','--force','--sign','-','--timestamp=none',p)
         run('/usr/bin/codesign','--verify','--strict',p)
     # Narrow installed removal packages contain no model/runtime payload.
     uninstalls={}
     for choice,op in [('KeepModels','uninstall-keep'),('RemoveAll','uninstall-all')]:
-        hooks=WORK/('uninstall-'+choice);hooks.mkdir(exist_ok=True)
+        hooks=package_work/('uninstall-'+choice);hooks.mkdir(exist_ok=True)
         hook(hooks/'preinstall',PREFLIGHT+f'\nexec "{PRODUCT}/Maintenance/ckmac-installer-tool" {op} "$3"')
-        hook(hooks/'postinstall','/usr/sbin/pkgutil --forget org.harvestpictures.CorridorKeyMac.personal >/dev/null 2>&1 || true')
+        hook(hooks/'postinstall',f'/usr/sbin/pkgutil --forget {PROFILE.domain}.personal >/dev/null 2>&1 || true')
         pkg=OUT/f'CorridorKeyMac-Uninstall-{choice}.pkg'
-        run('/usr/bin/pkgbuild','--nopayload','--scripts',hooks,'--identifier','org.harvestpictures.CorridorKeyMac.uninstall.'+choice,'--version','0.9.8',pkg)
+        run('/usr/bin/pkgbuild','--nopayload','--scripts',hooks,'--identifier',PROFILE.domain+'.uninstall.'+choice,'--version','0.9.8',pkg)
         shutil.copy2(pkg,maintenance/pkg.name);uninstalls[pkg.name]=sha(pkg)
+    assert_namespace(tree)
     active=components(tree);active.pop('inventory')
     write_json(tree/PRODUCT.relative_to('/')/'active.json',active)
     manifest=components(tree);manifest['uninstall_packages']=uninstalls
     write_json(incoming/'install-manifest.json',manifest)
     write_json(tree/PRODUCT.relative_to('/')/'install-manifest.json',manifest)
     write_json(tree/PRODUCT.relative_to('/')/'repair-policy.json',{})
-    hooks=WORK/'install-hooks';hooks.mkdir(exist_ok=True)
+    hooks=package_work/'install-hooks';hooks.mkdir(exist_ok=True)
     payload_size=sum(p.stat().st_size for p in tree.rglob('*') if p.is_file())
     required_kb=(payload_size*3+5*2**30)//1024
     hook(hooks/'preinstall',PREFLIGHT+f'''
@@ -116,32 +150,32 @@ free_kb="$(/bin/df -k / | /usr/bin/awk 'NR==2 {{print $4}}')"
 if (( free_kb < {required_kb} )); then echo 'Insufficient space for staging, installation and rollback.' >&2; exit 1; fi
 ''')
     hook(hooks/'postinstall',PREFLIGHT+f'\nexec "{PRODUCT}/Incoming/{BUILD}/tree{PRODUCT}/Maintenance/ckmac-installer-tool" activate "$3" "{PRODUCT}/Incoming/{BUILD}"')
-    resources=WORK/'installer-resources';resources.mkdir(exist_ok=True)
-    (resources/'welcome.html').write_text(f'<html><body><h1>CorridorKey2.0 hp beta</h1><p>Offline arm64 build {VERSION}. Native workflow qualification is incomplete.</p><p>Installed files: {payload_size/2**30:.2f} GiB. Allow {required_kb/2**20:.2f} GiB free for staging and rollback. Close Resolve and Fusion before installation.</p></body></html>')
-    (resources/'conclusion.html').write_text('<html><body><p>Installation complete. Open DaVinci Resolve and add CorridorKey2.0 hp beta. Its GPU engine starts automatically.</p><p>This is an unqualified personal beta. Read the native qualification report before relying on its output.</p></body></html>')
-    distribution=WORK/'Distribution.xml'
-    distribution.write_text('''<?xml version="1.0" encoding="utf-8"?>
-<installer-gui-script minSpecVersion="2"><title>CorridorKey2.0 hp beta</title>
+    resources=package_work/'installer-resources';resources.mkdir(exist_ok=True)
+    (resources/'welcome.html').write_text(f'<html><body><h1>{PROFILE.display_name}</h1><p>Offline arm64 build {VERSION}. Native workflow qualification is incomplete.</p><p>Installed files: {payload_size/2**30:.2f} GiB. Allow {required_kb/2**20:.2f} GiB free for staging and rollback. Close Resolve and Fusion before installation.</p></body></html>')
+    (resources/'conclusion.html').write_text(f'<html><body><p>Installation complete. Open DaVinci Resolve and add {PROFILE.display_name}. Its GPU engine starts automatically.</p><p>This is an unqualified personal beta. Read the native qualification report before relying on its output.</p></body></html>')
+    distribution=package_work/'Distribution.xml'
+    distribution.write_text(f'''<?xml version="1.0" encoding="utf-8"?>
+<installer-gui-script minSpecVersion="2"><title>{PROFILE.display_name}</title>
 <welcome file="welcome.html" mime-type="text/html"/><conclusion file="conclusion.html" mime-type="text/html"/>
 <options customize="never" require-scripts="false" hostArchitectures="arm64" rootVolumeOnly="true"/>
 <domains enable_localSystem="true" enable_currentUserHome="false" enable_anywhere="false"/>
 <allowed-os-versions><os-version min="14.0"/></allowed-os-versions>
-<choices-outline><line choice="default"/></choices-outline><choice id="default" visible="false"><pkg-ref id="org.harvestpictures.CorridorKeyMac.personal"/></choice>
-<pkg-ref id="org.harvestpictures.CorridorKeyMac.personal" version="0.9.8" onConclusion="none">payload.pkg</pkg-ref>
+<choices-outline><line choice="default"/></choices-outline><choice id="default" visible="false"><pkg-ref id="{PROFILE.domain}.personal"/></choice>
+<pkg-ref id="{PROFILE.domain}.personal" version="0.9.8" onConclusion="none">payload.pkg</pkg-ref>
 </installer-gui-script>''')
     pkg=OUT/f'CorridorKeyMac-{VERSION}-arm64-Offline.pkg'
     def package():
-        components=WORK/'components.plist'
+        components=package_work/'components.plist'
         run('/usr/bin/pkgbuild','--analyze','--root',stage,components)
         definitions=plistlib.loads(components.read_bytes())
         for d in definitions:
             d['BundleIsRelocatable']=False;d['BundleIsVersionChecked']=False
         components.write_bytes(plistlib.dumps(definitions))
-        run('/usr/bin/pkgbuild','--root',stage,'--component-plist',components,'--scripts',hooks,'--identifier','org.harvestpictures.CorridorKeyMac.personal','--version','0.9.8','--install-location','/','--ownership','recommended','--compression','latest','--min-os-version','14.0',WORK/'payload.pkg')
-        run('/usr/bin/productbuild','--distribution',distribution,'--resources',resources,'--package-path',WORK,pkg)
+        run('/usr/bin/pkgbuild','--root',stage,'--component-plist',components,'--scripts',hooks,'--identifier',PROFILE.domain+'.personal','--version','0.9.8','--install-location','/','--ownership','recommended','--compression','latest','--min-os-version','14.0',package_work/'payload.pkg')
+        run('/usr/bin/productbuild','--distribution',distribution,'--resources',resources,'--package-path',package_work,pkg)
     package()
     # Protect executable package logic without a circular final-package hash.
-    expanded=WORK/'expanded'
+    expanded=package_work/'expanded'
     if expanded.exists():shutil.rmtree(expanded)
     run('/usr/sbin/pkgutil','--expand-full',pkg,expanded)
     records=[];definitions={};excluded=[]
@@ -197,7 +231,7 @@ def finalize():
 
 if __name__=='__main__':
     ap=argparse.ArgumentParser(description=__doc__)
-    ap.add_argument('--profile',choices=['personal'],default='personal')
+    ap.add_argument('--profile',choices=['personal','qa'],default='personal')
     ap.add_argument('--verify',action='store_true')
     ap.add_argument('--final',action='store_true')
     build(ap.parse_args())

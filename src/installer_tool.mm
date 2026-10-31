@@ -1,5 +1,6 @@
 #import <Foundation/Foundation.h>
 #import <CommonCrypto/CommonDigest.h>
+#include "ckmac/installation.hpp"
 #include <filesystem>
 #include <fstream>
 #include <sys/socket.h>
@@ -16,9 +17,9 @@ namespace fs=std::filesystem;
 #ifdef CKMAC_INSTALLER_SELF_TEST
 static fs::path root,plugin,app;
 #else
-static const fs::path root="/Library/Application Support/HarvestPictures/CorridorKeyMac";
-static const fs::path plugin="/Library/OFX/Plugins/CorridorKeyMac.ofx.bundle";
-static const fs::path app="/Applications/CorridorKey Mac Manager.app";
+static const fs::path root=CKMAC_PRODUCT_ROOT;
+static const fs::path plugin=CKMAC_PLUGIN_PATH;
+static const fs::path app=CKMAC_MANAGER_PATH;
 #endif
 void check(bool b,const std::string& s){if(!b)throw std::runtime_error(s);}
 std::string hashFile(const fs::path& p){
@@ -43,12 +44,12 @@ void verify(const fs::path& tree,NSArray* files){
 }
 void sendAll(int fd,const void* data,size_t n){auto p=static_cast<const char*>(data);while(n){auto r=send(fd,p,n,0);check(r>0,"Worker drain request failed");p+=r;n-=r;}}
 void receiveAll(int fd,void* data,size_t n){auto p=static_cast<char*>(data);while(n){auto r=recv(fd,p,n,0);check(r>0,"Worker drain response failed");p+=r;n-=r;}}
-bool engineDirectoryName(const std::string& name){return name.size()>6&&name.rfind("ckmac-",0)==0&&name.find_first_not_of("0123456789",6)==std::string::npos;}
+bool engineDirectoryName(const std::string& name){const std::string prefix=CKMAC_SOCKET_PREFIX;return name.size()>prefix.size()&&name.rfind(prefix,0)==0&&name.find_first_not_of("0123456789",prefix.size())==std::string::npos;}
 void drain(){
     for(const auto& dir:fs::directory_iterator("/private/tmp")){
         if(!dir.is_directory()||dir.is_symlink()||!engineDirectoryName(dir.path().filename().string()))continue;
         struct stat ds{};check(!lstat(dir.path().c_str(),&ds)&&!(ds.st_mode&0077),"Unsafe affected engine directory");
-        check(dir.path().filename().string()=="ckmac-"+std::to_string(ds.st_uid),"Engine owner mismatch");
+        check(dir.path().filename().string()==std::string(CKMAC_SOCKET_PREFIX)+std::to_string(ds.st_uid),"Engine owner mismatch");
         for(const auto& file:fs::directory_iterator(dir.path())){
             if(file.path().extension()!=".sock"||!fs::is_socket(file.symlink_status()))continue;
             struct stat ts{};auto tokenPath=file.path().string()+".token";
@@ -112,7 +113,9 @@ int main(int argc,char** argv){@autoreleasepool{try{
     std::string op=argv[1];
     if(op=="activate"){
         check(argc==4,"Missing staged generation");fs::path incoming=argv[3];check(incoming.parent_path()==root/"Incoming","Unsafe stage root");
-        NSDictionary* manifest=readJSON(incoming/"install-manifest.json");verify(incoming/"tree",manifest[@"inventory"]);
+        NSDictionary* manifest=readJSON(incoming/"install-manifest.json");
+        check([(manifest[@"installation_profile"]?:@"personal") isEqual:@CKMAC_PROFILE],"Wrong installation profile");
+        verify(incoming/"tree",manifest[@"inventory"]);
         NSString* build=manifest[@"build_id"];NSString* models=manifest[@"model_set_id"];
         NSArray* paths=@[@((root/"Runtime"/[build UTF8String]).c_str()),@((root/"Models"/[models UTF8String]).c_str()),@(plugin.c_str()),@(app.c_str()),@((root/"Maintenance").c_str()),@((root/"active.json").c_str()),@((root/"install-manifest.json").c_str()),@((root/"repair-policy.json").c_str())];
         fs::path backup=root/"Transactions"/[[NSUUID UUID].UUIDString UTF8String];fs::create_directories(backup);
@@ -147,7 +150,12 @@ int main(int argc,char** argv){@autoreleasepool{try{
 // Same production recovery functions, native filesystem fixtures, no root or
 // live product paths. This executable is never put in the installer.
 int main(){@autoreleasepool{fs::path base;try{
-    check(engineDirectoryName("ckmac-501")&&engineDirectoryName("ckmac-123456")&&!engineDirectoryName("ckmac-native-qualification")&&!engineDirectoryName("ckmac-")&&!engineDirectoryName("ckmac-501-extra"),"Affected engine directory matching is too broad");
+    check(engineDirectoryName(CKMAC_SOCKET_PREFIX "501")&&engineDirectoryName(CKMAC_SOCKET_PREFIX "123456")&&!engineDirectoryName("ckmac-native-qualification")&&!engineDirectoryName(CKMAC_SOCKET_PREFIX)&&!engineDirectoryName(CKMAC_SOCKET_PREFIX "501-extra"),"Affected engine directory matching is too broad");
+#ifdef CKMAC_QA_PROFILE
+    check(!engineDirectoryName("ckmac-501"),"QA maintenance must never drain production workers");
+#else
+    check(!engineDirectoryName("ckmac-qa-501"),"Production maintenance must never drain QA workers");
+#endif
     char temp[]="/private/tmp/ckmac-transaction-test-XXXXXX";check(mkdtemp(temp),"Cannot make transaction fixture");base=temp;
     root=base/"Product";plugin=base/"OFX/Personal.ofx.bundle";app=base/"Applications/Personal.app";
     auto write=[](const fs::path& path,const std::string& text){fs::create_directories(path.parent_path());std::ofstream file(path);file<<text;file.close();};

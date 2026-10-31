@@ -3,6 +3,7 @@
 #import <Security/Security.h>
 #import <CommonCrypto/CommonDigest.h>
 #include "ckmac/worker_manager.hpp"
+#include "ckmac/installation.hpp"
 #include <array>
 #include <algorithm>
 #include <arpa/inet.h>
@@ -21,21 +22,22 @@
 
 namespace ckmac {
 namespace {
-constexpr const char* manifestPath = "/Library/Application Support/HarvestPictures/CorridorKeyMac/active.json";
+constexpr const char* manifestPath = CKMAC_PRODUCT_ROOT "/active.json";
 struct FD { int n=-1; ~FD(){if(n>=0)close(n);} };
-void fail(const std::string& s) { throw std::runtime_error(s + " Open CorridorKey Mac Manager → Verify/Repair."); }
+void fail(const std::string& s) { throw std::runtime_error(s + " Open " CKMAC_DISPLAY_NAME " Manager → Verify/Repair."); }
 void safePath(const std::string& path, bool directory=false) {
     struct stat s{};
     if(lstat(path.c_str(),&s)||s.st_uid!=0||(s.st_mode&0022)||
        (directory?!S_ISDIR(s.st_mode):!S_ISREG(s.st_mode))) fail("Installed file is missing or has unsafe ownership: "+path);
 }
 NSDictionary* readManifest() {
-    safePath("/Library/Application Support/HarvestPictures/CorridorKeyMac",true);
+    safePath(CKMAC_PRODUCT_ROOT,true);
     safePath(manifestPath);
     NSData* data=[NSData dataWithContentsOfFile:@(manifestPath)];
     if(!data||data.length>1024*1024)fail("Invalid installation manifest.");
     id obj=[NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
     if(![obj isKindOfClass:[NSDictionary class]]||[obj[@"protocol"] intValue]!=2)fail("Incompatible installation.");
+    if(![(obj[@"installation_profile"]?:@"personal") isEqual:@CKMAC_PROFILE])fail("Installation profile mismatch.");
     return obj;
 }
 std::string str(id value) {
@@ -43,13 +45,13 @@ std::string str(id value) {
     return [value UTF8String];
 }
 NSString* userCacheRoot(){
-    NSUserDefaults* preferences=[[NSUserDefaults alloc] initWithSuiteName:@"org.harvestpictures.CorridorKeyMac"];
+    NSUserDefaults* preferences=[[NSUserDefaults alloc] initWithSuiteName:@CKMAC_DOMAIN];
     NSString* chosen=[preferences stringForKey:@"CacheParent"];
-    if(!chosen)return [NSSearchPathForDirectoriesInDomains(NSCachesDirectory,NSUserDomainMask,YES).firstObject stringByAppendingPathComponent:@"org.harvestpictures.CorridorKeyMac"];
+    if(!chosen)return [NSSearchPathForDirectoriesInDomains(NSCachesDirectory,NSUserDomainMask,YES).firstObject stringByAppendingPathComponent:@CKMAC_DOMAIN];
     NSURL* parent=[NSURL fileURLWithPath:chosen isDirectory:YES];NSString* volume=nil;NSNumber* directory=nil;
     [parent getResourceValue:&volume forKey:NSURLVolumeUUIDStringKey error:nil];[parent getResourceValue:&directory forKey:NSURLIsDirectoryKey error:nil];
     if(!directory.boolValue||!volume||![volume isEqual:[preferences stringForKey:@"CacheVolumeUUID"]]||![[NSFileManager defaultManager] isWritableFileAtPath:chosen])fail("Selected cache volume is unavailable. Open Manager → Choose Cache Folder to reconnect or select another existing folder.");
-    return [chosen stringByAppendingPathComponent:[NSString stringWithFormat:@"CorridorKey-hp-Cache-%u",getuid()]];
+    return [chosen stringByAppendingPathComponent:[NSString stringWithFormat:@CKMAC_CACHE_CHILD "%u",getuid()]];
 }
 void transfer(int fd, void* bytes, size_t count, bool writing,
               const std::function<bool()>& cancel,int timeoutSeconds=1800) {
@@ -85,11 +87,11 @@ void checkImageMetadata(const std::string& text,unsigned width,unsigned height) 
 }
 }
 WorkerManager::WorkerManager(std::function<bool()> c,std::uint64_t generation,const std::string& owner):cancelled_(std::move(c)),generation_(generation){@autoreleasepool{session_=owner.empty()?str([NSUUID UUID].UUIDString):owner;}}
-void openManager(){@autoreleasepool{if(![[NSWorkspace sharedWorkspace] openURL:[NSURL fileURLWithPath:@"/Applications/CorridorKey Mac Manager.app"]])fail("Cannot open CorridorKey Mac Manager.");}}
+void openManager(){@autoreleasepool{if(![[NSWorkspace sharedWorkspace] openURL:[NSURL fileURLWithPath:@CKMAC_MANAGER_PATH]])fail("Cannot open CorridorKey Mac Manager.");}}
 void openMaintenance(const std::string& action){@autoreleasepool{
     auto config=[NSWorkspaceOpenConfiguration configuration];config.activates=YES;
-    NSURL* url=[NSURL URLWithString:[@"ckmachp://" stringByAppendingString:@(action.c_str())]];
-    [[NSWorkspace sharedWorkspace] openURLs:@[url] withApplicationAtURL:[NSURL fileURLWithPath:@"/Applications/CorridorKey Mac Manager.app"] configuration:config completionHandler:^(NSRunningApplication* app,NSError* error){if(error)NSLog(@"Cannot open maintenance: %@",error.localizedDescription);}];
+    NSURL* url=[NSURL URLWithString:[@CKMAC_URL_SCHEME "://" stringByAppendingString:@(action.c_str())]];
+    [[NSWorkspace sharedWorkspace] openURLs:@[url] withApplicationAtURL:[NSURL fileURLWithPath:@CKMAC_MANAGER_PATH] configuration:config completionHandler:^(NSRunningApplication* app,NSError* error){if(error)NSLog(@"Cannot open maintenance: %@",error.localizedDescription);}];
 }}
 std::string cacheDirectory(){@autoreleasepool{return str(userCacheRoot());}}
 void revealCacheDirectory(){@autoreleasepool{
@@ -102,26 +104,26 @@ void chooseCacheDirectory(){@autoreleasepool{
     if([panel runModal]!=NSModalResponseOK)return;
     NSString* volume=nil;[panel.URL getResourceValue:&volume forKey:NSURLVolumeUUIDStringKey error:nil];
     if(!volume||![[NSFileManager defaultManager] isWritableFileAtPath:panel.URL.path])fail("Choose an existing writable local volume.");
-    NSDictionary* m=readManifest();std::string endpoint="/private/tmp/ckmac-"+std::to_string(getuid())+"/"+str(m[@"build_id"]).substr(0,32)+".sock";
+    NSDictionary* m=readManifest();std::string endpoint="/private/tmp/" CKMAC_SOCKET_PREFIX+std::to_string(getuid())+"/"+str(m[@"build_id"]).substr(0,32)+".sock";
     if([[NSFileManager defaultManager] fileExistsAtPath:@(endpoint.c_str())]){
         WorkerManager().control("{\"op\":\"release\"}");
         for(int i=0;i<50&&[[NSFileManager defaultManager] fileExistsAtPath:@(endpoint.c_str())];i++)std::this_thread::sleep_for(std::chrono::milliseconds(100));
         if([[NSFileManager defaultManager] fileExistsAtPath:@(endpoint.c_str())])fail("Engine did not finish stopping; cache choice was not changed.");
     }
-    NSUserDefaults* preferences=[[NSUserDefaults alloc] initWithSuiteName:@"org.harvestpictures.CorridorKeyMac"];
+    NSUserDefaults* preferences=[[NSUserDefaults alloc] initWithSuiteName:@CKMAC_DOMAIN];
     [preferences setObject:panel.URL.path forKey:@"CacheParent"];[preferences setObject:volume forKey:@"CacheVolumeUUID"];[preferences synchronize];
 }}
 
 std::string WorkerManager::ensure() {
  @autoreleasepool {
     NSDictionary* m=readManifest();
-    safePath("/Library/Application Support/HarvestPictures/CorridorKeyMac/maintenance.lock");
-    FD barrier;barrier.n=open("/Library/Application Support/HarvestPictures/CorridorKeyMac/maintenance.lock",O_RDONLY|O_NOFOLLOW|O_CLOEXEC);
+    safePath(CKMAC_PRODUCT_ROOT "/maintenance.lock");
+    FD barrier;barrier.n=open(CKMAC_PRODUCT_ROOT "/maintenance.lock",O_RDONLY|O_NOFOLLOW|O_CLOEXEC);
     if(barrier.n<0||flock(barrier.n,LOCK_SH|LOCK_NB))fail("Maintenance is in progress. Retry after Installer completes.");
     build_=str(m[@"build_id"]);
     if(build_.empty()||build_.find_first_not_of("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789.-")!=std::string::npos)
         fail("Invalid runtime identity.");
-    std::string root="/private/tmp/ckmac-"+std::to_string(getuid());
+    std::string root="/private/tmp/" CKMAC_SOCKET_PREFIX+std::to_string(getuid());
     if(mkdir(root.c_str(),0700)&&errno!=EEXIST)fail("Cannot create private GPU engine directory.");
     struct stat st{};
     if(lstat(root.c_str(),&st)||!S_ISDIR(st.st_mode)||st.st_uid!=getuid()||(st.st_mode&0077))fail("Unsafe engine directory.");
@@ -179,7 +181,7 @@ std::string WorkerManager::ensure() {
     if(token.n<0||fstat(token.n,&st)||!S_ISREG(st.st_mode)||st.st_uid!=getuid()||(st.st_mode&0077)||write(token.n,token_.data(),64)!=64)
         fail("Cannot create private engine handshake.");
     std::string python=str(m[@"python"]);
-    std::string expected="/Library/Application Support/HarvestPictures/CorridorKeyMac/Runtime/"+build_+"/";
+    std::string expected=CKMAC_PRODUCT_ROOT "/Runtime/"+build_+"/";
     if(python.rfind(expected,0)!=0||python.find("..")!=std::string::npos)fail("Runtime path escapes the installation.");
     // python3 may be a relative symlink; validate the resolved executable.
     NSString* resolved=[[@(python.c_str()) stringByResolvingSymlinksInPath] stringByStandardizingPath];

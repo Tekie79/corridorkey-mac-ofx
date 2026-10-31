@@ -454,6 +454,11 @@ def main():
     manifest=json.loads(args.manifest.read_text())
     if manifest['protocol']!=2:
         ap.error('Incompatible manifest')
+    if args.verify_installation:
+        from .installation import installed_profile
+        profile=installed_profile();profile.validate_manifest(manifest)
+        if args.manifest!=profile.root/'active.json' or args.socket!=profile.endpoint(manifest['build_id']):
+            ap.error('Installed worker endpoint escapes its namespace')
     cache=Path(os.environ['HF_HOME']).parent
     inventory=args.manifest.with_name('install-manifest.json') if args.verify_installation else None
     e=Engine(manifest,cache,inventory)

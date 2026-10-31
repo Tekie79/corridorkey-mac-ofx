@@ -11,7 +11,8 @@ import time
 import uuid
 from .generations import atomic_json
 
-PRODUCT='org.harvestpictures.CorridorKeyMac.bake'
+from .installation import installed_profile
+PRODUCT=installed_profile().domain+'.bake'
 ROOT_MARKER='.ckmac-bake-root.json'
 TRANSACTION='.ckmac-transaction.json'
 

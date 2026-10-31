@@ -1,7 +1,12 @@
 # CorridorKey2.0 hp beta
 
 This build is under native qualification. It is not a completed 1.0 release.
-Read `dist/NATIVE_QUALIFICATION.md` before using it for important work.
+Read the qualification report beside the exact installer before using it for important work.
+
+The side-by-side test package is labelled **CorridorKey Mac QA**. Use its
+separate **CorridorKey Mac QA Manager** for all QA repair and uninstall operations.
+It does not replace the production installation. See
+`docs/development/PHASE4_INSTALLER_QUALIFICATION.md` for its own test status.
 
 ## Install
 
@@ -164,7 +169,7 @@ beside this guide and included in the release folder.
 
 Open **CorridorKey2.0 hp beta Manager** in Applications (installed at
 `/Applications/CorridorKey Mac Manager.app`). Verify checks the installed
-inventory. GPU Status prepares the real model and reports its actual state;
+inventory. GPU Status reports the engine's actual state;
 model-loaded and completed-inference facts are separate. Repair lets you choose
 the matching offline `.pkg` and checks its payload and installer logic before
 opening Installer. Storage shows measured model/runtime/cache sizes. Choose Cache

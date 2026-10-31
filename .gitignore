@@ -5,3 +5,5 @@ build/
 __pycache__/
 .pytest_cache/
 *.pyc
+dist/0.9.8-beta.2/
+dist/0.9.8-qa.*/

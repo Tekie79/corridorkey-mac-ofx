@@ -1,5 +1,6 @@
 #import <Cocoa/Cocoa.h>
 #include "ckmac/worker_manager.hpp"
+#include "ckmac/installation.hpp"
 
 @interface Manager : NSObject <NSApplicationDelegate>
 @property NSWindow* window;
@@ -8,7 +9,7 @@
 @implementation Manager
 - (void)applicationDidFinishLaunching:(NSNotification*)n {
     self.window=[[NSWindow alloc] initWithContentRect:NSMakeRect(0,0,700,490) styleMask:NSWindowStyleMaskTitled|NSWindowStyleMaskClosable|NSWindowStyleMaskMiniaturizable backing:NSBackingStoreBuffered defer:NO];
-    self.window.title=@"CorridorKey2.0 hp beta Manager";
+    self.window.title=@CKMAC_DISPLAY_NAME " Manager";
     [self.window center];
     NSArray* labels=@[@"Verify",@"GPU status",@"Release GPU",@"Repair…",@"Keep Models",@"Remove All",@"Storage",@"Open Cache",@"Choose Cache…",@"Support File",@"User Guide",@"Notices"];
     NSArray* actions=@[NSStringFromSelector(@selector(verify:)),NSStringFromSelector(@selector(status:)),NSStringFromSelector(@selector(releaseGPU:)),NSStringFromSelector(@selector(repair:)),NSStringFromSelector(@selector(keep:)),NSStringFromSelector(@selector(remove:)),NSStringFromSelector(@selector(storage:)),NSStringFromSelector(@selector(openCache:)),NSStringFromSelector(@selector(chooseCache:)),NSStringFromSelector(@selector(diagnostics:)),NSStringFromSelector(@selector(help:)),NSStringFromSelector(@selector(notices:))];
@@ -27,12 +28,12 @@
     self.text.string=@"Checking…";
     dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED,0),^{
         @autoreleasepool {
-            NSString* root=@"/Library/Application Support/HarvestPictures/CorridorKeyMac";
+            NSString* root=@CKMAC_PRODUCT_ROOT;
             NSData* data=[NSData dataWithContentsOfFile:[root stringByAppendingPathComponent:@"active.json"]];
             NSDictionary* m=data?[NSJSONSerialization JSONObjectWithData:data options:0 error:nil]:nil;
             if(!m){dispatch_async(dispatch_get_main_queue(),^{self.text.string=@"Installation manifest is missing. Open your original offline installer to repair.";});return;}
             NSTask* task=[NSTask new];task.executableURL=[NSURL fileURLWithPath:m[@"python"]];
-            NSMutableArray* args=[@[@"-I",@"-B",@"-m",@"ckmac.maintenance",command] mutableCopy];
+            NSMutableArray* args=[@[@"-I",@"-B",@"-m",@"ckmac.maintenance",command,@"--profile",@CKMAC_PROFILE] mutableCopy];
             if(package)[args addObjectsFromArray:@[@"--package",package]];
             try{[args addObjectsFromArray:@[@"--cache-root",@(ckmac::cacheDirectory().c_str())]];}catch(const std::exception& e){NSString* failure=@(e.what());dispatch_async(dispatch_get_main_queue(),^{self.text.string=failure;});return;}
             task.arguments=args;task.environment=@{@"PATH":@"/usr/bin:/bin",@"HOME":NSHomeDirectory(),@"PYTHONDONTWRITEBYTECODE":@"1"};
@@ -51,17 +52,17 @@
 - (void)chooseCache:(id)s {try{ckmac::chooseCacheDirectory();self.text.string=[NSString stringWithFormat:@"Cache location: %@\nExisting files were retained. Active renders must finish before an engine can be drained.",@(ckmac::cacheDirectory().c_str())];}catch(const std::exception& e){self.text.string=@(e.what());}}
 - (void)diagnostics:(id)s {[self runMaintenance:@"diagnostics" package:nil];}
 - (void)help:(id)s {
-    NSString* path=@"/Library/Application Support/HarvestPictures/CorridorKeyMac/Maintenance/USER_GUIDE.md";
+    NSString* path=@CKMAC_PRODUCT_ROOT "/Maintenance/USER_GUIDE.md";
     if(![[NSWorkspace sharedWorkspace] openURL:[NSURL fileURLWithPath:path]])self.text.string=@"The installed guide is missing. Repair from the offline package.";
 }
 - (void)notices:(id)s {
-    NSData* data=[NSData dataWithContentsOfFile:@"/Library/Application Support/HarvestPictures/CorridorKeyMac/active.json"];
+    NSData* data=[NSData dataWithContentsOfFile:@CKMAC_PRODUCT_ROOT "/active.json"];
     NSDictionary* m=data?[NSJSONSerialization JSONObjectWithData:data options:0 error:nil]:nil;
     if(m)[[NSWorkspace sharedWorkspace] openURL:[NSURL fileURLWithPath:[m[@"code_root"] stringByAppendingPathComponent:@"THIRD_PARTY_NOTICES.md"]]];
 }
 - (void)application:(NSApplication*)application openURLs:(NSArray<NSURL*>*)urls {
     for(NSURL* url in urls){
-        if(![url.scheme isEqual:@"ckmachp"])continue;
+        if(![url.scheme isEqual:@CKMAC_URL_SCHEME])continue;
         if([url.host isEqual:@"openCacheFolder"])[self openCache:nil];
         else if([url.host isEqual:@"chooseRenderFolder"])[self chooseCache:nil];
         else if([url.host isEqual:@"collectDiagnostics"])[self diagnostics:nil];
@@ -88,7 +89,7 @@
     if([p runModal]==NSModalResponseOK)[self runMaintenance:@"validate-repair" package:p.URL.path];
 }
 - (void)uninstall:(NSString*)kind {
-    NSString* path=[@"/Library/Application Support/HarvestPictures/CorridorKeyMac/Maintenance" stringByAppendingPathComponent:[NSString stringWithFormat:@"CorridorKeyMac-Uninstall-%@.pkg",kind]];
+    NSString* path=[@CKMAC_PRODUCT_ROOT "/Maintenance" stringByAppendingPathComponent:[NSString stringWithFormat:@"CorridorKeyMac-Uninstall-%@.pkg",kind]];
     [self runMaintenance:@"validate-uninstall" package:path];
 }
 - (void)keep:(id)s {[self uninstall:@"KeepModels"];}

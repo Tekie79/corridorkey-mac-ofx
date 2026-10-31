@@ -5,7 +5,14 @@ exact installer identity and every acceptance result are in `qualification.json`
 and `NATIVE_QUALIFICATION.md` beside the installer.
 
 The measured Mac is an Apple M5 Pro MacBook Pro, 20-core GPU, 48 GB unified
-memory, macOS 26.3.2 (25D2150), Resolve Studio 21.1.1 build 10.
+memory, macOS 26.3.2 (25D2150), Resolve Studio 21.1.2 build 10.
+
+The side-by-side QA installer uses a separate plugin, Manager, runtime/models,
+receipts, worker endpoint, preferences and cache ownership. Its results are
+recorded separately in `docs/development/PHASE4_INSTALLER_QUALIFICATION.md`.
+They cannot qualify the unchanged production-path package. That installation
+requires an independent Mac or isolated macOS environment; production remains
+protected on this development Mac.
 
 ## Capture safety
 

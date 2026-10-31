@@ -3,6 +3,7 @@ from pathlib import Path
 import hashlib
 import base64
 import json
+import re
 import zipfile
 from common import ROOT,WORK,OUT,PYTHON,MODEL_SET,sha,write_json
 
@@ -10,6 +11,30 @@ SOURCES = {
  'weights':('nikopueringer/CorridorKey2.0','cf44a8db3f024bb49fd59daa408848ccf05f7477'),
  'vfms/cradio/C-RADIOv4-SO400M':('nvidia/C-RADIOv4-SO400M','c0457f5dc26ca145f954cd4fc5bb6114e5705ad8'),
  'vfms/moge':('Ruicheng/moge-2-vitb-normal','ca5f0e07ff01d3e5a364c1d954ed12ee1814b368')}
+
+
+def require_complete_assets(assets,locked):
+    expected={r['path']:r for r in locked['files']}
+    actual={r['path']:r for r in assets}
+    if len(actual)!=len(assets) or set(actual)!=set(expected):
+        raise RuntimeError('Incomplete model set: missing='+str(sorted(set(expected)-set(actual)))+
+                           ', unexpected='+str(sorted(set(actual)-set(expected))))
+    for name,record in actual.items():
+        if any(record[k]!=expected[name][k] for k in ('size','sha256')):
+            raise RuntimeError('Model differs from locked publisher asset: '+name)
+
+
+def require_locked_wheels(wheels,requirements):
+    normalize=lambda s:re.sub(r'[-_.]+','-',s).lower()
+    expected={}
+    for line in requirements.splitlines():
+        if not line.strip() or line.lstrip().startswith('#'):continue
+        match=re.fullmatch(r'([\w.-]+)==(\S+) --hash=sha256:([a-f0-9]{64})',line)
+        if not match:raise ValueError('Unsupported locked requirement: '+line)
+        name,version,digest=match.groups();expected[normalize(name)]=(version,digest)
+    actual={normalize(w['name']):(w['version'],w['sha256']) for w in wheels}
+    if len(actual)!=len(wheels) or actual!=expected:
+        raise RuntimeError('Wheelhouse differs from locked requirements; missing, changed or unexpected wheel')
 
 
 def main():
@@ -56,6 +81,7 @@ def main():
     assets.append(dict(path=rvm.relative_to(WORK/'models').as_posix(),size=rvm.stat().st_size,sha256=sha(rvm),
         source='https://storage.googleapis.com/representations4d/checkpoints/'+rvm.name,role='recurrent_foundation',
         publisher_md5_base64='ZJb6kj8+tasiJbVeplXu7Q==',notice='licenses/CorridorKey-THIRD_PARTY_NOTICES.md'))
+    require_complete_assets(assets,json.loads((ROOT/'scripts/release/model-lock.json').read_text()))
     write_json(OUT/'model-manifest.json',dict(model_set_id=MODEL_SET,files=assets))
     wheels=[]
     requirements=[]
@@ -65,6 +91,7 @@ def main():
         fields=dict(line.split(': ',1) for line in metadata.splitlines() if line.startswith(('Name: ','Version: ')))
         wheels.append(dict(filename=p.name,name=fields['Name'],version=fields['Version'],size=p.stat().st_size,sha256=sha(p)))
         requirements.append(f"{fields['Name']}=={fields['Version']} --hash=sha256:{sha(p)}")
+    require_locked_wheels(wheels,(ROOT/'scripts/release/requirements.lock').read_text())
     (OUT/'requirements.lock').write_text('\n'.join(requirements)+'\n')
     write_json(OUT/'runtime-lock.json',dict(python=PYTHON,wheels=wheels,deployment_target='14.0',
         upstream_commit='485f5e9ab759ead6138cc990776184b59d6ea971',

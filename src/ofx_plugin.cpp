@@ -1,3 +1,4 @@
+#include "ckmac/installation.hpp"
 #include "ckmac/pixels.hpp"
 #include "ckmac/protocol.hpp"
 #include "ckmac/creative.hpp"
@@ -112,7 +113,7 @@ OfxStatus load() {
 
 OfxStatus describe(OfxImageEffectHandle effect) {
     auto p = effectProperties(effect);
-    props->propSetString(p, kOfxPropLabel, 0, "CorridorKey2.0 hp beta");
+    props->propSetString(p, kOfxPropLabel, 0, CKMAC_DISPLAY_NAME);
     props->propSetString(p, kOfxImageEffectPluginPropGrouping, 0, "Keying");
     props->propSetString(p, kOfxPropPluginDescription, 0,
         "Personal beta. CorridorKey 2.0 on Apple Silicon. GPU engine starts automatically. "
@@ -531,7 +532,7 @@ OfxStatus render(OfxImageEffectHandle effect, OfxPropertySetHandle in) {
             }
         }catch(...){if(showing)progress->progressEnd(effect);throw;}
         if(showing)progress->progressEnd(effect);evidence<<"]}\n";
-        auto log="/private/tmp/ckmac-acquisition-"+std::to_string(getuid())+".jsonl";
+        auto log="/private/tmp/" CKMAC_SOCKET_PREFIX "acquisition-"+std::to_string(getuid())+".jsonl";
         int fd=open(log.c_str(),O_CREAT|O_WRONLY|O_APPEND|O_NOFOLLOW,0600);
         if(fd>=0){auto s=evidence.str();::write(fd,s.data(),s.size());::close(fd);}
     }
@@ -785,7 +786,7 @@ OfxStatus changed(OfxImageEffectHandle effect, OfxPropertySetHandle in) {
     if(probe) {
         char* type=nullptr;char* reason=nullptr;
         props->propGetString(in,kOfxPropType,0,&type);props->propGetString(in,kOfxPropChangeReason,0,&reason);
-        auto path="/private/tmp/ckmac-changes-"+std::to_string(getuid())+".log";
+        auto path="/private/tmp/" CKMAC_SOCKET_PREFIX "changes-"+std::to_string(getuid())+".log";
         int fd=open(path.c_str(),O_CREAT|O_WRONLY|O_APPEND|O_NOFOLLOW,0600);
         if(fd>=0){std::ostringstream s;s<<"change "<<name<<" "<<(type?type:"")<<" "<<(reason?reason:"")<<" "<<time<<"\n";auto text=s.str();::write(fd,text.data(),text.size());::close(fd);}
     }
@@ -988,7 +989,7 @@ OfxStatus mainEntry(const char* action, const void* rawEffect, OfxPropertySetHan
 }
 
 void setHost(OfxHost* value) { host = value; }
-OfxPlugin plugin{kOfxImageEffectPluginApi, 1, "org.harvestpictures.CorridorKeyMac", 0, 9, setHost, mainEntry};
+OfxPlugin plugin{kOfxImageEffectPluginApi, 1, CKMAC_DOMAIN, 0, 9, setHost, mainEntry};
 }  // namespace
 
 #if defined(__GNUC__) || defined(__clang__)

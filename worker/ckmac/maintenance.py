@@ -14,11 +14,13 @@ import zipfile
 import socket
 import struct
 
-ROOT=Path('/Library/Application Support/HarvestPictures/CorridorKeyMac')
+from .installation import PROFILES,installed_profile
+INSTALLATION=installed_profile()
+ROOT=INSTALLATION.root
 
 def running_engine_health(active,endpoint=None):
     """Read local counters for support; never start a worker or include tokens."""
-    path=endpoint or Path(f'/private/tmp/ckmac-{os.getuid()}/{active["build_id"][:32]}.sock')
+    path=endpoint or PROFILES[active.get('installation_profile','personal')].endpoint(active['build_id'])
     try:
         token=Path(str(path)+'.token').read_text()
         request=dict(op='health',protocol=2,build_id=active['build_id'],token=token,payload_bytes=0,session_id='support-report',request_id=1,effect_generation=0)
@@ -61,14 +63,19 @@ def verify_files(root,records,protected=False):
     if errors:raise RuntimeError('Missing or changed files:\n'+'\n'.join(errors))
 
 def main():
+    global ROOT,INSTALLATION
     ap=argparse.ArgumentParser()
     ap.add_argument('command',choices=['verify','validate-repair','validate-uninstall','storage','diagnostics'])
+    ap.add_argument('--profile',choices=tuple(PROFILES),default=INSTALLATION.name)
     ap.add_argument('--package',type=Path)
     ap.add_argument('--cache-root',type=Path)
     a=ap.parse_args()
+    if installed_profile().name!=a.profile:raise ValueError("Maintenance profile differs from its installed runtime")
+    INSTALLATION=PROFILES[a.profile];ROOT=INSTALLATION.root
     m=json.loads((ROOT/'install-manifest.json').read_text())
+    INSTALLATION.validate_manifest(m)
     if a.command in ('storage','diagnostics'):
-        cache=a.cache_root or Path.home()/'Library/Caches/org.harvestpictures.CorridorKeyMac'
+        cache=a.cache_root or Path.home()/'Library/Caches'/INSTALLATION.domain
         if not cache.is_absolute():raise ValueError('Invalid cache root')
         def size(p):return sum(q.stat().st_size for q in p.rglob('*') if q.is_file() and not q.is_symlink()) if p.exists() else 0
         active=json.loads((ROOT/'active.json').read_text())
@@ -77,7 +84,7 @@ def main():
                      cache_budget_bytes=20*2**30,free_bytes=shutil.disk_usage(cache if cache.exists() else cache.parent).free,
                      cache_location=str(cache).replace(str(Path.home()),'~'))
         if a.command=='storage':print(json.dumps(details,indent=2));return
-        report=Path.home()/'Library/Logs/org.harvestpictures.CorridorKeyMac/Reports'
+        report=Path.home()/'Library/Logs'/INSTALLATION.domain/'Reports'
         report.mkdir(parents=True,exist_ok=True,mode=0o700)
         destination=report/f'CorridorKey-hp-support-{time.time_ns()}.zip'
         with zipfile.ZipFile(destination,'x',compression=zipfile.ZIP_DEFLATED) as z:

@@ -1,14 +1,19 @@
 import hashlib
 import json
+import os
+import sys
 from pathlib import Path
 import subprocess
 
 ROOT = Path(__file__).resolve().parents[2]
 WORK = ROOT / '.build'
-PRODUCT = Path('/Library/Application Support/HarvestPictures/CorridorKeyMac')
-VERSION = '0.9.8-beta.1'
+sys.path.insert(0,str(ROOT/'worker'))
+from ckmac.installation import PROFILES
+PROFILE = PROFILES[os.environ.get('CKMAC_BUILD_PROFILE','personal')]
+PRODUCT = PROFILE.root
+VERSION = '0.9.8-qa.2' if PROFILE.name=='qa' else '0.9.8-beta.2'
 BUILD = VERSION
-# Keep previous release artifacts/evidence immutable.
+# Previous candidates are immutable, including the production beta.1.
 OUT = ROOT / 'dist' / VERSION
 MODEL_SET = 'ck2-cf44a8db3f02'
 PYTHON = dict(name='cpython-3.12.16+20261026-aarch64-apple-darwin-install_only.tar.gz',
