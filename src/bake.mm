@@ -2,6 +2,7 @@
 #import <AppKit/AppKit.h>
 #include <CommonCrypto/CommonDigest.h>
 #include "ckmac/bake.hpp"
+#include "ckmac/picker.hpp"
 #include <cstring>
 #include <cmath>
 #include <fstream>
@@ -142,24 +143,9 @@ std::vector<float> fitBake(std::vector<float> rgba,int width,int height,int targ
     return out;
 }
 std::string chooseBakeFolder(){
-    __block std::string selected;
-    void (^choose)(void)=^{@autoreleasepool {
-        NSOpenPanel* p=[[NSOpenPanel alloc] init];p.delegate=nil;p.allowedContentTypes=@[];p.allowsOtherFileTypes=YES;
-        p.allowsMultipleSelection=NO;p.canChooseFiles=NO;p.canChooseDirectories=YES;p.canCreateDirectories=YES;
-        p.prompt=@"Choose Bake Folder";
-        if([p runModal]==NSModalResponseOK)selected=string(p.URL.path);
-    }};
-    if([NSThread isMainThread])choose();else dispatch_sync(dispatch_get_main_queue(),choose);
-    return selected;
+    return chooseNativePath(PickerKind::BakeFolder);
 }
 std::string chooseBakeManifest(){
-    __block std::string selected;
-    void (^choose)(void)=^{@autoreleasepool {
-        NSOpenPanel* p=[[NSOpenPanel alloc] init];p.delegate=nil;p.allowedContentTypes=@[];p.allowsOtherFileTypes=YES;
-        p.allowsMultipleSelection=NO;p.canChooseDirectories=NO;p.canChooseFiles=YES;p.prompt=@"Relink Verified Bake";
-        if([p runModal]==NSModalResponseOK)selected=string(p.URL.path);
-    }};
-    if([NSThread isMainThread])choose();else dispatch_sync(dispatch_get_main_queue(),choose);
-    return selected;
+    return chooseNativePath(PickerKind::BakeManifest);
 }
 }

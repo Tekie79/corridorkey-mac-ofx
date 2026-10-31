@@ -9,8 +9,11 @@ import argparse,hashlib,json,plistlib,subprocess
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[2]
 ap=argparse.ArgumentParser();ap.add_argument('--sdk',type=Path,required=True);ap.add_argument('--manifest',type=Path,required=True);args=ap.parse_args()
+original=(ROOT/'src/ofx_plugin.cpp').read_text()
+if '#include "ckmac/installation.hpp"' in original:
+    raise SystemExit('Legacy source-rewrite overlays are incompatible with installation profiles. Use scripts/release/build_personal_installer.sh --profile qa --verify. No legacy QA evidence was changed.')
 p=ROOT/'.build/resolve-bake-qa';p.mkdir(parents=True,exist_ok=True)
-source=(ROOT/'src/ofx_plugin.cpp').read_text().replace('org.harvestpictures.CorridorKeyMac','org.harvestpictures.CorridorKeyMac.CacheBakeQA').replace('"CorridorKey2.0 hp beta"','"CorridorKey Cache Bake QA"')
+source=original.replace('org.harvestpictures.CorridorKeyMac','org.harvestpictures.CorridorKeyMac.CacheBakeQA').replace('"CorridorKey2.0 hp beta"','"CorridorKey Cache Bake QA"')
 (p/'ofx_plugin_qa.cpp').write_text(source)
 s=(ROOT/'src/worker_manager.mm').read_text()
 manifest=str(args.manifest.resolve())

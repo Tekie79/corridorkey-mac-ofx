@@ -11,7 +11,7 @@ sys.path.insert(0,str(ROOT/'worker'))
 from ckmac.installation import PROFILES
 PROFILE = PROFILES[os.environ.get('CKMAC_BUILD_PROFILE','personal')]
 PRODUCT = PROFILE.root
-VERSION = '0.9.8-qa.2' if PROFILE.name=='qa' else '0.9.8-beta.2'
+VERSION = '0.9.8-qa.4' if PROFILE.name=='qa' else '0.9.8-beta.2'
 BUILD = VERSION
 # Previous candidates are immutable, including the production beta.1.
 OUT = ROOT / 'dist' / VERSION

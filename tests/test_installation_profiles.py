@@ -109,3 +109,15 @@ def test_missing_corrupt_or_extra_wheel_refuses_package():
     lock.require_locked_wheels([a],requirements)
     for wheels in ([],[dict(a,sha256='b'*64)],[a,a],[a,dict(a,name='unexpected')]):
         with pytest.raises(RuntimeError,match='Wheelhouse differs'):lock.require_locked_wheels(wheels,requirements)
+
+
+def test_legacy_overlay_refuses_before_overwriting_historical_evidence(tmp_path):
+    # The old literal replacements no longer change the compile-time ID. They
+    # must not emit a developer bundle carrying the production identifier.
+    marker=REPO/'.build/resolve-bake-qa/artifact.json'
+    before=marker.read_bytes() if marker.exists() else None
+    result=subprocess.run([sys.executable,str(REPO/'scripts/release/build_cache_bake_qa.py'),
+                           '--sdk',str(tmp_path),'--manifest',str(tmp_path/'qa.json')],
+                          capture_output=True,text=True)
+    assert result.returncode!=0 and 'Legacy source-rewrite overlays are incompatible' in result.stderr
+    assert (marker.read_bytes() if marker.exists() else None)==before

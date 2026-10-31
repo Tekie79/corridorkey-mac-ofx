@@ -1,6 +1,31 @@
 #import <Cocoa/Cocoa.h>
 #include "ckmac/worker_manager.hpp"
 #include "ckmac/installation.hpp"
+#include <cstdio>
+#include <cstring>
+
+@interface Picker : NSObject <NSApplicationDelegate>
+@property NSString* mode;
+@end
+@implementation Picker
+- (void)applicationDidFinishLaunching:(NSNotification*)n {
+    dispatch_async(dispatch_get_main_queue(),^{
+        @autoreleasepool {
+            BOOL directory=[self.mode isEqual:@"--choose-bake-folder"];
+            NSOpenPanel* panel=[NSOpenPanel openPanel];panel.delegate=nil;
+            panel.allowedContentTypes=@[];panel.allowsOtherFileTypes=YES;
+            panel.allowsMultipleSelection=NO;panel.canChooseDirectories=directory;
+            panel.canChooseFiles=!directory;panel.canCreateDirectories=directory;
+            panel.prompt=directory?@"Choose Bake Folder":@"Relink Verified Bake";
+            [NSApp activateIgnoringOtherApps:YES];
+            id path=[panel runModal]==NSModalResponseOK?panel.URL.path:[NSNull null];
+            NSData* response=[NSJSONSerialization dataWithJSONObject:@{@"version":@1,@"profile":@CKMAC_PROFILE,@"path":path?:[NSNull null]} options:0 error:nil];
+            if(response){fwrite(response.bytes,1,response.length,stdout);fflush(stdout);}
+            [NSApp terminate:nil];
+        }
+    });
+}
+@end
 
 @interface Manager : NSObject <NSApplicationDelegate>
 @property NSWindow* window;
@@ -96,4 +121,20 @@
 - (void)remove:(id)s {[self uninstall:@"RemoveAll"];}
 - (BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication*)sender{return YES;}
 @end
-int main(){@autoreleasepool{NSApplication* app=[NSApplication sharedApplication];Manager* m=[Manager new];app.delegate=m;[app setActivationPolicy:NSApplicationActivationPolicyRegular];[app run];}return 0;}
+int main(int argc,char** argv){@autoreleasepool{
+    if(argc==2&&!std::strcmp(argv[1],"--picker-protocol")){
+        printf("{\"version\":1,\"profile\":\"%s\",\"modes\":[\"--choose-bake-folder\",\"--choose-bake-manifest\"]}\n",CKMAC_PROFILE);return 0;
+    }
+    NSApplication* app=[NSApplication sharedApplication];
+    id<NSApplicationDelegate> delegate;
+    if(argc==2&&(!std::strcmp(argv[1],"--choose-bake-folder")||!std::strcmp(argv[1],"--choose-bake-manifest"))){
+        Picker* picker=[Picker new];picker.mode=@(argv[1]);delegate=picker;
+    }else{
+        delegate=[Manager new];
+        NSMenu* menu=[NSMenu new];NSMenuItem* item=[NSMenuItem new];[menu addItem:item];
+        NSMenu* applicationMenu=[NSMenu new];
+        NSMenuItem* quit=[[NSMenuItem alloc] initWithTitle:@"Quit " CKMAC_DISPLAY_NAME " Manager" action:@selector(terminate:) keyEquivalent:@"q"];
+        quit.target=app;[applicationMenu addItem:quit];item.submenu=applicationMenu;app.mainMenu=menu;
+    }
+    app.delegate=delegate;[app setActivationPolicy:NSApplicationActivationPolicyRegular];[app run];
+}return 0;}

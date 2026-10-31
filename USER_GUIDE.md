@@ -7,6 +7,9 @@ The side-by-side test package is labelled **CorridorKey Mac QA**. Use its
 separate **CorridorKey Mac QA Manager** for all QA repair and uninstall operations.
 It does not replace the production installation. See
 `docs/development/PHASE4_INSTALLER_QUALIFICATION.md` for its own test status.
+If Resolve disabled the QA plugin after a failed scan, open Preferences → System →
+Video Plugins, re-enable only `CorridorKeyMacQA.ofx.bundle`, save, quit Resolve
+and reopen it. Leave other plugin settings as they are.
 
 ## Install
 
@@ -178,6 +181,11 @@ engine before switching. A disconnected volume causes an explicit error. Support
 File creates local product diagnostics without footage or uploads. Keep your
 original package for offline repair. Repair and
 upgrade require Resolve and Fusion to be closed.
+
+Bake and Relink open their native file picker in a temporary Manager window.
+Choose the folder or manifest there, or cancel to return to Resolve. This keeps
+the picker independent of Resolve's modal dialog validation. The normal Manager
+window does not need to be open while editing.
 
 ## Uninstall
 

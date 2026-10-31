@@ -73,7 +73,7 @@ def build(a):
         os.execve(sys.executable,[sys.executable,__file__,*sys.argv[1:]],env)
     if a.final:
         finalize();return
-    BUILD=('0.9.8-qa2.' if PROFILE.name=='qa' else '0.9.8-b2.')+source_identity()[:12]
+    BUILD=('0.9.8-qa4.' if PROFILE.name=='qa' else '0.9.8-b2.')+source_identity()[:12]
     build_dir=ROOT/'build'/PROFILE.name
     package_work=WORK/('release-'+PROFILE.name)
     package_work.mkdir(parents=True,exist_ok=True)
@@ -87,7 +87,7 @@ def build(a):
     # Mach-O files or signatures in a later package. Object build caches remain.
     for bundle in (build_dir/PROFILE.plugin.name,build_dir/PROFILE.manager.name):
         if bundle.exists():shutil.rmtree(bundle)
-    run(cmake,'-S',ROOT,'-B',build_dir,'-DOPENFX_SDK_ROOT='+str(ROOT/'.deps/openfx'),'-DCKMAC_INSTALL_PROFILE='+PROFILE.name,'-DCKMAC_BUNDLE_VERSION=9083','-DCMAKE_BUILD_TYPE=Release','-DBUILD_TESTING=ON')
+    run(cmake,'-S',ROOT,'-B',build_dir,'-DOPENFX_SDK_ROOT='+str(ROOT/'.deps/openfx'),'-DCKMAC_INSTALL_PROFILE='+PROFILE.name,'-DCKMAC_BUNDLE_VERSION=9085','-DCMAKE_BUILD_TYPE=Release','-DBUILD_TESTING=ON')
     run(cmake,'--build',build_dir,'--parallel','6')
     if a.verify:
         run(WORK/'runtime/bin/ctest','--test-dir',build_dir,'--output-on-failure')
