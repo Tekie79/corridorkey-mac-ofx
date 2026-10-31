@@ -1,0 +1,14 @@
+{
+  "status": "Passed",
+  "artifact_sha256": "49dc3c677eedf487003ebd5c0b1698b927cbbc048a982bb851ad4d54440143a7",
+  "environment": "isolated QA install",
+  "scope": "Native Fusion Saver at original 4096x2160, current original Source RGB multiplied once by source-sized half alpha, analysis removed and worker stopped",
+  "frame": 23,
+  "size": [
+    4096,
+    2160
+  ],
+  "alpha_max_error": 0.0,
+  "rgb_max_error": 0.0,
+  "worker_running": false
+}

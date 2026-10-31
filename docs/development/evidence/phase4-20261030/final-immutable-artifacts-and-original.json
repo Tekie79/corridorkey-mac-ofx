@@ -1,0 +1,8 @@
+{
+  "status": "Passed",
+  "sha256": {
+    "dist/0.9.8-beta.1/CorridorKeyMac-0.9.8-beta.1-arm64-Offline.pkg": "2249be84fb0152d2bbb7608a3492d357bcdde7bd3f91c97458b6570dee4d57cd",
+    "dist/0.9.8-qa.4/CorridorKeyMac-0.9.8-qa.4-arm64-Offline.pkg": "49dc3c677eedf487003ebd5c0b1698b927cbbc048a982bb851ad4d54440143a7",
+    "/Users/harvest/Documents/Ysew_Project/Green screen/GS02.mp4": "756191c3f2c996b97e7552d2ac388dfb5bad8606321476e5aee03c6c66fe5409"
+  }
+}

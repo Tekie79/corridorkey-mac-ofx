@@ -1,0 +1,15 @@
+{
+  "artifact_sha256": "14cf95a53187e8eff815b13c5a0e5441b7e21295f900633f80e361c536ad39f6",
+  "environment": "isolated QA install",
+  "status": "Failed",
+  "scenario": "Repeated native bake picker after prior successful bakes and volume remount",
+  "actual": "Choose Bake Folder and New Folder remained disabled on both remounted and local destinations, including after normal Resolve restart. Cancel remained available; active bake and completed edited generation were preserved.",
+  "evidence": [
+    "qa3-two-pass-reanalysis.json",
+    "qa3-edit-complete-health.json",
+    "source-picker-result.json"
+  ],
+  "standalone_comparison": "Same AppKit configuration outside Resolve enabled selection. New Manager picker mode returned the QA directory successfully.",
+  "source_fix": "QA.4 delegates bake/relink pickers to fixed-profile Manager executable and validates version/profile/path response; installed qualification pending.",
+  "production_changed": false
+}

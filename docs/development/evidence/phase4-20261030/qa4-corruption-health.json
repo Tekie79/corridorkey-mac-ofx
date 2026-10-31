@@ -1,0 +1,54 @@
+{
+  "state": "cache_ready",
+  "error": "",
+  "fixture_passed": false,
+  "model_loaded": false,
+  "user_frames_completed": 0,
+  "cache_hits": 0,
+  "active_jobs": 0,
+  "pid": 117,
+  "facts": {},
+  "cache": {
+    "ram_hits": 2,
+    "disk_hits": 1,
+    "metadata_hits": 0,
+    "staged_bytes": 0,
+    "puts": 0,
+    "put_dedup": 0,
+    "cache_bytes_written": 0,
+    "cache_bytes_evicted": 0,
+    "ram_bytes": 33177600,
+    "ram_limit": 536870912
+  },
+  "counters": {
+    "input_stage_attempts": 0,
+    "input_stage_new": 0,
+    "input_stage_dedup": 0,
+    "analysis_starts": 0,
+    "analysis_completions": 0,
+    "result_cache_hits": 1,
+    "result_cache_misses": 0,
+    "model_network_invocations": 0
+  },
+  "node_counters": [
+    {
+      "node": "56b147af-e50eb1c5-ccd638be-d0ab043d-32c5beeb-7d42729f-11c1134a-a89872ab-",
+      "generation": "3480ee14736763af43f1eccc9e57ececea6cac788b8121c106248391b525f947",
+      "counters": {
+        "result_cache_hits": 1
+      }
+    }
+  ],
+  "cache_domains": [
+    "temporary captures/results",
+    "Resolve playback cache (host controlled)",
+    "durable EXR bake"
+  ],
+  "ok": true,
+  "protocol": 2,
+  "build_id": "0.9.8-qa4.f1f98dd88eee",
+  "payload_bytes": 0,
+  "session_id": "phase4-monitor",
+  "request_id": 1793416342467321000,
+  "effect_generation": 0
+}

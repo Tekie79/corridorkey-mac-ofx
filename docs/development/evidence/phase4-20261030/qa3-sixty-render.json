@@ -1,0 +1,20 @@
+{
+  "status": "Passed",
+  "started_wall_ns": 1793410834916405000,
+  "scope": "Actual installed Resolve OFX Output.GetValue; official SDK, no mocked model",
+  "request": 3.0,
+  "revision": 0.0,
+  "renders": [
+    {
+      "frame": 0,
+      "image": true,
+      "wait_seconds": 298.53294137498597
+    },
+    {
+      "frame": 1,
+      "image": true,
+      "wait_seconds": 0.17936358402948827
+    }
+  ],
+  "finished_wall_ns": 1793411133639365000
+}

@@ -1,0 +1,36 @@
+{
+  "status": "Passed",
+  "artifact_sha256": "14cf95a53187e8eff815b13c5a0e5441b7e21295f900633f80e361c536ad39f6",
+  "scope": "Actual native RGBA button/picker output, verified against all actual analyzed float32 results",
+  "manifest": "/Volumes/CKMac_QA_Bakes/Bakes/bake-acbf2252bc0f4248adf0448bf0b5326f/manifest.json",
+  "manifest_sha256": "e8bc4963740ba902790d66ea208d1eb630b99eff2767695ac4b811643e310258",
+  "frames": 60,
+  "channels": [
+    "A",
+    "B",
+    "G",
+    "R"
+  ],
+  "types": [
+    2,
+    2,
+    2,
+    2
+  ],
+  "precision": "float",
+  "analysis_size": [
+    1920,
+    1080
+  ],
+  "source_size": [
+    4096,
+    2160
+  ],
+  "source_size_basis": "resolve_sdk",
+  "max_error": 0.0,
+  "foreground_range": [
+    -0.08476708084344864,
+    1.258798360824585
+  ],
+  "generation": "0e5ba967e60296edd69cc0b8c1d3b2db58702571a087cfa853e99a79e91d35ed"
+}

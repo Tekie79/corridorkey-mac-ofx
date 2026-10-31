@@ -1,0 +1,16 @@
+{
+  "status": "Passed",
+  "artifact_sha256": "14cf95a53187e8eff815b13c5a0e5441b7e21295f900633f80e361c536ad39f6",
+  "environment": "isolated QA install",
+  "frames": 60,
+  "size": [
+    1920,
+    1080
+  ],
+  "max_error": 0.0,
+  "source_disconnected": true,
+  "qa_worker_absent": true,
+  "analysis_captures_results_cleared": true,
+  "remaining_single_frame_preview_blobs": 1,
+  "scope": "Actual native Saver FLOAT RGBA compared to exactly one premultiplication of all baked frames"
+}

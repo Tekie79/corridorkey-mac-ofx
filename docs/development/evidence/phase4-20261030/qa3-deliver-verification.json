@@ -1,0 +1,28 @@
+{
+  "status": "Passed",
+  "artifact_sha256": "14cf95a53187e8eff815b13c5a0e5441b7e21295f900633f80e361c536ad39f6",
+  "environment": "isolated QA install",
+  "job": "96874f8e-9185-410b-80bc-8480f273a40a",
+  "job_status": "Complete",
+  "reported_render_ms": 700,
+  "scope": "Actual native Deliver export; not neural-inference timing or cold playback",
+  "frames": 60,
+  "unique_frame_hashes": 60,
+  "size": [
+    1920,
+    1080
+  ],
+  "fps": 25,
+  "source_frame_numbers": [
+    30,
+    89
+  ],
+  "fusion_frames": [
+    0,
+    59
+  ],
+  "max_error": 0.0,
+  "source_disconnected": true,
+  "qa_worker_absent": true,
+  "analysis_cleared": true
+}

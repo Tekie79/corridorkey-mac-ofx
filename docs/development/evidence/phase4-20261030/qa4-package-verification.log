@@ -1,0 +1,4 @@
++ /usr/sbin/pkgutil --expand-full dist/0.9.8-qa.4/CorridorKeyMac-0.9.8-qa.4-arm64-Offline.pkg /Users/harvest/Documents/Ysew_Project/GIT/corridorkey-mac-ofx/.build/candidate-expanded-CorridorKeyMac-0.9.8-qa.4-arm64-Offline
++ /usr/bin/codesign --verify --strict /Users/harvest/Documents/Ysew_Project/GIT/corridorkey-mac-ofx/.build/candidate-expanded-CorridorKeyMac-0.9.8-qa.4-arm64-Offline/payload.pkg/Payload/Library/Application Support/HarvestPictures/CorridorKeyMacQA/Incoming/0.9.8-qa4.f1f98dd88eee/tree/Library/OFX/Plugins/CorridorKeyMacQA.ofx.bundle
++ /usr/bin/codesign --verify --strict /Users/harvest/Documents/Ysew_Project/GIT/corridorkey-mac-ofx/.build/candidate-expanded-CorridorKeyMac-0.9.8-qa.4-arm64-Offline/payload.pkg/Payload/Library/Application Support/HarvestPictures/CorridorKeyMacQA/Incoming/0.9.8-qa4.f1f98dd88eee/tree/Applications/CorridorKey Mac QA Manager.app
+Final package inventory, executable logic and contained bundle signatures verified

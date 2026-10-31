@@ -1,0 +1,57 @@
+{
+  "status": "Passed",
+  "artifact_sha256": "14cf95a53187e8eff815b13c5a0e5441b7e21295f900633f80e361c536ad39f6",
+  "scope": "Existing durable versions remain byte-identical to their verified manifests",
+  "bakes": [
+    {
+      "bake_id": "7a579f7ffea849edb465b765c489877f",
+      "generation": "0e5ba967e60296edd69cc0b8c1d3b2db58702571a087cfa853e99a79e91d35ed",
+      "frames": 60,
+      "size": [
+        4096,
+        2160
+      ],
+      "manifest_sha256": "a242c2afb2b39c89965b6e704ada79558081001cec340702ee4f75a33dade4b0"
+    },
+    {
+      "bake_id": "8b2af185a0e940bb80bf2e0062ec0917",
+      "generation": "e83b534ae0a9e98ada205ac87f50ed1c0c99089fc6c597fc6d6f69c4b8ab36b7",
+      "frames": 2,
+      "size": [
+        1920,
+        1080
+      ],
+      "manifest_sha256": "dd20cbe59c391630198d3635a5bf5870395607b9307453e8b1132e76a33ff61f"
+    },
+    {
+      "bake_id": "90b830f681ad4495a48289ecf4972661",
+      "generation": "0e5ba967e60296edd69cc0b8c1d3b2db58702571a087cfa853e99a79e91d35ed",
+      "frames": 60,
+      "size": [
+        1920,
+        1080
+      ],
+      "manifest_sha256": "c46fddf0a1f446a2b8e51c571ace6850a7aeaa13b07cb554c43836d29ac32cf2"
+    },
+    {
+      "bake_id": "acbf2252bc0f4248adf0448bf0b5326f",
+      "generation": "0e5ba967e60296edd69cc0b8c1d3b2db58702571a087cfa853e99a79e91d35ed",
+      "frames": 60,
+      "size": [
+        1920,
+        1080
+      ],
+      "manifest_sha256": "e8bc4963740ba902790d66ea208d1eb630b99eff2767695ac4b811643e310258"
+    },
+    {
+      "bake_id": "e3d11a8fb23042a08db1bd342e7fed10",
+      "generation": "0e5ba967e60296edd69cc0b8c1d3b2db58702571a087cfa853e99a79e91d35ed",
+      "frames": 60,
+      "size": [
+        1920,
+        1080
+      ],
+      "manifest_sha256": "eb16889a05c334355b91d3e73b1ed450714aad5a6e8ca4104961a36ae0e12023"
+    }
+  ]
+}

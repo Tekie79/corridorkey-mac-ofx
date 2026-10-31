@@ -1,0 +1,11 @@
+{
+  "state": "stopping",
+  "pid": 93506,
+  "ok": true,
+  "protocol": 2,
+  "build_id": "0.9.8-qa3.efc225cfab3d",
+  "payload_bytes": 0,
+  "session_id": "phase4-monitor",
+  "request_id": 1793411979983393000,
+  "effect_generation": 0
+}

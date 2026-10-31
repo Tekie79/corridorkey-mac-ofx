@@ -1,0 +1,41 @@
+{
+  "status": "Passed",
+  "artifact_sha256": "49dc3c677eedf487003ebd5c0b1698b927cbbc048a982bb851ad4d54440143a7",
+  "environment": "isolated QA install",
+  "scope": "Actual native Bake Alpha, Match Source, Auto dimensions; every decoded sample checked",
+  "manifest": "/Volumes/CKMac_QA_Bakes/Bakes/QA4/bake-524ba5ac82ce46b7ad290cfcc333ecdf/manifest.json",
+  "manifest_sha256": "5b5edc90da60e58aca97a8836275fa14fcd68f325e5683516436647a07aeb21d",
+  "generation": "3480ee14736763af43f1eccc9e57ececea6cac788b8121c106248391b525f947",
+  "frames": 60,
+  "channels": [
+    "A"
+  ],
+  "types": [
+    1
+  ],
+  "analysis_size": [
+    1920,
+    1080
+  ],
+  "source_size": [
+    4096,
+    2160
+  ],
+  "source_size_basis": "resolve_sdk",
+  "resampling": {
+    "applied": true,
+    "from_size": [
+      1920,
+      1080
+    ],
+    "method": "bilinear_pixel_centers_full_frame_no_crop",
+    "to_size": [
+      4096,
+      2160
+    ]
+  },
+  "max_error": 0.0,
+  "native_4k_neural_inference": false,
+  "activation_message": "Verified alpha bake active. Current original RGB is used; recovered foreground is not baked.",
+  "shared_clone_renders_before_cleanup": true
+}

@@ -1,0 +1,108 @@
+{
+  "status": "Passed",
+  "artifact_sha256": "49dc3c677eedf487003ebd5c0b1698b927cbbc048a982bb851ad4d54440143a7",
+  "scope": "All current-round QA.2/3/4 durable versions still match their complete verified manifests before authorized disposal",
+  "bakes": [
+    {
+      "bake_id": "2c881d3ab6684475a5e7e54c25316055",
+      "generation": "3480ee14736763af43f1eccc9e57ececea6cac788b8121c106248391b525f947",
+      "frames": 60,
+      "size": [
+        4096,
+        2160
+      ],
+      "manifest_sha256": "8b60039f03f35e7c793286dc0928a402aeaa585d6dd89728499dd2d006eed2e7"
+    },
+    {
+      "bake_id": "524ba5ac82ce46b7ad290cfcc333ecdf",
+      "generation": "3480ee14736763af43f1eccc9e57ececea6cac788b8121c106248391b525f947",
+      "frames": 60,
+      "size": [
+        4096,
+        2160
+      ],
+      "manifest_sha256": "5b5edc90da60e58aca97a8836275fa14fcd68f325e5683516436647a07aeb21d"
+    },
+    {
+      "bake_id": "a376689e2eb34893b90793b5e89a8740",
+      "generation": "3480ee14736763af43f1eccc9e57ececea6cac788b8121c106248391b525f947",
+      "frames": 60,
+      "size": [
+        1920,
+        1080
+      ],
+      "manifest_sha256": "a8ee438487b24cd677384ce003daa1c97d8a9f2426b0ba8863f4f1c7a9ce3111"
+    },
+    {
+      "bake_id": "c9d2080825894468aec632bec07a474e",
+      "generation": "64b1f0072c068be550b258b13a2fd9946a02f366756a9ec1e33ac1c0bbf03919",
+      "frames": 60,
+      "size": [
+        1920,
+        1080
+      ],
+      "manifest_sha256": "61de235ddf3e97101e3a7551e42101f403863ea5ccfc3197a7f63ed5a334a79c"
+    },
+    {
+      "bake_id": "f86f5c27cd084f04adc2f010c8318a8c",
+      "generation": "3480ee14736763af43f1eccc9e57ececea6cac788b8121c106248391b525f947",
+      "frames": 60,
+      "size": [
+        1920,
+        1080
+      ],
+      "manifest_sha256": "c853b9950dee2e18233bf21beecb65019135e0eeb9d120468c6608a1b36034e7"
+    },
+    {
+      "bake_id": "7a579f7ffea849edb465b765c489877f",
+      "generation": "0e5ba967e60296edd69cc0b8c1d3b2db58702571a087cfa853e99a79e91d35ed",
+      "frames": 60,
+      "size": [
+        4096,
+        2160
+      ],
+      "manifest_sha256": "a242c2afb2b39c89965b6e704ada79558081001cec340702ee4f75a33dade4b0"
+    },
+    {
+      "bake_id": "8b2af185a0e940bb80bf2e0062ec0917",
+      "generation": "e83b534ae0a9e98ada205ac87f50ed1c0c99089fc6c597fc6d6f69c4b8ab36b7",
+      "frames": 2,
+      "size": [
+        1920,
+        1080
+      ],
+      "manifest_sha256": "dd20cbe59c391630198d3635a5bf5870395607b9307453e8b1132e76a33ff61f"
+    },
+    {
+      "bake_id": "90b830f681ad4495a48289ecf4972661",
+      "generation": "0e5ba967e60296edd69cc0b8c1d3b2db58702571a087cfa853e99a79e91d35ed",
+      "frames": 60,
+      "size": [
+        1920,
+        1080
+      ],
+      "manifest_sha256": "c46fddf0a1f446a2b8e51c571ace6850a7aeaa13b07cb554c43836d29ac32cf2"
+    },
+    {
+      "bake_id": "acbf2252bc0f4248adf0448bf0b5326f",
+      "generation": "0e5ba967e60296edd69cc0b8c1d3b2db58702571a087cfa853e99a79e91d35ed",
+      "frames": 60,
+      "size": [
+        1920,
+        1080
+      ],
+      "manifest_sha256": "e8bc4963740ba902790d66ea208d1eb630b99eff2767695ac4b811643e310258"
+    },
+    {
+      "bake_id": "e3d11a8fb23042a08db1bd342e7fed10",
+      "generation": "0e5ba967e60296edd69cc0b8c1d3b2db58702571a087cfa853e99a79e91d35ed",
+      "frames": 60,
+      "size": [
+        1920,
+        1080
+      ],
+      "manifest_sha256": "eb16889a05c334355b91d3e73b1ed450714aad5a6e8ca4104961a36ae0e12023"
+    }
+  ],
+  "frames": 542
+}

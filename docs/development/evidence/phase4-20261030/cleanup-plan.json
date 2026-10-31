@@ -1,0 +1,81 @@
+{
+  "status": "Planned after tests",
+  "scope": "Only this qualification round; original beta.1 and final QA.4 installers plus small reports retained",
+  "paths": [
+    {
+      "path": ".build/evidence/phase4-install",
+      "files": 438,
+      "apparent_bytes": 26219544865
+    },
+    {
+      "path": ".build/release-qa",
+      "files": 54312,
+      "apparent_bytes": 16065802447
+    },
+    {
+      "path": "build/qa",
+      "files": 421,
+      "apparent_bytes": 12991235
+    },
+    {
+      "path": ".build/candidate-expanded-CorridorKeyMac-0.9.8-beta.1-arm64-Offline",
+      "files": 27153,
+      "apparent_bytes": 6021733043
+    },
+    {
+      "path": ".build/candidate-expanded-CorridorKeyMac-0.9.8-qa.1-arm64-Offline",
+      "files": 27154,
+      "apparent_bytes": 6022088841
+    },
+    {
+      "path": ".build/candidate-expanded-CorridorKeyMac-0.9.8-qa.2-arm64-Offline",
+      "files": 27154,
+      "apparent_bytes": 6022088857
+    },
+    {
+      "path": ".build/candidate-expanded-CorridorKeyMac-0.9.8-qa.3-arm64-Offline",
+      "files": 27154,
+      "apparent_bytes": 6022089079
+    },
+    {
+      "path": ".build/candidate-expanded-CorridorKeyMac-0.9.8-qa.4-arm64-Offline",
+      "files": 27154,
+      "apparent_bytes": 6022091173
+    },
+    {
+      "path": "dist/0.9.8-qa.1/CorridorKeyMac-0.9.8-qa.1-arm64-Offline.pkg",
+      "files": 1,
+      "apparent_bytes": 4050798839
+    },
+    {
+      "path": "dist/0.9.8-qa.2/CorridorKeyMac-0.9.8-qa.2-arm64-Offline.pkg",
+      "files": 1,
+      "apparent_bytes": 4050851890
+    },
+    {
+      "path": "dist/0.9.8-qa.3/CorridorKeyMac-0.9.8-qa.3-arm64-Offline.pkg",
+      "files": 1,
+      "apparent_bytes": 4050852248
+    },
+    {
+      "path": ".build/pre-guide-qa",
+      "files": 2,
+      "apparent_bytes": 4049639263
+    }
+  ],
+  "additional_scoped_user_data": [
+    "~/Library/Caches/org.harvestpictures.CorridorKeyMac.QA",
+    "~/Library/Logs/org.harvestpictures.CorridorKeyMac.QA",
+    "/private/tmp/ckmac-qa-offline-*",
+    "/private/tmp/ckmac-qa-501"
+  ],
+  "project_to_remove": "CorridorKey_Phase4_Installed_QA_20261030",
+  "preserve": [
+    "Original footage",
+    "Production projects/plugin/runtime/models",
+    "Pre-existing durable bakes",
+    "dist/0.9.8-beta.1",
+    "dist/0.9.8-qa.4",
+    "Shared build dependency caches"
+  ]
+}

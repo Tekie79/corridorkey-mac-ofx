@@ -1,0 +1,20 @@
+{
+  "status": "Passed",
+  "artifact_sha256": "14cf95a53187e8eff815b13c5a0e5441b7e21295f900633f80e361c536ad39f6",
+  "environment": "isolated QA install",
+  "source_edit": "BrightnessContrast Brightness = iif(time == 17, 0.02, 0), spatially neutral",
+  "native_controls": true,
+  "first_attempt": "Viewer frame change canceled render; incomplete generation not activated",
+  "resume": "One native Analyze/Resume click and independent frame 6 confirmation; left unchanged until completion",
+  "request": 8,
+  "revision": 0,
+  "old_generation": "0e5ba967e60296edd69cc0b8c1d3b2db58702571a087cfa853e99a79e91d35ed",
+  "new_generation": "755643d0eeea62bc9849bc6af0a3cd5f8e685355e1fe0ee37b1451d92557c08b",
+  "changed_input_frames": [
+    17
+  ],
+  "unchanged_input_count": 59,
+  "analysis_seconds": 249.66532595898025,
+  "old_bake_unchanged_until_activation": true,
+  "native_frame_change_cancellation_ms": 434
+}

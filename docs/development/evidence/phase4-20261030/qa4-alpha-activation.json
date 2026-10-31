@@ -1,0 +1,12 @@
+{
+  "bake": "/Volumes/CKMac_QA_Bakes/Bakes/QA4/bake-524ba5ac82ce46b7ad290cfcc333ecdf/manifest.json",
+  "previous": "/Volumes/CKMac_QA_Bakes/Bakes/QA4/bake-f86f5c27cd084f04adc2f010c8318a8c/manifest.json",
+  "cleanup": "Verified alpha bake active. Current original RGB is used; recovered foreground is not baked.",
+  "auto_clean": 0,
+  "size_mode": 0,
+  "source_dimensions": [
+    0,
+    0
+  ],
+  "clone_image_after_first_owner_clean": true
+}

@@ -1,0 +1,6 @@
+{
+  "bake": "/Volumes/CKMac_QA_Bakes/Bakes/QA4/bake-f86f5c27cd084f04adc2f010c8318a8c/manifest.json",
+  "previous": "/Volumes/CKMac_QA_Bakes/Bakes/bake-e3d11a8fb23042a08db1bd342e7fed10/manifest.json",
+  "use_baked": 1,
+  "status": "Verified RGBA bake active. Playback requires neither the model worker nor Source."
+}

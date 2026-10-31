@@ -1,0 +1,16 @@
+{
+  "status": "Passed",
+  "artifact_sha256": "49dc3c677eedf487003ebd5c0b1698b927cbbc048a982bb851ad4d54440143a7",
+  "environment": "isolated QA install",
+  "missing_exr_candidate_rejected": true,
+  "old_bake_after_missing_exr": "/Volumes/CKMac_QA_Bakes/Bakes/QA4/bake-a376689e2eb34893b90793b5e89a8740/manifest.json",
+  "subsequent_image_after_missing_exr": true,
+  "missing_source_reanalysis": {
+    "next_baked_image": true,
+    "bake": "/Volumes/CKMac_QA_Bakes/Bakes/QA4/bake-a376689e2eb34893b90793b5e89a8740/manifest.json",
+    "revision": 3,
+    "request": 16,
+    "source_connected": false
+  },
+  "worker_started": false
+}

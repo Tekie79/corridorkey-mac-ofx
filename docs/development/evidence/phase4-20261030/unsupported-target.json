@@ -1,0 +1,18 @@
+[
+  {
+    "profile": "qa",
+    "script": ".build/release-qa/install-hooks/preinstall",
+    "status": "Passed",
+    "returncode": 1,
+    "error": "Only the startup volume is supported.",
+    "scope": "Negative preflight only; no install"
+  },
+  {
+    "profile": "unchanged-beta1",
+    "script": ".build/candidate-expanded/payload.pkg/Scripts/preinstall",
+    "status": "Passed",
+    "returncode": 1,
+    "error": "Only the startup volume is supported.",
+    "scope": "Negative preflight only; no install"
+  }
+]

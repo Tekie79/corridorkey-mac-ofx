@@ -1,0 +1,14 @@
+{
+  "status": "Passed",
+  "artifact_sha256": "49dc3c677eedf487003ebd5c0b1698b927cbbc048a982bb851ad4d54440143a7",
+  "environment": "isolated QA install",
+  "scope": "Actual native Cancel during genuine GPU temporal work; next baked requests and another node remain usable",
+  "native_cancel_ms": 604,
+  "after": {
+    "clone_baked_after_cancel": true,
+    "other_node_image": true,
+    "old_bake": "/Volumes/CKMac_QA_Bakes/Bakes/QA4/bake-a376689e2eb34893b90793b5e89a8740/manifest.json",
+    "revision": 3,
+    "request": 17
+  }
+}

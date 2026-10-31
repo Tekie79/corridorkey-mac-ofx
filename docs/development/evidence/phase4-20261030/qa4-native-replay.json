@@ -1,0 +1,9 @@
+{
+  "requests": 300,
+  "successful": 300,
+  "failed_indices": [],
+  "seconds": 26.47167629201431,
+  "use_baked": 0,
+  "source_tool": "Resize1",
+  "revision": 3
+}

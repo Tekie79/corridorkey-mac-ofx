@@ -1,0 +1,10 @@
+{
+  "/Library/Application Support/HarvestPictures/CorridorKeyMacQA": false,
+  "/Library/OFX/Plugins/CorridorKeyMacQA.ofx.bundle": false,
+  "/Applications/CorridorKey Mac QA Manager.app": false,
+  "qa_receipts": [
+    "org.harvestpictures.CorridorKeyMac.qa.performance",
+    "org.harvestpictures.CorridorKeyMac.qa.overlay",
+    "org.harvestpictures.CorridorKeyMac.personal"
+  ]
+}

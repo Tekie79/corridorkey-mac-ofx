@@ -48,6 +48,21 @@ installed repair/uninstall are separate gates. The report states which are
 Passed, Failed, Blocked or Not run. A per-process outbound-IP denial test does
 not establish clean-account or whole-Mac offline qualification.
 
+The isolated QA.4 package has its own artifact-bound
+[qualification report](docs/development/PHASE4_INSTALLER_QUALIFICATION.md) and
+acceptance matrix. Native full-HD temporal analysis, 300 cache-only requests,
+60-frame RGBA Saver/Deliver, source-sized 4096x2160 alpha compositing, two-pass
+edited-source reanalysis, cancellation, worker-crash recovery, GUI repair and
+both uninstall/reinstall modes passed. These results do not qualify the unchanged production-path installer.
+The broader mandatory release matrix remains incomplete, so this is an
+unqualified personal beta. MPS remains the default.
+
+With original media unavailable, Resolve returned an Alpha-playback image whose
+RGB contents were not verified as the original source. Reliable missing-source
+detection for Alpha remains unqualified; the host may supply a cached or offline
+image. RGBA playback with Source disconnected and its source volume unavailable
+was verified independently.
+
 ## Quality and performance
 
 Native internal sizes above 2048×1152 are refused after direct 4K numerical

@@ -1,0 +1,14 @@
+{
+  "verified_inventory_records": 27113,
+  "hashes": {
+    "/Library/Application Support/HarvestPictures/CorridorKeyMac/active.json": "3fc10a7b0a48ded8f74f68ce5c8dda65cf4aa90e25eee907f451a4fe8820d79a",
+    "/Library/Application Support/HarvestPictures/CorridorKeyMac/install-manifest.json": "957f5db129a4331587dd39babf2a49d3a860c604234cf8bfd73382edd1a0fa6a",
+    "/Library/Application Support/HarvestPictures/CorridorKeyMac/repair-policy.json": "f28759c713044ad44bc2d153c28075887ac1d3599dab27a5cc609b33d496a6c6",
+    "/Library/OFX/Plugins/CorridorKeyMac.ofx.bundle/Contents/MacOS/CorridorKeyMac.ofx": "e6304a001859f5026735b5d4e12156573c30109a7fae250dfe4ee647cb09fae2"
+  },
+  "receipts": [
+    "org.harvestpictures.CorridorKeyMac.qa.performance",
+    "org.harvestpictures.CorridorKeyMac.qa.overlay",
+    "org.harvestpictures.CorridorKeyMac.personal"
+  ]
+}

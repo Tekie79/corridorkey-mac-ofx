@@ -1,0 +1,111 @@
+{
+  "state": "ready",
+  "error": "",
+  "fixture_passed": true,
+  "model_loaded": true,
+  "user_frames_completed": 0,
+  "cache_hits": 0,
+  "active_jobs": 0,
+  "pid": 94956,
+  "facts": {
+    "installation_verification_seconds": 6.2861988339573145,
+    "model_load_seconds": 8.02168804203393,
+    "fixture_seconds": 0.4202727919910103,
+    "backend": {
+      "backend": "pytorch_mps",
+      "loaded": true,
+      "device": "mps",
+      "dtype": "float32",
+      "torch_version": "2.9.1",
+      "upstream_root": "/Library/Application Support/HarvestPictures/CorridorKeyMacQA/Runtime/0.9.8-qa3.efc225cfab3d/upstream",
+      "model_root": "/Library/Application Support/HarvestPictures/CorridorKeyMacQA/Models/ck2-cf44a8db3f02",
+      "audited_upstream_commit": "485f5e9ab759ead6138cc990776184b59d6ea971",
+      "temporal_mode": "independent_frame_T1",
+      "clip_temporal_analysis": false,
+      "completed_temporal_shots": 0,
+      "automatic_cpu_model_fallback": false,
+      "cpu_preprocessing": [
+        "transfer_functions",
+        "reflect_padding",
+        "foundation_area_resize"
+      ],
+      "cpu_postprocessing": [
+        "asinh_decode",
+        "crop",
+        "transfer_functions",
+        "optional_green_despill"
+      ],
+      "input_spaces": [
+        "srgb",
+        "linear",
+        "rec709_gamma24"
+      ],
+      "input_alpha": "only used as a hint when explicitly selected",
+      "output_alpha": "straight foreground RGB plus clamped model matte",
+      "successful_frames": 1,
+      "completed_network_calls": {
+        "cradio": 1,
+        "moge_encoder": 1,
+        "rvm": 1,
+        "stage1": 1,
+        "stage2": 1
+      },
+      "last_error": null,
+      "mps_current_allocated_bytes": 4938861056,
+      "mps_driver_allocated_bytes": 6256017408
+    },
+    "temporal_progress": 0.08499999999999999,
+    "live_mps_memory": {
+      "current_bytes": 4938861056,
+      "driver_bytes": 5949898752,
+      "recommended_bytes": 40200896512
+    },
+    "maximum_observed_driver_bytes": 5949898752
+  },
+  "cache": {
+    "ram_hits": 1,
+    "disk_hits": 17,
+    "metadata_hits": 0,
+    "staged_bytes": 1990656000,
+    "puts": 60,
+    "put_dedup": 0,
+    "cache_bytes_written": 1990659360,
+    "cache_bytes_evicted": 0,
+    "ram_bytes": 530841600,
+    "ram_limit": 536870912
+  },
+  "counters": {
+    "input_stage_attempts": 60,
+    "input_stage_new": 60,
+    "input_stage_dedup": 0,
+    "analysis_starts": 1,
+    "analysis_completions": 0,
+    "result_cache_hits": 0,
+    "result_cache_misses": 0,
+    "model_network_invocations": 56
+  },
+  "node_counters": [
+    {
+      "node": "56b147af-e50eb1c5-ccd638be-d0ab043d-32c5beeb-7d42729f-11c1134a-a89872ab-",
+      "generation": "capture",
+      "counters": {
+        "input_stage_attempts": 60,
+        "input_stage_dedup": 0,
+        "input_stage_new": 60,
+        "cache_bytes_written": 1990659360
+      }
+    }
+  ],
+  "cache_domains": [
+    "temporary captures/results",
+    "Resolve playback cache (host controlled)",
+    "durable EXR bake"
+  ],
+  "ok": true,
+  "protocol": 2,
+  "build_id": "0.9.8-qa3.efc225cfab3d",
+  "payload_bytes": 0,
+  "session_id": "phase4-monitor",
+  "request_id": 1793413558363265000,
+  "effect_generation": 0
+}

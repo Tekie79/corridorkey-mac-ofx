@@ -1,0 +1,10 @@
+{
+  "status": "Passed",
+  "artifact_sha256": "49dc3c677eedf487003ebd5c0b1698b927cbbc048a982bb851ad4d54440143a7",
+  "environment": "exact archive hook on actual running host",
+  "scope": "Actual QA.4 preinstall hook refuses a running Resolve before mutation",
+  "hook_sha256": "9f70087506c4dd783c8ca9240d8eb8a770984b99530768a5b7cd3209f2cfa71a",
+  "returncode": 1,
+  "output": "Close DaVinci Resolve and Fusion, then retry. No host was stopped.",
+  "installed_files_changed": false
+}

@@ -1,0 +1,13 @@
+{
+  "status": "Passed",
+  "artifact_sha256": "49dc3c677eedf487003ebd5c0b1698b927cbbc048a982bb851ad4d54440143a7",
+  "environment": "isolated QA install",
+  "scope": "Native model attempt with deliberately missing protected QA config; actionable failure and next old baked image succeeds",
+  "state": "error",
+  "error": "RuntimeError: CK-ASSET-INTEGRITY: installed files changed. Repair from the offline installer. Missing or changed files:\n/Library/Application Support/HarvestPictures/CorridorKeyMacQA/Models/ck2-cf44a8db3f02/vfms/cradio/C-RADIOv4-SO400M/config.json",
+  "model_loaded": false,
+  "network_calls": 0,
+  "next_baked_image": true,
+  "old_manifest_preserved": true,
+  "manager_verify_reported_exact_missing_file": true
+}

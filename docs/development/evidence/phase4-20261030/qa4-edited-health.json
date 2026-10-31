@@ -1,0 +1,135 @@
+{
+  "state": "ready",
+  "error": "",
+  "fixture_passed": true,
+  "model_loaded": true,
+  "user_frames_completed": 0,
+  "cache_hits": 0,
+  "active_jobs": 0,
+  "pid": 1146,
+  "facts": {
+    "installation_verification_seconds": 6.1487082919920795,
+    "model_load_seconds": 7.407585458015092,
+    "fixture_seconds": 0.3679502920131199,
+    "backend": {
+      "backend": "pytorch_mps",
+      "loaded": true,
+      "device": "mps",
+      "dtype": "float32",
+      "torch_version": "2.9.1",
+      "upstream_root": "/Library/Application Support/HarvestPictures/CorridorKeyMacQA/Runtime/0.9.8-qa4.f1f98dd88eee/upstream",
+      "model_root": "/Library/Application Support/HarvestPictures/CorridorKeyMacQA/Models/ck2-cf44a8db3f02",
+      "audited_upstream_commit": "485f5e9ab759ead6138cc990776184b59d6ea971",
+      "temporal_mode": "upstream_float32_continuous_RVM_Hann_configurable",
+      "clip_temporal_analysis": true,
+      "completed_temporal_shots": 1,
+      "automatic_cpu_model_fallback": false,
+      "cpu_preprocessing": [
+        "transfer_functions",
+        "reflect_padding",
+        "foundation_area_resize"
+      ],
+      "cpu_postprocessing": [
+        "asinh_decode",
+        "crop",
+        "transfer_functions",
+        "optional_green_despill"
+      ],
+      "input_spaces": [
+        "srgb",
+        "linear",
+        "rec709_gamma24"
+      ],
+      "input_alpha": "only used as a hint when explicitly selected",
+      "output_alpha": "straight foreground RGB plus clamped model matte",
+      "successful_frames": 1,
+      "completed_network_calls": {
+        "cradio": 121,
+        "moge_encoder": 121,
+        "rvm": 121,
+        "stage1": 40,
+        "stage2": 80
+      },
+      "last_error": null,
+      "mps_current_allocated_bytes": 4938861056,
+      "mps_driver_allocated_bytes": 16596172800
+    },
+    "temporal_progress": 1.0,
+    "live_mps_memory": {
+      "current_bytes": 4938861056,
+      "driver_bytes": 16596172800,
+      "recommended_bytes": 40200896512
+    },
+    "maximum_observed_driver_bytes": 18839404544,
+    "last_temporal_request_seconds": 246.26832545903744,
+    "last_temporal_analysis_seconds": 246.26832545903744,
+    "temporal_algorithm": "float32 continuous RVM / Hann baton 4/2 / stage2",
+    "profile": {
+      "resolution": 0,
+      "window": 4,
+      "memory_limit": 0,
+      "low_memory": false,
+      "internal_hint_quality": 0.95,
+      "reference_index": 0
+    }
+  },
+  "cache": {
+    "ram_hits": 155,
+    "disk_hits": 203,
+    "metadata_hits": 79,
+    "staged_bytes": 3981312000,
+    "puts": 120,
+    "put_dedup": 0,
+    "cache_bytes_written": 3981318720,
+    "cache_bytes_evicted": 0,
+    "ram_bytes": 530841600,
+    "ram_limit": 536870912
+  },
+  "counters": {
+    "input_stage_attempts": 60,
+    "input_stage_new": 60,
+    "input_stage_dedup": 0,
+    "analysis_starts": 2,
+    "analysis_completions": 1,
+    "result_cache_hits": 0,
+    "result_cache_misses": 0,
+    "model_network_invocations": 483
+  },
+  "node_counters": [
+    {
+      "node": "f5553127-b14b725f-cc268bd1-98ea4ee2-17483547-bc765a00-db4eefd-3ef6f0fb-",
+      "generation": "capture",
+      "counters": {
+        "input_stage_attempts": 60,
+        "input_stage_dedup": 0,
+        "input_stage_new": 60,
+        "cache_bytes_written": 1990659360
+      }
+    },
+    {
+      "node": "f5553127-b14b725f-cc268bd1-98ea4ee2-17483547-bc765a00-db4eefd-3ef6f0fb-",
+      "generation": "64b1f0072c068be550b258b13a2fd9946a02f366756a9ec1e33ac1c0bbf03919",
+      "counters": {
+        "analysis_starts": 1,
+        "analysis_completions": 1,
+        "result_cache_hits": 0,
+        "result_cache_misses": 0,
+        "model_network_invocations": 269,
+        "cache_bytes_written": 1360283896,
+        "cache_bytes_evicted": 0
+      }
+    }
+  ],
+  "cache_domains": [
+    "temporary captures/results",
+    "Resolve playback cache (host controlled)",
+    "durable EXR bake"
+  ],
+  "ok": true,
+  "protocol": 2,
+  "build_id": "0.9.8-qa4.f1f98dd88eee",
+  "payload_bytes": 0,
+  "session_id": "phase4-monitor",
+  "request_id": 1793418240622319000,
+  "effect_generation": 0
+}

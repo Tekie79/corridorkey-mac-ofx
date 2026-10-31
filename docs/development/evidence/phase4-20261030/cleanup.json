@@ -1,0 +1,144 @@
+{
+  "status": "Files cleaned; final QA system uninstall pending",
+  "scope": "Only this qualification round; original beta.1 and final QA.4 installers plus small reports retained",
+  "authorization": "User requested cleanup after testing",
+  "project": {
+    "status": "Passed",
+    "deleted_project": "CorridorKey_Phase4_Installed_QA_20261030",
+    "other_project_names_unchanged": true,
+    "remaining_project_count": 13,
+    "resolve_quit": true
+  },
+  "disposable_volumes_unmounted": true,
+  "removed": [
+    {
+      "path": ".build/release-qa",
+      "files": 54312,
+      "apparent_bytes": 16065802447
+    },
+    {
+      "path": "build/qa",
+      "files": 421,
+      "apparent_bytes": 12991235
+    },
+    {
+      "path": ".build/candidate-expanded-CorridorKeyMac-0.9.8-beta.1-arm64-Offline",
+      "files": 27153,
+      "apparent_bytes": 6021733043
+    },
+    {
+      "path": ".build/candidate-expanded-CorridorKeyMac-0.9.8-qa.1-arm64-Offline",
+      "files": 27154,
+      "apparent_bytes": 6022088841
+    },
+    {
+      "path": ".build/candidate-expanded-CorridorKeyMac-0.9.8-qa.2-arm64-Offline",
+      "files": 27154,
+      "apparent_bytes": 6022088857
+    },
+    {
+      "path": ".build/candidate-expanded-CorridorKeyMac-0.9.8-qa.3-arm64-Offline",
+      "files": 27154,
+      "apparent_bytes": 6022089079
+    },
+    {
+      "path": ".build/candidate-expanded-CorridorKeyMac-0.9.8-qa.4-arm64-Offline",
+      "files": 27154,
+      "apparent_bytes": 6022091173
+    },
+    {
+      "path": "dist/0.9.8-qa.1/CorridorKeyMac-0.9.8-qa.1-arm64-Offline.pkg",
+      "files": 1,
+      "apparent_bytes": 4050798839
+    },
+    {
+      "path": "dist/0.9.8-qa.2/CorridorKeyMac-0.9.8-qa.2-arm64-Offline.pkg",
+      "files": 1,
+      "apparent_bytes": 4050851890
+    },
+    {
+      "path": "dist/0.9.8-qa.3/CorridorKeyMac-0.9.8-qa.3-arm64-Offline.pkg",
+      "files": 1,
+      "apparent_bytes": 4050852248
+    },
+    {
+      "path": ".build/pre-guide-qa",
+      "files": 2,
+      "apparent_bytes": 4049639263
+    },
+    {
+      "path": ".build/evidence/phase4-install",
+      "files": 448,
+      "apparent_bytes": 26219571764
+    },
+    {
+      "path": "~/Library/Caches/org.harvestpictures.CorridorKeyMac.QA",
+      "files": 67,
+      "apparent_bytes": 2023969805
+    },
+    {
+      "path": "~/Library/Preferences/org.harvestpictures.CorridorKeyMac.QA.Manager.plist",
+      "files": 1,
+      "apparent_bytes": 1189
+    },
+    {
+      "path": "~/Library/Preferences/org.harvestpictures.CorridorKeyMac.QA.PickerProbe.plist",
+      "files": 1,
+      "apparent_bytes": 1871
+    },
+    {
+      "path": "/private/tmp/ckmac-qa-offline-815fb6b3",
+      "files": 3,
+      "apparent_bytes": 29263
+    },
+    {
+      "path": "/private/tmp/ckmac-qa-offline-414cc9d7",
+      "files": 4,
+      "apparent_bytes": 33213864
+    },
+    {
+      "path": "/private/tmp/ckmac-qa-501",
+      "files": 15,
+      "apparent_bytes": 337
+    },
+    {
+      "path": "/private/tmp/ckmac-qa-cmake.log",
+      "files": 1,
+      "apparent_bytes": 4670
+    },
+    {
+      "path": "/private/tmp/ckmac-qa-ctest-native.log",
+      "files": 1,
+      "apparent_bytes": 905
+    },
+    {
+      "path": "/private/tmp/ckmac-qa-pytest-native.log",
+      "files": 1,
+      "apparent_bytes": 273
+    },
+    {
+      "path": "/private/tmp/ckmac-qa-pytest.log",
+      "files": 1,
+      "apparent_bytes": 56573
+    },
+    {
+      "path": "/private/tmp/ckmac-qa-rebuild.log",
+      "files": 1,
+      "apparent_bytes": 860
+    }
+  ],
+  "preserved": [
+    "Original footage",
+    "Production projects/plugin/runtime/models",
+    "Pre-existing durable bakes",
+    "dist/0.9.8-beta.1",
+    "dist/0.9.8-qa.4",
+    "Shared build dependency caches"
+  ],
+  "test_media_bakes_renders_caches_removed": true,
+  "retained_large_installers": [
+    "dist/0.9.8-beta.1/CorridorKeyMac-0.9.8-beta.1-arm64-Offline.pkg",
+    "dist/0.9.8-qa.4/CorridorKeyMac-0.9.8-qa.4-arm64-Offline.pkg"
+  ],
+  "size_note": "Apparent sizes include APFS clones and sparse images; do not interpret their sum as physical disk space recovered."
+}

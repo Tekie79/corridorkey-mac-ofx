@@ -1,0 +1,64 @@
+{
+  "status": "Passed",
+  "artifact_sha256": "d530d3a14c8852f9a56d9e70c852ac37dfd985670b3f43975308dea1025b5c66",
+  "environment": "isolated QA install",
+  "scope": "Actual native button/picker, two-frame MPS temporal bake, auto-clean and native HD Saver with Source disconnected/worker absent",
+  "manifest": "/Volumes/CKMac_QA_Bakes/Bakes/bake-8b2af185a0e940bb80bf2e0062ec0917/manifest.json",
+  "manifest_sha256": "dd20cbe59c391630198d3635a5bf5870395607b9307453e8b1132e76a33ff61f",
+  "source_size": [
+    4096,
+    2160
+  ],
+  "source_size_basis": "resolve_sdk",
+  "analysis_size": [
+    1920,
+    1080
+  ],
+  "frames": [
+    {
+      "frame": 0,
+      "channels": [
+        "A",
+        "B",
+        "G",
+        "R"
+      ],
+      "types": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "premultiplied_max_error": 0.0,
+      "sha256": "ed1e9e63af60e6fcc16dc0f2514c1d0a7d615230945f98fd6d3621ad0be1532d"
+    },
+    {
+      "frame": 1,
+      "channels": [
+        "A",
+        "B",
+        "G",
+        "R"
+      ],
+      "types": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "shape": [
+        1080,
+        1920,
+        4
+      ],
+      "premultiplied_max_error": 0.0,
+      "sha256": "4422a2df29a0d148c700251ef95b662aaa490df6fd8a72dd93c07e9f5087a353"
+    }
+  ],
+  "note": "Replacing the media clip changed the copied Fusion composition width to 4096 despite its HD label/timeline. Saver first produced correctly enlarged 4K output; the QA composition was explicitly set to 1920x1080 for the exact HD comparison. Original source metadata remains 4096x2160."
+}

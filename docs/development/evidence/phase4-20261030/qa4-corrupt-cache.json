@@ -1,0 +1,18 @@
+{
+  "status": "Passed",
+  "artifact_sha256": "49dc3c677eedf487003ebd5c0b1698b927cbbc048a982bb851ad4d54440143a7",
+  "environment": "isolated QA install",
+  "generation": "3480ee14736763af43f1eccc9e57ececea6cac788b8121c106248391b525f947",
+  "frame": 43,
+  "key": "17a4f696a4056c3892530e8928cd207a16c45a89b4f4d6d840e262144803d958",
+  "original_sha256": "3b111946439ec3c847e1ac1447a9b2006ef065f1ddf5886247bb4d7742009889",
+  "backup": ".build/evidence/phase4-install/corrupt-cache-backup/17a4f696a4056c3892530e8928cd207a16c45a89b4f4d6d840e262144803d958.ckf",
+  "fault": "One payload bit flipped in this owner's temporary result; worker stopped first",
+  "durable_bakes_changed": false,
+  "corrupt_native_image": false,
+  "baked_recovery_image": true,
+  "restored_exact_bytes": true,
+  "restored_cache_native_image": true,
+  "recovery_model_loaded": false,
+  "recovery_network_calls": 0
+}

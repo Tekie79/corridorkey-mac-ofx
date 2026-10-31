@@ -1,0 +1,20 @@
+{
+  "artifact_sha256": "92d8fd04ea9b1ec9c6989bc7fe22306909d806e088bbc0893b7cadbe1353d74c",
+  "build_id": "0.9.8-qa1.9a72e0ba5e4b",
+  "environment": "isolated QA install",
+  "installer_ui_result": "The installation was completed successfully.",
+  "installer_elapsed_seconds": 54.24,
+  "authorization": "Normal Installer flow; no additional password or Gatekeeper prompt was presented in this session.",
+  "receipt": "org.harvestpictures.CorridorKeyMac.QA.personal",
+  "installed_inventory_verified": 27151,
+  "installed_ownership": "root:wheel, protected files and directories verified",
+  "production_inventory_verified_unchanged": 27113,
+  "resolve": "Studio 21.1.2.10",
+  "discovery_status": "Failed",
+  "resolve_log": "2026-10-30 20:49:47,791 | Failed to load /Library/OFX/Plugins/CorridorKeyMacQA.ofx.bundle",
+  "registry_check": "Only official and production keyers registered; QA identifier absent; AddTool returned false.",
+  "defect": "Bundle basename CorridorKeyMacQA did not match executable CorridorKeyMac.ofx. New regression fails on actual QA.1 bundle.",
+  "model_or_worker_started": false,
+  "qa_project": "CorridorKey_Phase4_Installed_QA_20261030",
+  "note": "The old CacheBakeQA developer-only tools in the copied historical project appeared as Dummy nodes; those warnings are separate from the new QA bundle load failure. Original footage and production projects were not edited."
+}

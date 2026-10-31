@@ -1,0 +1,13 @@
+{
+  "status": "Passed",
+  "environment": "exact expanded QA package",
+  "profile": "qa",
+  "build_id": "0.9.8-qa1.9a72e0ba5e4b",
+  "records": 27151,
+  "roots": [
+    "/Library/Application Support/HarvestPictures/CorridorKeyMacQA",
+    "/Library/OFX/Plugins/CorridorKeyMacQA.ofx.bundle",
+    "/Applications/CorridorKey Mac QA Manager.app"
+  ],
+  "guide_qa_only": true
+}

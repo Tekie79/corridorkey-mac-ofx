@@ -1,0 +1,293 @@
+{
+  "source_identity": "f1f98dd88eee5506ffa1127199b9f9423b87e62bfdfa0f117cb8fab8fe4b5c85",
+  "build_id": "0.9.8-qa4.f1f98dd88eee",
+  "artifact_sha256": "49dc3c677eedf487003ebd5c0b1698b927cbbc048a982bb851ad4d54440143a7",
+  "parent_commit": "c0bf9ea3320c697ea45940462ba0b7c2ea963a31",
+  "note": "Artifact built from this working source inventory; final documentation commit is recorded separately.",
+  "files": [
+    {
+      "path": "CMakeLists.txt",
+      "sha256": "22933b3be9ffa81f81901fe879728fc6935f4a985949394056f153e98bf35700"
+    },
+    {
+      "path": "src/bake.mm",
+      "sha256": "4cf0394a6ab092f6a2c28a4c8f6c0487a5e1dd085081abda37662c5f78ed3d03"
+    },
+    {
+      "path": "src/creative.cpp",
+      "sha256": "d94e6f9a0aa326f8443f1d2626666313ddc753df49cbabfe38d5583418b8655d"
+    },
+    {
+      "path": "src/engine_launcher.cpp",
+      "sha256": "e11193e3d643b1f4026b9642365c9345c02e7ceb992a89078960ac6234659461"
+    },
+    {
+      "path": "src/installer_tool.mm",
+      "sha256": "23547c4d7c24f0117893e0ebca4f153e1ec49c67ace0031cfdade3563b42a7a4"
+    },
+    {
+      "path": "src/manager.mm",
+      "sha256": "6c0688150dd4f46fd57f60d97f0e69341c827c36157d910c0d634e26acd15a07"
+    },
+    {
+      "path": "src/ofx_plugin.cpp",
+      "sha256": "837abf39d4da041427df147b76ee67aa0523b1038eb2c07a2110fafa3ebb4cbc"
+    },
+    {
+      "path": "src/picker.mm",
+      "sha256": "1cd82a020898af9b99a3f7667e9353780b939d2315b197926fd9e4d19d6998cb"
+    },
+    {
+      "path": "src/pixels.cpp",
+      "sha256": "e1d988234fc157c46c1b7791e994509eb95b06ff99b86fb163997227c89b33a2"
+    },
+    {
+      "path": "src/protocol.cpp",
+      "sha256": "21a6d758ed92fd3ebd4bf28881a772e72977d3ace748465c60735547a22105aa"
+    },
+    {
+      "path": "src/worker_manager.mm",
+      "sha256": "4fac90d2527c53c71ac11caeaf27897ed3a5cdf84d7c21974b9bbb3fa752854e"
+    },
+    {
+      "path": "include/ckmac/analysis_attempt.hpp",
+      "sha256": "46df0b86ecc5dbc45f6752846a83c7626f119ea4f1372aec0eb4eef2b7695cca"
+    },
+    {
+      "path": "include/ckmac/bake.hpp",
+      "sha256": "980e8992de6ed12d809a46b5709fe888990cfe6c806a7ca0b9df671e4cd0dee2"
+    },
+    {
+      "path": "include/ckmac/capture_guard.hpp",
+      "sha256": "99dcecfdcf236f9c5c287d05ea509bab5cbdcdd55d30c8868f0e0be6bfdd4de1"
+    },
+    {
+      "path": "include/ckmac/creative.hpp",
+      "sha256": "8da96775b5ff3ed1c28c74c3cac96bed5653b986a77e55d402dfefb7edfb6801"
+    },
+    {
+      "path": "include/ckmac/installation.hpp",
+      "sha256": "4edb145cc1591029940f31dc74e28c5edbe1aaf6419d46993d175f4630712e1d"
+    },
+    {
+      "path": "include/ckmac/picker.hpp",
+      "sha256": "be5ddf6203213a7fbe05ad45821a9b8ffb81a1a7b31e59a1e337a6e9d6941915"
+    },
+    {
+      "path": "include/ckmac/pixels.hpp",
+      "sha256": "893d08dc9e4250c2cc1d4a7eedaa7e13e5f138bb4f0c7722e95100ac2184a3f1"
+    },
+    {
+      "path": "include/ckmac/protocol.hpp",
+      "sha256": "5993519cbff39416aa1a7c4b7eb562e4f6d9287961ed19aec803de4e9c02d41e"
+    },
+    {
+      "path": "include/ckmac/worker_manager.hpp",
+      "sha256": "25e5f6376cec7c0719df008680bd180e6b5c686b149beaafb275794cfe63ab8c"
+    },
+    {
+      "path": "worker/ckmac/__init__.py",
+      "sha256": "adb25e514fad3b71fd33ccb9f28e4faf5c3479cb248c98f0d9aa8934753ec224"
+    },
+    {
+      "path": "worker/ckmac/backend.py",
+      "sha256": "9cdf1c0f06b1f2d447dd5fc294eb92c0f98b432922cee547810804b6dc1cbdce"
+    },
+    {
+      "path": "worker/ckmac/backends/__init__.py",
+      "sha256": "83d2d2747c6172b71fe65548879c10f75f178a03460d32a0d097a43a123d22b0"
+    },
+    {
+      "path": "worker/ckmac/backends/mlx_v2_backend.py",
+      "sha256": "a417a1e711599c9a9f1ebab9ba8b0aa03751b9facb2ba5853124f40ba3463d4f"
+    },
+    {
+      "path": "worker/ckmac/backends/mps_backend.py",
+      "sha256": "891b91338a8459f2aeda04f2635aead6fa990c0f4db3f169db5b26a883feb463"
+    },
+    {
+      "path": "worker/ckmac/bake.py",
+      "sha256": "1c9059b7057ace243ce288d832fe084af825f67c7b6c0b05369ea1d0d8e1f5d4"
+    },
+    {
+      "path": "worker/ckmac/bake_transaction.py",
+      "sha256": "3884e74726a1c49decee3b170cdf4b7c35f45d263688eba2461b22eeaa037a26"
+    },
+    {
+      "path": "worker/ckmac/cache.py",
+      "sha256": "02ea73870297b59f8fec4b049ef8e3a7dbbf4f698885e602012cf148e0913010"
+    },
+    {
+      "path": "worker/ckmac/client.py",
+      "sha256": "63e4dd7902fdb49ff7fd7462486fb24937997fb4129764430529b3ee3ae62d8f"
+    },
+    {
+      "path": "worker/ckmac/engine.py",
+      "sha256": "ae7dd31e89ade40402ffc92d57fbebfd870e0dcf7aa0a54b254e756038c4bacb"
+    },
+    {
+      "path": "worker/ckmac/exr.py",
+      "sha256": "cd1895becf4565589ce610bbb6d36b4997a33f7319248b8cc3f5a585add2c5be"
+    },
+    {
+      "path": "worker/ckmac/generations.py",
+      "sha256": "16767ebe37d4b138caf2f95fa700ee5c4318a012b1be87a6e5d3e0b72258f7fd"
+    },
+    {
+      "path": "worker/ckmac/installation.py",
+      "sha256": "fc9f9d56d39a6e79ae4f73f9e88eb5d8c4659749a30857be400e09e1e800cfa2"
+    },
+    {
+      "path": "worker/ckmac/maintenance.py",
+      "sha256": "3f532f6aff300fb69a791606531c7673258947d1a3e1624dd067e760a3620c46"
+    },
+    {
+      "path": "worker/ckmac/profiles.py",
+      "sha256": "c36e7279a3f8bfee1ad6b79561812ee57eaa2c71ae7976e9b842ccf9f8a2c7dd"
+    },
+    {
+      "path": "worker/ckmac/protocol.py",
+      "sha256": "3ed3bfa11f95d0ae712841dce0986c7401a0c60670f3dd86be62e87d08513067"
+    },
+    {
+      "path": "worker/ckmac/resolve_geometry.py",
+      "sha256": "5bb61abb5eb0282ab32221932e5614aabd7901d6be20c38c1f7a92e60062b716"
+    },
+    {
+      "path": "worker/ckmac/server.py",
+      "sha256": "47d5dbb9153a0222e4819024db349c5460a5d66219c0b6ce08e1a4afa92ba309"
+    },
+    {
+      "path": "worker/ckmac/temporal.py",
+      "sha256": "423cf55d40333b03fca7d33af9e1c3e768823cece3f93ce495d96e4eecb67ce9"
+    },
+    {
+      "path": "worker/ckmac/temporal_scratch.py",
+      "sha256": "7d2800e05681666dc6d5b68b04d3d0a8e8348f75a12a5864a7b7fc10beb38e50"
+    },
+    {
+      "path": "scripts/release/acquire.py",
+      "sha256": "bbbeba17f1eb57b232894d146316e9cdf7bf9a291881f99f441f25c9d2e145df"
+    },
+    {
+      "path": "scripts/release/acquire_mlx.py",
+      "sha256": "f01d33c3f87b2edc4895ac7f1bc7cfc78428060e233ccae020076ea786afc4f2"
+    },
+    {
+      "path": "scripts/release/attention_probe.py",
+      "sha256": "91cbb8b370699aec2e89f078af59d8c43d43a2c3730d6352f8c803a4bb35d833"
+    },
+    {
+      "path": "scripts/release/audit_runtime.py",
+      "sha256": "253588bc6d868c3442f32113e4cf462cbba722f0c0565a80a8690547d2704e83"
+    },
+    {
+      "path": "scripts/release/build.py",
+      "sha256": "18ad120b121eccefcf892f1b0d6ec43800c57d663539e5618e6c7b1646bb59e0"
+    },
+    {
+      "path": "scripts/release/build_cache_bake_qa.py",
+      "sha256": "9e8ca2e9130397d85dab1925ead7ad24e30d4d6856cc2b93cb85ce2b57eb866a"
+    },
+    {
+      "path": "scripts/release/build_guide.py",
+      "sha256": "7901d1d956ffb594d69d0cdbf04b3df8a80481af9475a0b58ceac4aba9b97c15"
+    },
+    {
+      "path": "scripts/release/build_personal_installer.sh",
+      "sha256": "e02b97948d86372794513d18846fc5c55592bbf3cd461d22e39a9d3ea263150a"
+    },
+    {
+      "path": "scripts/release/build_qa_overlay.py",
+      "sha256": "0dcbfd006696bebc2f50dc33796f1a70fbcd75255ad2b4748419ef0a97b97ecc"
+    },
+    {
+      "path": "scripts/release/common.py",
+      "sha256": "161479fb2eb12c7746c5939b0e1e61e952341ad657e84be18463db3ad78a475a"
+    },
+    {
+      "path": "scripts/release/compare_backends.py",
+      "sha256": "19c044b231815a8c29e678f00c126ba96a5904bb76d3296ea7ef5c7e843ecc14"
+    },
+    {
+      "path": "scripts/release/cpu_reference.py",
+      "sha256": "1a776dbe8e442311f352c4c12ba1631f3441b6540c78738c8f5531f2fcd66ea1"
+    },
+    {
+      "path": "scripts/release/engine_probe.py",
+      "sha256": "ba0521fd58906e6c54c8688885f1479594b022a121c508dddfb88a61438b5f84"
+    },
+    {
+      "path": "scripts/release/foundation_reference.py",
+      "sha256": "977feb888caa38c893c1c5fc082dc84283d3a91f33024f0fc9f849af24c6912f"
+    },
+    {
+      "path": "scripts/release/lock_assets.py",
+      "sha256": "dfb9bcc2d66c94d4ea5ff4ba110d3505b3555025e07e3f32c4966de6d568cf64"
+    },
+    {
+      "path": "scripts/release/mlx-v2-lock.json",
+      "sha256": "e039ad8cf301404f1e6c8ac33cabb4fa24119385dc6b62713d4068b881964f7b"
+    },
+    {
+      "path": "scripts/release/model-lock.json",
+      "sha256": "b4276fb3c756b3c56285e611913dc4d6313f9f0a71b88317f4dacf5f90da6133"
+    },
+    {
+      "path": "scripts/release/mps_compat_experiment.py",
+      "sha256": "dc413a929d8eaa63e34c6746418c8608a1c0c70c0200f44b70d2e7f4858e0e59"
+    },
+    {
+      "path": "scripts/release/native_engine_probe.py",
+      "sha256": "d283f50390dbfc0b3c5e60d4156d66df6aa3a3327263a9a0c575ede7d24dc140"
+    },
+    {
+      "path": "scripts/release/native_probe.py",
+      "sha256": "114c2b59c6a42f51e9b7c9a0da196791fb7b440a98cfe9cf25bcd32fdd6fa6a5"
+    },
+    {
+      "path": "scripts/release/qualify_mps_payload.py",
+      "sha256": "258ac291e945884279c829f2694c59818aef5eb250048d4c5e09e3459ff09f84"
+    },
+    {
+      "path": "scripts/release/relocated_probe.py",
+      "sha256": "b3815853d0f331182cf928f353f19fd7282dab43470048551c193f24a0592b9b"
+    },
+    {
+      "path": "scripts/release/report.py",
+      "sha256": "9429294030a6b47e02a50a75d8b662ee10e1b489a26772d31f7fd0fc9ac4656c"
+    },
+    {
+      "path": "scripts/release/requirements.lock",
+      "sha256": "d520705dc30a55430db079f67a4642d3e2c397f372c04068c31737c297f626b4"
+    },
+    {
+      "path": "scripts/release/run_fault_qa.py",
+      "sha256": "11b1b1569b360efb232dd8bdc495b84a1a7f61973d302b96106673b61fa3cdff"
+    },
+    {
+      "path": "scripts/release/sequence_probe.py",
+      "sha256": "01e2efc81a7033fc0f98b8bccfa1420daa02fc3b0e67da88094e64af6cb24730"
+    },
+    {
+      "path": "scripts/release/temporal_cpu_reference.py",
+      "sha256": "d928b39e0a746914d0adbc8ffdb8bffd8ef932053af45c23b4f5e99b0fd293dc"
+    },
+    {
+      "path": "scripts/release/temporal_probe.py",
+      "sha256": "04b6126835597d228a9b351f03a3490b07613de2c19ff082bf32bb7520978f34"
+    },
+    {
+      "path": "scripts/release/verify_package.py",
+      "sha256": "f24d73846acba895ba054e1ff38706b854244674b22409222268b214ca5b253d"
+    },
+    {
+      "path": "cmake/Info.plist.in",
+      "sha256": "92bf6214a2d5425a90e182d93f52a96584c67f319e07d3fe685135d1861077a5"
+    },
+    {
+      "path": "cmake/Manager-Info.plist.in",
+      "sha256": "53c5c6d8a1318944287bdb3b3d00c2408acb03fa23407f61e5ad3a71c1115772"
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "base": "scripts/release/qualify_mps_payload.py",
+  "changes": [
+    "Resolve repository imports for relocated local harness",
+    "Use isolated QA socket prefix; no production endpoint"
+  ],
+  "frozen_payload_changes": []
+}

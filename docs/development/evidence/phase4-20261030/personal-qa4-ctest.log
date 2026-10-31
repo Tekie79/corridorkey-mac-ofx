@@ -1,0 +1,25 @@
+Test project /Users/harvest/Documents/Ysew_Project/GIT/corridorkey-mac-ofx/build/personal
+      Start  1: analysis_attempt
+ 1/10 Test  #1: analysis_attempt .................   Passed    0.01 sec
+      Start  2: capture_guard
+ 2/10 Test  #2: capture_guard ....................   Passed    0.00 sec
+      Start  3: picker_response
+ 3/10 Test  #3: picker_response ..................   Passed    0.01 sec
+      Start  4: picker_protocol
+ 4/10 Test  #4: picker_protocol ..................   Passed    0.00 sec
+      Start  5: installer_transactions
+ 5/10 Test  #5: installer_transactions ...........   Passed    0.02 sec
+      Start  6: native_bake
+ 6/10 Test  #6: native_bake ......................   Passed    0.01 sec
+      Start  7: creative
+ 7/10 Test  #7: creative .........................   Passed    0.00 sec
+      Start  8: pixels
+ 8/10 Test  #8: pixels ...........................   Passed    0.00 sec
+      Start  9: protocol
+ 9/10 Test  #9: protocol .........................   Passed    0.00 sec
+      Start 10: ofx_host
+10/10 Test #10: ofx_host .........................   Passed    0.01 sec
+
+100% tests passed out of 10
+
+Total Test time (real) =   0.07 sec

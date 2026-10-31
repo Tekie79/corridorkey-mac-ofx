@@ -1,0 +1,22 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+__________ test_native_bundle_executable_matches_ofx_bundle_basename ___________
+
+    @pytest.mark.skipif(sys.platform!='darwin',reason='macOS OFX bundle layout')
+    def test_native_bundle_executable_matches_ofx_bundle_basename():
+        path=os.environ.get('CKMAC_BUILT_BUNDLE')
+        if not path:pytest.skip('Set CKMAC_BUILT_BUNDLE to the native build being tested')
+        bundle=Path(path)
+        expected=bundle.name.removesuffix('.bundle')
+        info=plistlib.loads((bundle/'Contents/Info.plist').read_bytes())
+>       assert info['CFBundleExecutable']==expected
+E       AssertionError: assert 'CorridorKeyMac.ofx' == 'CorridorKeyMacQA.ofx'
+E         
+E         - CorridorKeyMacQA.ofx
+E         ?               --
+E         + CorridorKeyMac.ofx
+
+tests/test_ofx_bundle_layout.py:17: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_ofx_bundle_layout.py::test_native_bundle_executable_matches_ofx_bundle_basename
+1 failed in 0.02s

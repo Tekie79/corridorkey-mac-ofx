@@ -1,0 +1,56 @@
+{
+  "status": "Passed",
+  "artifact_sha256": "49dc3c677eedf487003ebd5c0b1698b927cbbc048a982bb851ad4d54440143a7",
+  "environment": "isolated QA install",
+  "scope": "Actual Manager Keep Models and Remove All normal Installer operations with reinstall, worker drain and production preservation",
+  "model_records": 35,
+  "idle_worker_before_keep": 2839,
+  "host_running_hook_refusal": true,
+  "keep_models": {
+    "normal_installer_success": true,
+    "all_35_model_records_verified": true,
+    "qa_software_removed": true,
+    "idle_mps_worker_drained": true,
+    "socket_removed": true
+  },
+  "reinstall_after_keep_models": {
+    "normal_installer_success": true,
+    "verified_installed_records": 27151,
+    "fresh_resolve_saved_bake_rendered": true,
+    "source_disconnected_checked": true,
+    "saved_uuid": "f5553127-b14b725f-cc268bd1-98ea4ee2-17483547-bc765a00-db4eefd-3ef6f0fb-",
+    "saved_revision": 5,
+    "saved_request": 20,
+    "bake": "bake-c9d2080825894468aec632bec07a474e",
+    "worker_started": false
+  },
+  "remove_all": {
+    "normal_installer_success": true,
+    "qa_models_removed": true,
+    "qa_software_removed": true,
+    "socket_absent": true,
+    "remaining_system_bookkeeping": [
+      "QA root maintenance.lock",
+      "macOS package receipts"
+    ]
+  },
+  "manager_cmd_q": "Passed",
+  "reinstall_after_remove_all": {
+    "normal_installer_success": true,
+    "verified_installed_records": 27151,
+    "fresh_resolve_saved_bake_rendered": true,
+    "source_disconnected_checked": true,
+    "saved_uuid": "f5553127-b14b725f-cc268bd1-98ea4ee2-17483547-bc765a00-db4eefd-3ef6f0fb-",
+    "saved_revision": 5,
+    "saved_request": 20,
+    "bake": "bake-c9d2080825894468aec632bec07a474e",
+    "worker_started": false
+  },
+  "gui_host_running_refusal": {
+    "normal_installer_refused": true,
+    "reason": "Close DaVinci Resolve and Fusion, then retry. No host was stopped.",
+    "resolve_sdk_quit_returned_true_but_process_remained": true,
+    "qa_payload_intact": true,
+    "normal_cmd_q_closed_host": true
+  }
+}

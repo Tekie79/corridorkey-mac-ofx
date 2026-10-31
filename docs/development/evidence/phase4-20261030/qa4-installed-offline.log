@@ -1,0 +1,7 @@
+{
+  "status": "Passed",
+  "scope": "Actual installed isolated QA worker under per-process outbound-IP and source-checkout read denial; manual packaged launcher, not Resolve automatic startup or whole-Mac offline qualification",
+  "artifact_sha256": "49dc3c677eedf487003ebd5c0b1698b927cbbc048a982bb851ad4d54440143a7",
+  "first_load_and_inference_seconds": 13.609328458027449,
+  "cached_read_seconds": 0.03441987500991672
+}

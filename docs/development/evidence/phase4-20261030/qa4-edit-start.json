@@ -1,0 +1,57 @@
+{
+  "state": "checking_installation",
+  "error": "",
+  "fixture_passed": false,
+  "model_loaded": false,
+  "user_frames_completed": 0,
+  "cache_hits": 0,
+  "active_jobs": 1,
+  "pid": 1146,
+  "facts": {},
+  "cache": {
+    "ram_hits": 0,
+    "disk_hits": 0,
+    "metadata_hits": 0,
+    "staged_bytes": 1990656000,
+    "puts": 60,
+    "put_dedup": 0,
+    "cache_bytes_written": 1990659360,
+    "cache_bytes_evicted": 0,
+    "ram_bytes": 530841600,
+    "ram_limit": 536870912
+  },
+  "counters": {
+    "input_stage_attempts": 60,
+    "input_stage_new": 60,
+    "input_stage_dedup": 0,
+    "analysis_starts": 0,
+    "analysis_completions": 0,
+    "result_cache_hits": 0,
+    "result_cache_misses": 0,
+    "model_network_invocations": 0
+  },
+  "node_counters": [
+    {
+      "node": "f5553127-b14b725f-cc268bd1-98ea4ee2-17483547-bc765a00-db4eefd-3ef6f0fb-",
+      "generation": "capture",
+      "counters": {
+        "input_stage_attempts": 60,
+        "input_stage_dedup": 0,
+        "input_stage_new": 60,
+        "cache_bytes_written": 1990659360
+      }
+    }
+  ],
+  "cache_domains": [
+    "temporary captures/results",
+    "Resolve playback cache (host controlled)",
+    "durable EXR bake"
+  ],
+  "ok": true,
+  "protocol": 2,
+  "build_id": "0.9.8-qa4.f1f98dd88eee",
+  "payload_bytes": 0,
+  "session_id": "phase4-monitor",
+  "request_id": 1793417827738700000,
+  "effect_generation": 0
+}

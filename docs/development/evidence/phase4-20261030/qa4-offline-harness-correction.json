@@ -1,0 +1,5 @@
+{
+  "first_attempt": "Failed because the harness inherited the checkout as CWD while kernel policy denied that directory. torch._dynamo calls os.getcwd() during import.",
+  "correction": "Use a task-owned temporary working directory outside the denied checkout; retain explicit read-denial probe against CMakeLists.txt.",
+  "installed_code_changes": []
+}

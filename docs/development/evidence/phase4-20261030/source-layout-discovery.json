@@ -1,0 +1,8 @@
+{
+  "scope": "Developer-only source scan via OFX_PLUGIN_PATH, not installed QA.2",
+  "commit": "c0bf9ea3320c697ea45940462ba0b7c2ea963a31",
+  "registered_id": "ofx.org.harvestpictures.CorridorKeyMac.QA",
+  "registered_name": "CorridorKey Mac QA",
+  "worker_processes": 0,
+  "status": "Passed"
+}

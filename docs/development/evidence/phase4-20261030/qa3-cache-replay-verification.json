@@ -1,0 +1,26 @@
+{
+  "status": "Passed",
+  "artifact_sha256": "14cf95a53187e8eff815b13c5a0e5441b7e21295f900633f80e361c536ad39f6",
+  "environment": "isolated QA install",
+  "requests": 300,
+  "successful": 300,
+  "orders": "forward/reverse/three seeded Fisher-Yates LCG permutations",
+  "seconds": 27.428678666008636,
+  "counters_delta": {
+    "input_stage_attempts": 0,
+    "input_stage_new": 0,
+    "input_stage_dedup": 0,
+    "analysis_starts": 0,
+    "analysis_completions": 0,
+    "result_cache_hits": 59,
+    "result_cache_misses": 0,
+    "model_network_invocations": 0
+  },
+  "cache_puts_delta": 0,
+  "cache_bytes_written_delta": 0,
+  "changed_blob_json_records": [],
+  "unchanged_records": 124,
+  "unchanged_bytes": 4014505917,
+  "host_cached_requests": 241,
+  "note": "Worker hits are measured; remaining requests were served before reaching the worker. Ownership/lease SQLite metadata is separate from immutable blob/JSON media records."
+}

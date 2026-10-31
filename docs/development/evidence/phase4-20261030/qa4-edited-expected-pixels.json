@@ -1,0 +1,785 @@
+{
+  "generation": "64b1f0072c068be550b258b13a2fd9946a02f366756a9ec1e33ac1c0bbf03919",
+  "frames": [
+    {
+      "frame": 0,
+      "key": "646ae9bb32f31e76c75fae3f8efaa7d20750bfd76bd48c2df21f801e75468923",
+      "rgba_float_sha256": "b0ae9510c863860077ea74de6b1c24c417023cc870748b7408b7a30bb3353b84",
+      "rgb_range": [
+        -0.07921328395605087,
+        0.8620893359184265
+      ],
+      "alpha_range": [
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "frame": 1,
+      "key": "f515f573c5e6742f04964566a1e56ff5aeb951e572e12d2bc1188580c333bc7d",
+      "rgba_float_sha256": "803bdded72a3b207a9bf9d521420988f3f7cb7740d3242ca5b7b185c377cb2f1",
+      "rgb_range": [
+        -0.06780432909727097,
+        0.865753710269928
+      ],
+      "alpha_range": [
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "frame": 2,
+      "key": "18dc9c2a8bb8bd7d60d95fd8e91f46d469f3fa76422298a62734aaf6776ff770",
+      "rgba_float_sha256": "3b24a71618177688af1137bbcb169c349645fe39f4aea64bf067fd94c81561e8",
+      "rgb_range": [
+        -0.04846227914094925,
+        0.8675383925437927
+      ],
+      "alpha_range": [
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "frame": 3,
+      "key": "f6fe4c66157d4ebc8b9f483fae369e12fd12b3188ced6245af66af8bef81ee3a",
+      "rgba_float_sha256": "e9d9938ec7c2b6a517c2bf3f6a35838953f0071744118dc70d47215416d23c8d",
+      "rgb_range": [
+        -0.07109335064888,
+        0.8745936751365662
+      ],
+      "alpha_range": [
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "frame": 4,
+      "key": "f428ead4012d8d69a0bb82f504012629d271b1497f040053c2d7ddfccdb09fbb",
+      "rgba_float_sha256": "9a041ed05e6e349a83350f3cc45512fde190ca19f37eee687486fd2800abb256",
+      "rgb_range": [
+        -0.058150533586740494,
+        0.8882787227630615
+      ],
+      "alpha_range": [
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "frame": 5,
+      "key": "a951e7b01eab13bfd3250fa650fdf5f72264af355a250d55f676d06695a1f402",
+      "rgba_float_sha256": "ad9471994850768f46dfbfdf604815941064dec61a99f358563cbc4fdfb75be2",
+      "rgb_range": [
+        -0.0711001455783844,
+        0.8621910214424133
+      ],
+      "alpha_range": [
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "frame": 6,
+      "key": "31a72a9252304e052824868e1ceda7d95bd4e25f8898d7765f48bddcc62ea29a",
+      "rgba_float_sha256": "695a1b0489a7541c4f7dfa4604d617f1049124928c4b3d3a27c3ccb0f33a7496",
+      "rgb_range": [
+        -0.06917431205511093,
+        0.8950044512748718
+      ],
+      "alpha_range": [
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "frame": 7,
+      "key": "8aee01a49d145c45a2e1ef952ab0ef3e29cf5f9af038f96dcd8625b22bd4c479",
+      "rgba_float_sha256": "d06af4978f082a84f387ca31114afeee9268aa3ac1591b53dc4602abeceb4899",
+      "rgb_range": [
+        -0.05731037259101868,
+        0.8894992470741272
+      ],
+      "alpha_range": [
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "frame": 8,
+      "key": "5d05e8353b61d8bfaec5325bced07b4296eaf9ca2594e37f0dc41eb19facb1c2",
+      "rgba_float_sha256": "4532769345a6b513905fbc7ec6059192f9691942ee015e46e22a28bf3fc1996f",
+      "rgb_range": [
+        -0.057872358709573746,
+        0.8962067365646362
+      ],
+      "alpha_range": [
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "frame": 9,
+      "key": "c6089181d39813945963d821ca99aa03e0e4455924aa6af62c60f76628f6b53d",
+      "rgba_float_sha256": "b4456e1507f44a79b3fb495a73b8bf1ed726dfdc53f3274bbbaaaef85c657ed6",
+      "rgb_range": [
+        -0.05541040748357773,
+        0.8718435168266296
+      ],
+      "alpha_range": [
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "frame": 10,
+      "key": "bd32de1c24c67f5b756e0b711eeb666302e5bfb49410a933d7531789e948994f",
+      "rgba_float_sha256": "cbe09c81cc11a91a05a8a57706ac0e22ed91c78481b6ac1be0a77f0f9aa1006f",
+      "rgb_range": [
+        -0.049899451434612274,
+        0.8895710110664368
+      ],
+      "alpha_range": [
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "frame": 11,
+      "key": "0c0414fd5c4e822f1d83a8c7248efdbfd23efd39ad221180f89bef3d13f3902c",
+      "rgba_float_sha256": "bd1b366cc016e4e6d4463e4d9812c3df8c9dfaaf6d53c0d3d14f93e7cf732a81",
+      "rgb_range": [
+        -0.070066437125206,
+        0.8994945287704468
+      ],
+      "alpha_range": [
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "frame": 12,
+      "key": "4326d1b6bef2fffffac45e1ad728343c7d0223786c392f1c376a16f827308a5e",
+      "rgba_float_sha256": "7c6ebc1ac6ed4d66c185eb38cda3bfbae105cc92145538f4a199a128923879f0",
+      "rgb_range": [
+        -0.05648638308048248,
+        0.8904466032981873
+      ],
+      "alpha_range": [
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "frame": 13,
+      "key": "b3f292e3b21273e0ae0bd1315692d43134796c7a12d0bdeb9ed20b8dc58d31f6",
+      "rgba_float_sha256": "9b49e02552499507e1b5f1c7d0244ecb79a8e4081d28ebccc38c51df40894ecd",
+      "rgb_range": [
+        -0.06786122918128967,
+        0.8972285389900208
+      ],
+      "alpha_range": [
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "frame": 14,
+      "key": "cf4f7d9b69df1d0a12033bd7f359e4ed0b28e1e96a571d44d9059bec6ea9b79b",
+      "rgba_float_sha256": "82a94753412fea88223226d4089f8bba3cbd6c60badfcbfb14b6cdaaaa975ebe",
+      "rgb_range": [
+        -0.072129026055336,
+        0.8990500569343567
+      ],
+      "alpha_range": [
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "frame": 15,
+      "key": "1cd337c26c9359056cd4453c0185a810a94f33ec438dced8b6d8faf7427e0649",
+      "rgba_float_sha256": "eb6076f75ef72b635f8ee546a7b45637b8ef1ab078c569d3a913cb3de47ddf35",
+      "rgb_range": [
+        -0.07625284790992737,
+        0.9522290825843811
+      ],
+      "alpha_range": [
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "frame": 16,
+      "key": "7044465e0ad93c24705bb1fad6970d02caa61a401e47e5483bb90ccd9f57c65e",
+      "rgba_float_sha256": "f6bf5b1c0519e33ab1b133eca205d2b74527be4a564951958b20d7f59e7fa017",
+      "rgb_range": [
+        -0.07344930619001389,
+        0.9266884922981262
+      ],
+      "alpha_range": [
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "frame": 17,
+      "key": "bea486cd984bce2cd15a49298a8ba1c1f289fe4f89c427dd6044456e9673ff4d",
+      "rgba_float_sha256": "d235d8363c4fb2209ae0e1508c282a1c95b768d5290b83368d721048978324ba",
+      "rgb_range": [
+        -0.060942694544792175,
+        0.9703290462493896
+      ],
+      "alpha_range": [
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "frame": 18,
+      "key": "187fb2fd52dbb9e24df9add9e854fd473a1e14caf89ee5f9de927ec6ac64ddd6",
+      "rgba_float_sha256": "fbac770accb891af1c13476f709f56ab99fde5ef1db9aa9b397e65721bf8dcb8",
+      "rgb_range": [
+        -0.058396823704242706,
+        1.0907081365585327
+      ],
+      "alpha_range": [
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "frame": 19,
+      "key": "43ca01617af0d4e96f92709f8adddd92e977ddfa71466c411905cf77273e40fa",
+      "rgba_float_sha256": "3547cbf9ae7d82955da9b7ab9b44a8e08d42f194c6996ee2bf186f4abb16c1e0",
+      "rgb_range": [
+        -0.06639506667852402,
+        1.0045398473739624
+      ],
+      "alpha_range": [
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "frame": 20,
+      "key": "6cbdf93b3a2135afb00dde6972f78d3505cb648aa74b13bb6fd4d7ead8fc5609",
+      "rgba_float_sha256": "a99cdd6a644631a5bd60627c9fc2b8577c2fb25bbb1d2d92e6688ef1a9624270",
+      "rgb_range": [
+        -0.0647599995136261,
+        0.9806219935417175
+      ],
+      "alpha_range": [
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "frame": 21,
+      "key": "4f608e266de17966b301772859489c93c827118beb46314a3926e7815d5e9ccc",
+      "rgba_float_sha256": "9f860b55bd117329972339c86a814c65184477b6e3f13a007ce1471b689374af",
+      "rgb_range": [
+        -0.06834624707698822,
+        1.0155543088912964
+      ],
+      "alpha_range": [
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "frame": 22,
+      "key": "3541fe9fda8305a2f634e4567d3566567a9878a637f434088a09ebac70d0235b",
+      "rgba_float_sha256": "c8334be468bb9514ecfcaadb3c37e914105df392dfc762c9709de902e7d804c3",
+      "rgb_range": [
+        -0.07047736644744873,
+        1.022674560546875
+      ],
+      "alpha_range": [
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "frame": 23,
+      "key": "6819cb7cc1e675fe5b9e8219c28f0064e9c6d312dc4f85857ca903c96dc51cc9",
+      "rgba_float_sha256": "331fabbd431f06c277670248b669265da21e523cd595d5f57c39abd8a099ccef",
+      "rgb_range": [
+        -0.05367385968565941,
+        1.0365763902664185
+      ],
+      "alpha_range": [
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "frame": 24,
+      "key": "5ef829b9715602e57f696cec2f6c5d34d582e76bb8cc5e856d5104090b7fcac9",
+      "rgba_float_sha256": "7c319ffc0dcc229d4b3f53c53210882263f53bb92d04b0e6501a05760b83dc9f",
+      "rgb_range": [
+        -0.05734999477863312,
+        1.0965958833694458
+      ],
+      "alpha_range": [
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "frame": 25,
+      "key": "8497878d2fbcf5d7232abea54c5b6c47345aad68bd1618817fc28889f1057bb8",
+      "rgba_float_sha256": "89ce9030e063cc99ef8bc1e7eda7eb54b9f55bd15e203ba193d8a0c53e8486a9",
+      "rgb_range": [
+        -0.0551903061568737,
+        1.1119686365127563
+      ],
+      "alpha_range": [
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "frame": 26,
+      "key": "8d1360b4d067c7f0bc2d05837ab6932865ccf9bd295df438521b9706626207fd",
+      "rgba_float_sha256": "b7ff1d2fdb401ef0e65d6088d002305b85081376c45e0dd926dce4b39b7ad4f9",
+      "rgb_range": [
+        -0.05164293199777603,
+        1.0536830425262451
+      ],
+      "alpha_range": [
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "frame": 27,
+      "key": "b30feb39fa24990dd8c26e16f7942e4c3e8b241441793f3b0d385f8def202a42",
+      "rgba_float_sha256": "adc6beb3f6ca12cae5ad6ff4f38fb3ebddb7a78b175b5da3feccbb77830eaca2",
+      "rgb_range": [
+        -0.04698692634701729,
+        1.0437778234481812
+      ],
+      "alpha_range": [
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "frame": 28,
+      "key": "ae804a6fe7c246f11a8c711ac4ff264318d471c59ee02ac70d98348c41ac3f39",
+      "rgba_float_sha256": "070beee31d8c6dc61c9c03ab29a3fc0f36b37739f362ec04b25ccb968cf0045b",
+      "rgb_range": [
+        -0.0536702424287796,
+        1.0366339683532715
+      ],
+      "alpha_range": [
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "frame": 29,
+      "key": "8fefa1a9ce56011fdbcf4e4138e54097f6dff4706c5fa31a6c41a9c5afa82332",
+      "rgba_float_sha256": "2a263bd29cb485a8ff916112fdb4af7f50e1edcfaa026e3684bc33f9a1e79a77",
+      "rgb_range": [
+        -0.061532676219940186,
+        1.0418736934661865
+      ],
+      "alpha_range": [
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "frame": 30,
+      "key": "8a1c098c51b6d3ecf070cb6d12ebaf1ace7ba840ff1352642e66ddcf47e2eccc",
+      "rgba_float_sha256": "860668ee3199ab331ab49816d341310a01ad498512707fe27f5ce7132e04baeb",
+      "rgb_range": [
+        -0.06847599893808365,
+        0.9953089952468872
+      ],
+      "alpha_range": [
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "frame": 31,
+      "key": "e7cface5f9e6e39895fe81abdd3fc078c4dcf6f6e0a42b04f56322b6e60d1fe8",
+      "rgba_float_sha256": "cb3a9851dd8d15f71e83f98c1992103ba6248e5e26aba6e2c2c299f0a74c6a0e",
+      "rgb_range": [
+        -0.06971424072980881,
+        1.0270466804504395
+      ],
+      "alpha_range": [
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "frame": 32,
+      "key": "34020f9529cba43fe6f1dfef7db0e5aadd64302da2be03002a305270ffa60be8",
+      "rgba_float_sha256": "42b06c47a9001b98dded1d29e55080d77601634d372396ec75130a8d76a54fc2",
+      "rgb_range": [
+        -0.06975998729467392,
+        1.0409337282180786
+      ],
+      "alpha_range": [
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "frame": 33,
+      "key": "c3c1363c3138b6691900b94feef493b7c6dc02276dd5d9f8be61a5f8913dc636",
+      "rgba_float_sha256": "57b0f4dec8d6383ffd9f1fc5780342187cc5a60b58a909611799aab345c21af6",
+      "rgb_range": [
+        -0.06410280615091324,
+        1.0255428552627563
+      ],
+      "alpha_range": [
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "frame": 34,
+      "key": "f3cc5ace216cb7a865389563c7f007ada8d6b414522e96cda95708638380bdc1",
+      "rgba_float_sha256": "be84c3db89d833563043d95b4629e7f262b7fdea40b76440824225f0e0fe306a",
+      "rgb_range": [
+        -0.07066754996776581,
+        0.9647796154022217
+      ],
+      "alpha_range": [
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "frame": 35,
+      "key": "51cc5e55ef618a3ae3cdb6ec219929d09197fe1b1b667cb2c921d876cf34d56e",
+      "rgba_float_sha256": "1977534480965b7f5328a88821ace97f2e3e1185bd86ee81f989d12d7f614bfc",
+      "rgb_range": [
+        -0.07326704263687134,
+        0.9908421635627747
+      ],
+      "alpha_range": [
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "frame": 36,
+      "key": "ebcd7e621ec2c15ad1b7753dd16e0cb9b21fef669bef2f6db1788ed5fc90b9b6",
+      "rgba_float_sha256": "fc3a45ab4b967c1f634ddaa2a269c00d30398a012448e26cf11570d25fb5e2a8",
+      "rgb_range": [
+        -0.0780976191163063,
+        0.9546718001365662
+      ],
+      "alpha_range": [
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "frame": 37,
+      "key": "7789ac3a90249f6356544052eb593e856d0181c1d0af203cb6c4e383770ecd50",
+      "rgba_float_sha256": "91877d8abf90235b7f841574aaf6a46bc4b336d8f065564ac96bfc6876a1b79f",
+      "rgb_range": [
+        -0.08130186051130295,
+        0.960195779800415
+      ],
+      "alpha_range": [
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "frame": 38,
+      "key": "df905cc42a8498565f7f37ab3bace47148b02f0cd3971e85f94c47f7184bd6ad",
+      "rgba_float_sha256": "2d022c5076753966b7596f3d99ab67f5b7390cf5763b9bf2174dbbf78ae9ca41",
+      "rgb_range": [
+        -0.08472520858049393,
+        0.9840366244316101
+      ],
+      "alpha_range": [
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "frame": 39,
+      "key": "612a1c40dcb921ddca0c7d08f89db02dabaec920a203eb90a4ecb75b629c58f7",
+      "rgba_float_sha256": "29dcacbd431e76f4628d86349475d81df68e2653448ccc136872fe4beecbaec8",
+      "rgb_range": [
+        -0.07051566988229752,
+        0.9466500282287598
+      ],
+      "alpha_range": [
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "frame": 40,
+      "key": "a58f2cb6d7aadf89f8211c5da4912469f118d5a1a00f41b2308c0812ff84ee75",
+      "rgba_float_sha256": "ba145344a7948f35e70e69dbae722486382db865d3f54121bca588a5ade87fc8",
+      "rgb_range": [
+        -0.06354675441980362,
+        1.1236445903778076
+      ],
+      "alpha_range": [
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "frame": 41,
+      "key": "6e822adfb020a287dc05c06d9b6e8f0df0820e608efbb4d16ad64d21fd63ab5f",
+      "rgba_float_sha256": "c3a9598ff7b3e0513a3252970a302f5a51de7e06a82c76f50e93d806dd3c363a",
+      "rgb_range": [
+        -0.07001359760761261,
+        1.0694303512573242
+      ],
+      "alpha_range": [
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "frame": 42,
+      "key": "cea0bd8bb8e894ac6969d11deba032937e7db7e792f3049a85f6df964c44ee73",
+      "rgba_float_sha256": "354421a00ad9e116c94104d49feff7ab50ef5941e91c519e8969290ab9d631e6",
+      "rgb_range": [
+        -0.07169200479984283,
+        1.0941362380981445
+      ],
+      "alpha_range": [
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "frame": 43,
+      "key": "6afa918cba4ac51356a1e28dbe67c190f8938ac9a72752c4431d87dd32f9c8ad",
+      "rgba_float_sha256": "2d4a29cb31cb2747c45e6029e2071d7adf8c8feb1b20989279d52353efb19041",
+      "rgb_range": [
+        -0.06432338804006577,
+        1.1268819570541382
+      ],
+      "alpha_range": [
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "frame": 44,
+      "key": "243b894d0f53e5ef8daa3c155ec709713ed02d3335e622243bd30c3106811d11",
+      "rgba_float_sha256": "b2a0dfb05c7b3afbbcacd53788772c429e38058d722c25c3b8830182e1fa8d69",
+      "rgb_range": [
+        -0.06476636230945587,
+        1.1164649724960327
+      ],
+      "alpha_range": [
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "frame": 45,
+      "key": "f6ef3f051290847d781aac8d493e02d953cd1978976f14fa8d4cd748196d9672",
+      "rgba_float_sha256": "f0e9ab266224163fa5b728b2b4313924ab62b11b869a940a12c68265b6f3ca76",
+      "rgb_range": [
+        -0.07593736052513123,
+        1.1537548303604126
+      ],
+      "alpha_range": [
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "frame": 46,
+      "key": "b76ce5cac59072afa01194b284442180ed2d5dda53c70381ba49e223978528d7",
+      "rgba_float_sha256": "a26538833f7404329f3e47d1bd6dd456c857a7db9ce38573f36e0d35d42fbe9c",
+      "rgb_range": [
+        -0.06949399411678314,
+        1.259243369102478
+      ],
+      "alpha_range": [
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "frame": 47,
+      "key": "b4dbc01d95edb1fd76275ba68207c2130ec3273ab7a162a1294a34bc1e646e51",
+      "rgba_float_sha256": "e9411f3891c00eddf07be259423f82b1af89e9286849693c16cbecbeb45cabf7",
+      "rgb_range": [
+        -0.06248020380735397,
+        1.1114368438720703
+      ],
+      "alpha_range": [
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "frame": 48,
+      "key": "adaf026a0c3fc95d95e8c9d3141c244cd897ac971ed9ae450a38dc47d86859e4",
+      "rgba_float_sha256": "2aca7249a4f879edd299bc86a50033a78733e92ec8eb58b4abba835d05bda674",
+      "rgb_range": [
+        -0.06816063821315765,
+        1.170325517654419
+      ],
+      "alpha_range": [
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "frame": 49,
+      "key": "b92d6e002b5369f8d70dd9ff0ca6d0cb36b8e89a383d5c3872571f46bf685482",
+      "rgba_float_sha256": "9de003deea484d0edea87ec6b249a249a782d629400b7359ee42f2f95db6e980",
+      "rgb_range": [
+        -0.06034066900610924,
+        1.2266101837158203
+      ],
+      "alpha_range": [
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "frame": 50,
+      "key": "8d57d7d7225b7effe702106a6d11dd85b673d9c79304d70fcba27b1548b75b78",
+      "rgba_float_sha256": "39a3f51c728593e6c1a03fcaef986b1ddf02b0105165b6736df1aa73400d72e3",
+      "rgb_range": [
+        -0.0676676332950592,
+        1.2266901731491089
+      ],
+      "alpha_range": [
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "frame": 51,
+      "key": "911991dc04598f795ccf1ae432178d14aaa59b9941411a3370acc3edc028b55b",
+      "rgba_float_sha256": "8c5de581170f01bd1365315d2cd124472e0fd30a4a3a2161504dbc34feae9168",
+      "rgb_range": [
+        -0.06081467494368553,
+        1.1689221858978271
+      ],
+      "alpha_range": [
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "frame": 52,
+      "key": "fcc28e017be5a6de191b356c8f8d71b0dfef9cb4c5f603deb3f35a54f6d86e53",
+      "rgba_float_sha256": "8742b351511e1db332e64a8b6d7643d1cbc3f385ea31f9d7b00fd6ad2c366945",
+      "rgb_range": [
+        -0.07213938236236572,
+        1.1641740798950195
+      ],
+      "alpha_range": [
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "frame": 53,
+      "key": "3bbbc8b9874b7e5c4916ad6633d27be42ee50fe4e2e5ad40986a1c6094636ec8",
+      "rgba_float_sha256": "f1ab4c3922fde4328bb8a60e0131575ea0d0cb70ff3d4540184dc1876ed06e04",
+      "rgb_range": [
+        -0.0632103979587555,
+        1.2551243305206299
+      ],
+      "alpha_range": [
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "frame": 54,
+      "key": "8bb100f0a062c3771eb9a92f9e4a6564a73c8667353510f0b17402de797a0941",
+      "rgba_float_sha256": "50f329a52020217ddc99d2ef3fe3ded1d3b7e99201cb03f56c9088d2478956cc",
+      "rgb_range": [
+        -0.07066332548856735,
+        1.210286021232605
+      ],
+      "alpha_range": [
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "frame": 55,
+      "key": "f78b36b29025a6f0d287ad72d74ebdf17fa9b10b66488473c10d4f047b6b100c",
+      "rgba_float_sha256": "416fe408e132ced635b7f6591e11095cdbeed4515035ccc0b9bee49aff5021e1",
+      "rgb_range": [
+        -0.07878816872835159,
+        1.2208824157714844
+      ],
+      "alpha_range": [
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "frame": 56,
+      "key": "4fc0d0d3a86fc5dd98fa5a6b81eb0cdcc1429b6df28a53a0f4183bb7c7526881",
+      "rgba_float_sha256": "c388938f2f571754241107cb2e5501fe93de0a5681f4648e76198f14e44ad91b",
+      "rgb_range": [
+        -0.08305356651544571,
+        1.1584703922271729
+      ],
+      "alpha_range": [
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "frame": 57,
+      "key": "895ac60a3a5e615eb62293db57b3f0ff59a7813f4be39388e30a6c3cc3ea0e6b",
+      "rgba_float_sha256": "c210e4909619e4e70882270846f38de4c490bad4e004403061d8a97e5792a385",
+      "rgb_range": [
+        -0.07308598607778549,
+        1.1846659183502197
+      ],
+      "alpha_range": [
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "frame": 58,
+      "key": "ef2c2300a8e670be97655bb53d7da66e20cd199046365c40b2fffa6b64075a9e",
+      "rgba_float_sha256": "c4bdeca6c17f82c9f3af411655222fb3c12d6940eed1d196d7027e8a03ab6229",
+      "rgb_range": [
+        -0.07647278159856796,
+        1.1393353939056396
+      ],
+      "alpha_range": [
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "frame": 59,
+      "key": "b0c2604d13d99f22263984223b907d0cfaf33ce720564d2e381016a56ffa359b",
+      "rgba_float_sha256": "d20a5c362eaefd5d2861dbc5c6f71e474519dbc66a68aef1ce57cd8a12e85f45",
+      "rgb_range": [
+        -0.07781484723091125,
+        1.1205204725265503
+      ],
+      "alpha_range": [
+        0.0,
+        1.0
+      ]
+    }
+  ]
+}

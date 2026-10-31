@@ -1,0 +1,22 @@
+{
+  "status": "Passed",
+  "artifact_sha256": "49dc3c677eedf487003ebd5c0b1698b927cbbc048a982bb851ad4d54440143a7",
+  "environment": "isolated QA install",
+  "scope": "Actual Manager Verify/Repair picker, exact relocated offline package validation, normal Installer restoration, full installed verification, native MPS recovery",
+  "fault": "Root-authorized reversible move of exact QA-only C-RADIO config",
+  "original_asset_sha256": "6e49e911ff6e980125c208b10ed4b51bb4a92061862cbb8947473f1b33f88fd4",
+  "restored_asset_sha256": "6e49e911ff6e980125c208b10ed4b51bb4a92061862cbb8947473f1b33f88fd4",
+  "relocated_package": ".build/evidence/phase4-install/repair-location/Moved-QA4.pkg",
+  "manager_verified_payload_and_executable_logic": true,
+  "normal_installer_success": true,
+  "installed_verified_records": 27151,
+  "worker_drained_before_activation": true,
+  "post_repair": {
+    "baked_after_repair": true,
+    "new_single_frame_after_repair": true,
+    "seconds": 39.22795400000177,
+    "bake": "/Volumes/CKMac_QA_Bakes/Bakes/QA4/bake-c9d2080825894468aec632bec07a474e/manifest.json",
+    "saved": true
+  },
+  "original_projects_or_bakes_modified": false
+}

@@ -1,0 +1,746 @@
+{
+  "source-geometry.json": {
+    "size": 310,
+    "mtime_ns": 1793410834203095165,
+    "ctime_ns": 1793410834203235999,
+    "inode": 40223261
+  },
+  "frames/52b8c1ddadde1a3078983d3d4c52feb2676e256a58a040096c2fca012b20abcc.ckf": {
+    "size": 33177656,
+    "mtime_ns": 1793411055012005358,
+    "ctime_ns": 1793411055012610402,
+    "inode": 40223945
+  },
+  "frames/cb7254e02c9e8429c29c10ecd53f065b14a4b355c7105e3e4fbe9f54b3662940.ckf": {
+    "size": 33177656,
+    "mtime_ns": 1793411049002592047,
+    "ctime_ns": 1793411049003202425,
+    "inode": 40223939
+  },
+  "frames/a505a12bfd0e539f5e68125c53a5da8b97f993db9cad450c97473f04645d1f73.ckf": {
+    "size": 33177656,
+    "mtime_ns": 1793411030941527147,
+    "ctime_ns": 1793411030942140525,
+    "inode": 40223914
+  },
+  "frames/4a2bf766deee8eb2acb96cb6b21f88b07a2ce757e44299c8b1813ceb8f5166a2.ckf": {
+    "size": 33177656,
+    "mtime_ns": 1793410966843137189,
+    "ctime_ns": 1793410966843751441,
+    "inode": 40223849
+  },
+  "frames/6c76d8589296e11497a177d1ac0b0221c89394d2ca750e167b3797a05fd12c3b.ckf": {
+    "size": 33177656,
+    "mtime_ns": 1793410835418286222,
+    "ctime_ns": 1793410835418851100,
+    "inode": 40223278
+  },
+  "frames/1c91554309caf2d82965e67f43328d485bbb22c066f262b921b0503299d21e75.ckf": {
+    "size": 33177656,
+    "mtime_ns": 1793410976709299830,
+    "ctime_ns": 1793410976709935041,
+    "inode": 40223858
+  },
+  "frames/e43fb826c1829c73cdf2f421abb7e6aa41a70e65f99f5bd7e8190c951f9ffebc.ckf": {
+    "size": 33177656,
+    "mtime_ns": 1793411095063149076,
+    "ctime_ns": 1793411095063759828,
+    "inode": 40223984
+  },
+  "frames/f63b32a2654482c8157a9f6219b1160e173d0e780b5a13318a1d6bbc60fe050e.ckf": {
+    "size": 33177656,
+    "mtime_ns": 1793410968872720873,
+    "ctime_ns": 1793410968873334500,
+    "inode": 40223853
+  },
+  "frames/91d0ecf4d35f21b7dad983cb81302f689c9fbd105658eb62573dff53bae1d0c0.ckf": {
+    "size": 33177656,
+    "mtime_ns": 1793410835047843956,
+    "ctime_ns": 1793410835048426500,
+    "inode": 40223266
+  },
+  "frames/e62342fca62182a467e1d9b0721581802f77f66f9f69931bac86a54ae16f41ec.ckf": {
+    "size": 33177656,
+    "mtime_ns": 1793410837107113845,
+    "ctime_ns": 1793410837107687764,
+    "inode": 40223323
+  },
+  "frames/c21a4f81de8757332a6c93b4b85dc341e9f489065f56c876265682316d997a9e.ckf": {
+    "size": 33177656,
+    "mtime_ns": 1793411120916153292,
+    "ctime_ns": 1793411120916749086,
+    "inode": 40224004
+  },
+  "frames/2dc13019be9788adefc8b2431cd9d12741dcd7807f3d9310f10ce8d69e8d5530.ckf": {
+    "size": 33177656,
+    "mtime_ns": 1793411065080707412,
+    "ctime_ns": 1793411065081310623,
+    "inode": 40223952
+  },
+  "frames/fcb262d582d1c8196be6d3cd544f746d10e3f316aa9b9d209cdf28159d535445.ckf": {
+    "size": 33177656,
+    "mtime_ns": 1793411073090650746,
+    "ctime_ns": 1793411073091260665,
+    "inode": 40223964
+  },
+  "frames/13c363594916c0f16ef5dbaee12bb08435847966a00320c067c98e974fead8bd.ckf": {
+    "size": 33177656,
+    "mtime_ns": 1793410837257737420,
+    "ctime_ns": 1793410837258303464,
+    "inode": 40223327
+  },
+  "frames/860813d20808bcda01b9c5050b9b03fbcb96d6503786aa900fbda93e1a29031e.ckf": {
+    "size": 33177656,
+    "mtime_ns": 1793411103130226019,
+    "ctime_ns": 1793411103130809771,
+    "inode": 40223991
+  },
+  "frames/1f7f1be1641df63ab6c2fcc1c22db30aef10f32bbe6662e37486e3ccd948765c.ckf": {
+    "size": 33177656,
+    "mtime_ns": 1793410837900009716,
+    "ctime_ns": 1793410837900553885,
+    "inode": 40223345
+  },
+  "frames/89171651e6bca0f3605328bfee0c2415e3b4b2bf9002d9dccef3cdb08d96a9ca.ckf": {
+    "size": 33177656,
+    "mtime_ns": 1793411007021965763,
+    "ctime_ns": 1793411007022665433,
+    "inode": 40223894
+  },
+  "frames/964618501c44c31d5e0481d544dd8f9cf0904142cb51f996d37451c7323258d2.ckf": {
+    "size": 33177656,
+    "mtime_ns": 1793410838612019714,
+    "ctime_ns": 1793410838612573800,
+    "inode": 40223365
+  },
+  "frames/1f27c2d0d57a242df2864f4984300aa4c4284778ef77c913806a63ac8bf888df.ckf": {
+    "size": 33177656,
+    "mtime_ns": 1793410835195517144,
+    "ctime_ns": 1793410835196102980,
+    "inode": 40223272
+  },
+  "frames/9e41b58b8cfa2f10237bbff2038293fa919ea6f204617711ef6ce74de4131ad7.ckf": {
+    "size": 33177656,
+    "mtime_ns": 1793410837759994226,
+    "ctime_ns": 1793410837760536937,
+    "inode": 40223341
+  },
+  "frames/803981e8154e5746e87506d11f513def17d6739ba124f062eccfbb80a4f7ac72.ckf": {
+    "size": 33177656,
+    "mtime_ns": 1793410838322004528,
+    "ctime_ns": 1793410838322540655,
+    "inode": 40223357
+  },
+  "frames/ea9c632d7d61d40469ea9b27fd0c774036294fae01afd4c0d0affd5002a0c18e.ckf": {
+    "size": 33177656,
+    "mtime_ns": 1793411105191541666,
+    "ctime_ns": 1793411105192119669,
+    "inode": 40223992
+  },
+  "frames/b03abae64e350b168de75e46c90ad7092d9bd42f0610e6846625f266bf1d9d0e.ckf": {
+    "size": 33177656,
+    "mtime_ns": 1793410838897592967,
+    "ctime_ns": 1793410838898146261,
+    "inode": 40223373
+  },
+  "frames/c415ec608927568bfb23b15e77708749ed120f8c9b40199e0eb3177dda920a94.ckf": {
+    "size": 33177656,
+    "mtime_ns": 1793411032921358294,
+    "ctime_ns": 1793411032921977172,
+    "inode": 40223922
+  },
+  "frames/f363f26759b2f34e676a675d32e316cee092901d2959452b22e3f2aae50bca9b.ckf": {
+    "size": 33177656,
+    "mtime_ns": 1793410838682886713,
+    "ctime_ns": 1793410838683454215,
+    "inode": 40223367
+  },
+  "frames/228363eadb329f4341f3ec4b8e13cd1bd6fb0bc9dd8518a434015d9495dc230c.ckf": {
+    "size": 33177656,
+    "mtime_ns": 1793410958904737314,
+    "ctime_ns": 1793410958905386650,
+    "inode": 40223844
+  },
+  "frames/d826c2acaae9bbcc9023c95cd03da163889b4e25f87ad57d5a9b1f2bc4874170.ckf": {
+    "size": 33177656,
+    "mtime_ns": 1793410839404334374,
+    "ctime_ns": 1793410839404883210,
+    "inode": 40223390
+  },
+  "frames/3762cbec19b68620ba44940a2ed23764df5e9b0fbc1bbfa8c9b2412b52aa5c6c.ckf": {
+    "size": 33177656,
+    "mtime_ns": 1793411062951862488,
+    "ctime_ns": 1793411062952436740,
+    "inode": 40223950
+  },
+  "frames/fa3fae2737cf2efeec5c0fb805568bd18d01fa407c906f1180c8b96ac140e1e2.ckf": {
+    "size": 33177656,
+    "mtime_ns": 1793410839184172765,
+    "ctime_ns": 1793410839184730643,
+    "inode": 40223384
+  },
+  "frames/a9be7353c1b3fa2368c453b3015fb9cc036f7380c43f0b8cdf13ef2be41996e6.ckf": {
+    "size": 33177656,
+    "mtime_ns": 1793410839255879351,
+    "ctime_ns": 1793410839256444603,
+    "inode": 40223386
+  },
+  "frames/662f060182de1946977d495f074d6717ff084bcddedf691f0a686f17ec1b06f7.ckf": {
+    "size": 33177656,
+    "mtime_ns": 1793410934568857017,
+    "ctime_ns": 1793410934569475353,
+    "inode": 40223824
+  },
+  "frames/f1ee5a8ba42e283fb3fa53a92540700e28011a95b659207b2bb6ccdf07eecace.ckf": {
+    "size": 33177656,
+    "mtime_ns": 1793410835637215285,
+    "ctime_ns": 1793410835637767496,
+    "inode": 40223285
+  },
+  "frames/84645e51771117842d50293bd090c38be55da4d5c6024390f6d250ef4b12040d.ckf": {
+    "size": 33177656,
+    "mtime_ns": 1793410837004416716,
+    "ctime_ns": 1793410837005039261,
+    "inode": 40223321
+  },
+  "frames/f8a179f3bad5b6fadb73195df2c61a5b7e344128b586ff11d33339ef1c506e83.ckf": {
+    "size": 33177656,
+    "mtime_ns": 1793411086941477159,
+    "ctime_ns": 1793411086942051120,
+    "inode": 40223977
+  },
+  "frames/7efd551a9a9f28617de46f0362c7957a03b7c4c98b18839c497281060d599400.ckf": {
+    "size": 33177656,
+    "mtime_ns": 1793410835492570901,
+    "ctime_ns": 1793410835493138904,
+    "inode": 40223280
+  },
+  "frames/05b5397d634ce564fc24eb37b316daa7c8bd1c9c008f66536ae33a5f5abb2135.ckf": {
+    "size": 33177656,
+    "mtime_ns": 1793410835121539341,
+    "ctime_ns": 1793410835122103469,
+    "inode": 40223268
+  },
+  "frames/8ee16ebd02312c75690a87b981409ac99b08b9d6d2db6f615bce0c827e5ee48f.ckf": {
+    "size": 33177656,
+    "mtime_ns": 1793410920707390810,
+    "ctime_ns": 1793410920707983562,
+    "inode": 40223814
+  },
+  "frames/dc796835168efd95efdb4ebad7c557f3e273bf3a193d83d56db177e84e622107.ckf": {
+    "size": 33177656,
+    "mtime_ns": 1793410839113297350,
+    "ctime_ns": 1793410839113856811,
+    "inode": 40223379
+  },
+  "frames/223bbf8228d514f9287a96ab88adccf208e7178956a366a4011a43cd051fdc62.ckf": {
+    "size": 33177656,
+    "mtime_ns": 1793410974702076779,
+    "ctime_ns": 1793410974702696324,
+    "inode": 40223857
+  },
+  "frames/0a69954108336229f0b5d13f5a38eed22cf2b6f933e39eb8feb66e21f117fda4.ckf": {
+    "size": 33177656,
+    "mtime_ns": 1793410837178789889,
+    "ctime_ns": 1793410837179347433,
+    "inode": 40223325
+  },
+  "frames/541eb45606c15255b67362bb07b8816356f837768d1086fbcc6e28d48486c522.ckf": {
+    "size": 33177656,
+    "mtime_ns": 1793410837402391220,
+    "ctime_ns": 1793410837402942431,
+    "inode": 40223331
+  },
+  "frames/4663c7ef3168446b43012483a81fd604f5521d43a60a2ee76555f7799326ccc7.ckf": {
+    "size": 33177656,
+    "mtime_ns": 1793411081102335671,
+    "ctime_ns": 1793411081102958298,
+    "inode": 40223975
+  },
+  "frames/c915a9c1e33accf3253717f9476e8351c8343be0abb3efa892252512b4ea2bd5.ckf": {
+    "size": 33177656,
+    "mtime_ns": 1793411014905715039,
+    "ctime_ns": 1793411014906313499,
+    "inode": 40223905
+  },
+  "frames/c30e8ad9aae2a12daa9a36d3d15860d1440418cfeb1a796779dcdb52b4f029f6.ckf": {
+    "size": 33177656,
+    "mtime_ns": 1793410839040295134,
+    "ctime_ns": 1793410839040842678,
+    "inode": 40223377
+  },
+  "frames/b910b6392696cc3996e5768bd5b0926a6197a0c72e58a02b8d55caa3d72de49a.ckf": {
+    "size": 33177656,
+    "mtime_ns": 1793410838252344034,
+    "ctime_ns": 1793410838252882161,
+    "inode": 40223355
+  },
+  "frames/57d643e567b1e5cfa8ee4d3a40eb1702fc4368c712246c958f00e09c741c3ce3.ckf": {
+    "size": 33177656,
+    "mtime_ns": 1793411132848222558,
+    "ctime_ns": 1793411132848864019,
+    "inode": 40224012
+  },
+  "frames/07d78e08894eefb7acf2e8b11c7623a580bcf817092652ba3b1ac652302319ba.ckf": {
+    "size": 33177656,
+    "mtime_ns": 1793410835709339956,
+    "ctime_ns": 1793410835709893375,
+    "inode": 40223287
+  },
+  "frames/4866661c548ee17af238bee9c88d6ac32a779e4e32aa340a92010d24a06c409a.ckf": {
+    "size": 33177656,
+    "mtime_ns": 1793410836299540331,
+    "ctime_ns": 1793410836300111541,
+    "inode": 40223303
+  },
+  "frames/fdaa50fb06350ac7cee479e0367e45b619462502ae91ed243f5169d8a1285d85.ckf": {
+    "size": 33177656,
+    "mtime_ns": 1793410836224220731,
+    "ctime_ns": 1793410836224788567,
+    "inode": 40223301
+  },
+  "frames/8aa7b0f40237fb55cfc62eae2c8f389fc415c0b75fb1c095bd1ef2a23b995ad2.ckf": {
+    "size": 33177656,
+    "mtime_ns": 1793410904076541141,
+    "ctime_ns": 1793410904077154268,
+    "inode": 40223799
+  },
+  "frames/da16c4f91961471252005d5b9a6defb5d8f626b04c2824ea304758056bb42288.ckf": {
+    "size": 33177656,
+    "mtime_ns": 1793410910475920423,
+    "ctime_ns": 1793410910476523467,
+    "inode": 40223809
+  },
+  "frames/b937089946ef7eb1c46141600e4fed04073e47f5b4b21a1f099f823b9016cdc8.ckf": {
+    "size": 33177656,
+    "mtime_ns": 1793410835782139504,
+    "ctime_ns": 1793410835782686464,
+    "inode": 40223289
+  },
+  "frames/1d6e172bc46bf360f83a005c3f503035cb813d07023dd91590f57f078605b79d.ckf": {
+    "size": 33177656,
+    "mtime_ns": 1793410918722422350,
+    "ctime_ns": 1793410918723024145,
+    "inode": 40223813
+  },
+  "frames/1a808c12e2320be7b8eed25350339c536d3ab0ad3b7126c8e720f4023670b5a6.ckf": {
+    "size": 33177656,
+    "mtime_ns": 1793410926571508276,
+    "ctime_ns": 1793410926572123195,
+    "inode": 40223822
+  },
+  "frames/f42326a890cc39b6e5c70dcd8778525add20f7e8643ef8a157b1b81c2b3096c7.ckf": {
+    "size": 33177656,
+    "mtime_ns": 1793410836895831480,
+    "ctime_ns": 1793410836896400399,
+    "inode": 40223319
+  },
+  "frames/c669d8d5b8abbb54054d911fd0730b6a294f9cfc632cec0f9a1162e03a693c9f.ckf": {
+    "size": 33177656,
+    "mtime_ns": 1793410960923977622,
+    "ctime_ns": 1793410960924597250,
+    "inode": 40223846
+  },
+  "frames/de27e4fb85322132e0d31f7188341b74571e39b0ae02734133e248ca249bf35a.ckf": {
+    "size": 33177656,
+    "mtime_ns": 1793411089046274860,
+    "ctime_ns": 1793411089046837362,
+    "inode": 40223981
+  },
+  "frames/6f2d860284c3c358875e5f6d0adc3578ae9449104953d685579c58d3ba722afc.ckf": {
+    "size": 33177656,
+    "mtime_ns": 1793411130805758780,
+    "ctime_ns": 1793411130806368199,
+    "inode": 40224011
+  },
+  "frames/637f6dbbdf979695f336286ad5cbbbd30c3aac20bdb40414d9a2e58881765064.ckf": {
+    "size": 33177656,
+    "mtime_ns": 1793410936632742758,
+    "ctime_ns": 1793410936633363136,
+    "inode": 40223825
+  },
+  "frames/7d0ee9e6378277826b7f3e4807ebe6d2d6321604822f1cdaee997420fa11bb84.ckf": {
+    "size": 33177656,
+    "mtime_ns": 1793411057076946853,
+    "ctime_ns": 1793411057077574397,
+    "inode": 40223947
+  },
+  "frames/b405ff3f195867c02a5f3db76e14899536102b2f95a66bbc257a9bec697eb21e.ckf": {
+    "size": 33177656,
+    "mtime_ns": 1793410836669879055,
+    "ctime_ns": 1793410836670420432,
+    "inode": 40223313
+  },
+  "frames/5e56adf0ee843322538d2e1b9e498b06d9f99a139fae214bc94c2a424f0b5019.ckf": {
+    "size": 33177656,
+    "mtime_ns": 1793410837544786303,
+    "ctime_ns": 1793410837545335680,
+    "inode": 40223335
+  },
+  "frames/b7712b316e02ca7199f3836f3b6f77b9c8b4005e00ce1df6f723330e9dd79fb3.ckf": {
+    "size": 33177656,
+    "mtime_ns": 1793410945057319290,
+    "ctime_ns": 1793410945057928751,
+    "inode": 40223834
+  },
+  "frames/e24fd90909dda5232de5f6ec1d285f172da1d2eb21cfbebc09d4655202e9d2ec.ckf": {
+    "size": 33177656,
+    "mtime_ns": 1793410837830561223,
+    "ctime_ns": 1793410837831108392,
+    "inode": 40223343
+  },
+  "frames/cb161575023c5716fb1fca08c198d3ced729c0bbea460f8b6cfc0a428a09e550.ckf": {
+    "size": 33177656,
+    "mtime_ns": 1793410943066281514,
+    "ctime_ns": 1793410943066917725,
+    "inode": 40223833
+  },
+  "frames/234af746bf85ada902fe6e9afd24e7aaf1ae5e2d8e1ee9581230759341797ce2.ckf": {
+    "size": 33177656,
+    "mtime_ns": 1793409084192310497,
+    "ctime_ns": 1793409084192907332,
+    "inode": 39954917
+  },
+  "frames/195a53ca1039fed5501f6eaeca361bdc9357f09dd6a8c2240f22cf61a91cfd7b.ckf": {
+    "size": 33177656,
+    "mtime_ns": 1793410837688609100,
+    "ctime_ns": 1793410837689177145,
+    "inode": 40223339
+  },
+  "frames/9b500319e0ae68824149d69e0ee4631acb558ed158b509f9a7c0ebbdea00bbf1.ckf": {
+    "size": 33177656,
+    "mtime_ns": 1793410837331488889,
+    "ctime_ns": 1793410837332062933,
+    "inode": 40223329
+  },
+  "frames/81ea9a558ca93f0b535b2e03c54643cd05cbb8578fb1f36d1e58f2a2656e1cec.ckf": {
+    "size": 33177656,
+    "mtime_ns": 1793410836521309447,
+    "ctime_ns": 1793410836521870074,
+    "inode": 40223309
+  },
+  "frames/9e6cd632b26b0492230540aceadd9756068bcf444b8d287d32cfa26f8da7a43d.ckf": {
+    "size": 33177656,
+    "mtime_ns": 1793411001160111848,
+    "ctime_ns": 1793411001160721184,
+    "inode": 40223885
+  },
+  "frames/c0bba2d30e7d17e5312046f3c0a91286b9a8fd0f13f751daccdbefe3530e63f2.ckf": {
+    "size": 33177656,
+    "mtime_ns": 1793410836374250137,
+    "ctime_ns": 1793410836374810431,
+    "inode": 40223305
+  },
+  "frames/2ca22b7b565bd6838ae9544e4551c0ce9070d2e8e2b5941a1dd0a6c794970e70.ckf": {
+    "size": 33177656,
+    "mtime_ns": 1793410838464516610,
+    "ctime_ns": 1793410838465067862,
+    "inode": 40223361
+  },
+  "frames/095c6958e2dab9659acec232ef4f0a07f352997c588d7bd99b76b8e5efb87f12.ckf": {
+    "size": 33177656,
+    "mtime_ns": 1793410838755124675,
+    "ctime_ns": 1793410838755677927,
+    "inode": 40223369
+  },
+  "frames/aac29fd4ac8784627efa88d9ac26dcfe0abd0d73584b9f42d396b5d766d67c0e.ckf": {
+    "size": 33177656,
+    "mtime_ns": 1793410912498919621,
+    "ctime_ns": 1793410912499515207,
+    "inode": 40223812
+  },
+  "frames/b577173405c173f14b460c9aa53815b7a348aa0c4f5c31a41d281c8250f57cfe.ckf": {
+    "size": 33177656,
+    "mtime_ns": 1793410837970010669,
+    "ctime_ns": 1793410837970563672,
+    "inode": 40223347
+  },
+  "frames/79876c1b3fa095edce8575d9a7f44cc59402d94729b107d9ddd688332713b6a4.ckf": {
+    "size": 33177656,
+    "mtime_ns": 1793410950887306116,
+    "ctime_ns": 1793410950887915077,
+    "inode": 40223840
+  },
+  "frames/a32a62f6e4865d40094de80a753809000c2074f8900740488ef52edbca9b0756.ckf": {
+    "size": 33177656,
+    "mtime_ns": 1793410928558407743,
+    "ctime_ns": 1793410928559001621,
+    "inode": 40223823
+  },
+  "frames/c41338bc603368edea4b5ea0325e90a32832f27be6e185c3abd7a9a8b12743d5.ckf": {
+    "size": 33177656,
+    "mtime_ns": 1793411023007212289,
+    "ctime_ns": 1793411023007856917,
+    "inode": 40223911
+  },
+  "frames/6e5cea663cc602df3c721e80e1c16b682dc9bd3f3d894eab31b0641347c01360.ckf": {
+    "size": 33177656,
+    "mtime_ns": 1793411111014096462,
+    "ctime_ns": 1793411111014678798,
+    "inode": 40223995
+  },
+  "frames/6cdb17b4e709814bd583c36508026dd307e88ee0e58a03a1819daac728435132.ckf": {
+    "size": 33177656,
+    "mtime_ns": 1793410838393677820,
+    "ctime_ns": 1793410838394239989,
+    "inode": 40223359
+  },
+  "frames/c59a7275925fa1c7c4984b6d93794947b72d9cbe0af2b2f5cc5feebd226888c5.ckf": {
+    "size": 33177656,
+    "mtime_ns": 1793410836594982290,
+    "ctime_ns": 1793410836595538459,
+    "inode": 40223311
+  },
+  "frames/5aa6cd7a7e3786b45213a6fe0b62f750cb0f20686fd6aeb8e9f1db3538b29c7e.ckf": {
+    "size": 33177656,
+    "mtime_ns": 1793410839330876325,
+    "ctime_ns": 1793410839331437327,
+    "inode": 40223388
+  },
+  "frames/7c7202f41fa5b02b67c8988fc0e01998b732d00bcbdf35b7b65725b6c1f1b674.ckf": {
+    "size": 33177656,
+    "mtime_ns": 1793410838826712885,
+    "ctime_ns": 1793410838827268679,
+    "inode": 40223371
+  },
+  "frames/a73613dd61c79e5670ef45114b718bfe661f0fe0a23f38a5920f671a41519374.ckf": {
+    "size": 33177656,
+    "mtime_ns": 1793411118840250668,
+    "ctime_ns": 1793411118840867129,
+    "inode": 40224002
+  },
+  "frames/5c2e25ef031acda6f7781e00ca4babf52a6f1b9d32a4f85c612da98e1482b12e.ckf": {
+    "size": 33177656,
+    "mtime_ns": 1793410993195697826,
+    "ctime_ns": 1793410993196303703,
+    "inode": 40223880
+  },
+  "frames/e620cef6c29329f36ba3df557cd912746bb07e7a0e7b14506b9bb194feee9d9b.ckf": {
+    "size": 33177656,
+    "mtime_ns": 1793410991197912730,
+    "ctime_ns": 1793410991198537774,
+    "inode": 40223878
+  },
+  "frames/8f584de102cfaf04721cc222ef90440820278c7c3364512943c4f29abb557c76.ckf": {
+    "size": 33177656,
+    "mtime_ns": 1793411113077372367,
+    "ctime_ns": 1793411113077985495,
+    "inode": 40223996
+  },
+  "frames/11dd4b6f872a2e400128b6b4737f9792d901fdd9225af03a747b575a1e73146b.ckf": {
+    "size": 33177656,
+    "mtime_ns": 1793410984795603769,
+    "ctime_ns": 1793410984796226313,
+    "inode": 40223863
+  },
+  "frames/0adf9aac95e32346bfebe9c5a8181ce0610ebc1cbfab15e397589a00ffbcb3a4.ckf": {
+    "size": 33177656,
+    "mtime_ns": 1793410838181781578,
+    "ctime_ns": 1793410838182321080,
+    "inode": 40223353
+  },
+  "frames/bb86f5d1c86bc3528d761ac5923144454237a040f5aa8625ccce94301078c56d.ckf": {
+    "size": 33177656,
+    "mtime_ns": 1793411097157267608,
+    "ctime_ns": 1793411097157896402,
+    "inode": 40223988
+  },
+  "frames/5dbccdcb04290843f153210775bbf98d1cd2885ccddc4a68d6acc4c5d2855685.ckf": {
+    "size": 33177656,
+    "mtime_ns": 1793410837617649560,
+    "ctime_ns": 1793410837618219062,
+    "inode": 40223337
+  },
+  "frames/b6d4f6d87cf2c9b579bff0614206564b3363f3178b3341fc460095696aa67192.ckf": {
+    "size": 33177656,
+    "mtime_ns": 1793410902056656455,
+    "ctime_ns": 1793410902057223457,
+    "inode": 40223795
+  },
+  "frames/75a29e59fc159dedeb303b7bac60897f129123e65a8748725722b69d4aa5bc8b.ckf": {
+    "size": 33177656,
+    "mtime_ns": 1793410836447858437,
+    "ctime_ns": 1793410836448419440,
+    "inode": 40223307
+  },
+  "frames/536dd3a276ee618cf184fedd2a923941483b462d62ed3bd0a8618621718b25d5.ckf": {
+    "size": 33177656,
+    "mtime_ns": 1793410838041183253,
+    "ctime_ns": 1793410838041743421,
+    "inode": 40223349
+  },
+  "frames/ccc4b1d78202722b5bb95902e0bc199816ee70d2dbc6cc2592d9ac808d23754c.ckf": {
+    "size": 33177656,
+    "mtime_ns": 1793410838968338548,
+    "ctime_ns": 1793410838968895676,
+    "inode": 40223375
+  },
+  "frames/0a8ab48243b0772f1848ada66c9100b2de138a6a8b527f53639bb80d8b071307.ckf": {
+    "size": 33177656,
+    "mtime_ns": 1793410837474229431,
+    "ctime_ns": 1793410837474783267,
+    "inode": 40223333
+  },
+  "frames/59504feb4aaffab102733d8ebe829f9e35a9b6aa4d8c8cba80727f75dcbe513b.ckf": {
+    "size": 33177656,
+    "mtime_ns": 1793410999151737168,
+    "ctime_ns": 1793410999152361253,
+    "inode": 40223884
+  },
+  "frames/a2cbf854fdae0635f8623abf2aed58a3d8b1acc16b5afaaf65e5e738151812a2.ckf": {
+    "size": 33177656,
+    "mtime_ns": 1793410835564337195,
+    "ctime_ns": 1793410835564879406,
+    "inode": 40223283
+  },
+  "frames/14df2adad937dffd1d88a624a2efb6cfdb417ad368c3d9fc81a4074739e5a6e0.ckf": {
+    "size": 33177656,
+    "mtime_ns": 1793411078998107514,
+    "ctime_ns": 1793411078998722600,
+    "inode": 40223974
+  },
+  "frames/5862418ed9c914d9f7e42747968b87e05587d9aa2ca971b1d4610e6a22785759.ckf": {
+    "size": 33177656,
+    "mtime_ns": 1793411071000700773,
+    "ctime_ns": 1793411071001306067,
+    "inode": 40223953
+  },
+  "frames/e5c3bfb10890a9aff5c37e24691a36f7c84787f8fa74c1a4269749e7d058c7d7.ckf": {
+    "size": 33177656,
+    "mtime_ns": 1793410835927617599,
+    "ctime_ns": 1793410835928159102,
+    "inode": 40223293
+  },
+  "frames/9e630ec9b2469e744b1b8d7f813f94fa8d253b964d91cc58e7dbd81ac8295cb0.ckf": {
+    "size": 33177656,
+    "mtime_ns": 1793410836000043604,
+    "ctime_ns": 1793410836000605940,
+    "inode": 40223295
+  },
+  "frames/1aefb4b217a702eec62d6dedf66f2e0e076a955877c9e8480da2f330ed79388c.ckf": {
+    "size": 33177656,
+    "mtime_ns": 1793411016888954950,
+    "ctime_ns": 1793411016889570785,
+    "inode": 40223906
+  },
+  "frames/93a9f338db368d70a3e8a3b43337c334444b06b91734ce4278796c3e48c16e69.ckf": {
+    "size": 33177656,
+    "mtime_ns": 1793410952893695997,
+    "ctime_ns": 1793410952894340083,
+    "inode": 40223841
+  },
+  "frames/b3759ed71863ecd4088f40b51ed00cbc1382e7fb40512ae18c0a0eb2b83ddd16.ckf": {
+    "size": 33177656,
+    "mtime_ns": 1793411038963007570,
+    "ctime_ns": 1793411038963612198,
+    "inode": 40223923
+  },
+  "frames/c39aafd9369e06005f1382695abc496cb7d23b596efebc76acdd9775d98d84f0.ckf": {
+    "size": 33177656,
+    "mtime_ns": 1793410835273147796,
+    "ctime_ns": 1793410835273745798,
+    "inode": 40223274
+  },
+  "frames/dd63669dc6224f91d8f4dbb40cf9998c5f158620f42102b757a1b31a4185d615.ckf": {
+    "size": 33177656,
+    "mtime_ns": 1793410836075085203,
+    "ctime_ns": 1793410836075655747,
+    "inode": 40223297
+  },
+  "frames/43800b9cfbf5d5f3b5c97f1fd4c1631498f5f9119e82d336c7693c852ef0a475.ckf": {
+    "size": 33177656,
+    "mtime_ns": 1793411025052808539,
+    "ctime_ns": 1793411025053418458,
+    "inode": 40223912
+  },
+  "frames/7efa0fab7c22750153f5797ee3313346305a2c9ddd0f3a1bbede4a080b58b6af.ckf": {
+    "size": 33177656,
+    "mtime_ns": 1793411046940038770,
+    "ctime_ns": 1793411046940616355,
+    "inode": 40223937
+  },
+  "frames/2cf9837c10e0c9ebad1a0f66bd6de43b2743a897ff4360a6187358c924e1c182.ckf": {
+    "size": 33177656,
+    "mtime_ns": 1793411009096179005,
+    "ctime_ns": 1793411009096787216,
+    "inode": 40223898
+  },
+  "frames/3330c93b2aeb2f80e201a04cd2ad18cb1c4be320de07b9aaa2e4a6ddafc6718e.ckf": {
+    "size": 33177656,
+    "mtime_ns": 1793410838536605364,
+    "ctime_ns": 1793410838537160366,
+    "inode": 40223363
+  },
+  "frames/e3162591fda0954535cb49a9ff0e6685e5c3c80046372bf1f9c25f9ce77c6c70.ckf": {
+    "size": 33177656,
+    "mtime_ns": 1793410836821565051,
+    "ctime_ns": 1793410836822126053,
+    "inode": 40223317
+  },
+  "frames/05ca5a7322baefd49693ded8ad6b356a13ba1054d1ae86f9e913238110c2ecc8.ckf": {
+    "size": 33177656,
+    "mtime_ns": 1793411126680503183,
+    "ctime_ns": 1793411126681102935,
+    "inode": 40224009
+  },
+  "frames/db1cf719db17c7bb33ca486e6ccd79bc2309749a1734e836bdf38dde7023425f.ckf": {
+    "size": 33177656,
+    "mtime_ns": 1793411041047413812,
+    "ctime_ns": 1793411041048001731,
+    "inode": 40223924
+  },
+  "frames/dac611c46e243edce768b2aec615c9475ca1c0bacb56fecaa33d0602c45cf6bb.ckf": {
+    "size": 33177656,
+    "mtime_ns": 1793410836745680032,
+    "ctime_ns": 1793410836746239492,
+    "inode": 40223315
+  },
+  "frames/6640aa2e0f2ade14a1ee34f098579500214bcc62336882b61a5ec93354d0573a.ckf": {
+    "size": 33177656,
+    "mtime_ns": 1793410835346218887,
+    "ctime_ns": 1793410835346783722,
+    "inode": 40223276
+  },
+  "frames/b71b0a262928a0d7f6b1e761ba6540c639e47aedcea764883b24400ceb88ee39.ckf": {
+    "size": 33177656,
+    "mtime_ns": 1793410838112102376,
+    "ctime_ns": 1793410838112651504,
+    "inode": 40223351
+  },
+  "frames/f80e8177505cd8c10c3a74c3da80d2eb5f0025c42e6ba5e14192b85f910ae361.ckf": {
+    "size": 33177656,
+    "mtime_ns": 1793411128743229169,
+    "ctime_ns": 1793411128743823463,
+    "inode": 40224010
+  },
+  "frames/2c2138ac3cfcbfaaf3ee12f1d6567a6456edd36013b12f92a8b22dc82abe3d44.ckf": {
+    "size": 33177656,
+    "mtime_ns": 1793410836149551383,
+    "ctime_ns": 1793410836150142386,
+    "inode": 40223299
+  },
+  "frames/0e5ba967e60296edd69cc0b8c1d3b2db58702571a087cfa853e99a79e91d35ed.analysis.json": {
+    "size": 9094,
+    "mtime_ns": 1793411132856080382,
+    "ctime_ns": 1793411132856186549,
+    "inode": 40224013
+  },
+  "frames/21037cd5e8d93cd2161b77d6ee7598aab72b9217db8a0aa9f57b65c1c9cbb2dc.ckf": {
+    "size": 33177656,
+    "mtime_ns": 1793410982761811484,
+    "ctime_ns": 1793410982762408695,
+    "inode": 40223861
+  },
+  "frames/69d3d8eff21ef4184d36095b4d2ad76d392a6d69839ee56947ad07662aaf0726.ckf": {
+    "size": 33177656,
+    "mtime_ns": 1793410835854581759,
+    "ctime_ns": 1793410835855127803,
+    "inode": 40223291
+  },
+  "frames/.temporal-work/.ckmac-bake-root.json": {
+    "size": 137,
+    "mtime_ns": 1793409209589208177,
+    "ctime_ns": 1793409209589271553,
+    "inode": 39955006
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "artifact_sha256": "14cf95a53187e8eff815b13c5a0e5441b7e21295f900633f80e361c536ad39f6",
+  "environment": "isolated QA install",
+  "status": "Passed",
+  "scope": "Actual detach/reattach of this task-owned sparse image, no production storage manipulation",
+  "volume": "/Volumes/CKMac_QA_Bakes",
+  "unavailable_alpha_image": false,
+  "unavailable_rgba_image": false,
+  "restored_alpha_image": true,
+  "restored_rgba_image": true,
+  "worker_started": false,
+  "manifest_paths_preserved": true,
+  "native_relink": {
+    "picker_cancel": true,
+    "selected_manifest": "/Volumes/CKMac_QA_Bakes/Bakes/bake-e3d11a8fb23042a08db1bd342e7fed10/manifest.json",
+    "full_audit_completed": true
+  },
+  "note": "Hidden render token invalidated host output cache for the missing/restored reads; it did not arm Analyze."
+}

@@ -1,0 +1,44 @@
+{
+  "artifact_sha256": "14cf95a53187e8eff815b13c5a0e5441b7e21295f900633f80e361c536ad39f6",
+  "environment": "isolated QA install",
+  "status": "Passed",
+  "worker_pid": 93506,
+  "owners": [
+    "56b147af-e50eb1c5-ccd638be-d0ab043d-32c5beeb-7d42729f-11c1134a-a89872ab-",
+    "6995a2ba-6c74d6d8-e11f58c3-211a5f69-5ff6dd48-4d7be90e-57cab2cc-c6459cd8-"
+  ],
+  "duplicate_cache_reuse": {
+    "first_capture_no_image": true,
+    "next_independent_renders_succeeded": true,
+    "new_neural_calls": 0
+  },
+  "first_owner_cleanup": {
+    "removed_captures": 0,
+    "removed_results": 0,
+    "reclaimed_bytes": 0,
+    "shared_entries_retained": 120
+  },
+  "last_owner_cleanup": {
+    "removed_captures": 60,
+    "removed_results": 60,
+    "reclaimed_bytes": 3981318720,
+    "shared_entries_retained": 0
+  },
+  "baked_source_disconnected_images": [
+    true,
+    true
+  ],
+  "remaining_analysis_scratch_jobs": 0,
+  "remaining_single_frame_preview_blobs": 1,
+  "pickers": {
+    "bake_rgba": true,
+    "bake_alpha": true,
+    "bake_clean": true,
+    "choose_folder": true,
+    "new_folder": true,
+    "bake_picker_cancel_and_retry": true,
+    "relink_picker_cancel_and_retry": true,
+    "revert_button": true
+  },
+  "note": "Copy/Paste returns a boolean on this SDK. Passing duplicate test explicitly restores all intended graph links after native Paste rewiring; no new analysis was started by that setup correction."
+}

@@ -1,0 +1,28 @@
+{
+  "status": "Passed",
+  "artifact_sha256": "49dc3c677eedf487003ebd5c0b1698b927cbbc048a982bb851ad4d54440143a7",
+  "environment": "isolated QA install",
+  "scope": "Fresh-session RGBA with Source disconnected/unavailable, and disposable bake-volume loss/remount/relink",
+  "missing_source": {
+    "source_connected_clone": false,
+    "rgba_without_source_media": true,
+    "alpha_without_original_media": true,
+    "rgba_manifest": "/Volumes/CKMac_QA_Bakes/Bakes/QA4/bake-a376689e2eb34893b90793b5e89a8740/manifest.json",
+    "alpha_manifest": "/Volumes/CKMac_QA_Bakes/Bakes/QA4/bake-2c881d3ab6684475a5e7e54c25316055/manifest.json"
+  },
+  "missing_bake": {
+    "alpha_missing_bake": false,
+    "rgba_missing_bake": false,
+    "alpha_path": "/Volumes/CKMac_QA_Bakes/Bakes/QA4/bake-2c881d3ab6684475a5e7e54c25316055/manifest.json",
+    "rgba_path": "/Volumes/CKMac_QA_Bakes/Bakes/QA4/bake-a376689e2eb34893b90793b5e89a8740/manifest.json"
+  },
+  "restored": {
+    "media_relinked": true,
+    "source_path": "/Volumes/CKMac_QA_Disposable/Media/GS02-QA.mp4",
+    "alpha_restored": true,
+    "rgba_restored": true,
+    "source_connected_clone": false
+  },
+  "worker_started": false,
+  "alpha_missing_source_detection": "Not qualified: host returned an image while original media was unavailable; its contents were not validated as real source RGB. No pass claimed for missing-media detection."
+}

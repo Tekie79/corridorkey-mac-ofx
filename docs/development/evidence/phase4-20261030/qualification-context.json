@@ -1,0 +1,16 @@
+{
+  "baseline_commit": "df25f4a21e7dbb240b20817d0c0c76b5cea72c4e",
+  "machine": "Mac17,8",
+  "chip": "Apple M5 Pro",
+  "memory_bytes": 51539607552,
+  "macos": "26.3.2",
+  "macos_build": "25D2150",
+  "resolve": "Studio 21.1.2 build 10",
+  "environment_selected_by_user": "isolated QA installation on development Mac",
+  "original_package_sha256": "2249be84fb0152d2bbb7608a3492d357bcdde7bd3f91c97458b6570dee4d57cd",
+  "exact_production_installation": "Blocked: independent Mac or isolated macOS environment required",
+  "production_writes_authorized": false,
+  "models_backend": "mps",
+  "mlx_default": false,
+  "fixture_sha256": "756191c3f2c996b97e7552d2ac388dfb5bad8606321476e5aee03c6c66fe5409"
+}

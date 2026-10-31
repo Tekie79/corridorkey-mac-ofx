@@ -1,0 +1,6 @@
+{
+  "bake": "/Volumes/CKMac_QA_Bakes/Bakes/QA4/bake-2c881d3ab6684475a5e7e54c25316055/manifest.json",
+  "cleanup": "Verified alpha bake active. Current original RGB is used; recovered foreground is not baked. Removed 0 captures and 0 results (0 bytes); 0 already absent. Retained 120 shared entries and 0 entries used by this node's other generations. Durable bakes retained. Removed 0 abandoned temporal jobs (0 bytes); retained 0 active jobs, 0 other jobs and 0 unmarked scratch folders.",
+  "revision": 3,
+  "clone_image": true
+}

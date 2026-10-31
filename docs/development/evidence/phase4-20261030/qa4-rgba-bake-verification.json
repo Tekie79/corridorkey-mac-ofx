@@ -1,0 +1,37 @@
+{
+  "status": "Passed",
+  "artifact_sha256": "49dc3c677eedf487003ebd5c0b1698b927cbbc048a982bb851ad4d54440143a7",
+  "environment": "isolated QA install",
+  "scope": "Actual native Bake RGBA/Manager picker; all 60 decoded RGBA arrays equal completed analysis hashes",
+  "manifest": "/Volumes/CKMac_QA_Bakes/Bakes/QA4/bake-f86f5c27cd084f04adc2f010c8318a8c/manifest.json",
+  "manifest_sha256": "c853b9950dee2e18233bf21beecb65019135e0eeb9d120468c6608a1b36034e7",
+  "generation": "3480ee14736763af43f1eccc9e57ececea6cac788b8121c106248391b525f947",
+  "frames": 60,
+  "channels": [
+    "A",
+    "B",
+    "G",
+    "R"
+  ],
+  "types": [
+    2,
+    2,
+    2,
+    2
+  ],
+  "analysis_size": [
+    1920,
+    1080
+  ],
+  "source_size": [
+    4096,
+    2160
+  ],
+  "source_size_basis": "resolve_sdk",
+  "max_error": 0.0,
+  "rgb_range": [
+    -0.08476708084344864,
+    1.258798360824585
+  ],
+  "preceding_low_space_refusal": "Old bake unchanged, no partial staging, live cached output still available"
+}

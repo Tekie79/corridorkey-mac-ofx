@@ -1,0 +1,26 @@
+{
+  "status": "Passed",
+  "artifact_sha256": "49dc3c677eedf487003ebd5c0b1698b927cbbc048a982bb851ad4d54440143a7",
+  "environment": "isolated QA install",
+  "job": "1b7fbf5a-c9b8-44ea-82bc-168fbcc57979",
+  "render_job_status": "Complete",
+  "reported_render_ms": 698,
+  "note": "Hot export time, not neural inference performance",
+  "frames": 60,
+  "source_frame_numbers": [
+    30,
+    89
+  ],
+  "fusion_frames": [
+    0,
+    59
+  ],
+  "size": [
+    1920,
+    1080
+  ],
+  "max_error": 0.0,
+  "source_connected": false,
+  "worker_running": false,
+  "analysis_cleared": true
+}

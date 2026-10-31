@@ -1,0 +1,20 @@
+{
+  "status": "Passed",
+  "artifact_sha256": "49dc3c677eedf487003ebd5c0b1698b927cbbc048a982bb851ad4d54440143a7",
+  "environment": "isolated QA install",
+  "build_id": "0.9.8-qa4.f1f98dd88eee",
+  "normal_installer_success": true,
+  "first_completion_observation_seconds": 77.702,
+  "additional_authorization_prompt_observed": false,
+  "verified_installed_records": 27151,
+  "upgraded_from": "0.9.8-qa3.efc225cfab3d",
+  "saved_uuid": "56b147af-e50eb1c5-ccd638be-d0ab043d-32c5beeb-7d42729f-11c1134a-a89872ab-",
+  "saved_revision": 3,
+  "saved_analysis_generation": "755643d0eeea62bc9849bc6af0a3cd5f8e685355e1fe0ee37b1451d92557c08b",
+  "bake_survived": true,
+  "scanning_or_baked_read_worker": false,
+  "source_disconnect_verified_with": "ConnectInput(Source, None), GetConnectedOutput is false",
+  "native_relink_cancel_retry_and_audit": true,
+  "native_use_baked_disabled_image": false,
+  "native_use_baked_restored_image": true
+}

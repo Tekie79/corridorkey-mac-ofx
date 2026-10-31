@@ -1,0 +1,30 @@
+{
+  "requests": 300,
+  "successful": 300,
+  "failed_indices": [],
+  "seconds": 26.47167629201431,
+  "use_baked": 0,
+  "source_tool": "Resize1",
+  "revision": 3,
+  "status": "Passed",
+  "artifact_sha256": "49dc3c677eedf487003ebd5c0b1698b927cbbc048a982bb851ad4d54440143a7",
+  "environment": "isolated QA install",
+  "orders": "forward/reverse/three deterministic Fisher-Yates LCG permutations",
+  "counters_delta": {
+    "input_stage_attempts": 0,
+    "input_stage_new": 0,
+    "input_stage_dedup": 0,
+    "analysis_starts": 0,
+    "analysis_completions": 0,
+    "result_cache_hits": 59,
+    "result_cache_misses": 0,
+    "model_network_invocations": 0
+  },
+  "cache_puts_delta": 0,
+  "cache_bytes_written_delta": 0,
+  "changed_blob_json_records": [],
+  "unchanged_records": 121,
+  "unchanged_bytes": 3981327814,
+  "host_cached_requests": 241,
+  "note": "Baked playback disabled. SQLite lease bookkeeping is separate from blob/JSON media writes."
+}
